@@ -1,0 +1,268 @@
+{%- liquid
+  assign color_scheme = section.settings.color_scheme
+-%}
+
+<div
+  class="puraperla-brand-story section-{{ section.id }} color-{{ color_scheme }}"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="puraperla-brand-story__header">
+        {%- if section.settings.subheading != blank -%}
+          <p class="puraperla-brand-story__subheading">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+        <h2 class="puraperla-brand-story__title">{{ section.settings.heading }}</h2>
+        <hr class="puraperla-gold-divider">
+      </div>
+    {%- endif -%}
+
+    <div class="puraperla-brand-story__grid">
+      {%- for block in section.blocks -%}
+        <div class="puraperla-brand-story__card" {{ block.shopify_attributes }}>
+          {%- if block.settings.icon != blank -%}
+            <div class="puraperla-brand-story__icon">
+              {{ block.settings.icon }}
+            </div>
+          {%- elsif block.settings.icon_svg != blank -%}
+            <div class="puraperla-brand-story__icon">
+              {{ block.settings.icon_svg }}
+            </div>
+          {%- else -%}
+            <div class="puraperla-brand-story__icon">
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1"/>
+                <circle cx="20" cy="20" r="4" fill="currentColor"/>
+              </svg>
+            </div>
+          {%- endif -%}
+
+          {%- if block.settings.title != blank -%}
+            <h3 class="puraperla-brand-story__card-title">{{ block.settings.title }}</h3>
+          {%- endif -%}
+
+          {%- if block.settings.description != blank -%}
+            <p class="puraperla-brand-story__card-text">{{ block.settings.description }}</p>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .puraperla-brand-story__header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .puraperla-brand-story__subheading {
+    font-family: var(--font-secondary--family), sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--puraperla-gold, #C9A96E);
+    margin-bottom: 1rem;
+  }
+
+  .puraperla-brand-story__title {
+    font-family: var(--font-heading--family), serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 400;
+    color: var(--color-foreground-heading);
+    letter-spacing: 0.05em;
+    margin: 0;
+  }
+
+  .puraperla-brand-story__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .puraperla-brand-story__card {
+    text-align: center;
+    padding: 3rem 2rem;
+    border: 1px solid var(--color-border, #2A2A2A);
+    transition: border-color 0.3s ease;
+  }
+
+  .puraperla-brand-story__card:hover {
+    border-color: var(--puraperla-gold, #C9A96E);
+  }
+
+  .puraperla-brand-story__icon {
+    color: var(--puraperla-gold, #C9A96E);
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .puraperla-brand-story__icon svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .puraperla-brand-story__card-title {
+    font-family: var(--font-heading--family), serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--color-foreground-heading);
+    margin-bottom: 1rem;
+    letter-spacing: 0.08em;
+  }
+
+  .puraperla-brand-story__card-text {
+    font-size: 0.875rem;
+    line-height: 1.8;
+    color: var(--puraperla-muted, #9A958F);
+    margin: 0;
+  }
+
+  .puraperla-gold-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--puraperla-gold, #C9A96E);
+    margin: 1.5rem auto;
+    border: none;
+  }
+
+  @media screen and (max-width: 749px) {
+    .puraperla-brand-story__grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .puraperla-brand-story__card {
+      padding: 2rem 1.5rem;
+    }
+
+    .puraperla-brand-story__header {
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  @media screen and (min-width: 750px) and (max-width: 989px) {
+    .puraperla-brand-story__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .puraperla-brand-story__card {
+      padding: 2rem 1rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Brand Story",
+  "tag": "section",
+  "class": "puraperla-brand-story-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Our Philosophy"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Born from Earth, Shaped by Hand"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "options": [
+        { "value": "scheme-1", "label": "Scheme 1" },
+        { "value": "scheme-2", "label": "Scheme 2" },
+        { "value": "scheme-3", "label": "Scheme 3" },
+        { "value": "scheme-4", "label": "Scheme 4" }
+      ],
+      "default": "scheme-2"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "story_card",
+      "name": "Story Card",
+      "settings": [
+        {
+          "type": "html",
+          "id": "icon_svg",
+          "label": "Icon SVG code"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "One of a Kind"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Every stone is unique — no two pieces are ever alike."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Brand Story",
+      "blocks": [
+        {
+          "type": "story_card",
+          "settings": {
+            "title": "One of a Kind",
+            "description": "Every stone is unique in color, pattern, and texture — no two bracelets are ever alike.",
+            "icon_svg": "<svg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M20 4L24.5 14.5L36 16L27.5 24L30 36L20 30.5L10 36L12.5 24L4 16L15.5 14.5L20 4Z' stroke='currentColor' stroke-width='1.5' fill='none'/></svg>"
+          }
+        },
+        {
+          "type": "story_card",
+          "settings": {
+            "title": "Baroque Pearls",
+            "description": "Imperfectly perfect baroque pearls, chosen for their natural beauty and organic form.",
+            "icon_svg": "<svg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'><circle cx='20' cy='20' r='12' stroke='currentColor' stroke-width='1.5'/><ellipse cx='17' cy='17' rx='4' ry='3' stroke='currentColor' stroke-width='0.75' opacity='0.5'/></svg>"
+          }
+        },
+        {
+          "type": "story_card",
+          "settings": {
+            "title": "Handcrafted",
+            "description": "Each bracelet is assembled by hand with S925 sterling silver, merging art with nature.",
+            "icon_svg": "<svg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M12 28C12 28 14 20 20 16C26 12 32 8 32 8' stroke='currentColor' stroke-width='1.5' stroke-linecap='round'/><path d='M8 32C8 32 16 28 20 24C24 20 28 12 28 12' stroke='currentColor' stroke-width='1.5' stroke-linecap='round'/></svg>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
