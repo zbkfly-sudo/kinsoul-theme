@@ -1,0 +1,48 @@
+{
+  "sections": {
+    "intro": {
+      "type": "section",
+      "blocks": {
+        "heading": {
+          "type": "text",
+          "settings": {
+            "text": "<h1>Client Care</h1>",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-heading--family)"
+          }
+        },
+        "body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Everything you need to know about shipping, returns, sizing, and caring for your jewelry.</p>",
+            "alignment": "center",
+            "type_preset": "rte",
+            "max_width": "narrow"
+          }
+        }
+      },
+      "block_order": ["heading", "body"],
+      "settings": {
+        "content_direction": "column",
+        "horizontal_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 80,
+        "padding-block-end": 48
+      }
+    },
+    "faq": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"page-width\" style=\"max-width: 800px; margin: 0 auto; padding: 0 1.5rem 5rem;\">\n  <div class=\"kinsoul-accordion\">\n    <details class=\"kinsoul-accordion__item\" open>\n      <summary class=\"kinsoul-accordion__trigger\">Shipping <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg></summary>\n      <div class=\"kinsoul-accordion__content\">\n        <p><strong>Free standard shipping</strong> on all orders over $200.</p>\n        <p>Orders are processed within 1–3 business days. Standard delivery takes 5–10 business days within the US.</p>\n        <p>International shipping is available. Delivery times vary by destination.</p>\n      </div>\n    </details>\n    <details class=\"kinsoul-accordion__item\">\n      <summary class=\"kinsoul-accordion__trigger\">Returns & Exchanges <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg></summary>\n      <div class=\"kinsoul-accordion__content\">\n        <p>We accept returns within <strong>30 days</strong> of delivery.</p>\n        <p>Items must be unworn, undamaged, and in their original packaging. Contact us to initiate a return.</p>\n        <p>Exchanges are available for different sizes of the same piece, subject to availability.</p>\n      </div>\n    </details>\n    <details class=\"kinsoul-accordion__item\">\n      <summary class=\"kinsoul-accordion__trigger\">Payment Methods <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg></summary>\n      <div class=\"kinsoul-accordion__content\">\n        <p>We accept major credit cards including Visa, Mastercard, American Express, and Discover.</p>\n        <p>Express checkout options may include Shop Pay, Apple Pay, Google Pay, or PayPal depending on your device and browser.</p>\n        <p>All transactions are processed securely in USD.</p>\n      </div>\n    </details>\n    <details class=\"kinsoul-accordion__item\">\n      <summary class=\"kinsoul-accordion__trigger\">Size Guide <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg></summary>\n      <div class=\"kinsoul-accordion__content\">\n        <p>Our bracelets are available in three circumference sizes:</p>\n        <ul>\n          <li><strong>Small:</strong> 14.5 cm (approx. 5.7 inches)</li>\n          <li><strong>Medium:</strong> 15 cm (approx. 5.9 inches)</li>\n          <li><strong>Large:</strong> 16 cm (approx. 6.3 inches)</li>\n        </ul>\n        <p>To find your size, wrap a flexible measuring tape or string around your wrist, then add 1–1.5 cm for a comfortable fit.</p>\n      </div>\n    </details>\n    <details class=\"kinsoul-accordion__item\">\n      <summary class=\"kinsoul-accordion__trigger\">Care Guide <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg></summary>\n      <div class=\"kinsoul-accordion__content\">\n        <p><strong>To keep your bracelet looking its best:</strong></p>\n        <ul>\n          <li>Avoid contact with perfume, lotions, chemicals, and water</li>\n          <li>Remove before swimming, showering, or exercising</li>\n          <li>Store in a cool, dry place — use the pouch provided</li>\n          <li>Gently wipe with a soft, dry cloth after wearing</li>\n        </ul>\n        <p>Natural stones and pearls may develop a subtle patina over time. This is normal and part of their natural character.</p>\n      </div>\n    </details>\n    <details class=\"kinsoul-accordion__item\">\n      <summary class=\"kinsoul-accordion__trigger\">FAQs <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg></summary>\n      <div class=\"kinsoul-accordion__content\">\n        <p><strong>Are the stones real?</strong><br>Yes. All our gemstones and pearls are 100% natural. We do not use synthetic or lab-created materials.</p>\n        <p><strong>Why does my bracelet look different from the photo?</strong><br>Because every stone and pearl is unique, there will always be natural variation in color, shape, and pattern. This is a feature of genuine natural materials.</p>\n        <p><strong>Can I get a custom size?</strong><br>Please contact us and we'll do our best to accommodate your request.</p>\n        <p><strong>Do you offer gift wrapping?</strong><br>Every order arrives in our signature packaging, ready to gift.</p>\n      </div>\n    </details>\n  </div>\n</div>",
+        "color_scheme": "scheme-1"
+      }
+    }
+  },
+  "order": [
+    "intro",
+    "faq"
+  ]
+}

@@ -1,53 +1,59 @@
 {
   "sections": {
-    "main": {
-      "type": "main-404",
-      "blocks": {
-        "text_velora": {
-          "type": "text",
-          "name": "t:names.text",
-          "settings": {
-            "text": "<p><strong>Velora</strong></p>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "center",
-            "type_preset": "h2",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_velora"
-      ],
-      "name": "Velora Hero",
+    "hero": {
+      "type": "hero",
       "settings": {
-        "content_direction": "column",
-        "section_width": "page-width",
-        "section_height": "small",
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 20,
-        "bg_image": "shopify://shop_images/PURAERIA1075.jpg",
-        "bg_overlay": 25,
-        "padding-block-start": 100,
-        "padding-block-end": 100
+        "color_scheme": "scheme-6",
+        "section_height": "large"
       }
     },
-    "product_list_iA96Tq": {
+    "trust_strip": {
+      "type": "kinsoul-trust-strip",
+      "settings": {
+        "color_scheme": "scheme-4",
+        "padding_top": 16,
+        "padding_bottom": 16
+      },
+      "blocks": {
+        "trust_1": {
+          "type": "trust_item",
+          "settings": {
+            "text": "Natural Pearls & Stones",
+            "icon_svg": "<svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5'><circle cx='12' cy='12' r='10'/><circle cx='12' cy='12' r='4'/></svg>"
+          }
+        },
+        "trust_2": {
+          "type": "trust_item",
+          "settings": {
+            "text": "Hand-Finished",
+            "icon_svg": "<svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round'><path d='M6 20C6 20 8 12 14 8C20 4 22 2 22 2'/><path d='M2 22C2 22 10 18 14 14C18 10 20 4 20 4'/></svg>"
+          }
+        },
+        "trust_3": {
+          "type": "trust_item",
+          "settings": {
+            "text": "Free Shipping Over $200",
+            "icon_svg": "<svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><rect x='1' y='3' width='15' height='13'/><polygon points='16 8 20 8 23 11 23 16 16 16 16 8'/><circle cx='5.5' cy='18.5' r='2.5'/><circle cx='18.5' cy='18.5' r='2.5'/></svg>"
+          }
+        },
+        "trust_4": {
+          "type": "trust_item",
+          "settings": {
+            "text": "Secure Checkout",
+            "icon_svg": "<svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><rect x='3' y='11' width='18' height='11' rx='2' ry='2'/><path d='M7 11V7a5 5 0 0 1 10 0v4'/></svg>"
+          }
+        },
+        "trust_5": {
+          "type": "trust_item",
+          "settings": {
+            "text": "Easy Returns",
+            "icon_svg": "<svg width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='1 4 1 10 7 10'/><path d='M3.51 15a9 9 0 1 0 2.13-9.36L1 10'/></svg>"
+          }
+        }
+      },
+      "block_order": ["trust_1", "trust_2", "trust_3", "trust_4", "trust_5"]
+    },
+    "signature_pieces": {
       "type": "product-list",
       "blocks": {
         "static-header": {
@@ -56,155 +62,89 @@
           "settings": {
             "content_direction": "column",
             "vertical_on_mobile": true,
-            "horizontal_alignment": "flex-start",
+            "horizontal_alignment": "center",
             "vertical_alignment": "center",
-            "align_baseline": false,
-            "horizontal_alignment_flex_direction_column": "flex-start",
+            "horizontal_alignment_flex_direction_column": "center",
             "vertical_alignment_flex_direction_column": "center",
             "gap": 12,
             "width": "fill",
-            "custom_width": 100,
             "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "height": "fit"
           },
           "blocks": {
-            "text_WJEa9Q": {
+            "subheading_sig": {
               "type": "text",
-              "name": "t:names.text",
+              "name": "Subheading",
               "settings": {
-                "text": "<p>Discover something new</p>",
+                "text": "<p>Signature Collection</p>",
                 "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
+                "alignment": "center",
+                "type_preset": "h6",
+                "font": "var(--font-secondary--family)",
+                "letter_spacing": "heading-wide",
+                "case": "uppercase",
+                "color": "var(--kinsoul-accent, #7B6B5D)"
+              }
+            },
+            "heading_sig": {
+              "type": "text",
+              "name": "Heading",
+              "settings": {
+                "text": "<p>Pieces Made to Be Worn Daily</p>",
+                "width": "fit-content",
+                "alignment": "center",
+                "type_preset": "h3",
                 "font": "var(--font-primary--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
+                "letter_spacing": "heading-normal",
+                "case": "none"
+              }
             }
           },
-          "block_order": [
-            "text_WJEa9Q"
-          ]
+          "block_order": ["subheading_sig", "heading_sig"]
         },
         "static-product-card": {
           "type": "_product-card",
-          "name": "t:names.product_card",
+          "name": "Product Card",
           "static": true,
           "settings": {
-            "product_card_gap": 4,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
+            "product_card_gap": 8
           },
           "blocks": {
-            "product_card_gallery_wxYqE3": {
+            "gallery_sig": {
               "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
+              "name": "Product Card Media",
               "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
+                "image_ratio": "adapt"
+              }
             },
-            "product_title_83YMDL": {
+            "title_sig": {
               "type": "product-title",
-              "name": "t:names.product_title",
+              "name": "Product Title",
               "settings": {
                 "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
+                "alignment": "center",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
+                "font_size": "0.95rem",
+                "padding-block-start": 8
+              }
             },
-            "price_A6DYPt": {
+            "price_sig": {
               "type": "price",
-              "name": "t:names.product_price",
+              "name": "Price",
               "settings": {
                 "show_sale_price_first": true,
                 "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
                 "width": "100%",
-                "alignment": "left",
+                "alignment": "center",
                 "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
+                "font_size": "0.9rem"
+              }
             }
           },
-          "block_order": [
-            "product_card_gallery_wxYqE3",
-            "product_title_83YMDL",
-            "price_A6DYPt"
-          ]
+          "block_order": ["gallery_sig", "title_sig", "price_sig"]
         }
       },
-      "name": "Featured collection",
       "settings": {
         "collection": "all",
         "layout_type": "grid",
@@ -212,22 +152,172 @@
         "max_products": 4,
         "columns": 4,
         "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 12,
+        "columns_gap": 16,
         "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
         "section_width": "page-width",
         "horizontal_alignment": "center",
         "gap": 36,
         "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "materials_teaser": {
+      "type": "kinsoul-materials-teaser",
+      "settings": {
+        "subheading": "Materials & Craft",
+        "heading": "What Makes Each Piece Unique",
+        "color_scheme": "scheme-2",
+        "padding_top": 80,
+        "padding_bottom": 80
+      },
+      "blocks": {
+        "mat_1": {
+          "type": "material_card",
+          "settings": {
+            "title": "Natural Pearls",
+            "description": "Each pearl is formed naturally — irregular in shape, unique in luster. We select baroque and freshwater pearls for their organic beauty.",
+            "link_text": "Learn More"
+          }
+        },
+        "mat_2": {
+          "type": "material_card",
+          "settings": {
+            "title": "Gemstones",
+            "description": "Amethyst, agate, quartz — hand-cut and minimally polished to preserve natural texture and color variation.",
+            "link_text": "Learn More"
+          }
+        },
+        "mat_3": {
+          "type": "material_card",
+          "settings": {
+            "title": "Sterling Silver",
+            "description": "S925 sterling silver details, hand-finished with care. Each clasp and accent is crafted for comfort and longevity.",
+            "link_text": "Learn More"
+          }
+        }
+      },
+      "block_order": ["mat_1", "mat_2", "mat_3"]
+    },
+    "meaning_teaser": {
+      "type": "kinsoul-meaning-teaser",
+      "settings": {
+        "subheading": "A Quiet Meaning",
+        "heading": "What You Wear Says Something About Who You Are",
+        "body_text": "Every stone carries a story. Not magic — just the quiet symbolism of choosing something natural, something real, something that feels like yours.",
+        "button_text": "Explore the Collection",
+        "color_scheme": "scheme-3",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "social_proof": {
+      "type": "kinsoul-social-proof",
+      "settings": {
+        "subheading": "What Our Customers Say",
+        "heading": "Worn & Loved",
+        "color_scheme": "scheme-1",
+        "padding_top": 80,
+        "padding_bottom": 80
+      },
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "The amethyst bracelet is stunning — each stone has its own character. It feels special every time I put it on.",
+            "author": "Sarah M.",
+            "product_name": "Freeform Amethyst Bracelet"
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "I bought the Aura Balance as a gift and my sister hasn't taken it off since. Beautiful craftsmanship and fast shipping.",
+            "author": "Emily R.",
+            "product_name": "Aura Balance Bracelet"
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "rating": 5,
+            "review_text": "The natural pearls and stones are gorgeous. You can really tell the difference from mass-produced jewelry.",
+            "author": "Jessica T.",
+            "product_name": "Persian Red Agate Bracelet"
+          }
+        }
+      },
+      "block_order": ["review_1", "review_2", "review_3"]
+    },
+    "gifting_service": {
+      "type": "kinsoul-gifting-service",
+      "settings": {
+        "subheading": "We're Here to Help",
+        "heading": "Gifting & Client Care",
+        "color_scheme": "scheme-2",
+        "padding_top": 80,
+        "padding_bottom": 80
+      },
+      "blocks": {
+        "svc_1": {
+          "type": "service_card",
+          "settings": {
+            "title": "Gift-Ready Packaging",
+            "description": "Every piece arrives in a signature box, ready to gift or to keep for yourself.",
+            "icon_svg": "<svg width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 12 20 22 4 22 4 12'/><rect x='2' y='7' width='20' height='5'/><line x1='12' y1='22' x2='12' y2='7'/><path d='M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z'/><path d='M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z'/></svg>"
+          }
+        },
+        "svc_2": {
+          "type": "service_card",
+          "settings": {
+            "title": "Size Guidance",
+            "description": "Not sure about fit? Our bracelet sizing guide makes choosing easy.",
+            "icon_svg": "<svg width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><line x1='2' y1='12' x2='22' y2='12'/><path d='M6 12v-2'/><path d='M10 12V8'/><path d='M14 12V8'/><path d='M18 12v-2'/></svg>"
+          }
+        },
+        "svc_3": {
+          "type": "service_card",
+          "settings": {
+            "title": "Client Care",
+            "description": "Shipping, returns, care instructions — everything you need in one place.",
+            "icon_svg": "<svg width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z'/></svg>"
+          }
+        },
+        "svc_4": {
+          "type": "service_card",
+          "settings": {
+            "title": "Contact Us",
+            "description": "Questions about a piece, a gift, or your order? We're here to help.",
+            "icon_svg": "<svg width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/><polyline points='22,6 12,13 2,6'/></svg>"
+          }
+        }
+      },
+      "block_order": ["svc_1", "svc_2", "svc_3", "svc_4"]
+    },
+    "newsletter": {
+      "type": "kinsoul-newsletter",
+      "settings": {
+        "subheading": "Stay Connected",
+        "heading": "Join the Inner Circle",
+        "description": "First access to new drops, stone stories & styling notes — delivered to your inbox.",
+        "placeholder": "Your email address",
+        "button_text": "Subscribe",
+        "color_scheme": "scheme-2",
+        "padding_top": 80,
+        "padding_bottom": 80
       }
     }
   },
   "order": [
-    "main",
-    "product_list_iA96Tq"
+    "hero",
+    "trust_strip",
+    "signature_pieces",
+    "materials_teaser",
+    "meaning_teaser",
+    "social_proof",
+    "gifting_service",
+    "newsletter"
   ]
 }

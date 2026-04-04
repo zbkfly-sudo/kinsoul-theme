@@ -1,0 +1,607 @@
+/* ============================================
+   KINSOUL ENERGY Custom Styles
+   Modern Natural Jewelry — Editorial Warm Theme
+   ============================================ */
+
+/* --- Global Variables --- */
+:root {
+  --kinsoul-accent: #7B6B5D;
+  --kinsoul-accent-hover: #6B5B4D;
+  --kinsoul-bg: #F9F6F1;
+  --kinsoul-bg-alt: #F0EDE8;
+  --kinsoul-heading: #2C2C2C;
+  --kinsoul-text: #4A4A4A;
+  --kinsoul-muted: #8A8278;
+  --kinsoul-border: #E0D8CE;
+  --kinsoul-amethyst: #8B7D9B;
+  --kinsoul-garnet: #8B4D4D;
+  --kinsoul-olive: #6B6B5D;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: var(--kinsoul-accent);
+  color: #FFFFFF;
+}
+
+/* --- Typography Enhancements --- */
+
+/* Brand name styling */
+.kinsoul-brand {
+  font-family: var(--font-heading--family), 'Cormorant Garamond', serif;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+/* Accent text */
+.kinsoul-accent-text {
+  color: var(--kinsoul-accent);
+}
+
+/* Italic accent for descriptions */
+.kinsoul-italic {
+  font-family: var(--font-heading--family), 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* --- Hero Section Enhancements --- */
+.hero-section .hero {
+  min-height: 100svh;
+}
+
+@media screen and (max-width: 749px) {
+  .hero-section .hero {
+    min-height: 85svh;
+  }
+}
+
+/* --- Lookbook Section Styles --- */
+.kinsoul-lookbook-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.kinsoul-lookbook-item img {
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.kinsoul-lookbook-item:hover img {
+  transform: scale(1.03);
+}
+
+/* --- Brand Story Cards --- */
+.kinsoul-story-card {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.kinsoul-story-card .icon-wrapper {
+  color: var(--kinsoul-accent);
+  margin-bottom: 1.5rem;
+}
+
+.kinsoul-story-card h3 {
+  font-family: var(--font-heading--family), 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: var(--kinsoul-heading);
+  margin-bottom: 1rem;
+  letter-spacing: 0.08em;
+}
+
+.kinsoul-story-card p {
+  color: var(--kinsoul-muted);
+  line-height: 1.8;
+  font-size: 0.9rem;
+}
+
+/* --- Product Card Enhancements --- */
+.product-card {
+  transition: transform 0.4s ease;
+}
+
+/* Price styling */
+.product-card .price .money,
+.product-card .price__regular .money {
+  color: var(--kinsoul-heading);
+  font-weight: 500;
+}
+
+/* --- Buttons --- */
+.button-primary,
+.button--primary {
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 1rem 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.button-secondary,
+.button--secondary {
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* --- Divider with accent --- */
+.kinsoul-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--kinsoul-accent);
+  margin: 2rem auto;
+  border: none;
+}
+
+/* --- Newsletter Section --- */
+.kinsoul-newsletter {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.kinsoul-newsletter input[type="email"] {
+  background: transparent;
+  border: 1px solid var(--kinsoul-border);
+  color: var(--kinsoul-heading);
+  padding: 0.875rem 1.25rem;
+  font-size: 0.9rem;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.kinsoul-newsletter input[type="email"]:focus {
+  border-color: var(--kinsoul-accent);
+  outline: none;
+}
+
+.kinsoul-newsletter input[type="email"]::placeholder {
+  color: var(--kinsoul-muted);
+}
+
+/* --- Marquee / Brand Keywords --- */
+.marquee .marquee__text {
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--kinsoul-muted);
+}
+
+/* --- Scrollbar Styling --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--kinsoul-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--kinsoul-border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--kinsoul-accent);
+}
+
+/* --- Media Gallery on Product Page --- */
+.product-media-gallery {
+  background: transparent;
+}
+
+/* --- Cart Drawer --- */
+.cart-drawer {
+  background: var(--kinsoul-bg);
+}
+
+/* --- Header Enhancements --- */
+.header-section {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* --- Footer --- */
+.footer-section {
+  border-top: 1px solid var(--kinsoul-border);
+}
+
+/* --- Fade-in Animation --- */
+@keyframes kinsoul-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.kinsoul-fade-in {
+  animation: kinsoul-fade-in 0.8s ease forwards;
+}
+
+/* --- Responsive Spacing --- */
+@media screen and (min-width: 990px) {
+  .kinsoul-section-spacing {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .kinsoul-section-spacing {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* --- Mobile Optimizations --- */
+@media screen and (max-width: 749px) {
+  .button-primary,
+  .button--primary,
+  .button-secondary,
+  .button--secondary {
+    padding: 0.875rem 2rem;
+    min-height: 48px;
+  }
+
+  body {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .kinsoul-lookbook-item img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* --- Sticky Add to Cart Enhancement --- */
+.sticky-add-to-cart {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--kinsoul-border);
+}
+
+/* --- Mobile: Smooth product image swipe --- */
+@media screen and (max-width: 749px) {
+  .product-media-gallery__slider {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .product-media-gallery__slider > * {
+    scroll-snap-align: center;
+  }
+
+  .header-drawer__menu {
+    padding: 2rem 1.5rem;
+  }
+
+  .button-primary:active,
+  .button--primary:active {
+    transform: scale(0.98);
+  }
+
+  .hero-section img {
+    content-visibility: auto;
+  }
+}
+
+/* --- Reduce motion for accessibility --- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .kinsoul-lookbook-item img,
+  .product-card {
+    transition: none;
+  }
+}
+
+/* --- Link hover underline --- */
+a.kinsoul-link {
+  position: relative;
+  color: var(--kinsoul-heading);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a.kinsoul-link:hover {
+  color: var(--kinsoul-accent);
+}
+
+a.kinsoul-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--kinsoul-accent);
+  transition: width 0.3s ease;
+}
+
+a.kinsoul-link:hover::after {
+  width: 100%;
+}
+
+/* --- Trust Strip Section --- */
+.kinsoul-trust-strip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  padding: 1.25rem 1rem;
+}
+
+.kinsoul-trust-strip__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--kinsoul-text);
+  white-space: nowrap;
+}
+
+.kinsoul-trust-strip__item svg {
+  width: 18px;
+  height: 18px;
+  color: var(--kinsoul-accent);
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 749px) {
+  .kinsoul-trust-strip {
+    gap: 1rem 2rem;
+    padding: 1rem;
+  }
+
+  .kinsoul-trust-strip__item {
+    font-size: 0.7rem;
+  }
+}
+
+/* --- Product Trust Bar (on PDP) --- */
+.kinsoul-product-trust {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-product-trust__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--kinsoul-muted);
+}
+
+.kinsoul-product-trust__item svg {
+  width: 16px;
+  height: 16px;
+  color: var(--kinsoul-accent);
+  flex-shrink: 0;
+}
+
+/* --- Product Accordion --- */
+.kinsoul-accordion {
+  border-top: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-accordion__item {
+  border-bottom: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-accordion__trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.25rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-heading--family), serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--kinsoul-heading);
+  text-align: left;
+}
+
+.kinsoul-accordion__trigger svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s ease;
+  color: var(--kinsoul-muted);
+}
+
+.kinsoul-accordion__item[open] .kinsoul-accordion__trigger svg {
+  transform: rotate(45deg);
+}
+
+.kinsoul-accordion__content {
+  padding: 0 0 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.8;
+  color: var(--kinsoul-text);
+}
+
+/* --- Social Proof Section --- */
+.kinsoul-reviews {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.kinsoul-review-card {
+  padding: 2rem;
+  border: 1px solid var(--kinsoul-border);
+  text-align: center;
+}
+
+.kinsoul-review-card__stars {
+  color: var(--kinsoul-accent);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.15em;
+}
+
+.kinsoul-review-card__text {
+  font-family: var(--font-heading--family), serif;
+  font-style: italic;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--kinsoul-heading);
+  margin-bottom: 1rem;
+}
+
+.kinsoul-review-card__author {
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--kinsoul-muted);
+}
+
+@media screen and (max-width: 749px) {
+  .kinsoul-reviews {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* --- Materials Teaser --- */
+.kinsoul-materials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.kinsoul-material-card {
+  text-align: center;
+  overflow: hidden;
+}
+
+.kinsoul-material-card__image {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.kinsoul-material-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.kinsoul-material-card:hover .kinsoul-material-card__image img {
+  transform: scale(1.03);
+}
+
+.kinsoul-material-card__title {
+  font-family: var(--font-heading--family), serif;
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+  color: var(--kinsoul-heading);
+  margin-bottom: 0.75rem;
+}
+
+.kinsoul-material-card__text {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--kinsoul-muted);
+  margin-bottom: 1.25rem;
+}
+
+.kinsoul-material-card__link {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--kinsoul-heading);
+  text-decoration: none;
+  border-bottom: 1px solid var(--kinsoul-heading);
+  padding-bottom: 2px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.kinsoul-material-card__link:hover {
+  color: var(--kinsoul-accent);
+  border-color: var(--kinsoul-accent);
+}
+
+@media screen and (max-width: 749px) {
+  .kinsoul-materials-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* --- Gifting Service Section --- */
+.kinsoul-service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.kinsoul-service-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--kinsoul-border);
+  transition: border-color 0.3s ease;
+}
+
+.kinsoul-service-card:hover {
+  border-color: var(--kinsoul-accent);
+}
+
+.kinsoul-service-card__icon {
+  color: var(--kinsoul-accent);
+  margin-bottom: 1rem;
+}
+
+.kinsoul-service-card__icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.kinsoul-service-card__title {
+  font-family: var(--font-heading--family), serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  color: var(--kinsoul-heading);
+  margin-bottom: 0.5rem;
+}
+
+.kinsoul-service-card__text {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--kinsoul-muted);
+}
+
+@media screen and (max-width: 749px) {
+  .kinsoul-service-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .kinsoul-service-card {
+    padding: 1.5rem 1rem;
+  }
+}

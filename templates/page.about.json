@@ -1,0 +1,108 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "color_scheme": "scheme-6",
+        "section_height": "small"
+      }
+    },
+    "brand_intro": {
+      "type": "section",
+      "blocks": {
+        "subheading": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our Story</p>",
+            "alignment": "center",
+            "type_preset": "h6",
+            "font": "var(--font-secondary--family)",
+            "letter_spacing": "heading-wide",
+            "case": "uppercase",
+            "color": "var(--kinsoul-accent, #7B6B5D)"
+          }
+        },
+        "heading": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Kinsoul Energy</h2>",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-heading--family)"
+          }
+        },
+        "body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We believe jewelry should feel as real as the person wearing it. Kinsoul Energy is a modern natural jewelry brand built on one idea: the beauty of imperfection. Every piece is made with genuine pearls, hand-selected gemstones, and S925 sterling silver — designed to be worn daily, not saved for someday.</p><p>We don't chase trends. We choose materials with character — baroque pearls that refuse to be round, amethyst with visible inclusions, agate with one-of-a-kind banding. Each bracelet is assembled by hand in small batches, because we believe the details matter.</p>",
+            "alignment": "center",
+            "type_preset": "rte",
+            "max_width": "narrow"
+          }
+        }
+      },
+      "block_order": ["subheading", "heading", "body"],
+      "settings": {
+        "content_direction": "column",
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 80,
+        "padding-block-end": 80
+      }
+    },
+    "values": {
+      "type": "kinsoul-materials-teaser",
+      "settings": {
+        "subheading": "What We Believe",
+        "heading": "Our Values",
+        "color_scheme": "scheme-2",
+        "padding_top": 80,
+        "padding_bottom": 80
+      },
+      "blocks": {
+        "val_1": {
+          "type": "material_card",
+          "settings": {
+            "title": "Natural Over Perfect",
+            "description": "We celebrate the irregularity of nature. No two stones or pearls are alike — and that's exactly the point."
+          }
+        },
+        "val_2": {
+          "type": "material_card",
+          "settings": {
+            "title": "Made to Be Worn",
+            "description": "Our designs are restrained and modern — pieces you'll reach for every morning, not just on special occasions."
+          }
+        },
+        "val_3": {
+          "type": "material_card",
+          "settings": {
+            "title": "Small Batch, Hand-Finished",
+            "description": "Every bracelet is assembled and inspected by hand. We keep production small so quality stays high."
+          }
+        }
+      },
+      "block_order": ["val_1", "val_2", "val_3"]
+    },
+    "meaning": {
+      "type": "kinsoul-meaning-teaser",
+      "settings": {
+        "subheading": "Our Perspective",
+        "heading": "Jewelry That Speaks Quietly",
+        "body_text": "We don't promise that crystals will change your life. But we do believe that choosing to wear something natural, something handmade, something with a story — says something about who you are.",
+        "color_scheme": "scheme-3",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "brand_intro",
+    "values",
+    "meaning"
+  ]
+}

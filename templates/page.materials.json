@@ -1,0 +1,99 @@
+{
+  "sections": {
+    "intro": {
+      "type": "section",
+      "blocks": {
+        "subheading": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Materials & Craft</p>",
+            "alignment": "center",
+            "type_preset": "h6",
+            "font": "var(--font-secondary--family)",
+            "letter_spacing": "heading-wide",
+            "case": "uppercase",
+            "color": "var(--kinsoul-accent, #7B6B5D)"
+          }
+        },
+        "heading": {
+          "type": "text",
+          "settings": {
+            "text": "<h1>Materials with Character, Not Factory Perfection</h1>",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-heading--family)"
+          }
+        },
+        "body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Every material we use is chosen for its natural beauty and authenticity. We don't hide imperfections — we celebrate them.</p>",
+            "alignment": "center",
+            "type_preset": "rte",
+            "max_width": "narrow"
+          }
+        }
+      },
+      "block_order": ["subheading", "heading", "body"],
+      "settings": {
+        "content_direction": "column",
+        "horizontal_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "color_scheme": "scheme-1",
+        "padding-block-start": 80,
+        "padding-block-end": 48
+      }
+    },
+    "materials": {
+      "type": "kinsoul-materials-teaser",
+      "settings": {
+        "subheading": "",
+        "heading": "",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 80
+      },
+      "blocks": {
+        "pearls": {
+          "type": "material_card",
+          "settings": {
+            "title": "Natural Pearls",
+            "description": "We use baroque and freshwater pearls — each one uniquely shaped by nature. You'll notice variations in form, size, and luster. That's not a flaw; it's proof of authenticity. Our pearls are selected for their organic beauty and soft, natural glow."
+          }
+        },
+        "stones": {
+          "type": "material_card",
+          "settings": {
+            "title": "Gemstones",
+            "description": "Amethyst, agate, quartz, tiger's eye, lapis lazuli — hand-cut and minimally polished. Each stone retains its natural texture, color variation, and inclusions. We source stones that show character, not factory uniformity."
+          }
+        },
+        "silver": {
+          "type": "material_card",
+          "settings": {
+            "title": "S925 Sterling Silver",
+            "description": "All metal components — clasps, spacers, logo tags — are crafted from S925 sterling silver. Hand-finished for a smooth feel against the skin, designed for daily wear and long-term durability."
+          }
+        }
+      },
+      "block_order": ["pearls", "stones", "silver"]
+    },
+    "variation_note": {
+      "type": "kinsoul-meaning-teaser",
+      "settings": {
+        "subheading": "A Note on Natural Variation",
+        "heading": "No Two Pieces Are Ever Alike",
+        "body_text": "Because we use genuine natural materials, the color, texture, shape, and size of stones and pearls will vary from piece to piece. This is a feature, not a defect — it's what makes each bracelet uniquely yours.",
+        "color_scheme": "scheme-3",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "intro",
+    "materials",
+    "variation_note"
+  ]
+}

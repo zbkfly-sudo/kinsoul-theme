@@ -217,25 +217,25 @@
               },
               "block_order": []
             },
-            "text_aEtTtq": {
-              "type": "text",
-              "name": "Product description",
+            "trust_bar_html": {
+              "type": "custom-liquid",
+              "name": "Trust Bar",
               "settings": {
-                "text": "{{ closest.product.description }}",
+                "custom_liquid": "<div class=\"kinsoul-product-trust\">\n  <div class=\"kinsoul-product-trust__item\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"1\" y=\"3\" width=\"15\" height=\"13\"/><polygon points=\"16 8 20 8 23 11 23 16 16 16 16 8\"/><circle cx=\"5.5\" cy=\"18.5\" r=\"2.5\"/><circle cx=\"18.5\" cy=\"18.5\" r=\"2.5\"/></svg>\n    <span>Free Shipping Over $200</span>\n  </div>\n  <div class=\"kinsoul-product-trust__item\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"1 4 1 10 7 10\"/><path d=\"M3.51 15a9 9 0 1 0 2.13-9.36L1 10\"/></svg>\n    <span>Easy Returns</span>\n  </div>\n  <div class=\"kinsoul-product-trust__item\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"11\" width=\"18\" height=\"11\" rx=\"2\" ry=\"2\"/><path d=\"M7 11V7a5 5 0 0 1 10 0v4\"/></svg>\n    <span>Secure Checkout</span>\n  </div>\n  <div class=\"kinsoul-product-trust__item\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><circle cx=\"12\" cy=\"12\" r=\"4\"/></svg>\n    <span>Naturally Unique</span>\n  </div>\n</div>",
                 "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-primary--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
+            "accordion_html": {
+              "type": "custom-liquid",
+              "name": "Product Details Accordion",
+              "settings": {
+                "custom_liquid": "<div class=\"kinsoul-accordion\">\n  {% if product.metafields.custom.stone_type != blank or product.metafields.custom.pearl_type != blank or product.metafields.custom.metal_details != blank %}\n  <details class=\"kinsoul-accordion__item\">\n    <summary class=\"kinsoul-accordion__trigger\">Materials <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg></summary>\n    <div class=\"kinsoul-accordion__content\">\n      {% if product.metafields.custom.stone_type != blank %}<p><strong>Stone:</strong> {{ product.metafields.custom.stone_type }}</p>{% endif %}\n      {% if product.metafields.custom.pearl_type != blank %}<p><strong>Pearl:</strong> {{ product.metafields.custom.pearl_type }}</p>{% endif %}\n      {% if product.metafields.custom.metal_details != blank %}<p><strong>Metal:</strong> {{ product.metafields.custom.metal_details }}</p>{% endif %}\n    </div>\n  </details>\n  {% endif %}\n  {% if product.metafields.custom.size_fit_note != blank %}\n  <details class=\"kinsoul-accordion__item\">\n    <summary class=\"kinsoul-accordion__trigger\">Details & Dimensions <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg></summary>\n    <div class=\"kinsoul-accordion__content\">{{ product.metafields.custom.size_fit_note }}</div>\n  </details>\n  {% endif %}\n  <details class=\"kinsoul-accordion__item\">\n    <summary class=\"kinsoul-accordion__trigger\">Shipping & Returns <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg></summary>\n    <div class=\"kinsoul-accordion__content\">\n      {% if product.metafields.custom.shipping_note != blank %}{{ product.metafields.custom.shipping_note }}{% else %}<p>Free standard shipping on orders over $200. Orders ship within 1–3 business days.</p><p>Easy returns within 30 days of delivery. Items must be unworn and in original packaging.</p>{% endif %}\n    </div>\n  </details>\n  <details class=\"kinsoul-accordion__item\">\n    <summary class=\"kinsoul-accordion__trigger\">Care Guide <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg></summary>\n    <div class=\"kinsoul-accordion__content\">\n      {% if product.metafields.custom.care_note != blank %}{{ product.metafields.custom.care_note }}{% else %}<p>Avoid contact with perfume, lotions, and water. Store in a cool, dry place in the pouch provided. Gently wipe with a soft cloth after wearing.</p>{% endif %}\n    </div>\n  </details>\n  {% if product.metafields.custom.symbolism_note != blank %}\n  <details class=\"kinsoul-accordion__item\">\n    <summary class=\"kinsoul-accordion__trigger\">Stone Story <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><line x1=\"12\" y1=\"5\" x2=\"12\" y2=\"19\"/><line x1=\"5\" y1=\"12\" x2=\"19\" y2=\"12\"/></svg></summary>\n    <div class=\"kinsoul-accordion__content\">{{ product.metafields.custom.symbolism_note }}</div>\n  </details>\n  {% endif %}\n</div>",
+                "width": "100%",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
@@ -249,7 +249,8 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "text_aEtTtq"
+            "trust_bar_html",
+            "accordion_html"
           ]
         }
       },
@@ -271,7 +272,7 @@
           "type": "text",
           "name": "t:names.header",
           "settings": {
-            "text": "<h3>Complete Your Collection</h3>",
+            "text": "<h3>Complete Your Look</h3>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
@@ -391,8 +392,8 @@
         "recommendation_type": "related",
         "layout_type": "grid",
         "carousel_on_mobile": false,
-        "max_products": 4,
-        "columns": 4,
+        "max_products": 3,
+        "columns": 3,
         "mobile_columns": "2",
         "columns_gap": 12,
         "rows_gap": 24,
