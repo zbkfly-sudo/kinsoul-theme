@@ -2,9 +2,95 @@
   "sections": {
     "hero": {
       "type": "hero",
+      "blocks": {
+        "hero_heading": {
+          "type": "text",
+          "name": "Heading",
+          "settings": {
+            "text": "<h1>Jewelry Born from the Earth</h1>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "h1",
+            "font": "var(--font-heading--family)",
+            "line_height": "display-tight",
+            "letter_spacing": "heading-normal",
+            "case": "none",
+            "color": "",
+            "padding-block-start": 0,
+            "padding-block-end": 0
+          }
+        },
+        "hero_subtitle": {
+          "type": "text",
+          "name": "Subtitle",
+          "settings": {
+            "text": "<p>Natural pearls. Hand-selected stones. Designed to be worn every day.</p>",
+            "width": "100%",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "paragraph",
+            "font": "var(--font-body--family)",
+            "line_height": "body-loose",
+            "letter_spacing": "normal",
+            "case": "none",
+            "color": "",
+            "padding-block-start": 0,
+            "padding-block-end": 8
+          }
+        },
+        "hero_buttons": {
+          "type": "group",
+          "name": "CTA Buttons",
+          "settings": {
+            "content_direction": "row",
+            "vertical_on_mobile": false,
+            "horizontal_alignment": "center",
+            "vertical_alignment": "center",
+            "gap": 16,
+            "width": "fit",
+            "height": "fit"
+          },
+          "blocks": {
+            "btn_shop": {
+              "type": "button",
+              "settings": {
+                "label": "Shop Bracelets",
+                "link": "/collections/all",
+                "style_class": "button",
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              }
+            },
+            "btn_materials": {
+              "type": "button",
+              "settings": {
+                "label": "Discover the Materials",
+                "link": "/pages/materials-craft",
+                "style_class": "button--secondary",
+                "padding-block-start": 0,
+                "padding-block-end": 0
+              }
+            }
+          },
+          "block_order": ["btn_shop", "btn_materials"]
+        }
+      },
+      "block_order": ["hero_heading", "hero_subtitle", "hero_buttons"],
       "settings": {
+        "content_direction": "column",
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "section_height": "large",
         "color_scheme": "scheme-6",
-        "section_height": "large"
+        "toggle_overlay": true,
+        "overlay_color": "#00000040",
+        "overlay_style": "gradient",
+        "gradient_direction": "to top",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "trust_strip": {
