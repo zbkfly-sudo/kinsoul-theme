@@ -100,8 +100,7 @@
         "@type": "SearchAction",
         "target": {
           "@type": "EntryPoint",
-          {%- assign search_url = shop.url | append: '/search?q=' -%}
-          "urlTemplate": "{{ search_url }}{{ '{search_term_string}' }}"
+          "urlTemplate": "{{ shop.url }}/search?q={% raw %}{search_term_string}{% endraw %}"
         },
         "query-input": "required name=search_term_string"
       }
