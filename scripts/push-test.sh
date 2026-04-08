@@ -57,18 +57,29 @@ trap "rm -rf $DRIFT_TMP" EXIT
   --no-color > /dev/null 2>&1)
 
 DRIFT_FILES=()
-for f in $(find "$DRIFT_TMP/templates" "$DRIFT_TMP/config" -type f 2>/dev/null); do
+for f in $(find "$DRIFT_TMP/templates" "$DRIFT_TMP/config" -type f -name "*.json" 2>/dev/null); do
   REL="${f#$DRIFT_TMP/}"
-  if [[ -f "$REL" ]] && ! diff -q "$f" "$REL" > /dev/null 2>&1; then
+  if [[ -f "$REL" ]]; then
     # Skip files that we KNOW we've structurally edited (whitelist)
     case "$REL" in
       templates/product.json|templates/collection.json|templates/index.json)
-        # These are expected to differ — we have local structural changes
-        ;;
-      *)
-        DRIFT_FILES+=("$REL")
+        continue
         ;;
     esac
+    # Compare as parsed JSON (ignores Shopify CLI comment headers and whitespace)
+    if ! python3 -c "
+import json, sys
+def load(p):
+    with open(p) as f:
+        s = f.read()
+    # Strip C-style /* */ comment headers Shopify CLI adds
+    if s.lstrip().startswith('/*'):
+        s = s[s.index('*/')+2:]
+    return json.loads(s)
+sys.exit(0 if load('$f') == load('$REL') else 1)
+" 2>/dev/null; then
+      DRIFT_FILES+=("$REL")
+    fi
   fi
 done
 
