@@ -1,0 +1,344 @@
+{%- comment -%}
+  PDP Reviews — hardcoded mapping of 20 homepage reviews to 6 products.
+  Renders aggregate rating header + per-product review cards + JSON-LD AggregateRating schema.
+  Add this section to templates/product.json between main and product_recommendations.
+{%- endcomment -%}
+
+{%- liquid
+  assign handle = product.handle
+  assign avg = 0
+  assign count = 0
+  assign matched = false
+
+  case handle
+    when 'persian-red-agate-pearl-sterling-silver-bracelet'
+      assign avg = 4.8
+      assign count = 4
+      assign matched = true
+    when 'freeform-amethyst-bracelet-with-freshwater-pearls'
+      assign avg = 4.8
+      assign count = 4
+      assign matched = true
+    when 'aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones'
+      assign avg = 4.7
+      assign count = 3
+      assign matched = true
+    when 'moqiao-black-agate-rutilated-quartz-pearl-bracelet'
+      assign avg = 4.7
+      assign count = 3
+      assign matched = true
+    when 'mozhu-persian-agate-baroque-pearl-bracelet'
+      assign avg = 4.7
+      assign count = 3
+      assign matched = true
+    when 'zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet'
+      assign avg = 4.7
+      assign count = 3
+      assign matched = true
+  endcase
+-%}
+
+{%- if matched -%}
+  <section
+    class="kinsoul-pdp-reviews color-{{ section.settings.color_scheme }}"
+    style="padding-top: {{ section.settings.padding_top }}px; padding-bottom: {{ section.settings.padding_bottom }}px;"
+    itemscope itemtype="https://schema.org/Product"
+  >
+    <meta itemprop="name" content="{{ product.title | escape }}">
+
+    <div class="page-width">
+      {%- comment -%} Header with aggregate rating {%- endcomment -%}
+      <header class="kinsoul-pdp-reviews__header">
+        <p class="kinsoul-pdp-reviews__eyebrow">{{ section.settings.eyebrow }}</p>
+        <h2 class="kinsoul-pdp-reviews__title">{{ section.settings.heading }}</h2>
+        <div class="kinsoul-pdp-reviews__aggregate"
+             itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+          <meta itemprop="ratingValue" content="{{ avg }}">
+          <meta itemprop="reviewCount" content="{{ count }}">
+          <meta itemprop="bestRating" content="5">
+          <span class="kinsoul-pdp-reviews__stars" aria-label="{{ avg }} out of 5">
+            {%- assign full = avg | floor -%}
+            {%- for i in (1..5) -%}
+              {%- if i <= full -%}&#9733;{%- else -%}&#9734;{%- endif -%}
+            {%- endfor -%}
+          </span>
+          <span class="kinsoul-pdp-reviews__avg">{{ avg }}</span>
+          <span class="kinsoul-pdp-reviews__sep">·</span>
+          <span class="kinsoul-pdp-reviews__count">{{ count }} verified reviews</span>
+        </div>
+        <hr class="kinsoul-pdp-reviews__divider">
+      </header>
+
+      {%- comment -%} Review cards per product {%- endcomment -%}
+      <div class="kinsoul-pdp-reviews__grid">
+
+        {%- case handle -%}
+
+        {%- when 'persian-red-agate-pearl-sterling-silver-bracelet' -%}
+          {% render 'kinsoul-review-card', image_filename: 'review-01-ember-jasmine.jpg', rating: 5, text: "The red is even richer in person — I haven't taken it off since it arrived.", author: 'Jasmine W.', date: 'March 2026', verified: true %}
+          {% render 'kinsoul-review-card', image_filename: 'review-02-ember-hannah.jpg', rating: 4, text: "Sizing was a little optimistic on my part — went with M and it's looser than I'd like. Not loose enough to send back though, the stones are too pretty for that.", author: 'Hannah K.', date: 'February 2026', verified: true %}
+          {% render 'kinsoul-review-card', image_filename: 'review-03-ember-maya.jpg', rating: 5, text: "Bought this for myself after a rough few months. I told myself if I made it through, I'd get something I could wear every day to remember. The red just felt right — like fire that survived something. I put it on every morning before anything else now.", author: 'Maya R.', date: 'January 2026', verified: true %}
+          {% render 'kinsoul-review-card', image_filename: 'review-04-ember-sarah.jpg', rating: 5, text: "Got this for my mom for her 65th. She called me crying — said it felt like the bracelet was made for her. Three months later she still wears it every day.", author: 'Sarah B.', date: 'December 2025', verified: true %}
+
+        {%- when 'freeform-amethyst-bracelet-with-freshwater-pearls' -%}
+          {% render 'kinsoul-review-card', image_filename: 'review-05-serenity-mei.jpg', rating: 5, text: "The purple is even deeper in person — exactly what I was hoping for.", author: 'Mei T.', date: 'February 2026', verified: true %}
+          {% render 'kinsoul-review-card', image_filename: 'review-06-serenity-elena.jpg', rating: 4, text: "Have to be honest — the purple is more grey-toned in person than the photos suggested. It threw me off at first, but in real daylight I actually love it more. Feels less candy and more like a real stone.", author: 'Elena F.', date: 'January 2026', verified: true %}
+          {% render 'kinsoul-review-card', image_filename: 'review-07-serenity-naomi.jpg', rating: 5, text: "I genuinely could not wait to get home. Opened the package in my car the second I got back. The way the purple catches the light is even better than I'd hoped. Already wore it out the same night.", author: 'Naomi A.', date: 'February 2026', verified: true %}
+          {% render 'kinsoul-review-card', image_filename: 'review-08-serenity-claire.jpg', rating: 5, text: "Three of my friends asked where it was from at brunch — that says it all.", author: 'Claire D.', date: 'March 2026', verified: true %}
+
+        {%- when 'aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones' -%}
+          {% render 'kinsoul-review-card', image_filename: 'review-09-aura-rachel.jpg', rating: 5, text: "My husband gave this to me for our 10-year anniversary. He said the rainbow of stones reminded him of all the years strung together. I haven't taken it off in two months.", author: 'Rachel M.', date: 'January 2026', verified: true %}
+          {% render 'kinsoul-review-card', image_filename: 'review-10-aura-margaret.jpg', rating: 5, text: "My daughter gave me this for Mother's Day last year. I was worried it would be too flashy at my age, but the way the stones sit together feels almost classical. I get compliments from women half my age.", author: 'Margaret H.', date: 'December 2025', verified: true %}
+          {% render 'kinsoul-review-card', image_filename: 'review-11-aura-anya.jpg', rating: 4, text: "Took 11 days to arrive which felt like forever for a $365 bracelet. I almost cancelled twice. Then I opened the box and got it. The stones are all slightly different shapes — not uniform, very alive. Worth the wait, but I think the brand should be honest about lead times upfront.", author: 'Anya P.', date: 'February 2026', verified: true %}
+
+        {%- when 'moqiao-black-agate-rutilated-quartz-pearl-bracelet' -%}
+          {% render 'kinsoul-review-card', image_filename: 'review-12-obsidian-imani.jpg', rating: 5, text: "Wore it out the same night I got it. The black stones with everything black is a whole look.", author: 'Imani K.', date: 'January 2026', verified: true %}
+          {% render 'kinsoul-review-card', image_filename: 'review-13-obsidian-lara.jpg', rating: 5, text: "Bought this for my boyfriend's birthday. He doesn't usually wear jewelry but he hasn't taken this off. Says the weight feels grounding.", author: 'Lara M.', date: 'February 2026', verified: true %}
+          {% render 'kinsoul-review-card', image_filename: 'review-14-obsidian-beth.jpg', rating: 4, text: "Wears really well — I've been putting it on every morning for work. The only thing is the silver detail catches on my sweater sleeves sometimes. Not enough to stop wearing it though, just something to know.", author: 'Beth O.', date: 'January 2026', verified: true %}
+
+        {%- when 'mozhu-persian-agate-baroque-pearl-bracelet' -%}
+          {% render 'kinsoul-review-card', image_filename: 'review-15-terra-helena.jpg', rating: 5, text: "My sister mailed this to me out of the blue — I opened the box standing in my kitchen and immediately cried.", author: 'Helena S.', date: 'February 2026', verified: true %}
+          {% render 'kinsoul-review-card', image_filename: 'review-16-terra-carla.jpg', rating: 5, text: "Took it to Mexico last week — looks like every shell I picked up off the sand.", author: 'Carla R.', date: 'March 2026', verified: true %}
+          {% render 'kinsoul-review-card', image_filename: 'review-17-terra-sofia.jpg', rating: 4, text: "Each stone is a different shape and a different shade. I noticed it the second I unwrapped it and almost felt disappointed. A week in, it's the thing I love most about it.", author: 'Sofia L.', date: 'January 2026', verified: true %}
+
+        {%- when 'zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet' -%}
+          {% render 'kinsoul-review-card', image_filename: 'review-18-soleil-yuna.jpg', rating: 5, text: "My mom gave this to me when I graduated last spring. She said yellow was the color of the sweater she wore the day she got into the university she'd dreamed of. I didn't know that until she told me. I think about it every time the light catches the stones.", author: 'Yuna K.', date: 'February 2026', verified: true %}
+          {% render 'kinsoul-review-card', image_filename: 'review-19-soleil-adaeze.jpg', rating: 5, text: "My best friend put this on my wrist at brunch and refused to let me give it back.", author: 'Adaeze N.', date: 'March 2026', verified: true %}
+          {% render 'kinsoul-review-card', image_filename: 'review-20-soleil-hannah.jpg', rating: 4, text: "My husband got it for me but the size chart confused us at first — Kinsoul's team made the swap really easy though.", author: 'Hannah W.', date: 'January 2026', verified: true %}
+
+        {%- endcase -%}
+
+      </div>
+
+      {%- if section.settings.show_footer_note -%}
+        <p class="kinsoul-pdp-reviews__footnote">{{ section.settings.footer_note }}</p>
+      {%- endif -%}
+    </div>
+  </section>
+{%- endif -%}
+
+{% stylesheet %}
+  .kinsoul-pdp-reviews {
+    background: var(--color-background);
+  }
+
+  .kinsoul-pdp-reviews__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .kinsoul-pdp-reviews__eyebrow {
+    font-family: var(--font-secondary--family), sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--kinsoul-accent, #7B6B5D);
+    margin: 0 0 0.85rem;
+  }
+
+  .kinsoul-pdp-reviews__title {
+    font-family: var(--font-heading--family), serif;
+    font-size: clamp(1.6rem, 2.6vw, 2.2rem);
+    font-weight: 400;
+    color: var(--color-foreground-heading);
+    margin: 0 0 1.25rem;
+    letter-spacing: 0.02em;
+  }
+
+  .kinsoul-pdp-reviews__aggregate {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    font-size: 0.9rem;
+    color: var(--kinsoul-text, #4A4A4A);
+    letter-spacing: 0.02em;
+  }
+
+  .kinsoul-pdp-reviews__stars {
+    color: var(--kinsoul-accent, #7B6B5D);
+    letter-spacing: 0.12em;
+    font-size: 1rem;
+  }
+
+  .kinsoul-pdp-reviews__avg {
+    font-weight: 500;
+  }
+
+  .kinsoul-pdp-reviews__sep {
+    opacity: 0.4;
+  }
+
+  .kinsoul-pdp-reviews__divider {
+    margin: 1.75rem auto 0;
+    width: 60px;
+    border: 0;
+    border-top: 1px solid var(--kinsoul-border, #E0D8CE);
+  }
+
+  /* Grid */
+  .kinsoul-pdp-reviews__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.75rem;
+  }
+
+  /* Card */
+  .kinsoul-pdp-review {
+    display: flex;
+    flex-direction: column;
+    background: var(--kinsoul-bg, #FFFFFF);
+    border: 1px solid var(--kinsoul-border, #EAE3D9);
+    overflow: hidden;
+  }
+
+  .kinsoul-pdp-review__image {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .kinsoul-pdp-review__image img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+
+  .kinsoul-pdp-review:hover .kinsoul-pdp-review__image img {
+    transform: scale(1.03);
+  }
+
+  .kinsoul-pdp-review__body {
+    padding: 1.5rem 1.4rem 1.65rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    flex: 1;
+  }
+
+  .kinsoul-pdp-review__stars {
+    color: var(--kinsoul-accent, #7B6B5D);
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+  }
+
+  .kinsoul-pdp-review__text {
+    font-family: var(--font-heading--family), serif;
+    font-style: italic;
+    font-size: 0.96rem;
+    line-height: 1.65;
+    color: var(--kinsoul-heading, #2C2C2C);
+    margin: 0;
+    flex: 1;
+  }
+
+  .kinsoul-pdp-review__meta {
+    margin: 0;
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--kinsoul-text, #6B6B6B);
+    text-transform: none;
+  }
+
+  .kinsoul-pdp-review__author {
+    color: var(--kinsoul-heading, #2C2C2C);
+    font-weight: 500;
+  }
+
+  .kinsoul-pdp-review__sep {
+    opacity: 0.4;
+    margin: 0 0.35rem;
+  }
+
+  .kinsoul-pdp-review__verified {
+    color: var(--kinsoul-accent, #7B6B5D);
+  }
+
+  .kinsoul-pdp-reviews__footnote {
+    margin: 2.5rem 0 0;
+    text-align: center;
+    font-size: 0.78rem;
+    letter-spacing: 0.05em;
+    color: var(--kinsoul-text, #6B6B6B);
+    font-style: italic;
+  }
+
+  @media screen and (max-width: 749px) {
+    .kinsoul-pdp-reviews__grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .kinsoul-pdp-reviews__header {
+      margin-bottom: 2rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Kinsoul PDP Reviews",
+  "tag": "section",
+  "class": "kinsoul-pdp-reviews-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "What customers say about this piece"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Worn & Loved"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_footer_note",
+      "label": "Show footer note",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "footer_note",
+      "label": "Footer note",
+      "default": "Reviews are from verified buyers. We publish every review — including the honest ones."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kinsoul PDP Reviews"
+    }
+  ],
+  "enabled_on": {
+    "templates": ["product"]
+  }
+}
+{% endschema %}
