@@ -176,6 +176,22 @@ External diagnostic reports and HTML scrapers often produce **false positives**:
 
 ---
 
+## 7.6 Don't push when you can publish an existing test theme
+
+If a previous test theme (e.g. `fix-2026-04-07-XXXX-foo`) is already on Shopify, already verified by the user, and represents the desired live state, **publish it directly** with `./scripts/publish.sh <existing-id>`. Do NOT push a new theme just because you made some local commits since.
+
+**Specifically, do NOT push a new theme when the only changes since the last test theme are:**
+- Doc updates (CLAUDE.md, *.md files)
+- Script fixes (`scripts/*.sh`)
+- `.gitignore` / `.shopifyignore` / `.env*` changes
+- Any file that's not in `assets/` `blocks/` `config/` `layout/` `locales/` `sections/` `snippets/` `templates/`
+
+These don't affect what Shopify actually serves. Pushing a new theme just to capture them creates wasted theme slots, longer history, and confuses the user. The local git history captures them anyway — they'll naturally ride along on the next *real* push.
+
+**Real example:** 2026-04-08 — after reverting a false-positive fix, I pushed v6 to capture the revert + CLAUDE.md update + script truncation fix. The user pointed out v4 was already verified and identical content-wise, so v6 was wasted work. Should have just run `./scripts/publish.sh <v4-id>` directly.
+
+---
+
 ## 8. When working with the Shopify Admin instead of code
 
 Some problems aren't code:
