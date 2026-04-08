@@ -25,11 +25,19 @@
     {% endif %}
 
     {%- render 'meta-tags' -%}
+    {%- render 'kinsoul-head-meta' -%}
     {%- render 'stylesheets' -%}
     {%- render 'fonts' -%}
     {%- render 'scripts' -%}
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-schemes' -%}
+
+    {%- comment %} Kinsoul SEO: Schema.org structured data {% endcomment -%}
+    {%- render 'kinsoul-schema-organization' -%}
+    {%- render 'kinsoul-schema-breadcrumb' -%}
+    {%- if page.handle == 'client-care' or template.name == 'page.client-care' -%}
+      {%- render 'kinsoul-schema-faq' -%}
+    {%- endif -%}
 
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}

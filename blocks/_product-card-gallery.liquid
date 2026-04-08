@@ -25,6 +25,15 @@
           {%- endif -%}
         </div>
       {%- endif -%}
+      {%- comment -%} Kinsoul: Custom badge from product tags (format: "badge:Text") {%- endcomment -%}
+      {%- for tag in product.tags -%}
+        {%- if tag contains 'badge:' -%}
+          {%- assign custom_badge_text = tag | remove: 'badge:' -%}
+          <div class="product-badges__badge product-badges__badge--rectangle kinsoul-badge--custom">
+            {{ custom_badge_text }}
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
     </div>
     {%  if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add', product: product, section_id: section.id %}

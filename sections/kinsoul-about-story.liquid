@@ -1,0 +1,157 @@
+{%- liquid
+  assign color_scheme = section.settings.color_scheme
+  assign reverse = section.settings.reverse_layout
+-%}
+
+<div
+  class="kinsoul-about-story section-{{ section.id }} color-{{ color_scheme }}"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="kinsoul-about">
+    <div class="kinsoul-about__story-block{% if reverse %} kinsoul-about__story-block--reverse{% endif %}">
+      <div class="kinsoul-about__story-image">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 900
+            | image_tag:
+              loading: 'lazy',
+              widths: '400, 600, 900',
+              sizes: '(max-width: 749px) 100vw, 50vw',
+              class: 'kinsoul-about__img'
+          }}
+        {%- else -%}
+          <div class="kinsoul-about__img-placeholder"></div>
+        {%- endif -%}
+      </div>
+      <div class="kinsoul-about__story-content">
+        {%- if section.settings.chapter != blank -%}
+          <span class="kinsoul-about__chapter">{{ section.settings.chapter }}</span>
+        {%- endif -%}
+
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'text' -%}
+            <p class="kinsoul-about__story-text">{{ block.settings.text }}</p>
+          {%- elsif block.type == 'highlight' -%}
+            <p class="kinsoul-about__story-highlight">{{ block.settings.text }}</p>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .kinsoul-about__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .kinsoul-about__story-image {
+    overflow: hidden;
+  }
+
+  .kinsoul-about__story-image .kinsoul-about__img {
+    aspect-ratio: 4 / 5;
+    transition: transform 0.6s ease;
+  }
+
+  .kinsoul-about-story:hover .kinsoul-about__img {
+    transform: scale(1.02);
+  }
+
+  .kinsoul-about__img-placeholder {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background: var(--kinsoul-bg-alt, #F0EDE8);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "About Story Block",
+  "tag": "section",
+  "class": "kinsoul-about-story-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "chapter",
+      "label": "Chapter title",
+      "default": "The Stone"
+    },
+    {
+      "type": "checkbox",
+      "id": "reverse_layout",
+      "label": "Reverse layout (image right)",
+      "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Paragraph",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Paragraph text here."
+        }
+      ]
+    },
+    {
+      "type": "highlight",
+      "name": "Highlight Quote",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "A highlighted quote."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Story Block"
+    }
+  ]
+}
+{% endschema %}

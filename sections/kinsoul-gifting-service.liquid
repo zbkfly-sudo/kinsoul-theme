@@ -22,8 +22,13 @@
 
     <div class="kinsoul-service-grid">
       {%- for block in section.blocks -%}
-        <div class="kinsoul-service-card" {{ block.shopify_attributes }}>
-          {%- if block.settings.link_url != blank -%}
+        <div class="kinsoul-service-card{% if block.settings.popup_id != blank %} kinsoul-service-card--clickable{% endif %}" {{ block.shopify_attributes }}>
+
+          {%- if block.settings.popup_id == 'gift' -%}
+            <a href="javascript:void(0)" class="kinsoul-service-card__link-overlay" aria-label="{{ block.settings.title }}" onclick="window.kinsoulOpenGiftPopup && window.kinsoulOpenGiftPopup()"></a>
+          {%- elsif block.settings.popup_id == 'size' -%}
+            <a href="javascript:void(0)" class="kinsoul-service-card__link-overlay" aria-label="{{ block.settings.title }}" onclick="window.kinsoulOpenSizePopup && window.kinsoulOpenSizePopup()"></a>
+          {%- elsif block.settings.link_url != blank -%}
             <a href="{{ block.settings.link_url }}" class="kinsoul-service-card__link-overlay" aria-label="{{ block.settings.title }}"></a>
           {%- endif -%}
 
@@ -45,6 +50,10 @@
     </div>
   </div>
 </div>
+
+{%- comment -%} Popups {%- endcomment -%}
+{% render 'kinsoul-gift-popup' %}
+{% render 'kinsoul-size-popup' %}
 
 {% stylesheet %}
   .kinsoul-gifting-section__header {
@@ -72,6 +81,10 @@
 
   .kinsoul-service-card {
     position: relative;
+  }
+
+  .kinsoul-service-card--clickable {
+    cursor: pointer;
   }
 
   .kinsoul-service-card__link-overlay {
@@ -111,6 +124,12 @@
       "id": "color_scheme",
       "label": "Color scheme",
       "default": "scheme-2"
+    },
+    {
+      "type": "image_picker",
+      "id": "gift_popup_image",
+      "label": "Gift popup image",
+      "info": "Packaging photo for the Gift-Ready popup. Recommended: 800×1000px."
     },
     {
       "type": "range",
@@ -159,6 +178,12 @@
           "type": "url",
           "id": "link_url",
           "label": "Link URL"
+        },
+        {
+          "type": "text",
+          "id": "popup_id",
+          "label": "Popup ID",
+          "info": "Enter 'gift' or 'size' to trigger the corresponding popup instead of a link."
         }
       ]
     }
@@ -172,7 +197,8 @@
           "settings": {
             "title": "Gift-Ready Packaging",
             "description": "Every piece arrives in a signature box, ready to gift or to keep for yourself.",
-            "icon_svg": "<svg width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 12 20 22 4 22 4 12'/><rect x='2' y='7' width='20' height='5'/><line x1='12' y1='22' x2='12' y2='7'/><path d='M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z'/><path d='M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z'/></svg>"
+            "icon_svg": "<svg width='32' height='32' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 12 20 22 4 22 4 12'/><rect x='2' y='7' width='20' height='5'/><line x1='12' y1='22' x2='12' y2='7'/><path d='M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z'/><path d='M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z'/></svg>",
+            "popup_id": "gift"
           }
         },
         {

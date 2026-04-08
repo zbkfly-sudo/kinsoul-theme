@@ -1,151 +1,22 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */{
+{
   "sections": {
-    "main": {
-      "type": "main-page",
-      "blocks": {
-        "title": {
-          "type": "text",
-          "name": "t:names.title",
-          "settings": {
-            "text": "<h1>{{ closest.page.title }}</h1>",
-            "width": "100%",
-            "max_width": "normal",
-            "alignment": "center",
-            "type_preset": "h2",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "content": {
-          "type": "text",
-          "name": "t:names.content",
-          "settings": {
-            "text": "{{ closest.page.content }}",
-            "width": "100%",
-            "max_width": "narrow",
-            "alignment": "center",
-            "type_preset": "rte",
-            "font": "var(--font-primary--family)",
-            "font_size": "",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "title",
-        "content"
-      ],
+    "contact_page": {
+      "type": "custom-liquid",
       "settings": {
-        "content_direction": "column",
-        "gap": 32,
-        "color_scheme": "",
-        "padding-block-start": 40,
-        "padding-block-end": 0
+        "custom_liquid": "<div class='kinsoul-contact'><div class='kinsoul-contact__hero'><p class='kinsoul-care__eyebrow'>Get in Touch</p><h1 class='kinsoul-care__hero-title'>We'd Love to Hear from You</h1><hr class='kinsoul-divider'><p class='kinsoul-contact__hero-text'>Whether you're choosing your first piece, need help with an order, or just want to say hello — we're here.</p></div><div class='kinsoul-contact__quick'><h2 class='kinsoul-contact__quick-title'>Common questions, answered</h2><div class='kinsoul-contact__quick-grid'><a href='/pages/client-care#size' class='kinsoul-contact__quick-card'><svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><line x1='2' y1='12' x2='22' y2='12'/><path d='M6 12v-2'/><path d='M10 12V8'/><path d='M14 12V8'/><path d='M18 12v-2'/></svg><span class='kinsoul-contact__quick-label'>What size should I choose?</span><span class='kinsoul-contact__quick-link'>Size Guide →</span></a><a href='/pages/client-care#shipping' class='kinsoul-contact__quick-card'><svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><rect x='1' y='3' width='15' height='13'/><polygon points='16 8 20 8 23 11 23 16 16 16 16 8'/><circle cx='5.5' cy='18.5' r='2.5'/><circle cx='18.5' cy='18.5' r='2.5'/></svg><span class='kinsoul-contact__quick-label'>How long will shipping take?</span><span class='kinsoul-contact__quick-link'>Shipping Info →</span></a><a href='/pages/client-care#returns' class='kinsoul-contact__quick-card'><svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><polyline points='1 4 1 10 7 10'/><path d='M3.51 15a9 9 0 1 0 2.13-9.36L1 10'/></svg><span class='kinsoul-contact__quick-label'>Can I return or exchange?</span><span class='kinsoul-contact__quick-link'>Returns Policy →</span></a><a href='/pages/client-care#care' class='kinsoul-contact__quick-card'><svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z'/></svg><span class='kinsoul-contact__quick-label'>How do I care for my bracelet?</span><span class='kinsoul-contact__quick-link'>Care Guide →</span></a><a href='/pages/materials-craft' class='kinsoul-contact__quick-card'><svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><circle cx='12' cy='12' r='4'/></svg><span class='kinsoul-contact__quick-label'>Not sure which stone is for you?</span><span class='kinsoul-contact__quick-link'>Materials & Craft →</span></a><a href='#contact_form' class='kinsoul-contact__quick-card' onclick=\"setTimeout(function(){document.getElementById('contact-topic').value='Order & Shipping'},100)\"><svg width='22' height='22' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z'/><polyline points='3.27 6.96 12 12.01 20.73 6.96'/><line x1='12' y1='22.08' x2='12' y2='12'/></svg><span class='kinsoul-contact__quick-label'>Need help with an order?</span><span class='kinsoul-contact__quick-link'>Message Us Below ↓</span></a></div></div></div>",
+        "color_scheme": "scheme-1"
       }
     },
-    "form": {
-      "type": "section",
-      "blocks": {
-        "contact_form_UwiCkQ": {
-          "type": "contact-form",
-          "settings": {
-            "width": "custom",
-            "custom_width": 50,
-            "width_mobile": "custom",
-            "custom_width_mobile": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "submit-button": {
-              "type": "contact-form-submit-button",
-              "static": true,
-              "settings": {
-                "label": "Submit",
-                "style_class": "button",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": []
-        }
-      },
-      "block_order": [
-        "contact_form_UwiCkQ"
-      ],
-      "name": "t:names.contact_form",
+    "form_section": {
+      "type": "custom-liquid",
       "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 32,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-1",
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 32,
-        "padding-block-end": 84
+        "custom_liquid": "<div class='kinsoul-contact'><div class='kinsoul-contact__form-section' id='contact_form'><div class='kinsoul-contact__form-header'><h2 class='kinsoul-contact__form-title'>Send Us a Message</h2><p class='kinsoul-contact__form-subtitle'>We read every message personally — nothing goes to a robot.</p></div><div class='kinsoul-contact__form-layout'><div class='kinsoul-contact__form-wrap'>{% form 'contact' %}<div class='kinsoul-contact__form'><div class='kinsoul-contact__field'><label for='contact-topic' class='kinsoul-contact__label'>What can we help with?</label><select id='contact-topic' name='contact[topic]' class='kinsoul-contact__select'><option value=''>Select a topic...</option><option value='Sizing & Fit'>Sizing & Fit</option><option value='Order & Shipping'>Order & Shipping</option><option value='Returns & Exchanges'>Returns & Exchanges</option><option value='Product Question'>Product Question</option><option value='Gift Advice'>Gift Advice</option><option value='Wholesale / Collaboration'>Wholesale / Collaboration</option><option value='Other'>Other</option></select></div><div class='kinsoul-contact__field-row'><div class='kinsoul-contact__field'><label for='ContactForm-name' class='kinsoul-contact__label'>Name</label><input type='text' id='ContactForm-name' name='contact[name]' class='kinsoul-contact__input' placeholder='Your name'></div><div class='kinsoul-contact__field'><label for='ContactForm-email' class='kinsoul-contact__label'>Email <span class='kinsoul-contact__required'>*</span></label><input type='email' id='ContactForm-email' name='contact[email]' class='kinsoul-contact__input' placeholder='your@email.com' required></div></div><div class='kinsoul-contact__field'><label for='contact-order' class='kinsoul-contact__label'>Order number <span class='kinsoul-contact__optional'>(if applicable)</span></label><input type='text' id='contact-order' name='contact[order_number]' class='kinsoul-contact__input' placeholder='e.g. #1001'></div><div class='kinsoul-contact__field'><label for='ContactForm-body' class='kinsoul-contact__label'>Message <span class='kinsoul-contact__required'>*</span></label><textarea id='ContactForm-body' name='contact[body]' class='kinsoul-contact__textarea' rows='5' placeholder='A question about a piece, help choosing a gift, an issue with your order — anything at all.' required></textarea></div><button type='submit' class='kinsoul-contact__submit'>Send Message</button><p class='kinsoul-contact__form-note'>After you hit send, you'll receive a confirmation at your email. We'll get back to you within 24 hours.</p></div>{% endform %}</div><div class='kinsoul-contact__sidebar'><div class='kinsoul-contact__sidebar-block'><div class='kinsoul-contact__sidebar-icon'><svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/><polyline points='22,6 12,13 2,6'/></svg></div><h3 class='kinsoul-contact__sidebar-title'>Email Us Directly</h3><p class='kinsoul-contact__sidebar-text'>Prefer email? Write to us anytime.</p><a href='mailto:hello@kinsoulenergy.com' class='kinsoul-contact__sidebar-link'>hello@kinsoulenergy.com</a><p class='kinsoul-contact__sidebar-urgent'>Something arrived damaged? Email us with a photo — we'll prioritize your case.</p></div><div class='kinsoul-contact__sidebar-block'><div class='kinsoul-contact__sidebar-icon'><svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'/><polyline points='12 6 12 12 16 14'/></svg></div><h3 class='kinsoul-contact__sidebar-title'>Response Time</h3><p class='kinsoul-contact__sidebar-text'>We respond within 24 hours — often much sooner.</p></div><div class='kinsoul-contact__sidebar-block'><div class='kinsoul-contact__sidebar-icon'><svg width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'><path d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z'/><circle cx='12' cy='10' r='3'/></svg></div><h3 class='kinsoul-contact__sidebar-title'>Based in California</h3><p class='kinsoul-contact__sidebar-text'>Shipping worldwide from the U.S.</p></div></div></div></div></div>",
+        "color_scheme": "scheme-2"
       }
     }
   },
   "order": [
-    "main",
-    "form"
+    "contact_page",
+    "form_section"
   ]
 }

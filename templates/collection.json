@@ -201,11 +201,20 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
+            },
+            "kinsoul_card_rating": {
+              "type": "custom-liquid",
+              "name": "Kinsoul card rating",
+              "settings": {
+                "custom_liquid": "{% render 'kinsoul-card-rating', product: closest.product %}"
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "card-gallery",
             "product_title_4nY4eT",
+            "kinsoul_card_rating",
             "price_EzJzMm"
           ]
         }

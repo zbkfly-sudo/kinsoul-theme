@@ -1,108 +1,164 @@
 {
   "sections": {
     "hero": {
-      "type": "hero",
+      "type": "custom-liquid",
       "settings": {
-        "color_scheme": "scheme-6",
-        "section_height": "small"
+        "custom_liquid": "<div class='kinsoul-about'><div class='kinsoul-about__hero'><p class='kinsoul-care__eyebrow'>Our Story</p><h1 class='kinsoul-about__hero-title'>It started with a stone she found on the ground in China.</h1></div></div>",
+        "color_scheme": "scheme-1"
       }
     },
-    "brand_intro": {
-      "type": "section",
+    "origin": {
+      "type": "kinsoul-about-story",
       "blocks": {
-        "subheading": {
+        "p1": {
           "type": "text",
           "settings": {
-            "text": "<p>Our Story</p>",
-            "alignment": "center",
-            "type_preset": "h6",
-            "font": "var(--font-secondary--family)",
-            "letter_spacing": "heading-wide",
-            "case": "uppercase",
-            "color": "var(--kinsoul-accent, #7B6B5D)"
+            "text": "LU had always been the kind of person who trusted logic. A designer by training, she believed in what could be measured, explained, and proven. That was before a trip changed everything."
           }
         },
-        "heading": {
+        "p2": {
           "type": "text",
           "settings": {
-            "text": "<h2>Kinsoul Energy</h2>",
-            "alignment": "center",
-            "type_preset": "h2",
-            "font": "var(--font-heading--family)"
+            "text": "In 2018, while traveling through China, she came across a stone — not in a shop, but on the ground. It was unusually beautiful, the kind of thing you pick up without thinking and slip into your pocket. She kept it."
           }
         },
-        "body": {
+        "p3": {
           "type": "text",
           "settings": {
-            "text": "<p>We believe jewelry should feel as real as the person wearing it. Kinsoul Energy is a modern natural jewelry brand built on one idea: the beauty of imperfection. Every piece is made with genuine pearls, hand-selected gemstones, and S925 sterling silver — designed to be worn daily, not saved for someday.</p><p>We don't chase trends. We choose materials with character — baroque pearls that refuse to be round, amethyst with visible inclusions, agate with one-of-a-kind banding. Each bracelet is assembled by hand in small batches, because we believe the details matter.</p>",
-            "alignment": "center",
-            "type_preset": "rte",
-            "max_width": "narrow"
+            "text": "Later that trip, she found herself in a moment she still doesn't fully explain — something that shook her. And instinctively, she reached for that stone, the way you reach for something solid when the ground shifts. Whatever happened next, she walked away safe. And she walked away different."
+          }
+        },
+        "highlight": {
+          "type": "highlight",
+          "settings": {
+            "text": "She's not saying the stone saved her. She's saying she can't say it didn't."
           }
         }
       },
-      "block_order": ["subheading", "heading", "body"],
+      "block_order": ["p1", "p2", "p3", "highlight"],
       "settings": {
-        "content_direction": "column",
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 16,
-        "section_width": "page-width",
+        "chapter": "The Stone",
+        "reverse_layout": false,
         "color_scheme": "scheme-1",
-        "padding-block-start": 80,
-        "padding-block-end": 80
-      }
-    },
-    "values": {
-      "type": "kinsoul-materials-teaser",
-      "settings": {
-        "subheading": "What We Believe",
-        "heading": "Our Values",
-        "color_scheme": "scheme-2",
-        "padding_top": 80,
-        "padding_bottom": 80
-      },
-      "blocks": {
-        "val_1": {
-          "type": "material_card",
-          "settings": {
-            "title": "Natural Over Perfect",
-            "description": "We celebrate the irregularity of nature. No two stones or pearls are alike — and that's exactly the point."
-          }
-        },
-        "val_2": {
-          "type": "material_card",
-          "settings": {
-            "title": "Made to Be Worn",
-            "description": "Our designs are restrained and modern — pieces you'll reach for every morning, not just on special occasions."
-          }
-        },
-        "val_3": {
-          "type": "material_card",
-          "settings": {
-            "title": "Small Batch, Hand-Finished",
-            "description": "Every bracelet is assembled and inspected by hand. We keep production small so quality stays high."
-          }
-        }
-      },
-      "block_order": ["val_1", "val_2", "val_3"]
-    },
-    "meaning": {
-      "type": "kinsoul-meaning-teaser",
-      "settings": {
-        "subheading": "Our Perspective",
-        "heading": "Jewelry That Speaks Quietly",
-        "body_text": "We don't promise that crystals will change your life. But we do believe that choosing to wear something natural, something handmade, something with a story — says something about who you are.",
-        "color_scheme": "scheme-3",
         "padding_top": 0,
         "padding_bottom": 0
+      }
+    },
+    "shift": {
+      "type": "kinsoul-about-story",
+      "blocks": {
+        "p1": {
+          "type": "text",
+          "settings": {
+            "text": "LU came home to California with that stone and a question she couldn't let go of: what if the things we dismiss as superstition are just things science hasn't caught up to yet?"
+          }
+        },
+        "p2": {
+          "type": "text",
+          "settings": {
+            "text": "She started reading about the traditions behind natural stones — not the Instagram version, but the old ones. How cultures across centuries have carried certain stones for protection, clarity, or grounding. Not as magic, but as intention. A quiet ritual of choosing something from the earth and keeping it close."
+          }
+        },
+        "p3": {
+          "type": "text",
+          "settings": {
+            "text": "As a designer, she saw something else too: natural stones are genuinely, impossibly beautiful. The inclusions, the banding, the irregular shapes — these aren't flaws. They're what happens when nature works without a blueprint."
+          }
+        }
+      },
+      "block_order": ["p1", "p2", "p3"],
+      "settings": {
+        "chapter": "The Shift",
+        "reverse_layout": true,
+        "color_scheme": "scheme-2",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "beginning": {
+      "type": "kinsoul-about-story",
+      "blocks": {
+        "p1": {
+          "type": "text",
+          "settings": {
+            "text": "The first Kinsoul Energy bracelet was made on her kitchen table. She sourced baroque pearls that refused to be round, agate with visible layers of geological time, amethyst with cracks that caught the light. She strung them by hand on elastic cord, paired them with sterling silver details, and wore the first one herself."
+          }
+        },
+        "p2": {
+          "type": "text",
+          "settings": {
+            "text": "A friend asked about it. Then another. Then someone asked if she could make one for a gift."
+          }
+        },
+        "highlight": {
+          "type": "highlight",
+          "settings": {
+            "text": "Kinsoul Energy became a brand before it had a name."
+          }
+        }
+      },
+      "block_order": ["p1", "p2", "highlight"],
+      "settings": {
+        "chapter": "The Beginning",
+        "reverse_layout": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "name": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class='kinsoul-about'><div class='kinsoul-about__name-section'><hr class='kinsoul-divider'><h2 class='kinsoul-about__name-title'>Kinsoul Energy</h2><p class='kinsoul-about__name-text'>The name came naturally. \"Kin\" for connection — to the earth, to yourself. \"Soul\" for what you carry inside. \"Energy\" for what every natural stone quietly holds.</p><p class='kinsoul-about__name-text'>Three words, one belief: there is something real in what comes from the ground.</p><hr class='kinsoul-divider'></div></div>",
+        "color_scheme": "scheme-2"
+      }
+    },
+    "today": {
+      "type": "kinsoul-about-story",
+      "blocks": {
+        "p1": {
+          "type": "text",
+          "settings": {
+            "text": "What started on LU's kitchen table is now a team of five, working from a small studio in California. LU still designs every piece — choosing the stones, composing the arrangement, deciding which materials belong together and which don't."
+          }
+        },
+        "p2": {
+          "type": "text",
+          "settings": {
+            "text": "The rest of the team handles hand-assembly, quality checks, and packaging. Every bracelet is made one at a time, inspected before it ships, and arrives with a certificate of authenticity."
+          }
+        },
+        "p3": {
+          "type": "text",
+          "settings": {
+            "text": "Five people. One studio. One bracelet at a time."
+          }
+        }
+      },
+      "block_order": ["p1", "p2", "p3"],
+      "settings": {
+        "chapter": "Today",
+        "reverse_layout": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "belief": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class='kinsoul-about__belief'><div class='kinsoul-about__belief-inner'><p class='kinsoul-care__eyebrow'>What We Believe</p><h2 class='kinsoul-about__belief-title'>We don't promise that stones will change your life.</h2><p class='kinsoul-about__belief-text'>But we do believe that choosing to wear something natural, something handmade, something with a story behind it — says something about who you are.</p><hr class='kinsoul-divider'><a href='/collections/all' class='kinsoul-about__belief-button'>Explore the Collection</a></div></div>",
+        "color_scheme": "scheme-3"
       }
     }
   },
   "order": [
     "hero",
-    "brand_intro",
-    "values",
-    "meaning"
+    "origin",
+    "shift",
+    "beginning",
+    "name",
+    "today",
+    "belief"
   ]
 }
