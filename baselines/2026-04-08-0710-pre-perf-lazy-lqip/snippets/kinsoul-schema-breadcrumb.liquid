@@ -1,0 +1,103 @@
+{% comment %}
+  Kinsoul Energy — BreadcrumbList Schema
+  Dynamically generates breadcrumb structured data based on current page type.
+  Output: search results show "kinsoulenergy.com › Bracelets › Ember" instead of raw URL.
+  Skipped on the homepage (no breadcrumb needed there).
+{% endcomment %}
+
+{%- liquid
+  assign render_breadcrumb = false
+  assign breadcrumb_items = ''
+  assign home_url = shop.url | append: '/'
+
+  case request.page_type
+    when 'product'
+      assign render_breadcrumb = true
+      if product.collections.size > 0
+        assign first_collection = product.collections.first
+        assign collection_name = first_collection.title
+        assign collection_url = shop.url | append: first_collection.url
+      else
+        assign collection_name = 'Bracelets'
+        assign collection_url = shop.url | append: '/collections/all'
+      endif
+    when 'collection'
+      assign render_breadcrumb = true
+    when 'page'
+      assign render_breadcrumb = true
+    when 'article'
+      assign render_breadcrumb = true
+    when 'blog'
+      assign render_breadcrumb = true
+  endcase
+-%}
+
+{%- if render_breadcrumb -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": {{ home_url | json }}
+    }
+    {%- if request.page_type == 'product' -%}
+    ,
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ collection_name | json }},
+      "item": {{ collection_url | json }}
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ product.title | json }},
+      "item": {{ shop.url | append: product.url | json }}
+    }
+    {%- elsif request.page_type == 'collection' -%}
+    ,
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ collection.title | json }},
+      "item": {{ shop.url | append: collection.url | json }}
+    }
+    {%- elsif request.page_type == 'page' -%}
+    ,
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ page.title | json }},
+      "item": {{ shop.url | append: page.url | json }}
+    }
+    {%- elsif request.page_type == 'blog' -%}
+    ,
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ blog.title | json }},
+      "item": {{ shop.url | append: blog.url | json }}
+    }
+    {%- elsif request.page_type == 'article' -%}
+    ,
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ blog.title | json }},
+      "item": {{ shop.url | append: blog.url | json }}
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ article.title | json }},
+      "item": {{ shop.url | append: article.url | json }}
+    }
+    {%- endif -%}
+  ]
+}
+</script>
+{%- endif -%}
