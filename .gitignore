@@ -24,3 +24,5 @@ node_modules/
 # Local-only secrets
 secrets.local
 *.token
+.env
+!.env.example
