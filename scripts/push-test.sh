@@ -22,6 +22,14 @@ DESC_SLUG="$(echo "$DESC" | tr ' ' '-' | tr -cd 'a-zA-Z0-9-')"
 STAMP="$(date +%Y-%m-%d-%H%M)"
 THEME_NAME="fix-${STAMP}-${DESC_SLUG}"
 
+# Shopify hard limit on theme name length
+if [[ ${#THEME_NAME} -gt 50 ]]; then
+  MAX_DESC=$((50 - 16))  # 16 = "fix-YYYY-MM-DD-HHMM-" prefix
+  DESC_SLUG="${DESC_SLUG:0:$MAX_DESC}"
+  THEME_NAME="fix-${STAMP}-${DESC_SLUG}"
+  echo "⚠️  Theme name truncated to fit 50-char limit: ${THEME_NAME}"
+fi
+
 # Load .env
 if [[ ! -f .env ]]; then
   echo "❌ .env not found."
