@@ -1,6 +1,5 @@
 # Shopify CLI
 .shopify/
-.shopifyignore
 .env
 .env.local
 

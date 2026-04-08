@@ -1,0 +1,12 @@
+# Exclude from Shopify CLI push.
+# These are local-only source materials, docs, scripts, etc.
+# They live in the repo but should never end up on the Shopify store.
+
+assets/images-source/
+baselines/
+scripts/
+*.md
+.env
+.env.example
+.gitignore
+.git/
