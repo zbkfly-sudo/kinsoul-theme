@@ -158,6 +158,24 @@ Default sequence:
 
 ---
 
+## 7.5 Verify symptoms before fixing
+
+External diagnostic reports and HTML scrapers often produce **false positives**: they grep for keywords in raw HTML without checking whether those elements are actually visible to users. Before writing any fix:
+
+1. **Reproduce the symptom yourself** in an incognito browser. If you can't see it with your own eyes, the problem may not exist.
+2. For HTML-text findings, **inspect the surrounding element** (`curl | grep -o '.{300}KEYWORD.{500}'` or DevTools). Look for:
+   - `class="hidden"` / `class="visually-hidden"` / `style="display:none"`
+   - `aria-hidden="true"`
+   - `<small>` / `<template>` wrappers (often used for "ready to reveal" content)
+   - `data-consent-type` / `data-show-on` attributes (Shopify's deferred-show pattern)
+3. **If the element is hidden, the report is wrong.** Don't fix it. Don't add CSS to "double-hide" something that's already hidden — you'll just add complexity, performance overhead, and a future risk of breaking the legitimate use case.
+
+**Real example:** The April 2026 diagnostic report flagged a "subscription consent text" on PDP as P0-2. Investigation found the text was inside `<small id="shopify-buyer-consent" class="hidden" aria-hidden="true">` — Shopify's standard pre-rendered element that only appears when a real subscription product is added to cart. The "fix" would have been pure noise. The user pushed back ("我没看到") and was right.
+
+**Lesson:** Trust the user's eyes over a third-party automated report.
+
+---
+
 ## 8. When working with the Shopify Admin instead of code
 
 Some problems aren't code:
