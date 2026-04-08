@@ -176,6 +176,25 @@ External diagnostic reports and HTML scrapers often produce **false positives**:
 
 ---
 
+## 7.7 Ground-truth physical properties from photos, never from names or docs
+
+Any claim about a product's **physical properties** — materials, colors, sizes, weights, finishes, stone types, bead counts — must trace back to **the actual product photo or the owner's direct confirmation**, never from:
+- The product's brand name (e.g. "Obsidian sounds black, so it must be black agate")
+- The product handle / URL slug (handle keywords can be stale or auto-generated wrong)
+- A previous doc that itself never traced back to a photo (cards / metafields / past descriptions)
+
+If you're writing a description and you need to state what stones a bracelet contains, you must have either:
+1. Looked at a current product photo, OR
+2. Asked the owner to confirm
+
+Never infer from name → meaning → material. That's how documentation cascade errors happen.
+
+**Real example:** 2026-04-08 — discovered that "Obsidian" and "Terra" had been mapped to the wrong physical products since the original Kinsoul rebrand. The brand names were assigned by intuition (Obsidian = black, Terra = earth), but the physical inventory had the opposite assignment. Six layers of artifacts inherited the same wrong mapping (handles, metafields, packaging cards, reviews, AI lifestyle photos, my just-written PDP descriptions) — none of them were verified against the actual product photos. Fixed by renaming the products in Shopify Admin so brand names match physical reality, but it took deep root-cause analysis to even surface the bug because every artifact agreed with every other artifact.
+
+**Lesson:** Internal consistency proves nothing. Ground truth comes from the photos, the inventory, or the owner.
+
+---
+
 ## 7.6 Don't push when you can publish an existing test theme
 
 If a previous test theme (e.g. `fix-2026-04-07-XXXX-foo`) is already on Shopify, already verified by the user, and represents the desired live state, **publish it directly** with `./scripts/publish.sh <existing-id>`. Do NOT push a new theme just because you made some local commits since.

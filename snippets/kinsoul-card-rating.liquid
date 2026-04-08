@@ -4,6 +4,14 @@
   Usage: {% render 'kinsoul-card-rating', product: closest.product %}
 {%- endcomment -%}
 
+{%- comment -%}
+  Note 2026-04-08: handles `moqiao-...` and `mozhu-...` were renamed in Admin —
+  moqiao is now Terra (banded agate), mozhu is now Obsidian (black agate).
+  Avg/count values for both happen to be identical (4.7, 3), so the case
+  statement below doesn't need to swap. If review counts ever diverge,
+  this mapping must be updated.
+{%- endcomment -%}
+
 {%- liquid
   assign avg = 0
   assign count = 0

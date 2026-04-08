@@ -1,5 +1,15 @@
 # Kinsoul PDP Product Descriptions — v2 (Corrected Construction)
 
+> ⚠️ **CRITICAL: Obsidian and Terra were renamed in Shopify Admin on 2026-04-08.**
+>
+> The product currently with handle `moqiao-black-agate-rutilated-quartz-pearl-bracelet` (URL keyword still says "black-agate") is **physically banded agate**, and is now titled **Terra** in Admin.
+>
+> The product currently with handle `mozhu-persian-agate-baroque-pearl-bracelet` (URL keyword still says "persian-agate") is **physically black agate + rutilated quartz**, and is now titled **Obsidian** in Admin.
+>
+> **Reason:** Brand names were originally assigned to the wrong physical products by intuition without verifying against actual photos. Renaming the products in Admin was the cleanest fix because all downstream copy (cards, reviews, AI photos, this file) was already organized by brand name.
+>
+> **The handle URL keywords are now misleading but cannot be changed without losing SEO history.** Shopify will accept the rename and serve the new title at the old URL.
+>
 > **What's new in v2** (vs v1, never published):
 > - **All 6 products are elastic-cord strung, no clasp.** Each description now mentions this.
 > - **All 6 carry a small S925 sterling silver Kinsoul maker's mark / logo bar** on the strand. Not a structural mount.
@@ -57,9 +67,9 @@ Because every stone is selected by hand and the exact arrangement follows the na
 
 ---
 
-## 4. Obsidian | Black Agate & Grey Pearl Bracelet — $208
+## 4. Obsidian | Black Agate & Grey Pearl Bracelet
 
-**Handle:** `moqiao-black-agate-rutilated-quartz-pearl-bracelet`
+**Handle:** `mozhu-persian-agate-baroque-pearl-bracelet` ⚠️ (handle URL keywords are stale; the product at this URL is physically black agate and is now titled Obsidian)
 
 ```
 Obsidian is built around deep black agate paired with rutilated quartz — clear stones threaded with fine silver needle-like inclusions, as though light had been caught and frozen mid-flight. Soft grey freshwater rice pearls run between them, adding a quiet warmth to the darker stones, with a single baroque pearl anchored at the center. A small S925 sterling silver bar on the strand carries our maker's mark. The whole piece is held on a single fine elastic cord — slip it on, no clasp.
@@ -71,9 +81,9 @@ In many traditions, black agate is carried for inner resolve and quiet protectio
 
 ---
 
-## 5. Terra | Banded Agate & Baroque Pearl Bracelet — $264
+## 5. Terra | Banded Agate & Baroque Pearl Bracelet
 
-**Handle:** `mozhu-persian-agate-baroque-pearl-bracelet`
+**Handle:** `moqiao-black-agate-rutilated-quartz-pearl-bracelet` ⚠️ (handle URL keywords are stale; the product at this URL is physically banded agate and is now titled Terra)
 
 ```
 Terra is a study in slow time. Persian banded agate — formed over millions of years as mineral-rich water deposited silica in patient, alternating layers — gives each stone a unique geological fingerprint of stripes, soft browns, and warm cream tones. Paired with a generous baroque freshwater pearl and antique-finished S925 sterling silver spacers that share the warmth of the stone palette, it has the feel of something pulled from a riverbed and the polish of a finished piece. A small silver bar on the strand carries our maker's mark, and the whole bracelet is held on a single fine elastic cord — no clasp, just slip it on.
