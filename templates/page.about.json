@@ -1,10 +1,22 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "custom-liquid",
       "settings": {
         "custom_liquid": "<div class='kinsoul-about'><div class='kinsoul-about__hero'><p class='kinsoul-care__eyebrow'>Our Story</p><h1 class='kinsoul-about__hero-title'>It started with a stone she found on the ground in China.</h1></div></div>",
-        "color_scheme": "scheme-1"
+        "color_scheme": "scheme-1",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "origin": {
@@ -35,8 +47,14 @@
           }
         }
       },
-      "block_order": ["p1", "p2", "p3", "highlight"],
+      "block_order": [
+        "p1",
+        "p2",
+        "p3",
+        "highlight"
+      ],
       "settings": {
+        "image": "shopify://shop_images/1.png",
         "chapter": "The Stone",
         "reverse_layout": false,
         "color_scheme": "scheme-1",
@@ -66,8 +84,13 @@
           }
         }
       },
-      "block_order": ["p1", "p2", "p3"],
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
       "settings": {
+        "image": "shopify://shop_images/2.png",
         "chapter": "The Shift",
         "reverse_layout": true,
         "color_scheme": "scheme-2",
@@ -97,8 +120,13 @@
           }
         }
       },
-      "block_order": ["p1", "p2", "highlight"],
+      "block_order": [
+        "p1",
+        "p2",
+        "highlight"
+      ],
       "settings": {
+        "image": "shopify://shop_images/3.png",
         "chapter": "The Beginning",
         "reverse_layout": false,
         "color_scheme": "scheme-1",
@@ -110,7 +138,10 @@
       "type": "custom-liquid",
       "settings": {
         "custom_liquid": "<div class='kinsoul-about'><div class='kinsoul-about__name-section'><hr class='kinsoul-divider'><h2 class='kinsoul-about__name-title'>Kinsoul Energy</h2><p class='kinsoul-about__name-text'>The name came naturally. \"Kin\" for connection — to the earth, to yourself. \"Soul\" for what you carry inside. \"Energy\" for what every natural stone quietly holds.</p><p class='kinsoul-about__name-text'>Three words, one belief: there is something real in what comes from the ground.</p><hr class='kinsoul-divider'></div></div>",
-        "color_scheme": "scheme-2"
+        "color_scheme": "scheme-2",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "today": {
@@ -135,8 +166,13 @@
           }
         }
       },
-      "block_order": ["p1", "p2", "p3"],
+      "block_order": [
+        "p1",
+        "p2",
+        "p3"
+      ],
       "settings": {
+        "image": "shopify://shop_images/4.png",
         "chapter": "Today",
         "reverse_layout": true,
         "color_scheme": "scheme-1",
@@ -148,7 +184,10 @@
       "type": "custom-liquid",
       "settings": {
         "custom_liquid": "<div class='kinsoul-about__belief'><div class='kinsoul-about__belief-inner'><p class='kinsoul-care__eyebrow'>What We Believe</p><h2 class='kinsoul-about__belief-title'>We don't promise that stones will change your life.</h2><p class='kinsoul-about__belief-text'>But we do believe that choosing to wear something natural, something handmade, something with a story behind it — says something about who you are.</p><hr class='kinsoul-divider'><a href='/collections/all' class='kinsoul-about__belief-button'>Explore the Collection</a></div></div>",
-        "color_scheme": "scheme-3"
+        "color_scheme": "scheme-3",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     }
   },

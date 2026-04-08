@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -423,6 +432,240 @@
         "padding-block-end": 80
       }
     },
+    "social_proof": {
+      "type": "kinsoul-social-proof",
+      "blocks": {
+        "review_01": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-01-ember-jasmine.jpg",
+            "rating": 5,
+            "review_text": "The red is even richer in person — I haven't taken it off since it arrived.",
+            "author": "Jasmine W. · March 2026",
+            "product_name": "Ember Bracelet"
+          }
+        },
+        "review_02": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-02-ember-hannah.jpg",
+            "rating": 4,
+            "review_text": "Sizing was a little optimistic on my part — went with M and it's looser than I'd like. Not loose enough to send back though, the stones are too pretty for that.",
+            "author": "Hannah K. · February 2026",
+            "product_name": "Ember Bracelet"
+          }
+        },
+        "review_03": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-03-ember-maya.jpg",
+            "rating": 5,
+            "review_text": "Bought this for myself after a rough few months. I told myself if I made it through, I'd get something I could wear every day to remember. The red just felt right — like fire that survived something. I put it on every morning before anything else now.",
+            "author": "Maya R. · January 2026",
+            "product_name": "Ember Bracelet"
+          }
+        },
+        "review_04": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-04-ember-sarah.jpg",
+            "rating": 5,
+            "review_text": "Got this for my mom for her 65th. She called me crying — said it felt like the bracelet was made for her. Three months later she still wears it every day.",
+            "author": "Sarah B. · December 2025",
+            "product_name": "Ember Bracelet"
+          }
+        },
+        "review_05": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-05-serenity-mei.jpg",
+            "rating": 5,
+            "review_text": "The purple is even deeper in person — exactly what I was hoping for.",
+            "author": "Mei T. · February 2026",
+            "product_name": "Serenity Bracelet"
+          }
+        },
+        "review_06": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-06-serenity-elena.jpg",
+            "rating": 4,
+            "review_text": "Have to be honest — the purple is more grey-toned in person than the photos suggested. It threw me off at first, but in real daylight I actually love it more. Feels less candy and more like a real stone.",
+            "author": "Elena F. · January 2026",
+            "product_name": "Serenity Bracelet"
+          }
+        },
+        "review_07": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-07-serenity-naomi.jpg",
+            "rating": 5,
+            "review_text": "I genuinely could not wait to get home. Opened the package in my car the second I got back. The way the purple catches the light is even better than I'd hoped. Already wore it out the same night.",
+            "author": "Naomi A. · February 2026",
+            "product_name": "Serenity Bracelet"
+          }
+        },
+        "review_08": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-08-serenity-claire.jpg",
+            "rating": 5,
+            "review_text": "Three of my friends asked where it was from at brunch — that says it all.",
+            "author": "Claire D. · March 2026",
+            "product_name": "Serenity Bracelet"
+          }
+        },
+        "review_09": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-09-aura-rachel.jpg",
+            "rating": 5,
+            "review_text": "My husband gave this to me for our 10-year anniversary. He said the rainbow of stones reminded him of all the years strung together. I haven't taken it off in two months.",
+            "author": "Rachel M. · January 2026",
+            "product_name": "Aura Bracelet"
+          }
+        },
+        "review_10": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-10-aura-margaret.jpg",
+            "rating": 5,
+            "review_text": "My daughter gave me this for Mother's Day last year. I was worried it would be too flashy at my age, but the way the stones sit together feels almost classical. I get compliments from women half my age.",
+            "author": "Margaret H. · December 2025",
+            "product_name": "Aura Bracelet"
+          }
+        },
+        "review_11": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-11-aura-anya.jpg",
+            "rating": 4,
+            "review_text": "Took 11 days to arrive which felt like forever for a $365 bracelet. I almost cancelled twice. Then I opened the box and got it. The stones are all slightly different shapes — not uniform, very alive. Worth the wait, but I think the brand should be honest about lead times upfront.",
+            "author": "Anya P. · February 2026",
+            "product_name": "Aura Bracelet"
+          }
+        },
+        "review_12": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-12-obsidian-imani.jpg",
+            "rating": 5,
+            "review_text": "Wore it out the same night I got it. The black stones with everything black is a whole look.",
+            "author": "Imani K. · January 2026",
+            "product_name": "Obsidian Bracelet"
+          }
+        },
+        "review_13": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-13-obsidian-lara.jpg",
+            "rating": 5,
+            "review_text": "Bought this for my boyfriend's birthday. He doesn't usually wear jewelry but he hasn't taken this off. Says the weight feels grounding.",
+            "author": "Lara M. · February 2026",
+            "product_name": "Obsidian Bracelet"
+          }
+        },
+        "review_14": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-14-obsidian-beth.jpg",
+            "rating": 4,
+            "review_text": "Wears really well — I've been putting it on every morning for work. The only thing is the silver detail catches on my sweater sleeves sometimes. Not enough to stop wearing it though, just something to know.",
+            "author": "Beth O. · January 2026",
+            "product_name": "Obsidian Bracelet"
+          }
+        },
+        "review_15": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-15-terra-helena.jpg",
+            "rating": 5,
+            "review_text": "My sister mailed this to me out of the blue — I opened the box standing in my kitchen and immediately cried.",
+            "author": "Helena S. · February 2026",
+            "product_name": "Terra Bracelet"
+          }
+        },
+        "review_16": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-16-terra-carla.jpg",
+            "rating": 5,
+            "review_text": "Took it to Mexico last week — looks like every shell I picked up off the sand.",
+            "author": "Carla R. · March 2026",
+            "product_name": "Terra Bracelet"
+          }
+        },
+        "review_17": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-17-terra-sofia.jpg",
+            "rating": 4,
+            "review_text": "Each stone is a different shape and a different shade. I noticed it the second I unwrapped it and almost felt disappointed. A week in, it's the thing I love most about it.",
+            "author": "Sofia L. · January 2026",
+            "product_name": "Terra Bracelet"
+          }
+        },
+        "review_18": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-18-soleil-yuna.jpg",
+            "rating": 5,
+            "review_text": "My mom gave this to me when I graduated last spring. She said yellow was the color of the sweater she wore the day she got into the university she'd dreamed of. I didn't know that until she told me. I think about it every time the light catches the stones.",
+            "author": "Yuna K. · February 2026",
+            "product_name": "Soleil Bracelet"
+          }
+        },
+        "review_19": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-19-soleil-adaeze.jpg",
+            "rating": 5,
+            "review_text": "My best friend put this on my wrist at brunch and refused to let me give it back.",
+            "author": "Adaeze N. · March 2026",
+            "product_name": "Soleil Bracelet"
+          }
+        },
+        "review_20": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/review-20-soleil-hannah.jpg",
+            "rating": 4,
+            "review_text": "My husband got it for me but the size chart confused us at first — Kinsoul's team made the swap really easy though.",
+            "author": "Hannah W. · January 2026",
+            "product_name": "Soleil Bracelet"
+          }
+        }
+      },
+      "block_order": [
+        "review_01",
+        "review_02",
+        "review_03",
+        "review_04",
+        "review_05",
+        "review_06",
+        "review_07",
+        "review_08",
+        "review_09",
+        "review_10",
+        "review_11",
+        "review_12",
+        "review_13",
+        "review_14",
+        "review_15",
+        "review_16",
+        "review_17",
+        "review_18",
+        "review_19",
+        "review_20"
+      ],
+      "settings": {
+        "subheading": "What Our Customers Say",
+        "heading": "Worn & Loved",
+        "color_scheme": "scheme-1",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "materials_teaser": {
       "type": "kinsoul-materials-teaser",
       "blocks": {
@@ -484,238 +727,14 @@
         "padding_bottom": 0
       }
     },
-    "social_proof": {
-      "type": "kinsoul-social-proof",
-      "blocks": {
-        "review_01": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-01-ember-jasmine.png",
-            "rating": 5,
-            "review_text": "The red is even richer in person — I haven't taken it off since it arrived.",
-            "author": "Jasmine W. · March 2026",
-            "product_name": "Ember Bracelet"
-          }
-        },
-        "review_02": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-02-ember-hannah.png",
-            "rating": 4,
-            "review_text": "Sizing was a little optimistic on my part — went with M and it's looser than I'd like. Not loose enough to send back though, the stones are too pretty for that.",
-            "author": "Hannah K. · February 2026",
-            "product_name": "Ember Bracelet"
-          }
-        },
-        "review_03": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-03-ember-maya.png",
-            "rating": 5,
-            "review_text": "Bought this for myself after a rough few months. I told myself if I made it through, I'd get something I could wear every day to remember. The red just felt right — like fire that survived something. I put it on every morning before anything else now.",
-            "author": "Maya R. · January 2026",
-            "product_name": "Ember Bracelet"
-          }
-        },
-        "review_04": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-04-ember-sarah.png",
-            "rating": 5,
-            "review_text": "Got this for my mom for her 65th. She called me crying — said it felt like the bracelet was made for her. Three months later she still wears it every day.",
-            "author": "Sarah B. · December 2025",
-            "product_name": "Ember Bracelet"
-          }
-        },
-        "review_05": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-05-serenity-mei.png",
-            "rating": 5,
-            "review_text": "The purple is even deeper in person — exactly what I was hoping for.",
-            "author": "Mei T. · February 2026",
-            "product_name": "Serenity Bracelet"
-          }
-        },
-        "review_06": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-06-serenity-elena.png",
-            "rating": 4,
-            "review_text": "Have to be honest — the purple is more grey-toned in person than the photos suggested. It threw me off at first, but in real daylight I actually love it more. Feels less candy and more like a real stone.",
-            "author": "Elena F. · January 2026",
-            "product_name": "Serenity Bracelet"
-          }
-        },
-        "review_07": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-07-serenity-naomi.png",
-            "rating": 5,
-            "review_text": "I genuinely could not wait to get home. Opened the package in my car the second I got back. The way the purple catches the light is even better than I'd hoped. Already wore it out the same night.",
-            "author": "Naomi A. · February 2026",
-            "product_name": "Serenity Bracelet"
-          }
-        },
-        "review_08": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-08-serenity-claire.png",
-            "rating": 5,
-            "review_text": "Three of my friends asked where it was from at brunch — that says it all.",
-            "author": "Claire D. · March 2026",
-            "product_name": "Serenity Bracelet"
-          }
-        },
-        "review_09": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-09-aura-rachel.png",
-            "rating": 5,
-            "review_text": "My husband gave this to me for our 10-year anniversary. He said the rainbow of stones reminded him of all the years strung together. I haven't taken it off in two months.",
-            "author": "Rachel M. · January 2026",
-            "product_name": "Aura Bracelet"
-          }
-        },
-        "review_10": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-10-aura-margaret.png",
-            "rating": 5,
-            "review_text": "My daughter gave me this for Mother's Day last year. I was worried it would be too flashy at my age, but the way the stones sit together feels almost classical. I get compliments from women half my age.",
-            "author": "Margaret H. · December 2025",
-            "product_name": "Aura Bracelet"
-          }
-        },
-        "review_11": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-11-aura-anya.png",
-            "rating": 4,
-            "review_text": "Took 11 days to arrive which felt like forever for a $365 bracelet. I almost cancelled twice. Then I opened the box and got it. The stones are all slightly different shapes — not uniform, very alive. Worth the wait, but I think the brand should be honest about lead times upfront.",
-            "author": "Anya P. · February 2026",
-            "product_name": "Aura Bracelet"
-          }
-        },
-        "review_12": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-12-obsidian-imani.png",
-            "rating": 5,
-            "review_text": "Wore it out the same night I got it. The black stones with everything black is a whole look.",
-            "author": "Imani K. · January 2026",
-            "product_name": "Obsidian Bracelet"
-          }
-        },
-        "review_13": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-13-obsidian-lara.png",
-            "rating": 5,
-            "review_text": "Bought this for my boyfriend's birthday. He doesn't usually wear jewelry but he hasn't taken this off. Says the weight feels grounding.",
-            "author": "Lara M. · February 2026",
-            "product_name": "Obsidian Bracelet"
-          }
-        },
-        "review_14": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-14-obsidian-beth.png",
-            "rating": 4,
-            "review_text": "Wears really well — I've been putting it on every morning for work. The only thing is the silver detail catches on my sweater sleeves sometimes. Not enough to stop wearing it though, just something to know.",
-            "author": "Beth O. · January 2026",
-            "product_name": "Obsidian Bracelet"
-          }
-        },
-        "review_15": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-15-terra-helena.png",
-            "rating": 5,
-            "review_text": "My sister mailed this to me out of the blue — I opened the box standing in my kitchen and immediately cried.",
-            "author": "Helena S. · February 2026",
-            "product_name": "Terra Bracelet"
-          }
-        },
-        "review_16": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-16-terra-carla.png",
-            "rating": 5,
-            "review_text": "Took it to Mexico last week — looks like every shell I picked up off the sand.",
-            "author": "Carla R. · March 2026",
-            "product_name": "Terra Bracelet"
-          }
-        },
-        "review_17": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-17-terra-sofia.png",
-            "rating": 4,
-            "review_text": "Each stone is a different shape and a different shade. I noticed it the second I unwrapped it and almost felt disappointed. A week in, it's the thing I love most about it.",
-            "author": "Sofia L. · January 2026",
-            "product_name": "Terra Bracelet"
-          }
-        },
-        "review_18": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-18-soleil-yuna.png",
-            "rating": 5,
-            "review_text": "My mom gave this to me when I graduated last spring. She said yellow was the color of the sweater she wore the day she got into the university she'd dreamed of. I didn't know that until she told me. I think about it every time the light catches the stones.",
-            "author": "Yuna K. · February 2026",
-            "product_name": "Soleil Bracelet"
-          }
-        },
-        "review_19": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-19-soleil-adaeze.png",
-            "rating": 5,
-            "review_text": "My best friend put this on my wrist at brunch and refused to let me give it back.",
-            "author": "Adaeze N. · March 2026",
-            "product_name": "Soleil Bracelet"
-          }
-        },
-        "review_20": {
-          "type": "review",
-          "settings": {
-            "image": "shopify://shop_images/review-20-soleil-hannah.png",
-            "rating": 4,
-            "review_text": "My husband got it for me but the size chart confused us at first — Kinsoul's team made the swap really easy though.",
-            "author": "Hannah W. · January 2026",
-            "product_name": "Soleil Bracelet"
-          }
-        }
-      },
-      "block_order": [
-        "review_01",
-        "review_02",
-        "review_03",
-        "review_04",
-        "review_05",
-        "review_06",
-        "review_07",
-        "review_08",
-        "review_09",
-        "review_10",
-        "review_11",
-        "review_12",
-        "review_13",
-        "review_14",
-        "review_15",
-        "review_16",
-        "review_17",
-        "review_18",
-        "review_19",
-        "review_20"
-      ],
+    "founder_teaser": {
+      "type": "custom-liquid",
       "settings": {
-        "subheading": "What Our Customers Say",
-        "heading": "Worn & Loved",
-        "color_scheme": "scheme-1",
-        "padding_top": 80,
-        "padding_bottom": 80
+        "custom_liquid": "<div class='kinsoul-founder-teaser'><div class='kinsoul-founder-teaser__inner'><p class='kinsoul-care__eyebrow'>Our Founder</p><h2 class='kinsoul-founder-teaser__title'>In 2018, a designer named LU found a stone on the ground in China.</h2><p class='kinsoul-founder-teaser__text'>She picked it up, turned it over in her hand, and saw something most people walked past every day — a small piece of the earth, shaped slowly over time, holding a quiet weight. That moment turned into a question: what if jewelry could be made the way the stone was made — slowly, by hand, from the natural world rather than the factory floor? Kinsoul Energy is the answer she's been building ever since, one bracelet at a time.</p><a href='/pages/about' class='kinsoul-founder-teaser__link'>Read Our Story →</a></div></div>",
+        "color_scheme": "scheme-2",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "gifting_service": {
@@ -747,7 +766,8 @@
             "icon_svg": "<svg width=\"32\" height=\"32\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z\"></path></svg>",
             "title": "Client Care",
             "description": "Shipping, returns, care instructions — everything you need in one place.",
-            "link_url": "/pages/client-care"
+            "link_url": "/pages/client-care",
+            "popup_id": ""
           }
         },
         "svc_4": {
@@ -756,7 +776,8 @@
             "icon_svg": "<svg width=\"32\" height=\"32\" viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z\"></path><polyline points=\"22,6 12,13 2,6\"></polyline></svg>",
             "title": "Contact Us",
             "description": "Questions about a piece, a gift, or your order? We're here to help.",
-            "link_url": "/pages/contact"
+            "link_url": "/pages/contact",
+            "popup_id": ""
           }
         }
       },
@@ -770,6 +791,7 @@
         "subheading": "We're Here to Help",
         "heading": "Gifting & Client Care",
         "color_scheme": "scheme-2",
+        "gift_popup_image": "shopify://shop_images/8697aeb0aa7a4d4d174e88e88760ac56_8d88733a-40f4-4909-8eb9-cba01d5e905e.jpg",
         "padding_top": 80,
         "padding_bottom": 80
       }
@@ -786,13 +808,6 @@
         "color_scheme": "scheme-2",
         "padding_top": 80,
         "padding_bottom": 80
-      }
-    },
-    "founder_teaser": {
-      "type": "custom-liquid",
-      "settings": {
-        "custom_liquid": "<div class='kinsoul-founder-teaser'><div class='kinsoul-founder-teaser__inner'><p class='kinsoul-care__eyebrow'>Our Founder</p><h2 class='kinsoul-founder-teaser__title'>In 2018, a designer named LU found a stone on the ground in China.</h2><p class='kinsoul-founder-teaser__text'>She picked it up, turned it over in her hand, and saw something most people walked past every day — a small piece of the earth, shaped slowly over time, holding a quiet weight. That moment turned into a question: what if jewelry could be made the way the stone was made — slowly, by hand, from the natural world rather than the factory floor? Kinsoul Energy is the answer she's been building ever since, one bracelet at a time.</p><a href='/pages/about' class='kinsoul-founder-teaser__link'>Read Our Story →</a></div></div>",
-        "color_scheme": "scheme-2"
       }
     }
   },
