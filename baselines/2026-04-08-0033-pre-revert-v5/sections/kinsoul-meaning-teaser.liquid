@@ -1,0 +1,198 @@
+{%- liquid
+  assign color_scheme = section.settings.color_scheme
+-%}
+
+<div
+  class="kinsoul-meaning-section section-{{ section.id }} color-{{ color_scheme }}"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    {% if section.settings.background_image != blank %}
+      background-image: url('{{ section.settings.background_image | image_url: width: 2000 }}');
+      background-size: cover;
+      background-position: center;
+    {% endif %}
+  "
+>
+  {%- if section.settings.background_image != blank -%}
+    <div class="kinsoul-meaning-section__overlay"></div>
+  {%- endif -%}
+
+  <div class="page-width kinsoul-meaning-section__content">
+    {%- if section.settings.subheading != blank -%}
+      <p class="kinsoul-meaning-section__subheading">{{ section.settings.subheading }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.heading != blank -%}
+      <h2 class="kinsoul-meaning-section__heading">{{ section.settings.heading }}</h2>
+    {%- endif -%}
+
+    <hr class="kinsoul-divider">
+
+    {%- if section.settings.body_text != blank -%}
+      <p class="kinsoul-meaning-section__body">{{ section.settings.body_text }}</p>
+    {%- endif -%}
+
+    {%- if section.settings.button_url != blank and section.settings.button_text != blank -%}
+      <a href="{{ section.settings.button_url }}" class="kinsoul-meaning-section__cta">
+        {{ section.settings.button_text }}
+      </a>
+    {%- endif -%}
+  </div>
+</div>
+
+{% stylesheet %}
+  .kinsoul-meaning-section {
+    position: relative;
+    text-align: center;
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .kinsoul-meaning-section__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(44, 44, 44, 0.45);
+    z-index: 1;
+  }
+
+  .kinsoul-meaning-section__content {
+    position: relative;
+    z-index: 2;
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .kinsoul-meaning-section__subheading {
+    font-family: var(--font-secondary--family), sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .kinsoul-meaning-section__heading {
+    font-family: var(--font-heading--family), serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--color-foreground-heading);
+    letter-spacing: 0.02em;
+    margin: 0;
+  }
+
+  .kinsoul-meaning-section__body {
+    font-family: var(--font-heading--family), serif;
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--color-foreground);
+    max-width: 520px;
+    margin: 0 auto 2rem;
+  }
+
+  .kinsoul-meaning-section__cta {
+    display: inline-block;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-foreground-heading);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+  }
+
+  .kinsoul-meaning-section__cta:hover {
+    color: var(--color-primary);
+  }
+
+  @media screen and (max-width: 749px) {
+    .kinsoul-meaning-section {
+      min-height: 40vh;
+    }
+
+    .kinsoul-meaning-section__content {
+      padding: 3rem 1.5rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Meaning Teaser",
+  "tag": "section",
+  "class": "kinsoul-meaning-teaser-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "A Quiet Meaning"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What You Wear Says Something About Who You Are"
+    },
+    {
+      "type": "textarea",
+      "id": "body_text",
+      "label": "Body text",
+      "default": "Every stone carries a story. Not magic — just the quiet symbolism of choosing something natural, something real, something that feels like yours."
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "Button URL"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Explore the Collection"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-3"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Meaning Teaser"
+    }
+  ]
+}
+{% endschema %}
