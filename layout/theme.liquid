@@ -39,6 +39,9 @@
       {%- render 'kinsoul-schema-faq' -%}
     {%- endif -%}
 
+    {%- comment %} Kinsoul: hide Shopify-injected subscription consent text on PDP {% endcomment -%}
+    {%- render 'kinsoul-hide-payment-terms' -%}
+
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}
     {% endif %}
