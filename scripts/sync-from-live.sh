@@ -41,10 +41,10 @@ echo ""
 shopify theme pull \
   --theme="${SHOPIFY_LIVE_THEME_ID}" \
   --store="${SHOPIFY_STORE}" \
-  --only=templates/ \
-  --only=config/ \
-  --only=sections/header-group.json \
-  --only=sections/footer-group.json \
+  --only="templates/*.json" \
+  --only="config/*.json" \
+  --only="sections/header-group.json" \
+  --only="sections/footer-group.json" \
   --no-color
 
 echo ""
