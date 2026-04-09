@@ -1,119 +1,120 @@
 {%- doc -%}
-  Kinsoul Energy — Gift-Ready Packaging Popup
-  A modal triggered by the Gift-Ready Packaging card on the homepage.
-  Showcases the unboxing experience with packaging photo and three key features.
+  Kinsoul Energy — Gift-Ready Packaging Popup (lazy-rendered)
+  HTML stays in <template> until first open — saves ~45 DOM nodes on initial load.
 {%- enddoc -%}
 
-<div class="kinsoul-popup-overlay" id="kinsoul-gift-popup" aria-hidden="true" role="dialog" aria-label="Gift-Ready Packaging">
-  <div class="kinsoul-popup">
-    <button class="kinsoul-popup__close" id="kinsoul-gift-popup-close" aria-label="Close">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
+<template id="kinsoul-gift-popup-template">
+  <div class="kinsoul-popup-overlay" id="kinsoul-gift-popup" aria-hidden="true" role="dialog" aria-label="Gift-Ready Packaging">
+    <div class="kinsoul-popup">
+      <button class="kinsoul-popup__close" id="kinsoul-gift-popup-close" aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
 
-    <div class="kinsoul-popup__body">
-      {%- comment -%} Left: Packaging Image {%- endcomment -%}
-      <div class="kinsoul-popup__image-wrap">
-        {%- if section.settings.gift_popup_image != blank -%}
-          <img
-            src="{{ section.settings.gift_popup_image | image_url: width: 800 }}"
-            alt="Kinsoul Energy gift packaging"
-            width="800"
-            height="1000"
-            loading="lazy"
-            class="kinsoul-popup__image"
-          >
-        {%- else -%}
-          <div class="kinsoul-popup__image-placeholder">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+      <div class="kinsoul-popup__body">
+        <div class="kinsoul-popup__image-wrap">
+          {%- if section.settings.gift_popup_image != blank -%}
+            <img
+              src="{{ section.settings.gift_popup_image | image_url: width: 800 }}"
+              alt="Kinsoul Energy gift packaging"
+              width="800"
+              height="1000"
+              loading="lazy"
+              class="kinsoul-popup__image"
+            >
+          {%- else -%}
+            <div class="kinsoul-popup__image-placeholder">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="kinsoul-popup__content">
+          <p class="kinsoul-popup__subheading">The Kinsoul Experience</p>
+          <h2 class="kinsoul-popup__title">Every Piece, Gift-Ready</h2>
+          <hr class="kinsoul-divider kinsoul-popup__divider">
+          <p class="kinsoul-popup__intro">
+            No extra wrapping needed. From us to you — or to someone you love.
+          </p>
+
+          <ul class="kinsoul-popup__features">
+            <li class="kinsoul-popup__feature">
+              <span class="kinsoul-popup__feature-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+              </span>
+              <span class="kinsoul-popup__feature-text">
+                <strong>Signature Box</strong>
+                Hand-wrapped in cotton linen with a suede interior — designed to feel special from the first touch.
+              </span>
+            </li>
+            <li class="kinsoul-popup__feature">
+              <span class="kinsoul-popup__feature-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              </span>
+              <span class="kinsoul-popup__feature-text">
+                <strong>Stone Meaning Card</strong>
+                Each piece comes with a card telling the story of your stone — a keepsake, not just packaging.
+              </span>
+            </li>
+            <li class="kinsoul-popup__feature">
+              <span class="kinsoul-popup__feature-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              </span>
+              <span class="kinsoul-popup__feature-text">
+                <strong>Cotton Pouch Included</strong>
+                A soft drawstring pouch for everyday storage and travel — the brand stays with you.
+              </span>
+            </li>
+          </ul>
+
+          <div class="kinsoul-popup__footer">
+            <p class="kinsoul-popup__note">
+              Gift packaging is included with every order — no extra charge, no extra steps.
+            </p>
+            <p class="kinsoul-popup__gift-hint">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              Select "This is a gift" in your cart to add a personal message.
+            </p>
           </div>
-        {%- endif -%}
-      </div>
-
-      {%- comment -%} Right: Content {%- endcomment -%}
-      <div class="kinsoul-popup__content">
-        <p class="kinsoul-popup__subheading">The Kinsoul Experience</p>
-        <h2 class="kinsoul-popup__title">Every Piece, Gift-Ready</h2>
-        <hr class="kinsoul-divider kinsoul-popup__divider">
-        <p class="kinsoul-popup__intro">
-          No extra wrapping needed. From us to you — or to someone you love.
-        </p>
-
-        <ul class="kinsoul-popup__features">
-          <li class="kinsoul-popup__feature">
-            <span class="kinsoul-popup__feature-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><line x1="12" y1="22" x2="12" y2="7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
-            </span>
-            <span class="kinsoul-popup__feature-text">
-              <strong>Signature Box</strong>
-              Hand-wrapped in cotton linen with a suede interior — designed to feel special from the first touch.
-            </span>
-          </li>
-          <li class="kinsoul-popup__feature">
-            <span class="kinsoul-popup__feature-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            </span>
-            <span class="kinsoul-popup__feature-text">
-              <strong>Stone Meaning Card</strong>
-              Each piece comes with a card telling the story of your stone — a keepsake, not just packaging.
-            </span>
-          </li>
-          <li class="kinsoul-popup__feature">
-            <span class="kinsoul-popup__feature-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-            </span>
-            <span class="kinsoul-popup__feature-text">
-              <strong>Cotton Pouch Included</strong>
-              A soft drawstring pouch for everyday storage and travel — the brand stays with you.
-            </span>
-          </li>
-        </ul>
-
-        <div class="kinsoul-popup__footer">
-          <p class="kinsoul-popup__note">
-            Gift packaging is included with every order — no extra charge, no extra steps.
-          </p>
-          <p class="kinsoul-popup__gift-hint">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            Select "This is a gift" in your cart to add a personal message.
-          </p>
         </div>
       </div>
     </div>
   </div>
-</div>
+</template>
 
 <script>
   (function() {
-    const popup = document.getElementById('kinsoul-gift-popup');
-    const closeBtn = document.getElementById('kinsoul-gift-popup-close');
-    if (!popup || !closeBtn) return;
+    var popup = null;
+
+    function ensurePopup() {
+      if (popup) return popup;
+      var tmpl = document.getElementById('kinsoul-gift-popup-template');
+      if (!tmpl) return null;
+      document.body.appendChild(tmpl.content.cloneNode(true));
+      popup = document.getElementById('kinsoul-gift-popup');
+      var closeBtn = document.getElementById('kinsoul-gift-popup-close');
+      if (closeBtn) closeBtn.addEventListener('click', closePopup);
+      popup.addEventListener('click', function(e) { if (e.target === popup) closePopup(); });
+      return popup;
+    }
 
     function openPopup() {
-      popup.setAttribute('aria-hidden', 'false');
+      var el = ensurePopup();
+      if (!el) return;
+      el.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     }
 
     function closePopup() {
-      popup.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
+      if (popup) {
+        popup.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
     }
 
-    // Close button
-    closeBtn.addEventListener('click', closePopup);
-
-    // Click overlay to close
-    popup.addEventListener('click', function(e) {
-      if (e.target === popup) closePopup();
-    });
-
-    // ESC key to close
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && popup.getAttribute('aria-hidden') === 'false') {
-        closePopup();
-      }
+      if (e.key === 'Escape' && popup && popup.getAttribute('aria-hidden') === 'false') closePopup();
     });
 
-    // Expose open function for the service card trigger
     window.kinsoulOpenGiftPopup = openPopup;
   })();
 </script>

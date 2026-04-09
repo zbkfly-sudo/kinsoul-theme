@@ -108,9 +108,11 @@
   assign mobile_widths_array = mobile_widths | split: ', '
 
   assign fetch_priority = 'auto'
+  assign loading = 'lazy'
 
   if section.index == 1
     assign fetch_priority = 'high'
+    assign loading = 'eager'
   endif
 %}
 
@@ -143,6 +145,7 @@
           class: 'hero__media',
           sizes: sizes,
           fetchpriority: fetch_priority,
+          loading: loading,
           data-testid: 'hero-desktop-image-1'
       }}
     </picture>
@@ -159,6 +162,7 @@
           class: 'hero__media',
           sizes: sizes,
           fetchpriority: fetch_priority,
+          loading: loading,
           data-testid: 'hero-desktop-image-1'
       }}
     </div>
@@ -195,6 +199,7 @@
             class: 'hero__media',
             sizes: sizes_mobile,
             fetchpriority: fetch_priority,
+            loading: loading,
             data-testid: 'hero-mobile-image-1'
         }}
       </div>
@@ -247,6 +252,7 @@
           class: 'hero__media',
           sizes: sizes,
           fetchpriority: fetch_priority,
+          loading: loading,
           data-testid: 'hero-desktop-image-2'
       }}
     </picture>
@@ -263,6 +269,7 @@
           class: 'hero__media',
           sizes: sizes,
           fetchpriority: fetch_priority,
+          loading: loading,
           data-testid: 'hero-desktop-image-2'
       }}
     </div>
@@ -299,6 +306,7 @@
             class: 'hero__media',
             sizes: sizes_mobile,
             fetchpriority: fetch_priority,
+            loading: loading,
             data-testid: 'hero-mobile-image-2'
         }}
       </div>

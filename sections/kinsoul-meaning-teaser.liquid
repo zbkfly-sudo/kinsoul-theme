@@ -7,14 +7,19 @@
   style="
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
-    {% if section.settings.background_image != blank %}
-      background-image: url('{{ section.settings.background_image | image_url: width: 2000 }}');
-      background-size: cover;
-      background-position: center;
-    {% endif %}
   "
 >
   {%- if section.settings.background_image != blank -%}
+    {{
+      section.settings.background_image
+      | image_url: width: 2000
+      | image_tag:
+        widths: '600, 900, 1200, 1600, 2000',
+        sizes: '100vw',
+        class: 'kinsoul-meaning-section__bg-img',
+        loading: 'lazy',
+        alt: section.settings.heading
+    }}
     <div class="kinsoul-meaning-section__overlay"></div>
   {%- endif -%}
 
@@ -49,6 +54,15 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .kinsoul-meaning-section__bg-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
   }
 
   .kinsoul-meaning-section__overlay {

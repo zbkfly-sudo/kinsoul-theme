@@ -1,193 +1,198 @@
 {%- doc -%}
-  Kinsoul Energy — Size Guidance Popup
-  A modal triggered by the Size Guidance card on the homepage.
-  Features a credit card quick method and a precise string method.
+  Kinsoul Energy — Size Guidance Popup (lazy-rendered)
+  HTML stays in <template> until first open — saves ~90 DOM nodes on initial load.
 {%- enddoc -%}
 
-<div class="kinsoul-popup-overlay" id="kinsoul-size-popup" aria-hidden="true" role="dialog" aria-label="Size Guidance">
-  <div class="kinsoul-popup kinsoul-popup--size">
-    <button class="kinsoul-popup__close" onclick="kinsoulCloseSizePopup()" aria-label="Close">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
+<template id="kinsoul-size-popup-template">
+  <div class="kinsoul-popup-overlay" id="kinsoul-size-popup" aria-hidden="true" role="dialog" aria-label="Size Guidance">
+    <div class="kinsoul-popup kinsoul-popup--size">
+      <button class="kinsoul-popup__close" onclick="kinsoulCloseSizePopup()" aria-label="Close">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
 
-    <div class="kinsoul-popup__body kinsoul-popup__body--single">
-      <div class="kinsoul-popup__content kinsoul-popup__content--full">
-        <p class="kinsoul-popup__subheading">Size Guidance</p>
-        <h2 class="kinsoul-popup__title">Find Your Perfect Fit</h2>
-        <hr class="kinsoul-divider kinsoul-popup__divider">
+      <div class="kinsoul-popup__body kinsoul-popup__body--single">
+        <div class="kinsoul-popup__content kinsoul-popup__content--full">
+          <p class="kinsoul-popup__subheading">Size Guidance</p>
+          <h2 class="kinsoul-popup__title">Find Your Perfect Fit</h2>
+          <hr class="kinsoul-divider kinsoul-popup__divider">
 
-        {%- comment -%} Quick Method: Credit Card {%- endcomment -%}
-        <div class="kinsoul-size__section">
-          <h3 class="kinsoul-size__method-title">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-            Quick Method — Use a Credit Card
-          </h3>
-          <p class="kinsoul-size__method-desc">
-            Bend a credit card into a C-shape and press it against the inside of your wrist, just above the wrist bone.
-          </p>
+          <div class="kinsoul-size__section">
+            <h3 class="kinsoul-size__method-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              Quick Method — Use a Credit Card
+            </h3>
+            <p class="kinsoul-size__method-desc">
+              Bend a credit card into a C-shape and press it against the inside of your wrist, just above the wrist bone.
+            </p>
 
-          <div class="kinsoul-size__card-grid">
-            <div class="kinsoul-size__card-item">
-              <div class="kinsoul-size__card-visual">
-                <div class="kinsoul-size__card-icon">
-                  <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15 50 Q40 15 65 50" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                    <circle cx="15" cy="50" r="2.5" fill="currentColor"/>
-                    <circle cx="65" cy="50" r="2.5" fill="currentColor"/>
-                    <line x1="25" y1="52" x2="55" y2="52" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
-                    <text x="40" y="58" text-anchor="middle" fill="currentColor" font-size="7" opacity="0.5">gap</text>
-                  </svg>
+            <div class="kinsoul-size__card-grid">
+              <div class="kinsoul-size__card-item">
+                <div class="kinsoul-size__card-visual">
+                  <div class="kinsoul-size__card-icon">
+                    <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M15 50 Q40 15 65 50" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                      <circle cx="15" cy="50" r="2.5" fill="currentColor"/>
+                      <circle cx="65" cy="50" r="2.5" fill="currentColor"/>
+                      <line x1="25" y1="52" x2="55" y2="52" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
+                      <text x="40" y="58" text-anchor="middle" fill="currentColor" font-size="7" opacity="0.5">gap</text>
+                    </svg>
+                  </div>
+                </div>
+                <div class="kinsoul-size__card-info">
+                  <span class="kinsoul-size__card-size">S</span>
+                  <span class="kinsoul-size__card-measure">6.1" / 15.5 cm</span>
+                  <span class="kinsoul-size__card-desc">Clear gap between ends</span>
                 </div>
               </div>
-              <div class="kinsoul-size__card-info">
-                <span class="kinsoul-size__card-size">S</span>
-                <span class="kinsoul-size__card-measure">6.1" / 15.5 cm</span>
-                <span class="kinsoul-size__card-desc">Clear gap between ends</span>
-              </div>
-            </div>
 
-            <div class="kinsoul-size__card-item kinsoul-size__card-item--popular">
-              <div class="kinsoul-size__card-badge">Most Popular</div>
-              <div class="kinsoul-size__card-visual">
-                <div class="kinsoul-size__card-icon">
-                  <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M18 50 Q40 15 62 50" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                    <circle cx="18" cy="50" r="2.5" fill="currentColor"/>
-                    <circle cx="62" cy="50" r="2.5" fill="currentColor"/>
-                    <line x1="18" y1="46" x2="62" y2="46" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
-                    <text x="40" y="45" text-anchor="middle" fill="currentColor" font-size="7" opacity="0.5">touch</text>
-                  </svg>
+              <div class="kinsoul-size__card-item kinsoul-size__card-item--popular">
+                <div class="kinsoul-size__card-badge">Most Popular</div>
+                <div class="kinsoul-size__card-visual">
+                  <div class="kinsoul-size__card-icon">
+                    <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M18 50 Q40 15 62 50" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                      <circle cx="18" cy="50" r="2.5" fill="currentColor"/>
+                      <circle cx="62" cy="50" r="2.5" fill="currentColor"/>
+                      <line x1="18" y1="46" x2="62" y2="46" stroke="currentColor" stroke-width="1" stroke-dasharray="3 3" opacity="0.4"/>
+                      <text x="40" y="45" text-anchor="middle" fill="currentColor" font-size="7" opacity="0.5">touch</text>
+                    </svg>
+                  </div>
+                </div>
+                <div class="kinsoul-size__card-info">
+                  <span class="kinsoul-size__card-size">M</span>
+                  <span class="kinsoul-size__card-measure">6.7" / 17 cm</span>
+                  <span class="kinsoul-size__card-desc">Ends barely touch</span>
                 </div>
               </div>
-              <div class="kinsoul-size__card-info">
-                <span class="kinsoul-size__card-size">M</span>
-                <span class="kinsoul-size__card-measure">6.7" / 17 cm</span>
-                <span class="kinsoul-size__card-desc">Ends barely touch</span>
-              </div>
-            </div>
 
-            <div class="kinsoul-size__card-item">
-              <div class="kinsoul-size__card-visual">
-                <div class="kinsoul-size__card-icon">
-                  <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22 50 Q40 18 58 50" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                    <path d="M22 50 L28 50" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                    <path d="M52 50 L58 50" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                    <text x="40" y="58" text-anchor="middle" fill="currentColor" font-size="7" opacity="0.5">overlap</text>
-                  </svg>
+              <div class="kinsoul-size__card-item">
+                <div class="kinsoul-size__card-visual">
+                  <div class="kinsoul-size__card-icon">
+                    <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M22 50 Q40 18 58 50" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                      <path d="M22 50 L28 50" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                      <path d="M52 50 L58 50" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                      <text x="40" y="58" text-anchor="middle" fill="currentColor" font-size="7" opacity="0.5">overlap</text>
+                    </svg>
+                  </div>
+                </div>
+                <div class="kinsoul-size__card-info">
+                  <span class="kinsoul-size__card-size">L</span>
+                  <span class="kinsoul-size__card-measure">7.3" / 18.5 cm</span>
+                  <span class="kinsoul-size__card-desc">Ends overlap slightly</span>
                 </div>
               </div>
-              <div class="kinsoul-size__card-info">
-                <span class="kinsoul-size__card-size">L</span>
-                <span class="kinsoul-size__card-measure">7.3" / 18.5 cm</span>
-                <span class="kinsoul-size__card-desc">Ends overlap slightly</span>
-              </div>
-            </div>
 
-            <div class="kinsoul-size__card-item">
-              <div class="kinsoul-size__card-visual">
-                <div class="kinsoul-size__card-icon">
-                  <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M25 50 Q40 22 55 50" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-                    <path d="M25 48 L35 50" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                    <path d="M45 50 L55 48" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-                    <line x1="30" y1="36" x2="50" y2="36" stroke="currentColor" stroke-width="1" opacity="0.3"/>
-                    <text x="40" y="34" text-anchor="middle" fill="currentColor" font-size="7" opacity="0.5">can't wrap</text>
-                  </svg>
+              <div class="kinsoul-size__card-item">
+                <div class="kinsoul-size__card-visual">
+                  <div class="kinsoul-size__card-icon">
+                    <svg viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M25 50 Q40 22 55 50" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                      <path d="M25 48 L35 50" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                      <path d="M45 50 L55 48" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                      <line x1="30" y1="36" x2="50" y2="36" stroke="currentColor" stroke-width="1" opacity="0.3"/>
+                      <text x="40" y="34" text-anchor="middle" fill="currentColor" font-size="7" opacity="0.5">can't wrap</text>
+                    </svg>
+                  </div>
                 </div>
-              </div>
-              <div class="kinsoul-size__card-info">
-                <span class="kinsoul-size__card-size">XL</span>
-                <span class="kinsoul-size__card-measure">7.9" / 20 cm</span>
-                <span class="kinsoul-size__card-desc">Can't fully wrap around</span>
+                <div class="kinsoul-size__card-info">
+                  <span class="kinsoul-size__card-size">XL</span>
+                  <span class="kinsoul-size__card-measure">7.9" / 20 cm</span>
+                  <span class="kinsoul-size__card-desc">Can't fully wrap around</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {%- comment -%} Precise Method: String {%- endcomment -%}
-        <div class="kinsoul-size__section kinsoul-size__section--alt">
-          <h3 class="kinsoul-size__method-title">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="2" y1="12" x2="22" y2="12"/><path d="M6 12v-2"/><path d="M10 12V8"/><path d="M14 12V8"/><path d="M18 12v-2"/></svg>
-            Precise Method — Use a String
-          </h3>
-          <p class="kinsoul-size__method-desc">
-            Wrap a non-stretch string around your wrist. Mark where it meets, then measure flat with a ruler.
-          </p>
-          <div class="kinsoul-size__table-wrap">
-            <table class="kinsoul-size__table">
-              <thead>
-                <tr>
-                  <th>Your Wrist</th>
-                  <th>Size</th>
-                  <th>Bracelet</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>5.1" – 5.5" <span class="kinsoul-size__inches">(13 – 14 cm)</span></td>
-                  <td><strong>S</strong></td>
-                  <td>6.1" / 15.5 cm</td>
-                </tr>
-                <tr class="kinsoul-size__table-highlight">
-                  <td>5.5" – 6.1" <span class="kinsoul-size__inches">(14 – 15.5 cm)</span></td>
-                  <td><strong>M</strong> <span class="kinsoul-size__popular-tag">Popular</span></td>
-                  <td>6.7" / 17 cm</td>
-                </tr>
-                <tr>
-                  <td>6.1" – 6.7" <span class="kinsoul-size__inches">(15.5 – 17 cm)</span></td>
-                  <td><strong>L</strong></td>
-                  <td>7.3" / 18.5 cm</td>
-                </tr>
-                <tr>
-                  <td>6.7" – 7.3" <span class="kinsoul-size__inches">(17 – 18.5 cm)</span></td>
-                  <td><strong>XL</strong></td>
-                  <td>7.9" / 20 cm</td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="kinsoul-size__section kinsoul-size__section--alt">
+            <h3 class="kinsoul-size__method-title">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="2" y1="12" x2="22" y2="12"/><path d="M6 12v-2"/><path d="M10 12V8"/><path d="M14 12V8"/><path d="M18 12v-2"/></svg>
+              Precise Method — Use a String
+            </h3>
+            <p class="kinsoul-size__method-desc">
+              Wrap a non-stretch string around your wrist. Mark where it meets, then measure flat with a ruler.
+            </p>
+            <div class="kinsoul-size__table-wrap">
+              <table class="kinsoul-size__table">
+                <thead>
+                  <tr>
+                    <th>Your Wrist</th>
+                    <th>Size</th>
+                    <th>Bracelet</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>5.1" – 5.5" <span class="kinsoul-size__inches">(13 – 14 cm)</span></td>
+                    <td><strong>S</strong></td>
+                    <td>6.1" / 15.5 cm</td>
+                  </tr>
+                  <tr class="kinsoul-size__table-highlight">
+                    <td>5.5" – 6.1" <span class="kinsoul-size__inches">(14 – 15.5 cm)</span></td>
+                    <td><strong>M</strong> <span class="kinsoul-size__popular-tag">Popular</span></td>
+                    <td>6.7" / 17 cm</td>
+                  </tr>
+                  <tr>
+                    <td>6.1" – 6.7" <span class="kinsoul-size__inches">(15.5 – 17 cm)</span></td>
+                    <td><strong>L</strong></td>
+                    <td>7.3" / 18.5 cm</td>
+                  </tr>
+                  <tr>
+                    <td>6.7" – 7.3" <span class="kinsoul-size__inches">(17 – 18.5 cm)</span></td>
+                    <td><strong>XL</strong></td>
+                    <td>7.9" / 20 cm</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
-        </div>
 
-        {%- comment -%} Footer tips {%- endcomment -%}
-        <div class="kinsoul-size__footer">
-          <div class="kinsoul-size__tip">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="8"/></svg>
-            <span>Not sure? <strong>M fits most wrists comfortably.</strong></span>
-          </div>
-          <div class="kinsoul-size__tip">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
-            <span>Wrong size? <strong>Free exchanges within 30 days.</strong></span>
+          <div class="kinsoul-size__footer">
+            <div class="kinsoul-size__tip">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="8"/></svg>
+              <span>Not sure? <strong>M fits most wrists comfortably.</strong></span>
+            </div>
+            <div class="kinsoul-size__tip">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+              <span>Wrong size? <strong>Free exchanges within 30 days.</strong></span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</template>
 
 <script>
   (function() {
-    const popup = document.getElementById('kinsoul-size-popup');
-    if (!popup) return;
+    var popup = null;
+
+    function ensurePopup() {
+      if (popup) return popup;
+      var tmpl = document.getElementById('kinsoul-size-popup-template');
+      if (!tmpl) return null;
+      document.body.appendChild(tmpl.content.cloneNode(true));
+      popup = document.getElementById('kinsoul-size-popup');
+      popup.addEventListener('click', function(e) { if (e.target === popup) closePopup(); });
+      return popup;
+    }
 
     function openPopup() {
-      popup.setAttribute('aria-hidden', 'false');
+      var el = ensurePopup();
+      if (!el) return;
+      el.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     }
 
     function closePopup() {
-      popup.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
+      if (popup) {
+        popup.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
     }
 
-    popup.addEventListener('click', function(e) {
-      if (e.target === popup) closePopup();
-    });
-
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape' && popup.getAttribute('aria-hidden') === 'false') {
-        closePopup();
-      }
+      if (e.key === 'Escape' && popup && popup.getAttribute('aria-hidden') === 'false') closePopup();
     });
 
     window.kinsoulOpenSizePopup = openPopup;

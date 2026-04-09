@@ -18,10 +18,7 @@
   --kinsoul-olive: #6B6B5D;
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
+/* scroll-behavior: smooth — already set in base.css, removed to avoid duplication */
 
 /* Selection color */
 ::selection {
@@ -123,7 +120,7 @@ html {
   font-size: 0.85rem;
   font-weight: 500;
   padding: 1rem 2.5rem;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .button-secondary,
@@ -132,7 +129,7 @@ html {
   text-transform: uppercase;
   font-size: 0.85rem;
   font-weight: 500;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* --- Divider with accent --- */
@@ -207,8 +204,7 @@ html {
 
 /* --- Header Enhancements --- */
 .header-section {
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background-color: rgba(249, 246, 241, 0.92);
 }
 
 /* --- Footer --- */
@@ -270,8 +266,7 @@ html {
 
 /* --- Sticky Add to Cart Enhancement --- */
 .sticky-add-to-cart {
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background-color: rgba(249, 246, 241, 0.95);
   border-top: 1px solid var(--kinsoul-border);
 }
 
@@ -295,9 +290,7 @@ html {
     transform: scale(0.98);
   }
 
-  .hero-section img {
-    content-visibility: auto;
-  }
+  /* content-visibility: auto removed from hero — it causes CLS on above-fold LCP images */
 }
 
 /* --- Reduce motion for accessibility --- */
@@ -602,13 +595,13 @@ a.kinsoul-link:hover::after {
   height: 18px;
   border: 1px solid var(--kinsoul-border);
   flex-shrink: 0;
-  transition: all 0.25s ease;
+  transition: background-color 0.25s ease, border-color 0.25s ease;
 }
 
 .kinsoul-gift-note__checkmark svg {
   opacity: 0;
   transform: scale(0.5);
-  transition: all 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
   color: #fff;
 }
 
@@ -1447,7 +1440,7 @@ a.kinsoul-link:hover::after {
   font-weight: 500;
   background: var(--kinsoul-heading);
   color: var(--kinsoul-bg, #F9F6F1);
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .kinsoul-care__cta-button:hover {
@@ -2111,7 +2104,7 @@ a.kinsoul-link:hover::after {
   text-decoration: none;
   color: var(--kinsoul-heading, #2C2C2C);
   background: var(--kinsoul-bg, #F9F6F1);
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .kinsoul-about__belief-button:hover {

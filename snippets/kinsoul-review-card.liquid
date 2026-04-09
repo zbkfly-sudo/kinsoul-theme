@@ -22,9 +22,16 @@
   {%- if image_filename != blank -%}
     <div class="kinsoul-pdp-review__image">
       <img
-        src="{{ image_filename | file_url }}"
+        src="{{ image_filename | file_img_url: '400x' }}"
+        srcset="
+          {{ image_filename | file_img_url: '200x' }} 200w,
+          {{ image_filename | file_img_url: '400x' }} 400w,
+          {{ image_filename | file_img_url: '600x' }} 600w
+        "
+        sizes="(max-width: 749px) 45vw, 280px"
         alt="Customer review by {{ author }}"
         loading="lazy"
+        decoding="async"
         width="400"
         height="500"
       >

@@ -1,0 +1,98 @@
+{%- comment -%}
+  Kinsoul Critical CSS — inlined in <head> for instant first paint.
+  Contains only above-the-fold styles for homepage + PDP.
+  Full styles load async via kinsoul-custom.css.
+{%- endcomment -%}
+<style>
+  :root {
+    --kinsoul-accent: #7B6B5D;
+    --kinsoul-accent-hover: #6B5B4D;
+    --kinsoul-bg: #F9F6F1;
+    --kinsoul-bg-alt: #F0EDE8;
+    --kinsoul-heading: #2C2C2C;
+    --kinsoul-text: #4A4A4A;
+    --kinsoul-muted: #8A8278;
+    --kinsoul-border: #E0D8CE;
+  }
+  html { scroll-behavior: smooth; }
+  ::selection { background: var(--kinsoul-accent); color: #fff; }
+
+  /* Header */
+  .header-section { background-color: rgba(249, 246, 241, 0.92); }
+
+  /* Hero */
+  .hero-section .hero { min-height: 100svh; }
+  .hero-wrapper h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+
+  /* Buttons (visible in hero CTA) */
+  .button-primary, .button--primary,
+  .button-secondary, .button--secondary {
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  .button-primary, .button--primary { padding: 1rem 2.5rem; }
+
+  /* Trust strip (immediately below hero) */
+  .kinsoul-trust-strip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    flex-wrap: wrap;
+    padding: 1.25rem 1rem;
+  }
+  .kinsoul-trust-strip__item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    color: var(--kinsoul-text);
+    white-space: nowrap;
+  }
+  .kinsoul-trust-strip__item svg {
+    width: 18px; height: 18px;
+    color: var(--kinsoul-accent);
+    flex-shrink: 0;
+  }
+
+  /* Divider (used in multiple above-fold sections) */
+  .kinsoul-divider {
+    width: 60px; height: 1px;
+    background: var(--kinsoul-accent);
+    margin: 2rem auto; border: none;
+  }
+
+  /* Product media (PDP above-fold) */
+  .product-media-gallery { background: transparent; }
+  .sticky-add-to-cart {
+    background-color: rgba(249, 246, 241, 0.95);
+    border-top: 1px solid var(--kinsoul-border);
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--kinsoul-bg); }
+  ::-webkit-scrollbar-thumb { background: var(--kinsoul-border); }
+
+  /* Mobile critical */
+  @media screen and (max-width: 749px) {
+    .hero-section .hero { min-height: 85svh; }
+    .button-primary, .button--primary,
+    .button-secondary, .button--secondary {
+      padding: 0.875rem 2rem; min-height: 48px;
+    }
+    .kinsoul-trust-strip { gap: 1rem 2rem; padding: 1rem; }
+    .kinsoul-trust-strip__item { font-size: 0.7rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+</style>

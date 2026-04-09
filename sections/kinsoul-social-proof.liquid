@@ -33,6 +33,8 @@
                   | image_url: width: 800
                   | image_tag:
                     loading: 'lazy',
+                    decoding: 'async',
+                    fetchpriority: 'low',
                     widths: '300, 500, 800',
                     sizes: '(max-width: 749px) 90vw, (max-width: 1099px) 45vw, 30vw',
                     class: 'kinsoul-review-slide__img',
@@ -93,10 +95,11 @@
   (function() {
     var currentSlide = {};
     var autoplayTimers = {};
+    var isVisible = {};
+    var isPageVisible = !document.hidden;
 
     function getSlidesPerView(carousel) {
-      var styles = getComputedStyle(carousel);
-      return parseInt(styles.getPropertyValue('--slides-per-view')) || 1;
+      return parseInt(getComputedStyle(carousel).getPropertyValue('--slides-per-view')) || 1;
     }
 
     function getMaxIndex(track, carousel) {
@@ -118,29 +121,23 @@
 
       currentSlide[sectionId] = index;
 
-      // Measure first slide width + gap for accurate offset
       var slideWidth = slides[0].offsetWidth;
-      var trackStyles = getComputedStyle(track);
-      var gap = parseFloat(trackStyles.getPropertyValue('gap')) || 0;
-      var offset = index * (slideWidth + gap);
-
-      track.style.transform = 'translateX(-' + offset + 'px)';
+      var gap = parseFloat(getComputedStyle(track).getPropertyValue('gap')) || 0;
+      track.style.transform = 'translateX(-' + (index * (slideWidth + gap)) + 'px)';
 
       if (dots) {
-        var dotBtns = dots.children;
-        for (var i = 0; i < dotBtns.length; i++) {
-          dotBtns[i].classList.toggle('kinsoul-reviews-carousel__dot--active', i === index);
+        for (var i = 0; i < dots.children.length; i++) {
+          dots.children[i].classList.toggle('kinsoul-reviews-carousel__dot--active', i === index);
         }
       }
     };
 
     window.kinsoulCarousel = function(sectionId, direction) {
-      var current = currentSlide[sectionId] || 0;
-      kinsoulCarouselGo(sectionId, current + direction);
+      kinsoulCarouselGo(sectionId, (currentSlide[sectionId] || 0) + direction);
     };
 
     function startAutoplay(sectionId) {
-      if (autoplayTimers[sectionId]) clearInterval(autoplayTimers[sectionId]);
+      if (autoplayTimers[sectionId] || !isVisible[sectionId] || !isPageVisible) return;
       autoplayTimers[sectionId] = setInterval(function() {
         kinsoulCarousel(sectionId, 1);
       }, 4500);
@@ -153,48 +150,67 @@
       }
     }
 
-    function initCarousel(carousel) {
-      var sectionId = carousel.id.replace('kinsoul-carousel-', '');
-      currentSlide[sectionId] = 0;
+    /* Pause all carousels when tab is hidden */
+    document.addEventListener('visibilitychange', function() {
+      isPageVisible = !document.hidden;
+      Object.keys(currentSlide).forEach(function(id) {
+        if (isPageVisible && isVisible[id]) startAutoplay(id);
+        else stopAutoplay(id);
+      });
+    });
 
-      // Reset position on resize so layout stays correct
-      var resizeTimer;
-      window.addEventListener('resize', function() {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(function() {
-          var maxIndex = getMaxIndex(carousel.querySelector('.kinsoul-reviews-carousel__track'), carousel);
+    /* Throttled resize handler (shared, single listener) */
+    var resizeTimer;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        Object.keys(currentSlide).forEach(function(sectionId) {
+          var carousel = document.getElementById('kinsoul-carousel-' + sectionId);
+          var track = carousel && carousel.querySelector('.kinsoul-reviews-carousel__track');
+          if (!track || !carousel) return;
+          var maxIndex = getMaxIndex(track, carousel);
           if (currentSlide[sectionId] > maxIndex) currentSlide[sectionId] = 0;
           kinsoulCarouselGo(sectionId, currentSlide[sectionId]);
-        }, 150);
-      });
+        });
+      }, 200);
+    });
 
-      // Pause on hover (desktop)
+    function initCarousel(carousel) {
+      var sectionId = carousel.id.replace('kinsoul-carousel-', '');
+      var track = carousel.querySelector('.kinsoul-reviews-carousel__track');
+      currentSlide[sectionId] = 0;
+      isVisible[sectionId] = false;
+
+      /* Only autoplay when section is in viewport */
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function(entries) {
+          isVisible[sectionId] = entries[0].isIntersecting;
+          if (entries[0].isIntersecting) startAutoplay(sectionId);
+          else stopAutoplay(sectionId);
+        }, { rootMargin: '100px' }).observe(carousel);
+      } else {
+        isVisible[sectionId] = true;
+        startAutoplay(sectionId);
+      }
+
+      /* Pause on hover */
       carousel.addEventListener('mouseenter', function() { stopAutoplay(sectionId); });
       carousel.addEventListener('mouseleave', function() { startAutoplay(sectionId); });
 
-      startAutoplay(sectionId);
-    }
-
-    document.querySelectorAll('.kinsoul-reviews-carousel').forEach(initCarousel);
-
-    // Touch swipe support
-    document.querySelectorAll('.kinsoul-reviews-carousel__track').forEach(function(track) {
+      /* Touch swipe */
       var startX = 0;
-      var sectionId = track.id.replace('kinsoul-track-', '');
-
       track.addEventListener('touchstart', function(e) {
         startX = e.touches[0].clientX;
         stopAutoplay(sectionId);
       }, { passive: true });
-
       track.addEventListener('touchend', function(e) {
         var diff = startX - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 50) {
-          kinsoulCarousel(sectionId, diff > 0 ? 1 : -1);
-        }
+        if (Math.abs(diff) > 50) kinsoulCarousel(sectionId, diff > 0 ? 1 : -1);
         startAutoplay(sectionId);
       }, { passive: true });
-    });
+    }
+
+    document.querySelectorAll('.kinsoul-reviews-carousel').forEach(initCarousel);
   })();
 </script>
 
@@ -333,7 +349,7 @@
     justify-content: center;
     cursor: pointer;
     color: var(--kinsoul-heading, #2C2C2C);
-    transition: all 0.25s ease;
+    transition: border-color 0.25s ease, color 0.25s ease;
   }
 
   .kinsoul-reviews-carousel__btn:hover {
@@ -354,7 +370,7 @@
     background: transparent;
     cursor: pointer;
     padding: 0;
-    transition: all 0.25s ease;
+    transition: background-color 0.25s ease, border-color 0.25s ease;
   }
 
   .kinsoul-reviews-carousel__dot--active {
