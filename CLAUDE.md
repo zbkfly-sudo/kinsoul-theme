@@ -208,51 +208,152 @@ Tell the user **exactly where in Admin to click**.
 
 ### 6.1 Principles
 
-- **Use installed tools.** Don't manually redo what a tool can do.
-- **Tools inform decisions.** Don't blindly follow every suggestion.
-- **New tools get documented.** When user installs a new plugin: evaluate capabilities → define triggers → add to this section → update affected workflows.
+1. **Tools first.** Don't manually redo what a tool can do.
+2. **Data-driven.** Keyword selection, content direction, and priorities must be based on tool data, not intuition.
+3. **Auto-trigger.** Match the scenario below and proactively call the tool combo — don't wait for user to ask.
+4. **Integrate immediately.** New plugin installed → evaluate → define triggers → add to this section.
 
-### 6.2 Installed Tools
+### 6.2 Scenario Trigger Table
 
-#### SEO Suite
+When you encounter these scenarios, **automatically** run the tool sequence:
 
-| Tool | What It Does | When to Use |
+#### A: New Page / Content Expansion
+
+> User says: "new page" / "expand content" / "write blog" / "add content"
+
+| Step | Tool | Action |
 |---|---|---|
-| `/seo-page` | Single-page deep SEO analysis | Before + after any content/meta/schema change |
-| `/seo-content` | E-E-A-T, readability, thin content detection | Before + after content expansion |
-| `/seo-schema` | Schema detection, validation, generation | Any schema change |
-| `/seo-geo` | AI search visibility (GEO) analysis | Content optimization — assess AI citability |
-| `/seo-dataforseo` | Keyword volume, difficulty, intent | New content planning (**keyword selection must have data**) |
-| `/seo-plan` | SEO strategy planning | Before major SEO initiatives |
-| `/seo-technical` | Technical SEO audit (crawl, index, CWV) | Canonical/robots/rendering issues |
-| `/seo-audit` | Full-site crawl audit | Quarterly or after major redesign |
-| `/seo-images` | Image alt text, size, format audit | After bulk image uploads |
-| `/seo-sitemap` | Sitemap validation/generation | After URL structure changes |
+| 1 | `/seo-page` | Baseline score of target page |
+| 2 | `/seo-content` | E-E-A-T score, thin content detection |
+| 3 | `/seo-dataforseo` | Keyword volumes + difficulty (**no gut-feel keyword picks**) |
+| 4 | `/seo-geo` | AI citation readiness |
+| 5 | WebSearch / WebFetch | Research authoritative data; analyze competitor pages |
+| 6 | Plan Mode | Design content structure based on steps 1-5 |
+| 7 | Code | Implement; use `/seo-schema` to generate JSON-LD |
+| 8 | `/seo-page` + `/seo-content` | Before/After comparison |
 
-#### Development
+#### B: Schema / Structured Data
 
-| Tool | What It Does | When to Use |
+> User says: "add schema" / "fix structured data" / "rich results"
+
+| Step | Tool | Action |
 |---|---|---|
-| `/code-review` | Code review a PR | Before merging major changes |
-| `/frontend-design` | UI/UX design + implementation | New pages or components |
-| Playwright | Browser automation + page verification | After every push-test |
+| 1 | `/seo-schema` | Detect existing schema, report gaps |
+| 2 | `/seo-schema` | Auto-generate JSON-LD (don't hand-write) |
+| 3 | Code | Embed generated schema into liquid |
+| 4 | `/seo-schema` | Validate output, zero errors |
 
-#### Content & Research
+Note: Ignore HowTo (deprecated Sept 2023) and FAQ Rich Results (restricted Aug 2023) suggestions. FAQPage schema still valuable for AI citation.
 
-| Tool | What It Does | When to Use |
+#### C: Technical SEO Issues
+
+> User says: "page broken" / "canonical" / "robots" / "slow" / "not indexed"
+
+| Step | Tool | Action |
 |---|---|---|
-| WebSearch | Web research for facts and data | When content needs authoritative data |
-| WebFetch | Fetch and analyze web page content | Competitor analysis, live page checks |
-| `/ultraplan` | Remote planning with web UI | Complex tasks needing independent planning |
+| 1 | `/seo-technical` | 9-dimension audit (crawl/index/security/URL/mobile/CWV/schema/JS/IndexNow) |
+| 2 | `/seo-google pagespeed` | Lighthouse + CrUX real field data |
+| 3 | `/seo-google inspect` | URL index status, canonical, crawl info |
+| 4 | Playwright or `/seo-visual` | Screenshot to confirm rendering |
 
-### 6.3 New Tool Onboarding
+#### D: Full Site Audit / Quarterly Check
+
+> User says: "full SEO check" / "site health" / "audit"
+
+| Step | Tool | Action |
+|---|---|---|
+| 1 | `/seo-audit` | Crawl up to 500 pages, 10 parallel specialists |
+| 2 | `/seo-google crux-history` | 25-week CWV trends |
+| 3 | `/seo-google gsc` | Clicks/impressions/CTR/position data |
+| 4 | `/seo-google ga4` | Organic traffic trends |
+| 5 | `/seo-backlinks` | Backlink quality, toxic links, competitor gap |
+| 6 | `/seo-geo` | AI visibility score |
+| 7 | `/seo-sitemap` | Sitemap completeness |
+
+#### E: Image Work
+
+> User says: "uploaded images" / "image optimization" / "check image SEO"
+
+| Step | Tool | Action |
+|---|---|---|
+| 1 | `/seo-images` | Alt text, file size, format, lazy loading, CLS check |
+
+Note: `/seo-image-gen` (NanoBanana) is NOT used in CLI — requires separate API config. Image generation happens in dedicated tools; CLI handles audit only.
+
+#### F: UI / Frontend Design
+
+> User says: "design component" / "change UI" / "build page"
+
+| Step | Tool | Action |
+|---|---|---|
+| 1 | `/frontend-design` | High-quality UI design + implementation |
+| 2 | Playwright screenshot | Verify rendering |
+| 3 | `/seo-page` | Confirm new UI doesn't break SEO (H tags, schema, links) |
+
+#### G: Pre-Publish Final Check
+
+> About to run `publish.sh`
+
+| Step | Tool | Action |
+|---|---|---|
+| 1 | Playwright | All changed pages load, no Liquid errors |
+| 2 | `/seo-schema` | Schema validation on changed pages |
+| 3 | Playwright resize or `/seo-visual` | Mobile rendering OK |
+| 4 | `/seo-google pagespeed` | CWV not regressed |
+
+#### H: Competitor Analysis / Strategy
+
+> User says: "check competitors" / "SEO strategy" / "content planning"
+
+| Step | Tool | Action |
+|---|---|---|
+| 1 | `/seo-plan` | Full strategy (auto-loads ecommerce template) |
+| 2 | `/seo-dataforseo` | Competitor keywords, domain intersection |
+| 3 | `/seo-backlinks` | Competitor backlink sources → link building opportunities |
+| 4 | `/seo-competitor-pages` | Generate comparison/alternatives pages |
+
+#### I: Code Quality Review
+
+> User says: "review code" / "check quality" / after major changes
+
+| Step | Tool | Action |
+|---|---|---|
+| 1 | `/code-review` | PR-level code review |
+| 2 | `/simplify` | Check reuse, efficiency, quality; fix issues |
+
+### 6.3 Tool Combinations
+
+These tools naturally pair — using one means you should consider the other:
+
+| If you used | Also consider | Why |
+|---|---|---|
+| `/seo-page` | `/seo-content` | Page analysis + content quality are inseparable |
+| `/seo-content` | `/seo-geo` | Content quality + AI citability assessed together |
+| `/seo-schema` | `/seo-page` | Confirm schema change didn't break overall SEO |
+| `/seo-dataforseo` | `/seo-plan` | Data without strategy is noise |
+| `/seo-audit` | `/seo-google` | Audit + real field data = complete picture |
+| `/seo-backlinks` | `/seo-dataforseo` | Backlink analysis depends on DataForSEO API |
+| `/frontend-design` | `/seo-page` | New UI must not break SEO |
+| `/seo-images` | Tell user what to fix | Found missing alt/oversized → user fixes in Admin |
+| Content writing | WebSearch | Authoritative data/statistics required |
+
+### 6.4 Quick Reference
+
+**Every push-test:** Playwright
+**Every content change:** `/seo-page` + `/seo-content` + `/seo-geo`
+**Every schema change:** `/seo-schema`
+**Every new content plan:** `/seo-dataforseo` (mandatory for keyword data)
+**Quarterly:** `/seo-audit` + `/seo-google` + `/seo-backlinks`
+
+### 6.5 New Tool Onboarding
 
 When user installs a new plugin/MCP tool:
 1. Understand its capabilities
-2. Identify overlap with existing workflows
-3. Define usage triggers and scenarios
-4. Add to Section 6.2 table
-5. If it changes an existing workflow, update that section too
+2. Match to scenario categories (A-I above)
+3. Define trigger conditions
+4. Add to 6.2 scenario steps
+5. Add to 6.3 combinations if paired with existing tools
+6. Update affected workflows (e.g., Section 7)
 
 ---
 
