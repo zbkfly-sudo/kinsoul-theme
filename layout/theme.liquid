@@ -47,6 +47,9 @@
     {%- if page.handle == 'contact' -%}
       {%- render 'kinsoul-schema-contact' -%}
     {%- endif -%}
+    {%- if page.handle == 'materials-craft' or page.handle == 'materials' -%}
+      {%- render 'kinsoul-schema-materials' -%}
+    {%- endif -%}
 
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}
