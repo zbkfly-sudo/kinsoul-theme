@@ -1,0 +1,277 @@
+{%- liquid
+  assign color_scheme = section.settings.color_scheme
+-%}
+
+<div
+  class="kinsoul-mat-faq section-{{ section.id }} color-{{ color_scheme }}"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="kinsoul-mat-faq__header" data-kinsoul-reveal="up">
+        {%- if section.settings.subheading != blank -%}
+          <p class="kinsoul-mat-faq__subheading">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+        <h2 class="kinsoul-mat-faq__title">{{ section.settings.heading }}</h2>
+        <hr class="kinsoul-divider">
+      </div>
+    {%- endif -%}
+
+    <div class="kinsoul-mat-faq__list">
+      {%- for block in section.blocks -%}
+        <details class="kinsoul-mat-faq__item" data-kinsoul-reveal="up" data-kinsoul-delay="{{ forloop.index0 | times: 80 }}" {{ block.shopify_attributes }}>
+          <summary class="kinsoul-mat-faq__question">
+            <span class="kinsoul-mat-faq__question-text">{{ block.settings.question }}</span>
+            <span class="kinsoul-mat-faq__icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+          </summary>
+          <div class="kinsoul-mat-faq__answer">
+            <p>{{ block.settings.answer }}</p>
+          </div>
+        </details>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.cta_text != blank and section.settings.cta_url != blank -%}
+      <div class="kinsoul-mat-faq__cta" data-kinsoul-reveal="up">
+        <p class="kinsoul-mat-faq__cta-note">{{ section.settings.cta_note }}</p>
+        <a href="{{ section.settings.cta_url }}" class="kinsoul-mat-faq__cta-link">{{ section.settings.cta_text }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</div>
+
+{%- comment -%} FAQPage structured data {%- endcomment -%}
+{%- if section.blocks.size > 0 -%}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {%- for block in section.blocks -%}
+        {
+          "@type": "Question",
+          "name": {{ block.settings.question | json }},
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": {{ block.settings.answer | json }}
+          }
+        }{%- unless forloop.last -%},{%- endunless -%}
+      {%- endfor -%}
+    ]
+  }
+  </script>
+{%- endif -%}
+
+{% stylesheet %}
+  .kinsoul-mat-faq__header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .kinsoul-mat-faq__subheading {
+    font-family: var(--font-secondary--family), sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--kinsoul-accent, #7B6B5D);
+    margin-bottom: 1rem;
+  }
+
+  .kinsoul-mat-faq__title {
+    font-family: var(--font-heading--family), serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 400;
+    color: var(--color-foreground-heading);
+    letter-spacing: 0.03em;
+    margin: 0;
+  }
+
+  .kinsoul-mat-faq__list {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .kinsoul-mat-faq__item {
+    border-bottom: 1px solid var(--kinsoul-border, #E0D8CE);
+  }
+
+  .kinsoul-mat-faq__item:first-child {
+    border-top: 1px solid var(--kinsoul-border, #E0D8CE);
+  }
+
+  .kinsoul-mat-faq__question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0;
+    cursor: pointer;
+    list-style: none;
+    gap: 1rem;
+  }
+
+  .kinsoul-mat-faq__question::-webkit-details-marker {
+    display: none;
+  }
+
+  .kinsoul-mat-faq__question-text {
+    font-family: var(--font-heading--family), serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--kinsoul-heading, #2C2C2C);
+    line-height: 1.4;
+  }
+
+  .kinsoul-mat-faq__icon {
+    flex-shrink: 0;
+    color: var(--kinsoul-accent, #7B6B5D);
+    transition: transform 0.3s ease;
+  }
+
+  .kinsoul-mat-faq__item[open] .kinsoul-mat-faq__icon {
+    transform: rotate(180deg);
+  }
+
+  .kinsoul-mat-faq__answer {
+    padding: 0 0 1.25rem;
+  }
+
+  .kinsoul-mat-faq__answer p {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--kinsoul-text, #4A4A4A);
+    margin: 0;
+  }
+
+  .kinsoul-mat-faq__cta {
+    text-align: center;
+    margin-top: 2.5rem;
+  }
+
+  .kinsoul-mat-faq__cta-note {
+    font-size: 0.85rem;
+    color: var(--kinsoul-text, #4A4A4A);
+    margin: 0 0 0.75rem;
+  }
+
+  .kinsoul-mat-faq__cta-link {
+    display: inline-block;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--kinsoul-accent, #7B6B5D);
+    text-decoration: none;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 4px;
+    transition: color 0.3s ease;
+  }
+
+  .kinsoul-mat-faq__cta-link:hover {
+    color: var(--kinsoul-accent-hover, #6B5B4D);
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Materials FAQ",
+  "tag": "section",
+  "class": "kinsoul-mat-faq-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Common Questions"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "text",
+      "id": "cta_note",
+      "label": "CTA note text",
+      "default": "Have another question?"
+    },
+    {
+      "type": "url",
+      "id": "cta_url",
+      "label": "CTA link URL"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA link text",
+      "default": "Visit Our Client Care Page"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Are your stones real?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Yes. Every gemstone and pearl in our bracelets is 100% natural — never synthetic, never lab-created."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Materials FAQ",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are your stones real?",
+            "answer": "Yes. Every gemstone and pearl in our bracelets is 100% natural — never synthetic, never lab-created. Each bracelet ships with a gemstone meaning card detailing the stones used."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

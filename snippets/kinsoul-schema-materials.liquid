@@ -1,0 +1,90 @@
+{% comment %}
+  Kinsoul Energy — Materials & Craft Page Schema
+  Renders WebPage + HowTo structured data for the Materials & Craft page.
+  Should be rendered in <head> only when page.handle == 'materials-craft'
+  or page.handle == 'materials' (via theme.liquid).
+{% endcomment %}
+
+{%- liquid
+  assign page_url = shop.url | append: page.url
+  assign org_id = shop.url | append: '/#organization'
+  assign website_id = shop.url | append: '/#website'
+  assign clean_description = page.content | strip_html | strip_newlines | truncate: 5000
+-%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": {{ page_url | json }},
+      "url": {{ page_url | json }},
+      "name": {{ page.title | append: ' | Kinsoul Energy' | json }},
+      "description": "Learn about the natural baroque pearls, hand-selected gemstones, and S925 sterling silver in every Kinsoul Energy bracelet. Handmade one piece at a time in our California studio since 2018.",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": {{ website_id | json }}
+      },
+      "about": {
+        "@type": "Organization",
+        "@id": {{ org_id | json }}
+      },
+      "specialty": "Handmade Natural Gemstone & Pearl Jewelry Craftsmanship",
+      "mainEntity": [
+        {
+          "@type": "Thing",
+          "name": "Natural Baroque & Freshwater Pearls",
+          "description": "Baroque and freshwater pearls selected for their organic, irregular beauty. Each pearl is uniquely shaped by nature — variations in form, size, and luster are proof of authenticity."
+        },
+        {
+          "@type": "Thing",
+          "name": "Hand-Selected Natural Gemstones",
+          "description": "Amethyst, agate, citrine, quartz, tiger's eye, lapis lazuli, and more — hand-cut and minimally polished to preserve natural texture, color variation, and inclusions."
+        },
+        {
+          "@type": "Thing",
+          "name": "S925 Sterling Silver",
+          "description": "All metal components are crafted from S925 sterling silver, hand-finished for a smooth feel against the skin, designed for daily wear and long-term durability."
+        }
+      ],
+      "inLanguage": "en-US"
+    },
+    {
+      "@type": "HowTo",
+      "name": "How Kinsoul Energy Bracelets Are Handmade",
+      "description": "From stone selection to final inspection — every Kinsoul Energy bracelet is made by hand in our California studio. There is no assembly line.",
+      "totalTime": "PT1H",
+      "tool": [
+        "Natural gemstones",
+        "Baroque and freshwater pearls",
+        "S925 sterling silver components",
+        "Elastic stretch cord"
+      ],
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Selected by Hand",
+          "text": "Each stone is held up to the light, turned, and considered — chosen specifically for its color, pattern, and character. We don't order stones in bulk. If a stone doesn't feel right, it doesn't make the cut. The stones in your bracelet were picked for that piece alone.",
+          "url": {{ page_url | append: '#craft-step-1' | json }}
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Assembled One Piece at a Time",
+          "text": "Every bracelet is strung by hand — stone by stone, pearl by pearl. The arrangement is composed with balance and contrast in mind, considering how colors and textures interact on the wrist. It is slow, deliberate work — and that's the point.",
+          "url": {{ page_url | append: '#craft-step-2' | json }}
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Inspected Before It Leaves",
+          "text": "Before shipping, a fresh pair of eyes reviews every detail — the cord tension, the spacing, the way each stone sits. We make sure it feels right on the wrist. Then it's photographed, placed in its signature gift box, and sent on its way to you.",
+          "url": {{ page_url | append: '#craft-step-3' | json }}
+        }
+      ]
+    }
+  ]
+}
+</script>

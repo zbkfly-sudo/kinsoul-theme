@@ -1,0 +1,237 @@
+{%- liquid
+  assign color_scheme = section.settings.color_scheme
+-%}
+
+<div
+  class="kinsoul-stone-guide section-{{ section.id }} color-{{ color_scheme }}"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="kinsoul-stone-guide__header" data-kinsoul-reveal="up">
+        {%- if section.settings.subheading != blank -%}
+          <p class="kinsoul-stone-guide__subheading">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+        <h2 class="kinsoul-stone-guide__title">{{ section.settings.heading }}</h2>
+        <hr class="kinsoul-divider">
+        {%- if section.settings.description != blank -%}
+          <p class="kinsoul-stone-guide__desc">{{ section.settings.description }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="kinsoul-stone-guide__grid" data-kinsoul-stagger="100">
+      {%- for block in section.blocks -%}
+        <div class="kinsoul-stone-guide__card" data-kinsoul-stagger-child {{ block.shopify_attributes }}>
+          <h3 class="kinsoul-stone-guide__stone-name">{{ block.settings.stone_name }}</h3>
+          {%- if block.settings.tradition != blank -%}
+            <p class="kinsoul-stone-guide__tradition">{{ block.settings.tradition }}</p>
+          {%- endif -%}
+          {%- if block.settings.found_in != blank -%}
+            <div class="kinsoul-stone-guide__found-in">
+              <span class="kinsoul-stone-guide__found-label">Found in:</span>
+              <span class="kinsoul-stone-guide__found-products">{{ block.settings.found_in }}</span>
+            </div>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .kinsoul-stone-guide__header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .kinsoul-stone-guide__subheading {
+    font-family: var(--font-secondary--family), sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--kinsoul-accent, #7B6B5D);
+    margin-bottom: 1rem;
+  }
+
+  .kinsoul-stone-guide__title {
+    font-family: var(--font-heading--family), serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 400;
+    color: var(--color-foreground-heading);
+    letter-spacing: 0.03em;
+    margin: 0;
+  }
+
+  .kinsoul-stone-guide__desc {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--kinsoul-text, #4A4A4A);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .kinsoul-stone-guide__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--kinsoul-border, #E0D8CE);
+    border: 1px solid var(--kinsoul-border, #E0D8CE);
+  }
+
+  .kinsoul-stone-guide__card {
+    background: var(--color-background);
+    padding: 1.75rem 1.5rem;
+    transition: background 0.3s ease;
+  }
+
+  .kinsoul-stone-guide__card:hover {
+    background: var(--kinsoul-bg-alt, #F0EDE8);
+  }
+
+  .kinsoul-stone-guide__stone-name {
+    font-family: var(--font-heading--family), serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--kinsoul-heading, #2C2C2C);
+    letter-spacing: 0.03em;
+    margin: 0 0 0.5rem;
+    line-height: 1.3;
+  }
+
+  .kinsoul-stone-guide__tradition {
+    font-size: 0.8rem;
+    font-style: italic;
+    line-height: 1.6;
+    color: var(--kinsoul-text, #4A4A4A);
+    margin: 0 0 0.75rem;
+  }
+
+  .kinsoul-stone-guide__found-in {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .kinsoul-stone-guide__found-label {
+    color: var(--kinsoul-muted, #8A8278);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .kinsoul-stone-guide__found-products {
+    color: var(--kinsoul-accent, #7B6B5D);
+  }
+
+  @media screen and (max-width: 749px) {
+    .kinsoul-stone-guide__header {
+      margin-bottom: 2.5rem;
+    }
+
+    .kinsoul-stone-guide__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 449px) {
+    .kinsoul-stone-guide__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Stone Guide",
+  "tag": "section",
+  "class": "kinsoul-stone-guide-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Stone Index"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Our Stones & Their Traditions"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 60
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stone_entry",
+      "name": "Stone Entry",
+      "settings": [
+        {
+          "type": "text",
+          "id": "stone_name",
+          "label": "Stone name",
+          "default": "Amethyst"
+        },
+        {
+          "type": "text",
+          "id": "tradition",
+          "label": "Tradition / meaning",
+          "default": "Calm, clarity, intuition"
+        },
+        {
+          "type": "text",
+          "id": "found_in",
+          "label": "Found in (product names)",
+          "default": "Serenity, Soleil, Aura"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stone Guide",
+      "blocks": [
+        {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Amethyst",
+            "tradition": "Calm, clarity, intuition",
+            "found_in": "Serenity, Soleil, Aura"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

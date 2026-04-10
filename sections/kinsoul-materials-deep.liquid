@@ -1,0 +1,452 @@
+{%- liquid
+  assign color_scheme = section.settings.color_scheme
+-%}
+
+<div
+  class="kinsoul-mat-deep section-{{ section.id }} color-{{ color_scheme }}"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="kinsoul-mat-deep__header" data-kinsoul-reveal="up">
+        {%- if section.settings.subheading != blank -%}
+          <p class="kinsoul-mat-deep__subheading">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+        <h2 class="kinsoul-mat-deep__title">{{ section.settings.heading }}</h2>
+        <hr class="kinsoul-divider">
+        {%- if section.settings.description != blank -%}
+          <p class="kinsoul-mat-deep__desc">{{ section.settings.description }}</p>
+        {%- endif -%}
+      </div>
+    {%- endif -%}
+
+    <div class="kinsoul-mat-deep__profiles">
+      {%- for block in section.blocks -%}
+        <div
+          class="kinsoul-mat-deep__profile{% if forloop.index == 2 %} kinsoul-mat-deep__profile--reverse{% endif %}"
+          id="material-{{ block.settings.anchor | default: forloop.index }}"
+          data-kinsoul-reveal="up"
+          data-kinsoul-delay="{{ forloop.index0 | times: 150 }}"
+          {{ block.shopify_attributes }}
+        >
+          <div class="kinsoul-mat-deep__profile-image">
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 900
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '400, 600, 900',
+                  sizes: '(max-width: 749px) 100vw, 50vw',
+                  class: 'kinsoul-mat-deep__img',
+                  alt: block.settings.title
+              }}
+            {%- else -%}
+              <div class="kinsoul-mat-deep__img-placeholder">
+                {{ 'product-1' | placeholder_svg_tag }}
+              </div>
+            {%- endif -%}
+          </div>
+
+          <div class="kinsoul-mat-deep__profile-content">
+            {%- if block.settings.label != blank -%}
+              <span class="kinsoul-mat-deep__label">{{ block.settings.label }}</span>
+            {%- endif -%}
+            {%- if block.settings.title != blank -%}
+              <h3 class="kinsoul-mat-deep__profile-title">{{ block.settings.title }}</h3>
+            {%- endif -%}
+            {%- if block.settings.body != blank -%}
+              <div class="kinsoul-mat-deep__body rte">{{ block.settings.body }}</div>
+            {%- endif -%}
+
+            {%- if block.settings.found_in_label != blank -%}
+              <div class="kinsoul-mat-deep__found-in">
+                <span class="kinsoul-mat-deep__found-in-label">{{ block.settings.found_in_label }}</span>
+                <div class="kinsoul-mat-deep__found-in-links">
+                  {%- if block.settings.product_1_url != blank and block.settings.product_1_name != blank -%}
+                    <a href="{{ block.settings.product_1_url }}" class="kinsoul-mat-deep__product-link">{{ block.settings.product_1_name }}</a>
+                  {%- endif -%}
+                  {%- if block.settings.product_2_url != blank and block.settings.product_2_name != blank -%}
+                    <a href="{{ block.settings.product_2_url }}" class="kinsoul-mat-deep__product-link">{{ block.settings.product_2_name }}</a>
+                  {%- endif -%}
+                  {%- if block.settings.product_3_url != blank and block.settings.product_3_name != blank -%}
+                    <a href="{{ block.settings.product_3_url }}" class="kinsoul-mat-deep__product-link">{{ block.settings.product_3_name }}</a>
+                  {%- endif -%}
+                  {%- if block.settings.product_4_url != blank and block.settings.product_4_name != blank -%}
+                    <a href="{{ block.settings.product_4_url }}" class="kinsoul-mat-deep__product-link">{{ block.settings.product_4_name }}</a>
+                  {%- endif -%}
+                  {%- if block.settings.product_5_url != blank and block.settings.product_5_name != blank -%}
+                    <a href="{{ block.settings.product_5_url }}" class="kinsoul-mat-deep__product-link">{{ block.settings.product_5_name }}</a>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .kinsoul-mat-deep__header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .kinsoul-mat-deep__subheading {
+    font-family: var(--font-secondary--family), sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--kinsoul-accent, #7B6B5D);
+    margin-bottom: 1rem;
+  }
+
+  .kinsoul-mat-deep__title {
+    font-family: var(--font-heading--family), serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 400;
+    color: var(--color-foreground-heading);
+    letter-spacing: 0.03em;
+    margin: 0;
+  }
+
+  .kinsoul-mat-deep__desc {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--kinsoul-text, #4A4A4A);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* Profile layout */
+  .kinsoul-mat-deep__profiles {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .kinsoul-mat-deep__profile {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    border-top: 1px solid var(--kinsoul-border, #E0D8CE);
+  }
+
+  .kinsoul-mat-deep__profile:last-child {
+    border-bottom: 1px solid var(--kinsoul-border, #E0D8CE);
+  }
+
+  .kinsoul-mat-deep__profile--reverse {
+    direction: rtl;
+  }
+
+  .kinsoul-mat-deep__profile--reverse > * {
+    direction: ltr;
+  }
+
+  /* Image */
+  .kinsoul-mat-deep__profile-image {
+    overflow: hidden;
+  }
+
+  .kinsoul-mat-deep__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    aspect-ratio: 4 / 3;
+    transition: transform 0.6s var(--kinsoul-transition-smooth, ease);
+  }
+
+  .kinsoul-mat-deep__profile:hover .kinsoul-mat-deep__img {
+    transform: scale(1.02);
+  }
+
+  .kinsoul-mat-deep__img-placeholder {
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--kinsoul-bg-alt, #F0EDE8);
+  }
+
+  /* Content */
+  .kinsoul-mat-deep__profile-content {
+    padding: 2.5rem 3rem;
+  }
+
+  .kinsoul-mat-deep__label {
+    display: block;
+    font-family: var(--font-secondary--family), sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--kinsoul-accent, #7B6B5D);
+    margin-bottom: 0.75rem;
+  }
+
+  .kinsoul-mat-deep__profile-title {
+    font-family: var(--font-heading--family), serif;
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    font-weight: 400;
+    color: var(--kinsoul-heading, #2C2C2C);
+    letter-spacing: 0.03em;
+    margin: 0 0 1rem;
+    line-height: 1.3;
+  }
+
+  .kinsoul-mat-deep__body {
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--kinsoul-text, #4A4A4A);
+    margin: 0 0 1.5rem;
+  }
+
+  .kinsoul-mat-deep__body p {
+    margin: 0 0 0.75rem;
+  }
+
+  .kinsoul-mat-deep__body p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Found-in links */
+  .kinsoul-mat-deep__found-in {
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--kinsoul-border, #E0D8CE);
+  }
+
+  .kinsoul-mat-deep__found-in-label {
+    display: block;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--kinsoul-muted, #8A8278);
+    margin-bottom: 0.5rem;
+  }
+
+  .kinsoul-mat-deep__found-in-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .kinsoul-mat-deep__product-link {
+    display: inline-block;
+    font-size: 0.78rem;
+    color: var(--kinsoul-accent, #7B6B5D);
+    text-decoration: none;
+    border: 1px solid var(--kinsoul-border, #E0D8CE);
+    border-radius: var(--kinsoul-radius-soft, 2px);
+    padding: 0.3rem 0.75rem;
+    transition: all 0.3s ease;
+  }
+
+  .kinsoul-mat-deep__product-link:hover {
+    background: var(--kinsoul-accent, #7B6B5D);
+    color: #fff;
+    border-color: var(--kinsoul-accent, #7B6B5D);
+  }
+
+  /* Mobile */
+  @media screen and (max-width: 749px) {
+    .kinsoul-mat-deep__header {
+      margin-bottom: 2.5rem;
+    }
+
+    .kinsoul-mat-deep__profile,
+    .kinsoul-mat-deep__profile--reverse {
+      grid-template-columns: 1fr;
+      direction: ltr;
+    }
+
+    .kinsoul-mat-deep__profile-content {
+      padding: 2rem 1.5rem;
+    }
+
+    .kinsoul-mat-deep__img {
+      aspect-ratio: 3 / 2;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Materials Deep Dive",
+  "tag": "section",
+  "class": "kinsoul-mat-deep-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Our Materials"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What Goes Into Every Bracelet"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "material_profile",
+      "name": "Material Profile",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label (small text above title)",
+          "default": "Material"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Natural Pearls"
+        },
+        {
+          "type": "richtext",
+          "id": "body",
+          "label": "Body text"
+        },
+        {
+          "type": "text",
+          "id": "anchor",
+          "label": "Anchor ID (for linking)",
+          "default": "pearls"
+        },
+        {
+          "type": "text",
+          "id": "found_in_label",
+          "label": "Found-in label",
+          "default": "Found In"
+        },
+        {
+          "type": "url",
+          "id": "product_1_url",
+          "label": "Product 1 URL"
+        },
+        {
+          "type": "text",
+          "id": "product_1_name",
+          "label": "Product 1 name"
+        },
+        {
+          "type": "url",
+          "id": "product_2_url",
+          "label": "Product 2 URL"
+        },
+        {
+          "type": "text",
+          "id": "product_2_name",
+          "label": "Product 2 name"
+        },
+        {
+          "type": "url",
+          "id": "product_3_url",
+          "label": "Product 3 URL"
+        },
+        {
+          "type": "text",
+          "id": "product_3_name",
+          "label": "Product 3 name"
+        },
+        {
+          "type": "url",
+          "id": "product_4_url",
+          "label": "Product 4 URL"
+        },
+        {
+          "type": "text",
+          "id": "product_4_name",
+          "label": "Product 4 name"
+        },
+        {
+          "type": "url",
+          "id": "product_5_url",
+          "label": "Product 5 URL"
+        },
+        {
+          "type": "text",
+          "id": "product_5_name",
+          "label": "Product 5 name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Materials Deep Dive",
+      "blocks": [
+        {
+          "type": "material_profile",
+          "settings": {
+            "label": "Material 01",
+            "title": "Natural Pearls",
+            "anchor": "pearls"
+          }
+        },
+        {
+          "type": "material_profile",
+          "settings": {
+            "label": "Material 02",
+            "title": "Gemstones",
+            "anchor": "gemstones"
+          }
+        },
+        {
+          "type": "material_profile",
+          "settings": {
+            "label": "Material 03",
+            "title": "S925 Sterling Silver",
+            "anchor": "silver"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

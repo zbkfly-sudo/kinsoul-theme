@@ -65,7 +65,7 @@
         "body": {
           "type": "text",
           "settings": {
-            "text": "<p>Every material we use is chosen for its natural beauty and authenticity. We don't hide imperfections — we celebrate them. Our handmade gemstone and pearl bracelets begin with materials sourced from specific regions around the world — freshwater pearls from China's high-standard farms, amethyst from Brazil's volcanic basalt deposits, agate from India and Madagascar. Each material is selected by hand in our California studio before it ever becomes a piece of jewelry.</p>",
+            "text": "<p>Since 2018, our small California studio has crafted handmade gemstone and pearl bracelets from materials chosen for their natural beauty — not factory uniformity. Every pearl, every stone, every silver detail is selected by hand and assembled one piece at a time. We believe imperfections are what make natural jewelry meaningful: the irregular shape of a baroque pearl, the color shift inside an amethyst, the unrepeatable banding of an agate. These aren't flaws — they're signatures of something real.</p><p>Our materials are sourced from specific regions around the world — freshwater pearls from China's high-standard farms, amethyst from Brazil's volcanic basalt deposits, agate from India and Madagascar — then selected by hand in our California studio before becoming a piece of jewelry.</p>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "center",
@@ -121,48 +121,178 @@
         "padding-block-end": 48
       }
     },
-    "materials": {
-      "type": "kinsoul-materials-teaser",
+    "materials_deep": {
+      "type": "kinsoul-materials-deep",
       "blocks": {
         "pearls": {
-          "type": "material_card",
+          "type": "material_profile",
           "settings": {
             "image": "shopify://shop_images/a462ae552c112aea4711b6de9b734fb0.png",
+            "label": "Material 01",
             "title": "Natural Pearls",
-            "description": "We use baroque and freshwater pearls — each one uniquely shaped by nature over months of slow growth inside a living mollusk. China produces over 95% of the world's freshwater pearls, primarily from farms in Zhejiang and Jiangxi provinces. We source from small-batch farms in these regions that prioritize individual cultivation over industrial volume. You'll notice variations in form, size, and luster — that's not a flaw, it's proof of authenticity. Our freshwater pearls are selected for their organic beauty and soft, natural glow. In many traditions, pearls symbolize wisdom, calm, and quiet strength.",
-            "link_url": "/collections/all",
-            "link_text": "Shop Pearl Bracelets"
+            "body": "<p>Every Kinsoul bracelet featuring pearls uses genuine baroque or freshwater pearls — never imitation, never coated glass. Baroque pearls are valued precisely for their irregular, organic forms: no two share the same shape, size, or surface texture. This natural variation is what gives each piece its character.</p><p>China produces over 95% of the world's freshwater pearls, primarily from farms in Zhejiang and Jiangxi provinces. We source from small-batch farms in these regions that prioritize individual cultivation over industrial volume — farms where environmental regulations introduced between 2015 and 2020 significantly raised quality standards across the industry.</p><p>Freshwater pearls develop their luster slowly, layer by layer, inside a living mollusk. The result is a soft, warm glow that synthetic alternatives cannot replicate. We select pearls for their organic beauty — the gentle ridges, the way light moves across an imperfect surface. Our collection includes baroque centerpiece pearls, freshwater rice pearls, and pearl silver bars, each chosen to complement the stones they sit beside.</p><p>A care note: pearls thrive when worn close to your skin. The natural oils from your body help maintain their luminosity over time. Put them on last, take them off first — and they'll age beautifully.</p>",
+            "anchor": "pearls",
+            "found_in_label": "Found In",
+            "product_1_url": "/products/persian-red-agate-pearl-sterling-silver-bracelet",
+            "product_1_name": "Ember",
+            "product_2_url": "/products/freeform-amethyst-bracelet-with-freshwater-pearls",
+            "product_2_name": "Serenity",
+            "product_3_url": "/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones",
+            "product_3_name": "Aura",
+            "product_4_url": "/products/mozhu-persian-agate-baroque-pearl-bracelet",
+            "product_4_name": "Obsidian",
+            "product_5_url": "/products/moqiao-black-agate-rutilated-quartz-pearl-bracelet",
+            "product_5_name": "Terra"
           }
         },
-        "stones": {
-          "type": "material_card",
+        "gemstones": {
+          "type": "material_profile",
           "settings": {
             "image": "shopify://shop_images/ac7c941f089f2cc721d9bd5bece2d52b.png",
-            "title": "Gemstones",
-            "description": "Amethyst, red agate, tiger's eye, lapis lazuli, citrine, black agate, clear quartz — hand-cut and minimally polished to preserve natural texture and inclusions. Each stone comes from a region known for that specific mineral: amethyst from Brazil's Rio Grande do Sul, where volcanic basalt deposits produce roughly 60% of the world's supply. Lapis lazuli from Afghanistan, prized for millennia for its deep blue. Tiger's eye from South Africa's Northern Cape, where it forms in layers of iron-rich sedimentary rock. Red and banded agate from India and Madagascar. We source stones that show character, not factory uniformity. No stone is dyed, heated, or coated — what you see is what nature made.",
-            "link_url": "/collections/all",
-            "link_text": "Explore Gemstone Bracelets"
+            "label": "Material 02",
+            "title": "Hand-Selected Gemstones",
+            "body": "<p>Our bracelets feature over ten varieties of natural gemstones: amethyst, Persian red agate, black agate, Persian banded agate, Brazilian citrine, clear quartz, rutilated quartz, tiger's eye, lapis lazuli, amazonite, and red jasper. Every stone is hand-cut and minimally polished to preserve its natural texture, color variation, and internal inclusions.</p><p>We don't chase uniformity. A piece of amethyst might range from soft lavender to deep violet. Banded agate reveals geological layers formed over millions of years — each stripe a fingerprint of slow, patient mineral deposits. Rutilated quartz contains silver needle-like inclusions that look like captured light. These natural characteristics are what make each bracelet genuinely one of a kind.</p><p>Each stone comes from a region known for that specific mineral: amethyst from Brazil's Rio Grande do Sul, where volcanic basalt deposits produce roughly 60% of the world's supply. Lapis lazuli from Afghanistan, traded along the same routes for over 6,000 years. Tiger's eye from South Africa's Northern Cape, where it forms in layers of iron-rich sedimentary rock. Red and banded agate from India and Madagascar. No stone is dyed, heated, or coated — what you see is what nature made.</p><p>In many cultures, these stones carry quiet traditions: amethyst for calm and clarity, red agate for confidence and vitality, lapis lazuli for wisdom, citrine for optimism. We share these traditions honestly — not as magic, but as the intention behind choosing something meaningful from the earth.</p>",
+            "anchor": "gemstones",
+            "found_in_label": "Found In All Six Bracelets",
+            "product_1_url": "/products/persian-red-agate-pearl-sterling-silver-bracelet",
+            "product_1_name": "Ember",
+            "product_2_url": "/products/freeform-amethyst-bracelet-with-freshwater-pearls",
+            "product_2_name": "Serenity",
+            "product_3_url": "/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones",
+            "product_3_name": "Aura",
+            "product_4_url": "/products/mozhu-persian-agate-baroque-pearl-bracelet",
+            "product_4_name": "Obsidian",
+            "product_5_url": "/products/moqiao-black-agate-rutilated-quartz-pearl-bracelet",
+            "product_5_name": "Terra"
           }
         },
         "silver": {
-          "type": "material_card",
+          "type": "material_profile",
           "settings": {
             "image": "shopify://shop_images/logo.jpg",
+            "label": "Material 03",
             "title": "S925 Sterling Silver",
-            "description": "All metal components — spacers, logo tags, and the small maker's mark on every strand — are crafted from S925 sterling silver: an alloy of 92.5% pure silver and 7.5% copper, the international standard for fine silver jewelry. The copper adds the durability that pure silver lacks, making it strong enough for daily wear without sacrificing its natural luster. Each piece is hand-finished for a smooth feel against the skin. Over time, sterling silver develops a gentle patina — a sign of a piece that's genuinely lived in.",
-            "link_url": "/pages/client-care#care",
-            "link_text": "Sterling Silver Care Guide"
+            "body": "<p>All metal components in our bracelets — the maker's mark bar, spacers, and accent details — are crafted from S925 sterling silver, an alloy of 92.5% pure silver and 7.5% copper — the international standard for fine silver jewelry. The copper adds the durability that pure silver lacks, making it strong enough for daily wear without sacrificing its luster. Each piece is hand-finished for a smooth feel against the skin.</p><p>Some pieces, like the Terra bracelet, feature spacers with an intentional antique finish that echoes the warm, earthy tones of the stones. Over time, sterling silver may develop a natural patina — a soft darkening that many wearers appreciate as part of the piece's evolution. A gentle polish with a soft cloth restores its original luster whenever you prefer.</p><p>The small S925 bar on every bracelet carries our Kinsoul mark — a subtle signature that identifies each piece as genuine, without overpowering the stones and pearls it sits beside.</p>",
+            "anchor": "silver",
+            "found_in_label": "Found In All Six Bracelets",
+            "product_1_url": "/products/persian-red-agate-pearl-sterling-silver-bracelet",
+            "product_1_name": "Ember",
+            "product_2_url": "/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones",
+            "product_2_name": "Aura",
+            "product_3_url": "/products/moqiao-black-agate-rutilated-quartz-pearl-bracelet",
+            "product_3_name": "Terra",
+            "product_4_url": "",
+            "product_4_name": "",
+            "product_5_url": "",
+            "product_5_name": ""
           }
         }
       },
       "block_order": [
         "pearls",
-        "stones",
+        "gemstones",
         "silver"
       ],
       "settings": {
-        "subheading": "",
-        "heading": "",
+        "subheading": "Our Materials",
+        "heading": "What Goes Into Every Bracelet",
+        "description": "Three core materials define every Kinsoul piece — each chosen for its natural beauty, durability, and the way it ages with you over time.",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 80
+      }
+    },
+    "stone_guide": {
+      "type": "kinsoul-stone-guide",
+      "blocks": {
+        "amethyst": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Amethyst",
+            "tradition": "Calm, clarity, intuition",
+            "found_in": "Serenity, Soleil, Aura"
+          }
+        },
+        "red_agate": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Persian Red Agate",
+            "tradition": "Confidence, vitality, grounding",
+            "found_in": "Ember, Aura"
+          }
+        },
+        "black_agate": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Black Agate",
+            "tradition": "Protection, inner resolve",
+            "found_in": "Obsidian, Aura"
+          }
+        },
+        "banded_agate": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Persian Banded Agate",
+            "tradition": "Stability, earth connection",
+            "found_in": "Terra"
+          }
+        },
+        "citrine": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Brazilian Citrine",
+            "tradition": "Abundance, optimism, creative energy",
+            "found_in": "Soleil"
+          }
+        },
+        "rutilated_quartz": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Rutilated Quartz",
+            "tradition": "Clarity, focus, illumination",
+            "found_in": "Obsidian"
+          }
+        },
+        "clear_quartz": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Clear Quartz",
+            "tradition": "Clarity, amplification",
+            "found_in": "Soleil, Aura"
+          }
+        },
+        "tigers_eye": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Tiger's Eye",
+            "tradition": "Courage, personal power",
+            "found_in": "Aura"
+          }
+        },
+        "lapis": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Lapis Lazuli",
+            "tradition": "Wisdom, truth, self-awareness",
+            "found_in": "Aura"
+          }
+        }
+      },
+      "block_order": [
+        "amethyst",
+        "red_agate",
+        "black_agate",
+        "banded_agate",
+        "citrine",
+        "rutilated_quartz",
+        "clear_quartz",
+        "tigers_eye",
+        "lapis"
+      ],
+      "settings": {
+        "subheading": "Stone Index",
+        "heading": "Our Stones & Their Traditions",
+        "description": "Each stone carries its own history. We share these traditions honestly — not as promises, but as the quiet intention behind choosing something natural.",
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 80
@@ -177,7 +307,7 @@
             "image": "shopify://shop_images/1.jpg",
             "step_number": "01",
             "title": "Selected by Hand",
-            "description": "We don't order in bulk. Each natural gemstone is held up to the light, turned, and considered — chosen for its color, pattern, and character. If it doesn't feel right, it doesn't make the cut. The stones in your bracelet were picked specifically for that piece. No two selections are the same, because no two stones are."
+            "description": "We don't order in bulk. Each stone is held up to the light, turned, and considered — chosen for its color, pattern, and character. If it doesn't feel right, it doesn't make the cut. The stones you see in your bracelet were picked specifically for that piece. Our founder personally selects materials for every production run, evaluating each stone's translucency, surface texture, and how it interacts with the pearls and silver it will sit beside."
           }
         },
         "step_2": {
@@ -186,7 +316,7 @@
             "image": "shopify://shop_images/2.jpg",
             "step_number": "02",
             "title": "Assembled One Piece at a Time",
-            "description": "Every bracelet is strung by hand — stone by stone, pearl by pearl. The arrangement isn't random; each piece is composed with balance and contrast in mind. Freshwater pearls are paired with gemstones for texture. Sterling silver spacers are placed for rhythm. It's slow, quiet work — and that's the point."
+            "description": "Every bracelet is strung by hand — stone by stone, pearl by pearl. The arrangement isn't random; each piece is composed with balance and contrast in mind, considering how warm and cool tones play against each other on the wrist. Stones are tested for weight distribution so the bracelet hangs naturally. It's slow, quiet work — and that's the point. There is no assembly line in our California studio."
           }
         },
         "step_3": {
@@ -195,7 +325,7 @@
             "image": "shopify://shop_images/3.jpg",
             "step_number": "03",
             "title": "Checked Before It Leaves",
-            "description": "Before shipping, a fresh pair of eyes goes over every detail — the cord tension, the spacing, the way each stone sits against the next. We make sure it feels right on the wrist. Then it's photographed for our records, placed in its signature box with an authenticity certificate, and sent on its way to you."
+            "description": "Before it leaves, a fresh pair of eyes goes over every detail — the cord tension, the spacing, the way each stone sits. We verify the elastic stretch cord is secure and test the bracelet on the wrist for comfort and fit. Then it's photographed, paired with its gemstone meaning card, placed in our signature cotton-linen gift box with a cotton storage pouch, and sent on its way to you."
           }
         }
       },
@@ -207,8 +337,131 @@
       "settings": {
         "subheading": "The Making",
         "heading": "How Each Piece Comes to Life",
-        "description": "There's no assembly line. From our studio in California, a team of five brings each handmade bracelet to life — from the first stone to the final knot. Every piece passes through the same hands, start to finish. That's how we keep the quality personal.",
+        "description": "There's no assembly line. From our studio in California, a small team of five brings each bracelet to life — from the first stone to the final knot.",
         "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 80
+      }
+    },
+    "quality": {
+      "type": "kinsoul-quality-promise",
+      "blocks": {
+        "natural": {
+          "type": "promise_item",
+          "settings": {
+            "icon": "◇",
+            "title": "100% Natural Stones & Pearls",
+            "description": "Every gemstone and pearl is genuine — never synthetic, never lab-created, never coated. What you see is what nature made."
+          }
+        },
+        "certificate": {
+          "type": "promise_item",
+          "settings": {
+            "icon": "◆",
+            "title": "Gemstone Meaning Card",
+            "description": "Each bracelet ships with a letterpress-printed meaning card on 350gsm cotton paper, detailing the stones and their traditions."
+          }
+        },
+        "cord": {
+          "type": "promise_item",
+          "settings": {
+            "icon": "○",
+            "title": "Replacement Cord Included",
+            "description": "A spare elastic stretch cord is included with every order at no extra charge — so your bracelet lasts for years."
+          }
+        },
+        "packaging": {
+          "type": "promise_item",
+          "settings": {
+            "icon": "□",
+            "title": "Signature Gift Packaging",
+            "description": "Cotton-linen gift box with microsuede lining, a washed cotton storage pouch, and care guide — ready to give or to keep."
+          }
+        }
+      },
+      "block_order": [
+        "natural",
+        "certificate",
+        "cord",
+        "packaging"
+      ],
+      "settings": {
+        "subheading": "Our Promise",
+        "heading": "What Every Order Includes",
+        "color_scheme": "scheme-1",
+        "padding_top": 0,
+        "padding_bottom": 80
+      }
+    },
+    "faq": {
+      "type": "kinsoul-materials-faq",
+      "blocks": {
+        "q1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are your stones and pearls real?",
+            "answer": "Yes — every gemstone and pearl in our bracelets is 100% natural. We never use synthetic, lab-created, or coated materials. Each bracelet ships with a gemstone meaning card that details the specific stones used in your piece."
+          }
+        },
+        "q2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why does my bracelet look different from the product photo?",
+            "answer": "Because we use genuine natural materials, every piece varies slightly in color, texture, shape, and size. An amethyst might lean more lavender or more violet; a baroque pearl will have its own unique form. This natural variation is a hallmark of authenticity — it's what makes your bracelet one of a kind."
+          }
+        },
+        "q3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is a baroque pearl?",
+            "answer": "A baroque pearl is a naturally formed pearl with an irregular, non-spherical shape. Unlike perfectly round cultured pearls, baroque pearls are valued for their organic character — each one has its own unique ridges, curves, and luster. We use baroque freshwater pearls as centerpieces in several Kinsoul bracelets."
+          }
+        },
+        "q4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How should I care for my natural gemstone bracelet?",
+            "answer": "Pearls are organic and porous — they absorb what touches them. Wear them often (natural skin oils maintain their luster), but put your bracelet on after perfume or lotion has settled, and remove it before washing hands or swimming. Gemstones like amethyst and citrine can fade with extended UV exposure — store in the cotton pouch provided. Sterling silver may darken through oxidation — the copper in the alloy reacting with air and moisture — but a gentle polish with a soft cloth restores its shine in seconds. Visit our Client Care page for stone-specific care guides."
+          }
+        },
+        "q5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will the sterling silver tarnish?",
+            "answer": "S925 sterling silver may develop a natural patina over time — a soft darkening that many wearers appreciate as part of the bracelet's character. Some pieces, like Terra, feature intentionally antique-finished silver. A gentle polish with a soft cloth will restore the original luster whenever you prefer."
+          }
+        },
+        "q6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What cord do you use? Will it break?",
+            "answer": "All Kinsoul bracelets use high-quality elastic stretch cord — no clasp needed, designed to slip on and off easily. The cord is tested for tension during our inspection process. A replacement cord is included free with every order, so you're covered for the long term."
+          }
+        },
+        "q7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where do you source your materials?",
+            "answer": "Our freshwater pearls come from farms in China's Zhejiang province, where the industry produces over 95% of the world's freshwater pearls. Our gemstones are sourced from regions renowned for each specific mineral: amethyst from Brazil, lapis lazuli from Afghanistan, tiger's eye from South Africa, agate from India and Madagascar. We don't own farms or mines — we partner with a small network of suppliers who share our standard: natural formation, no chemical treatment, no shortcuts. Nothing is dyed, heated, irradiated, or coated. Every order ships with a certificate of authenticity."
+          }
+        }
+      },
+      "block_order": [
+        "q1",
+        "q2",
+        "q3",
+        "q4",
+        "q5",
+        "q6",
+        "q7"
+      ],
+      "settings": {
+        "subheading": "Common Questions",
+        "heading": "Frequently Asked About Our Materials",
+        "color_scheme": "scheme-1",
+        "cta_note": "Have another question about materials, sizing, or care?",
+        "cta_url": "/pages/client-care",
+        "cta_text": "Visit Our Client Care Page",
         "padding_top": 0,
         "padding_bottom": 80
       }
@@ -218,246 +471,23 @@
       "settings": {
         "subheading": "A Note on Natural Variation",
         "heading": "No Two Pieces Are Ever Alike",
-        "body_text": "Because we use genuine natural materials, the color, texture, shape, and size of stones and pearls will vary from piece to piece. This is a feature, not a defect — it's what makes each handmade bracelet uniquely yours. The piece you receive will look slightly different from the product photos, and we think that's the best part.",
+        "body_text": "Because we use genuine natural materials, every bracelet is unique. Your amethyst may lean more lavender or more violet. Your baroque pearl will have its own shape. The banding inside your agate is a geological fingerprint that took millions of years to form. These variations are features, not defects — they are what make each piece unmistakably yours.",
         "background_image": "shopify://shop_images/Overhead_photograph_looking_202604060502.jpg",
-        "button_url": "/collections/all",
-        "button_text": "Explore the Collection",
+        "button_url": "/collections/shop-all-bracelets",
+        "button_text": "Shop the Collection",
         "color_scheme": "scheme-3",
         "padding_top": 0,
         "padding_bottom": 0
-      }
-    },
-    "sourcing": {
-      "type": "section",
-      "blocks": {
-        "subheading": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Where It Comes From</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "center",
-            "type_preset": "h6",
-            "font": "var(--font-secondary--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "heading-wide",
-            "case": "uppercase",
-            "wrap": "pretty",
-            "color": "var(--kinsoul-accent, #7B6B5D)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "heading": {
-          "type": "text",
-          "settings": {
-            "text": "<h2>Sourced with Intention, Never at Random</h2>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "center",
-            "type_preset": "h2",
-            "font": "var(--font-heading--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "body": {
-          "type": "text",
-          "settings": {
-            "text": "<p>We work with a small network of stone suppliers and pearl farms — relationships built over years, not transactions. We don't own farms or mines. Instead, we partner with suppliers in specific regions who share our standard: natural formation, no chemical treatment, no shortcuts.</p><p>Our freshwater pearls come from farms in China's Zhejiang province, where environmental regulations introduced between 2015 and 2020 significantly raised cultivation standards across the industry. Our gemstones are sourced from regions renowned for each specific mineral — not because it's romantic, but because geology determines quality. Brazilian amethyst has a depth of color that other origins can't match. Afghan lapis lazuli has been traded along the same routes for over 6,000 years. South African tiger's eye forms in banded iron formations found almost nowhere else on earth.</p><p>Nothing we use is dyed, heated, irradiated, or coated to change its appearance. Every order ships with a certificate of authenticity — because when we say natural, we mean it.</p>",
-            "width": "fit-content",
-            "max_width": "narrow",
-            "alignment": "center",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "subheading",
-        "heading",
-        "body"
-      ],
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 16,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-1",
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 80,
-        "padding-block-end": 48
-      }
-    },
-    "care": {
-      "type": "section",
-      "blocks": {
-        "subheading": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Living with Your Pieces</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "center",
-            "type_preset": "h6",
-            "font": "var(--font-secondary--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "heading-wide",
-            "case": "uppercase",
-            "wrap": "pretty",
-            "color": "var(--kinsoul-accent, #7B6B5D)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "heading": {
-          "type": "text",
-          "settings": {
-            "text": "<h2>Simple Care for Natural Materials</h2>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "center",
-            "type_preset": "h2",
-            "font": "var(--font-heading--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "body": {
-          "type": "text",
-          "settings": {
-            "text": "<p><strong>Natural Gemstones:</strong> Wipe gently with a soft, dry cloth after wearing. Avoid prolonged contact with perfume, lotion, or chlorinated water. Stones like amethyst and lapis lazuli can fade with extended UV exposure — store your gemstone bracelet in its box or a soft pouch when not wearing it.</p><p><strong>Freshwater Pearls:</strong> Pearls are organic and porous — they absorb what touches them. Put your pearl bracelet on last, after cosmetics and fragrance have dried. A light wipe with a barely damp cloth after wearing keeps their luster. Store separately to prevent scratching from harder stones or metals.</p><p><strong>S925 Sterling Silver:</strong> Sterling silver may darken naturally over time through oxidation — the copper in the alloy reacting with air and moisture. A gentle polish with a silver cloth restores its brightness in seconds. Many of our customers prefer the warm patina that develops with daily wear.</p><p>For sizing, shipping, and returns, visit our <a href=\"/pages/client-care\">Client Care</a> page.</p>",
-            "width": "fit-content",
-            "max_width": "narrow",
-            "alignment": "center",
-            "type_preset": "rte",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "subheading",
-        "heading",
-        "body"
-      ],
-      "settings": {
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "flex-start",
-        "vertical_alignment": "center",
-        "align_baseline": false,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "center",
-        "gap": 16,
-        "section_width": "page-width",
-        "section_height": "",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-1",
-        "background_media": "none",
-        "video_position": "cover",
-        "background_image_position": "cover",
-        "border": "none",
-        "border_width": 1,
-        "border_opacity": 100,
-        "border_radius": 0,
-        "toggle_overlay": false,
-        "overlay_color": "#00000026",
-        "overlay_style": "solid",
-        "gradient_direction": "to top",
-        "padding-block-start": 80,
-        "padding-block-end": 48
       }
     }
   },
   "order": [
     "intro",
-    "materials",
+    "materials_deep",
+    "stone_guide",
     "craft",
-    "sourcing",
-    "care",
+    "quality",
+    "faq",
     "variation_note"
   ]
 }
