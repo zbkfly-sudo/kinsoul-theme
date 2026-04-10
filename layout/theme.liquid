@@ -140,5 +140,8 @@
     {% if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add-modal' %}
     {% endif %}
+
+    {%- comment %} Kinsoul: Scroll reveal animations & micro-interactions {% endcomment -%}
+    <script src="{{ 'kinsoul-animations.js' | asset_url }}" defer></script>
   </body>
 </html>

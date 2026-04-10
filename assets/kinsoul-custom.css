@@ -1,6 +1,7 @@
 /* ============================================
    KINSOUL ENERGY Custom Styles
    Modern Natural Jewelry — Editorial Warm Theme
+   v2.0 — Deep Visual Upgrade + Mobile Optimization
    ============================================ */
 
 /* --- Global Variables --- */
@@ -9,6 +10,8 @@
   --kinsoul-accent-hover: #6B5B4D;
   --kinsoul-bg: #F9F6F1;
   --kinsoul-bg-alt: #F0EDE8;
+  --kinsoul-bg-dark: #2C2C2C;
+  --kinsoul-bg-warm: #EDE6DB;
   --kinsoul-heading: #2C2C2C;
   --kinsoul-text: #4A4A4A;
   --kinsoul-muted: #8A8278;
@@ -16,6 +19,13 @@
   --kinsoul-amethyst: #8B7D9B;
   --kinsoul-garnet: #8B4D4D;
   --kinsoul-olive: #6B6B5D;
+  --kinsoul-gold: #B8A088;
+  --kinsoul-cream: #FAF7F2;
+  --kinsoul-shadow-soft: 0 4px 24px rgba(44, 44, 44, 0.06);
+  --kinsoul-shadow-hover: 0 8px 32px rgba(44, 44, 44, 0.10);
+  --kinsoul-radius-soft: 2px;
+  --kinsoul-transition-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --kinsoul-transition-spring: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* scroll-behavior: smooth — already set in base.css, removed to avoid duplication */
@@ -54,12 +64,30 @@
 
 @media screen and (max-width: 749px) {
   .hero-section .hero {
-    min-height: 85svh;
+    min-height: 75svh;
   }
 }
-/* Hero heading responsive font size */                                                
-.hero-wrapper h1 {                                                                      
-  font-size: clamp(2rem, 5vw, 3.5rem);                                                
+
+/* Hero heading responsive font size — refined for mobile */
+.hero-wrapper h1 {
+  font-size: clamp(1.75rem, 4.5vw, 3.5rem);
+  line-height: 1.1;
+  letter-spacing: 0.04em;
+}
+
+@media screen and (max-width: 749px) {
+  .hero-wrapper h1 {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+    letter-spacing: 0.06em;
+  }
+
+  .hero-wrapper .hero__text p,
+  .hero-wrapper .hero__subtitle {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    max-width: 85%;
+    margin-inline: auto;
+  }
 }   
 /* --- Lookbook Section Styles --- */
 .kinsoul-lookbook-item {
@@ -361,13 +389,57 @@ a.kinsoul-link:hover::after {
 
 @media screen and (max-width: 749px) {
   .kinsoul-trust-strip {
-    gap: 1rem 2rem;
-    padding: 1rem;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 0;
+    padding: 0.875rem 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    mask-image: linear-gradient(to right, transparent, black 1rem, black calc(100% - 1rem), transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 1rem, black calc(100% - 1rem), transparent);
+  }
+
+  .kinsoul-trust-strip::-webkit-scrollbar {
+    display: none;
   }
 
   .kinsoul-trust-strip__item {
-    font-size: 0.7rem;
+    font-size: 0.72rem;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+    padding: 0 1.25rem;
+    border-right: 1px solid var(--kinsoul-border);
   }
+
+  .kinsoul-trust-strip__item:last-child {
+    border-right: none;
+    padding-right: 1.5rem;
+  }
+
+  .kinsoul-trust-strip__item:first-child {
+    padding-left: 1.5rem;
+  }
+}
+
+/* --- Hide floating bottom CTA button (Klaviyo/app injected) --- */
+button[class*="go"][class*="kl-private"],
+.klaviyo-form-trigger,
+[data-testid="klaviyo-form-trigger"] {
+  display: none !important;
+}
+
+/* --- Hide "Powered by Shopify" link --- */
+a[href*="shopify.com?utm_campaign=poweredby"] {
+  display: none !important;
+}
+
+/* --- Fix Translation Missing on Logo --- */
+img[alt*="Translation missing"] {
+  font-size: 0;
+  color: transparent;
 }
 
 /* --- Product Trust Bar (on PDP) --- */
@@ -2272,4 +2344,753 @@ a.kinsoul-link:hover::after {
 @media (scripting: none) {
   .kinsoul-lqip__full { opacity: 1; }
   .kinsoul-lqip::before { display: none; }
+}
+
+/* ============================================================
+   V2.0 — DEEP VISUAL UPGRADE
+   Scroll reveals, visual rhythm, textures, enhanced interactions
+   ============================================================ */
+
+/* === SCROLL REVEAL ANIMATIONS === */
+
+/* Base state: hidden before reveal */
+[data-kinsoul-reveal] {
+  opacity: 0;
+  transition: opacity 0.8s var(--kinsoul-transition-smooth),
+              transform 0.8s var(--kinsoul-transition-smooth);
+}
+
+[data-kinsoul-reveal="up"] {
+  transform: translateY(40px);
+}
+
+[data-kinsoul-reveal="down"] {
+  transform: translateY(-30px);
+}
+
+[data-kinsoul-reveal="left"] {
+  transform: translateX(40px);
+}
+
+[data-kinsoul-reveal="right"] {
+  transform: translateX(-40px);
+}
+
+[data-kinsoul-reveal="fade"] {
+  transform: none;
+}
+
+[data-kinsoul-reveal="scale"] {
+  transform: scale(0.95);
+}
+
+/* Revealed state */
+[data-kinsoul-reveal].kinsoul-revealed {
+  opacity: 1;
+  transform: translateY(0) translateX(0) scale(1);
+}
+
+/* Stagger children */
+[data-kinsoul-stagger-child] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s var(--kinsoul-transition-smooth),
+              transform 0.6s var(--kinsoul-transition-smooth);
+}
+
+[data-kinsoul-stagger-child].kinsoul-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Text reveal via clip-path */
+[data-kinsoul-text-reveal] {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.9s var(--kinsoul-transition-spring);
+}
+
+[data-kinsoul-text-reveal].kinsoul-text-revealed {
+  clip-path: inset(0 0% 0 0);
+}
+
+/* Image reveal with clip */
+[data-kinsoul-image-reveal] {
+  clip-path: inset(8% 8% 8% 8%);
+  transition: clip-path 1s var(--kinsoul-transition-spring);
+}
+
+[data-kinsoul-image-reveal].kinsoul-image-revealed {
+  clip-path: inset(0% 0% 0% 0%);
+}
+
+/* === GRAIN / NOISE TEXTURE OVERLAY === */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  mix-blend-mode: multiply;
+}
+
+/* === VISUAL RHYTHM — Section Separators & Backgrounds === */
+
+/* Decorative thin gold line between sections */
+.kinsoul-section-separator {
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: var(--kinsoul-gold);
+  margin: 0 auto;
+  border: none;
+  opacity: 0.6;
+}
+
+/* Alternating section backgrounds for depth */
+.kinsoul-materials-teaser-section,
+.kinsoul-gifting-service-section {
+  position: relative;
+}
+
+/* Subtle warm gradient overlay on alt sections */
+.kinsoul-materials-teaser-section::before,
+.kinsoul-gifting-service-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(237, 230, 219, 0.0) 0%,
+    rgba(237, 230, 219, 0.25) 50%,
+    rgba(237, 230, 219, 0.0) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.kinsoul-materials-teaser-section > *,
+.kinsoul-gifting-service-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* === ENHANCED SECTION HEADERS === */
+
+/* Subheading eyebrow style — used across sections */
+.kinsoul-materials-section__subheading,
+.kinsoul-gifting-section__subheading,
+.kinsoul-newsletter__subheading {
+  position: relative;
+  display: inline-block;
+}
+
+.kinsoul-materials-section__subheading::before,
+.kinsoul-gifting-section__subheading::before,
+.kinsoul-newsletter__subheading::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 50%;
+  width: 1.25rem;
+  height: 1px;
+  background: var(--kinsoul-accent);
+  opacity: 0.5;
+}
+
+.kinsoul-materials-section__subheading::after,
+.kinsoul-gifting-section__subheading::after,
+.kinsoul-newsletter__subheading::after {
+  content: '';
+  position: absolute;
+  right: -2rem;
+  top: 50%;
+  width: 1.25rem;
+  height: 1px;
+  background: var(--kinsoul-accent);
+  opacity: 0.5;
+}
+
+/* Enhanced section title typography */
+.kinsoul-materials-section__title,
+.kinsoul-gifting-section__title,
+.kinsoul-newsletter__heading {
+  position: relative;
+}
+
+/* === ENHANCED DIVIDER === */
+.kinsoul-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--kinsoul-gold), transparent);
+  margin: 2rem auto;
+  border: none;
+  opacity: 0.8;
+}
+
+/* === ENHANCED PRODUCT CARDS === */
+.product-card {
+  transition: transform 0.5s var(--kinsoul-transition-smooth),
+              box-shadow 0.5s var(--kinsoul-transition-smooth);
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--kinsoul-shadow-hover);
+}
+
+/* Product card image overlay on hover */
+.product-card .product-card__media {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card .product-card__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(44, 44, 44, 0.06), transparent 40%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.product-card:hover .product-card__media::after {
+  opacity: 1;
+}
+
+/* Product card title refinement */
+.product-card h3 a,
+.product-card .product-card__title a {
+  transition: color 0.3s ease;
+}
+
+.product-card:hover h3 a,
+.product-card:hover .product-card__title a {
+  color: var(--kinsoul-accent);
+}
+
+/* Star rating enhancement */
+[class*="out of 5 stars"] {
+  letter-spacing: 0.05em;
+}
+
+/* === MATERIALS TEASER — Enhanced Cards === */
+.kinsoul-material-card {
+  position: relative;
+  transition: transform 0.5s var(--kinsoul-transition-smooth);
+}
+
+.kinsoul-material-card:hover {
+  transform: translateY(-3px);
+}
+
+.kinsoul-material-card__image {
+  position: relative;
+}
+
+.kinsoul-material-card__image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: linear-gradient(to top, rgba(249, 246, 241, 0.15), transparent);
+  pointer-events: none;
+}
+
+/* === GIFTING SERVICE — Enhanced Cards === */
+.kinsoul-service-card {
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.4s ease,
+              transform 0.4s var(--kinsoul-transition-smooth),
+              box-shadow 0.4s ease;
+}
+
+.kinsoul-service-card:hover {
+  border-color: var(--kinsoul-accent);
+  transform: translateY(-3px);
+  box-shadow: var(--kinsoul-shadow-soft);
+}
+
+.kinsoul-service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--kinsoul-gold);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.4s var(--kinsoul-transition-spring);
+}
+
+.kinsoul-service-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* === FOUNDER TEASER — Enhanced === */
+.kinsoul-founder-teaser {
+  position: relative;
+}
+
+.kinsoul-founder-teaser::before {
+  content: '\201C';
+  position: absolute;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-heading--family), 'Playfair Display', serif;
+  font-size: 6rem;
+  color: var(--kinsoul-gold);
+  opacity: 0.15;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* === NEWSLETTER — Enhanced === */
+.kinsoul-newsletter-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.kinsoul-newsletter-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -25%;
+  width: 150%;
+  height: 200%;
+  background: radial-gradient(ellipse at center, rgba(184, 160, 136, 0.06), transparent 70%);
+  pointer-events: none;
+}
+
+/* === ABOUT PAGE — Editorial Enhancements === */
+
+/* Story blocks — enhanced transitions */
+.kinsoul-about__story-block {
+  overflow: hidden;
+}
+
+.kinsoul-about__story-image {
+  transition: transform 8s ease;
+}
+
+.kinsoul-about__story-block:hover .kinsoul-about__story-image {
+  transform: scale(1.03);
+}
+
+/* Chapter marker enhancement */
+.kinsoul-about__chapter {
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+.kinsoul-about__chapter::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1.75rem;
+  height: 1px;
+  background: var(--kinsoul-accent);
+}
+
+/* Story text first-letter drop cap effect */
+.kinsoul-about__story-text:first-of-type::first-letter {
+  font-family: var(--font-heading--family), 'Playfair Display', serif;
+  font-size: 2.5em;
+  float: left;
+  line-height: 0.85;
+  margin-right: 0.1em;
+  margin-top: 0.05em;
+  color: var(--kinsoul-heading);
+  font-weight: 400;
+}
+
+/* Belief section — refined dark section */
+.kinsoul-about__belief {
+  position: relative;
+  overflow: hidden;
+}
+
+.kinsoul-about__belief::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 50%, rgba(123, 107, 93, 0.15), transparent 70%);
+  pointer-events: none;
+}
+
+/* === CLIENT CARE — Enhanced Section Headers === */
+.kinsoul-care__section {
+  position: relative;
+}
+
+.kinsoul-care__section-number {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--kinsoul-border);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0;
+}
+
+/* === CONTACT PAGE — Enhanced Quick Cards === */
+.kinsoul-contact__quick-card {
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease,
+              background-color 0.3s ease,
+              transform 0.3s var(--kinsoul-transition-smooth);
+}
+
+.kinsoul-contact__quick-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--kinsoul-accent);
+  background: var(--kinsoul-bg-alt);
+}
+
+/* === HEADER ENHANCEMENTS === */
+
+/* Refined header with better blur */
+.header-section {
+  background-color: rgba(249, 246, 241, 0.88);
+  backdrop-filter: blur(12px) saturate(1.2);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Header shadow on scroll (added via JS or css) */
+.header-section.scrolled,
+.header-section[data-scrolled] {
+  box-shadow: 0 1px 12px rgba(44, 44, 44, 0.06);
+}
+
+/* === FOOTER ENHANCEMENTS === */
+.footer-section {
+  border-top: none;
+  position: relative;
+}
+
+.footer-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--kinsoul-border), transparent);
+}
+
+/* === ENHANCED BUTTONS === */
+.button-primary,
+.button--primary {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.button-primary::after,
+.button--primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--kinsoul-accent);
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s var(--kinsoul-transition-spring);
+}
+
+.button-primary:hover::after,
+.button--primary:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* === COLLECTION PAGE ENHANCEMENTS === */
+
+/* Collection header refinement */
+.collection-banner h1 {
+  letter-spacing: 0.03em;
+}
+
+/* Collection grid — mobile 2-col with better spacing */
+@media screen and (max-width: 749px) {
+  .collection .product-list {
+    gap: 1rem;
+  }
+
+  .collection .product-card h3 {
+    font-size: 0.78rem;
+    line-height: 1.35;
+  }
+
+  .collection .product-card .price .money {
+    font-size: 0.82rem;
+  }
+}
+
+/* === PDP (Product Detail Page) ENHANCEMENTS === */
+
+/* Better image gallery spacing on mobile */
+@media screen and (max-width: 749px) {
+  .product-media-gallery {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Product title on mobile */
+  .product-detail h1,
+  .product__title h1 {
+    font-size: clamp(1.25rem, 5vw, 1.6rem);
+    line-height: 1.25;
+  }
+
+  /* Tighten product info spacing on mobile */
+  .product-detail__info,
+  .product__info-container {
+    padding: 0 1rem;
+  }
+
+  /* Product description readability */
+  .product-detail__description,
+  .product__description {
+    font-size: 0.85rem;
+    line-height: 1.75;
+  }
+}
+
+/* Product accordion — smoother animation */
+.kinsoul-accordion__item {
+  transition: background-color 0.3s ease;
+}
+
+.kinsoul-accordion__item[open] {
+  background-color: rgba(240, 237, 232, 0.3);
+  padding-inline: 0.75rem;
+  margin-inline: -0.75rem;
+}
+
+/* === MOBILE GLOBAL OPTIMIZATIONS === */
+@media screen and (max-width: 749px) {
+
+  /* Better touch targets */
+  a, button {
+    -webkit-tap-highlight-color: rgba(123, 107, 93, 0.1);
+  }
+
+  /* Prevent horizontal overflow globally */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Announcement bar mobile refinement */
+  .announcement-bar p,
+  [class*="announcement"] p {
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* Footer mobile — tighter spacing */
+  .footer-section .page-width {
+    padding-inline: 1.25rem;
+  }
+
+  /* Service cards mobile — better grid */
+  .kinsoul-service-grid {
+    gap: 0.75rem;
+  }
+
+  .kinsoul-service-card {
+    padding: 1.25rem 0.875rem;
+  }
+
+  .kinsoul-service-card__title {
+    font-size: 0.95rem;
+  }
+
+  .kinsoul-service-card__text {
+    font-size: 0.75rem;
+    line-height: 1.6;
+  }
+
+  /* Meaning teaser mobile */
+  .kinsoul-meaning-section {
+    padding: 3rem 0;
+  }
+
+  /* Materials grid mobile — card style */
+  .kinsoul-materials-grid {
+    gap: 2rem;
+  }
+
+  .kinsoul-material-card__image {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--kinsoul-radius-soft);
+  }
+
+  /* Newsletter mobile — full width button */
+  .kinsoul-newsletter__inner {
+    padding: 0 0.5rem;
+  }
+
+  /* About page mobile — story blocks breathing room */
+  .kinsoul-about__story-content {
+    padding: 2.25rem 1.25rem;
+  }
+
+  .kinsoul-about__chapter {
+    padding-left: 2rem;
+  }
+
+  .kinsoul-about__chapter::before {
+    width: 1.25rem;
+  }
+
+  /* Client care mobile */
+  .kinsoul-care {
+    padding: 0 1.25rem;
+  }
+
+  .kinsoul-care__section {
+    padding: 2.5rem 0;
+  }
+
+  /* Contact mobile — quick cards readability */
+  .kinsoul-contact__quick-card {
+    padding: 1rem 0.625rem;
+  }
+
+  .kinsoul-contact__quick-label {
+    font-size: 0.75rem;
+  }
+
+  .kinsoul-contact__quick-link {
+    font-size: 0.62rem;
+  }
+
+  /* Founder teaser mobile */
+  .kinsoul-founder-teaser {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .kinsoul-founder-teaser::before {
+    font-size: 4rem;
+    top: 0.5rem;
+  }
+
+  .kinsoul-founder-teaser__title {
+    font-size: 1.15rem;
+    line-height: 1.5;
+  }
+
+  .kinsoul-founder-teaser__text {
+    font-size: 0.84rem;
+  }
+}
+
+/* === TABLET OPTIMIZATIONS (750-989px) === */
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .kinsoul-service-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .kinsoul-materials-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .kinsoul-contact__quick-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .kinsoul-about__story-content {
+    padding: 2.5rem;
+  }
+}
+
+/* === SMOOTH PAGE LOAD === */
+@keyframes kinsoul-page-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#MainContent {
+  animation: kinsoul-page-fade-in 0.5s ease both;
+}
+
+/* === LINK HOVER — Refined underline reveal === */
+.kinsoul-founder-teaser__link,
+.kinsoul-care__hero-link,
+.kinsoul-material-card__link {
+  position: relative;
+  text-decoration: none;
+  border-bottom: none;
+  padding-bottom: 3px;
+}
+
+.kinsoul-founder-teaser__link::after,
+.kinsoul-care__hero-link::after,
+.kinsoul-material-card__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(1);
+  transform-origin: left;
+  transition: transform 0.4s var(--kinsoul-transition-spring);
+}
+
+.kinsoul-founder-teaser__link:hover::after,
+.kinsoul-care__hero-link:hover::after,
+.kinsoul-material-card__link:hover::after {
+  transform: scaleX(0);
+  transform-origin: right;
+}
+
+/* === PREFERS REDUCED MOTION — disable all animations === */
+@media (prefers-reduced-motion: reduce) {
+  [data-kinsoul-reveal],
+  [data-kinsoul-stagger-child],
+  [data-kinsoul-text-reveal],
+  [data-kinsoul-image-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+    transition: none !important;
+  }
+
+  #MainContent {
+    animation: none;
+  }
+
+  body::after {
+    display: none;
+  }
+
+  .kinsoul-about__story-image {
+    transition: none;
+  }
+
+  .product-card,
+  .kinsoul-material-card,
+  .kinsoul-service-card,
+  .kinsoul-contact__quick-card {
+    transition: none;
+  }
 }

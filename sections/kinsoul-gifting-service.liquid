@@ -11,7 +11,7 @@
 >
   <div class="page-width">
     {%- if section.settings.heading != blank -%}
-      <div class="kinsoul-gifting-section__header">
+      <div class="kinsoul-gifting-section__header" data-kinsoul-reveal="up">
         {%- if section.settings.subheading != blank -%}
           <p class="kinsoul-gifting-section__subheading">{{ section.settings.subheading }}</p>
         {%- endif -%}
@@ -20,9 +20,9 @@
       </div>
     {%- endif -%}
 
-    <div class="kinsoul-service-grid">
+    <div class="kinsoul-service-grid" data-kinsoul-stagger="120">
       {%- for block in section.blocks -%}
-        <div class="kinsoul-service-card{% if block.settings.popup_id != blank %} kinsoul-service-card--clickable{% endif %}" {{ block.shopify_attributes }}>
+        <div class="kinsoul-service-card{% if block.settings.popup_id != blank %} kinsoul-service-card--clickable{% endif %}" data-kinsoul-stagger-child {{ block.shopify_attributes }}>
 
           {%- if block.settings.popup_id == 'gift' -%}
             <a href="javascript:void(0)" class="kinsoul-service-card__link-overlay" aria-label="{{ block.settings.title }}" onclick="window.kinsoulOpenGiftPopup && window.kinsoulOpenGiftPopup()"></a>

@@ -11,8 +11,8 @@
   "
 >
   <div class="kinsoul-about">
-    <div class="kinsoul-about__story-block{% if reverse %} kinsoul-about__story-block--reverse{% endif %}">
-      <div class="kinsoul-about__story-image">
+    <div class="kinsoul-about__story-block{% if reverse %} kinsoul-about__story-block--reverse{% endif %}" data-kinsoul-reveal="up">
+      <div class="kinsoul-about__story-image" data-kinsoul-image-reveal>
         {%- if section.settings.image != blank -%}
           {{
             section.settings.image

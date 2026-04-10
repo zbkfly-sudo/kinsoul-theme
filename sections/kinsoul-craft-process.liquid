@@ -11,7 +11,7 @@
 >
   <div class="page-width">
     {%- if section.settings.heading != blank -%}
-      <div class="kinsoul-craft__header">
+      <div class="kinsoul-craft__header" data-kinsoul-reveal="up">
         {%- if section.settings.subheading != blank -%}
           <p class="kinsoul-craft__subheading">{{ section.settings.subheading }}</p>
         {%- endif -%}
@@ -25,7 +25,7 @@
 
     <div class="kinsoul-craft__steps">
       {%- for block in section.blocks -%}
-        <div class="kinsoul-craft__step{% if forloop.index == 2 %} kinsoul-craft__step--reverse{% endif %}" {{ block.shopify_attributes }}>
+        <div class="kinsoul-craft__step{% if forloop.index == 2 %} kinsoul-craft__step--reverse{% endif %}" data-kinsoul-reveal="up" data-kinsoul-delay="{{ forloop.index0 | times: 200 }}" {{ block.shopify_attributes }}>
           <div class="kinsoul-craft__step-image">
             {%- if block.settings.image != blank -%}
               {{
