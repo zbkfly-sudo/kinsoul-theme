@@ -25,3 +25,7 @@ secrets.local
 *.token
 .env
 !.env.example
+
+# Large local-only directories (not needed for theme or Ultraplan)
+_source-images/
+baselines/
