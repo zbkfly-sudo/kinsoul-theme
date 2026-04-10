@@ -1,0 +1,39 @@
+{% comment %}
+  Kinsoul Energy — ContactPage Schema
+  Tells Google this is the brand's official Contact page.
+  Should be rendered in <head> only when page.handle == 'contact' (via theme.liquid).
+{% endcomment %}
+
+{%- liquid
+  assign page_url = shop.url | append: page.url
+  assign org_id = shop.url | append: '/#organization'
+-%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": {{ page.title | json }},
+  "url": {{ page_url | json }},
+  {%- if page.content != blank %}
+  "description": {{ page.content | strip_html | strip_newlines | truncate: 5000 | json }},
+  {%- endif %}
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": {{ shop.url | append: '/#website' | json }}
+  },
+  "mainEntity": {
+    "@type": "Organization",
+    "@id": {{ org_id | json }},
+    "name": "Kinsoul Energy",
+    "email": "hello@kinsoulenergy.com",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "hello@kinsoulenergy.com",
+      "availableLanguage": ["English"]
+    }
+  },
+  "inLanguage": "en-US"
+}
+</script>

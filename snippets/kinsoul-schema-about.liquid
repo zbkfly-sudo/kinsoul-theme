@@ -1,0 +1,36 @@
+{% comment %}
+  Kinsoul Energy — AboutPage Schema
+  Tells Google this is the brand's official About page.
+  Should be rendered in <head> only when page.handle == 'about' (via theme.liquid).
+{% endcomment %}
+
+{%- liquid
+  assign page_url = shop.url | append: page.url
+  assign org_id = shop.url | append: '/#organization'
+  assign clean_description = page.content | strip_html | strip_newlines | truncate: 5000
+-%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": {{ page.title | json }},
+  "url": {{ page_url | json }},
+  {%- if clean_description != blank %}
+  "description": {{ clean_description | json }},
+  {%- endif %}
+  "isPartOf": {
+    "@type": "WebSite",
+    "@id": {{ shop.url | append: '/#website' | json }}
+  },
+  "about": {
+    "@type": "Organization",
+    "@id": {{ org_id | json }}
+  },
+  "mainEntity": {
+    "@type": "Organization",
+    "@id": {{ org_id | json }}
+  },
+  "inLanguage": "en-US"
+}
+</script>

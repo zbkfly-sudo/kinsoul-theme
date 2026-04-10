@@ -38,6 +38,15 @@
     {%- if page.handle == 'client-care' or template.name == 'page.client-care' -%}
       {%- render 'kinsoul-schema-faq' -%}
     {%- endif -%}
+    {%- if request.page_type == 'collection' -%}
+      {%- render 'kinsoul-schema-collection' -%}
+    {%- endif -%}
+    {%- if page.handle == 'about' -%}
+      {%- render 'kinsoul-schema-about' -%}
+    {%- endif -%}
+    {%- if page.handle == 'contact' -%}
+      {%- render 'kinsoul-schema-contact' -%}
+    {%- endif -%}
 
     {% if request.design_mode %}
       {%- render 'theme-editor' -%}

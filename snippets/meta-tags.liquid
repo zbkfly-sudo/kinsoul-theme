@@ -158,9 +158,12 @@
   {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
 </title>
 
+{%- liquid
+  assign clean_canonical = canonical_url | split: '?' | first
+-%}
 <link
   rel="canonical"
-  href="{{ canonical_url }}"
+  href="{{ clean_canonical }}"
 >
 
 {% if page_description %}
