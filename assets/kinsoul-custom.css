@@ -76,14 +76,19 @@
 }
 
 @media screen and (max-width: 749px) {
-  .hero-wrapper h1 {
-    font-size: clamp(1.6rem, 7vw, 2.2rem);
-    letter-spacing: 0.06em;
+  /* Override theme H1 64px setting for mobile hero */
+  .hero-wrapper h1,
+  .hero-section h1,
+  .hero h1 {
+    font-size: clamp(1.5rem, 6.5vw, 2rem) !important;
+    letter-spacing: 0.05em;
+    line-height: 1.15;
   }
 
   .hero-wrapper .hero__text p,
-  .hero-wrapper .hero__subtitle {
-    font-size: 0.85rem;
+  .hero-wrapper .hero__subtitle,
+  .hero-section .hero__text p {
+    font-size: 0.82rem;
     line-height: 1.6;
     max-width: 85%;
     margin-inline: auto;
@@ -424,10 +429,17 @@ a.kinsoul-link:hover::after {
   }
 }
 
-/* --- Hide floating bottom CTA button (Klaviyo/app injected) --- */
+/* --- Hide floating bottom CTA button (Klaviyo teaser + form trigger) --- */
+[class*="kl-teaser"],
+[data-testid="animated-teaser"],
 button[class*="go"][class*="kl-private"],
 .klaviyo-form-trigger,
 [data-testid="klaviyo-form-trigger"] {
+  display: none !important;
+}
+
+/* Hide the Klaviyo teaser parent container (no id/class on wrapper div) */
+body > div:has([class*="kl-teaser"]) {
   display: none !important;
 }
 
