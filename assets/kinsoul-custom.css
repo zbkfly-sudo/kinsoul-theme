@@ -454,11 +454,12 @@ img[alt*="Translation missing"] {
   color: transparent;
 }
 
-/* --- Hide product star ratings & review count (metafield-driven) --- */
+/* --- Hide product star ratings & review count --- */
 .rating-wrapper,
 .product-card .rating-wrapper,
 .product-card .rating,
-.product-card .rating-count {
+.product-card .rating-count,
+.kinsoul-card-rating {
   display: none !important;
 }
 
