@@ -1,0 +1,2282 @@
+/* ============================================
+   KINSOUL ENERGY Custom Styles
+   Modern Natural Jewelry — Editorial Warm Theme
+   ============================================ */
+
+/* --- Global Variables --- */
+:root {
+  --kinsoul-accent: #7B6B5D;
+  --kinsoul-accent-hover: #6B5B4D;
+  --kinsoul-bg: #F9F6F1;
+  --kinsoul-bg-alt: #F0EDE8;
+  --kinsoul-heading: #2C2C2C;
+  --kinsoul-text: #4A4A4A;
+  --kinsoul-muted: #8A8278;
+  --kinsoul-border: #E0D8CE;
+  --kinsoul-amethyst: #8B7D9B;
+  --kinsoul-garnet: #8B4D4D;
+  --kinsoul-olive: #6B6B5D;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: var(--kinsoul-accent);
+  color: #FFFFFF;
+}
+
+/* --- Typography Enhancements --- */
+
+/* Brand name styling */
+.kinsoul-brand {
+  font-family: var(--font-heading--family), 'Cormorant Garamond', serif;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+/* Accent text */
+.kinsoul-accent-text {
+  color: var(--kinsoul-accent);
+}
+
+/* Italic accent for descriptions */
+.kinsoul-italic {
+  font-family: var(--font-heading--family), 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* --- Hero Section Enhancements --- */
+.hero-section .hero {
+  min-height: 100svh;
+}
+
+@media screen and (max-width: 749px) {
+  .hero-section .hero {
+    min-height: 85svh;
+  }
+}
+/* Hero heading responsive font size */                                                
+.hero-wrapper h1 {                                                                      
+  font-size: clamp(2rem, 5vw, 3.5rem);                                                
+}   
+/* --- Lookbook Section Styles --- */
+.kinsoul-lookbook-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.kinsoul-lookbook-item img {
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.kinsoul-lookbook-item:hover img {
+  transform: scale(1.03);
+}
+
+/* --- Brand Story Cards --- */
+.kinsoul-story-card {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.kinsoul-story-card .icon-wrapper {
+  color: var(--kinsoul-accent);
+  margin-bottom: 1.5rem;
+}
+
+.kinsoul-story-card h3 {
+  font-family: var(--font-heading--family), 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: var(--kinsoul-heading);
+  margin-bottom: 1rem;
+  letter-spacing: 0.08em;
+}
+
+.kinsoul-story-card p {
+  color: var(--kinsoul-muted);
+  line-height: 1.8;
+  font-size: 0.9rem;
+}
+
+/* --- Product Card Enhancements --- */
+.product-card {
+  transition: transform 0.4s ease;
+}
+
+/* Price styling */
+.product-card .price .money,
+.product-card .price__regular .money {
+  color: var(--kinsoul-heading);
+  font-weight: 500;
+}
+
+/* --- Buttons --- */
+.button-primary,
+.button--primary {
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 1rem 2.5rem;
+  transition: all 0.3s ease;
+}
+
+.button-secondary,
+.button--secondary {
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* --- Divider with accent --- */
+.kinsoul-divider {
+  width: 60px;
+  height: 1px;
+  background: var(--kinsoul-accent);
+  margin: 2rem auto;
+  border: none;
+}
+
+/* --- Newsletter Section --- */
+.kinsoul-newsletter {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.kinsoul-newsletter input[type="email"] {
+  background: transparent;
+  border: 1px solid var(--kinsoul-border);
+  color: var(--kinsoul-heading);
+  padding: 0.875rem 1.25rem;
+  font-size: 0.9rem;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.kinsoul-newsletter input[type="email"]:focus {
+  border-color: var(--kinsoul-accent);
+  outline: none;
+}
+
+.kinsoul-newsletter input[type="email"]::placeholder {
+  color: var(--kinsoul-muted);
+}
+
+/* --- Marquee / Brand Keywords --- */
+.marquee .marquee__text {
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--kinsoul-muted);
+}
+
+/* --- Scrollbar Styling --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--kinsoul-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--kinsoul-border);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--kinsoul-accent);
+}
+
+/* --- Media Gallery on Product Page --- */
+.product-media-gallery {
+  background: transparent;
+}
+
+/* --- Cart Drawer --- */
+.cart-drawer {
+  background: var(--kinsoul-bg);
+}
+
+/* --- Header Enhancements --- */
+.header-section {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* --- Footer --- */
+.footer-section {
+  border-top: 1px solid var(--kinsoul-border);
+}
+
+/* --- Fade-in Animation --- */
+@keyframes kinsoul-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.kinsoul-fade-in {
+  animation: kinsoul-fade-in 0.8s ease forwards;
+}
+
+/* --- Responsive Spacing --- */
+@media screen and (min-width: 990px) {
+  .kinsoul-section-spacing {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .kinsoul-section-spacing {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* --- Mobile Optimizations --- */
+@media screen and (max-width: 749px) {
+  .button-primary,
+  .button--primary,
+  .button-secondary,
+  .button--secondary {
+    padding: 0.875rem 2rem;
+    min-height: 48px;
+  }
+
+  body {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .kinsoul-lookbook-item img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* --- Sticky Add to Cart Enhancement --- */
+.sticky-add-to-cart {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--kinsoul-border);
+}
+
+/* --- Mobile: Smooth product image swipe --- */
+@media screen and (max-width: 749px) {
+  .product-media-gallery__slider {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .product-media-gallery__slider > * {
+    scroll-snap-align: center;
+  }
+
+  .header-drawer__menu {
+    padding: 2rem 1.5rem;
+  }
+
+  .button-primary:active,
+  .button--primary:active {
+    transform: scale(0.98);
+  }
+
+  .hero-section img {
+    content-visibility: auto;
+  }
+}
+
+/* --- Reduce motion for accessibility --- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .kinsoul-lookbook-item img,
+  .product-card {
+    transition: none;
+  }
+}
+
+/* --- Link hover underline --- */
+a.kinsoul-link {
+  position: relative;
+  color: var(--kinsoul-heading);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a.kinsoul-link:hover {
+  color: var(--kinsoul-accent);
+}
+
+a.kinsoul-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--kinsoul-accent);
+  transition: width 0.3s ease;
+}
+
+a.kinsoul-link:hover::after {
+  width: 100%;
+}
+
+/* --- Trust Strip Section --- */
+.kinsoul-trust-strip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  padding: 1.25rem 1rem;
+}
+
+.kinsoul-trust-strip__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  color: var(--kinsoul-text);
+  white-space: nowrap;
+}
+
+.kinsoul-trust-strip__item svg {
+  width: 18px;
+  height: 18px;
+  color: var(--kinsoul-accent);
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 749px) {
+  .kinsoul-trust-strip {
+    gap: 1rem 2rem;
+    padding: 1rem;
+  }
+
+  .kinsoul-trust-strip__item {
+    font-size: 0.7rem;
+  }
+}
+
+/* --- Product Trust Bar (on PDP) --- */
+.kinsoul-product-trust {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-product-trust__item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--kinsoul-muted);
+}
+
+.kinsoul-product-trust__item svg {
+  width: 16px;
+  height: 16px;
+  color: var(--kinsoul-accent);
+  flex-shrink: 0;
+}
+
+/* --- Product Accordion --- */
+.kinsoul-accordion {
+  border-top: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-accordion__item {
+  border-bottom: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-accordion__trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.25rem 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-heading--family), serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: var(--kinsoul-heading);
+  text-align: left;
+}
+
+.kinsoul-accordion__trigger svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s ease;
+  color: var(--kinsoul-muted);
+}
+
+.kinsoul-accordion__item[open] .kinsoul-accordion__trigger svg {
+  transform: rotate(45deg);
+}
+
+.kinsoul-accordion__content {
+  padding: 0 0 1.25rem;
+  font-size: 0.875rem;
+  line-height: 1.8;
+  color: var(--kinsoul-text);
+}
+
+/* --- Materials Teaser --- */
+.kinsoul-materials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.kinsoul-material-card {
+  text-align: center;
+  overflow: hidden;
+}
+
+.kinsoul-material-card__image {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.kinsoul-material-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.kinsoul-material-card:hover .kinsoul-material-card__image img {
+  transform: scale(1.03);
+}
+
+.kinsoul-material-card__title {
+  font-family: var(--font-heading--family), serif;
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+  color: var(--kinsoul-heading);
+  margin-bottom: 0.75rem;
+}
+
+.kinsoul-material-card__text {
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: var(--kinsoul-muted);
+  margin-bottom: 1.25rem;
+}
+
+.kinsoul-material-card__link {
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--kinsoul-heading);
+  text-decoration: none;
+  border-bottom: 1px solid var(--kinsoul-heading);
+  padding-bottom: 2px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.kinsoul-material-card__link:hover {
+  color: var(--kinsoul-accent);
+  border-color: var(--kinsoul-accent);
+}
+
+@media screen and (max-width: 749px) {
+  .kinsoul-materials-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+/* --- Gifting Service Section --- */
+.kinsoul-service-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.kinsoul-service-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  border: 1px solid var(--kinsoul-border);
+  transition: border-color 0.3s ease;
+}
+
+.kinsoul-service-card:hover {
+  border-color: var(--kinsoul-accent);
+}
+
+.kinsoul-service-card__icon {
+  color: var(--kinsoul-accent);
+  margin-bottom: 1rem;
+}
+
+.kinsoul-service-card__icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.kinsoul-service-card__title {
+  font-family: var(--font-heading--family), serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  color: var(--kinsoul-heading);
+  margin-bottom: 0.5rem;
+}
+
+.kinsoul-service-card__text {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--kinsoul-muted);
+}
+
+@media screen and (max-width: 749px) {
+  .kinsoul-service-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .kinsoul-service-card {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* --- Gift Note in Cart Drawer --- */
+.kinsoul-gift-note {
+  border-top: 1px solid var(--kinsoul-border);
+  padding-block: 1rem;
+  margin-block-start: 0.25rem;
+}
+
+.kinsoul-gift-note__toggle {
+  display: flex;
+  align-items: center;
+}
+
+.kinsoul-gift-note__checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.kinsoul-gift-note__checkbox-label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.kinsoul-gift-note__checkmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--kinsoul-border);
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.kinsoul-gift-note__checkmark svg {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.2s ease;
+  color: #fff;
+}
+
+.kinsoul-gift-note__checkbox-label input:checked ~ .kinsoul-gift-note__checkmark {
+  background: var(--kinsoul-accent);
+  border-color: var(--kinsoul-accent);
+}
+
+.kinsoul-gift-note__checkbox-label input:checked ~ .kinsoul-gift-note__checkmark svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.kinsoul-gift-note__icon {
+  display: flex;
+  align-items: center;
+  color: var(--kinsoul-accent);
+}
+
+.kinsoul-gift-note__toggle-text {
+  font-family: var(--font-heading--family), serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--kinsoul-heading);
+}
+
+.kinsoul-gift-note__content {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.35s ease, opacity 0.3s ease;
+  padding-inline-start: 28px;
+}
+
+.kinsoul-gift-note__content:not([hidden]) {
+  margin-block-start: 0.875rem;
+}
+
+.kinsoul-gift-note__message-wrap {
+  position: relative;
+  margin-bottom: 0.75rem;
+}
+
+.kinsoul-gift-note__label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--kinsoul-text);
+  margin-bottom: 0.5rem;
+}
+
+.kinsoul-gift-note__optional {
+  color: var(--kinsoul-muted);
+  font-style: italic;
+}
+
+.kinsoul-gift-note__textarea {
+  width: 100%;
+  min-height: 4.5rem;
+  max-width: 100%;
+  padding: 0.75rem;
+  font-family: var(--font-body--family), sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--kinsoul-heading);
+  background: transparent;
+  border: 1px solid var(--kinsoul-border);
+  resize: vertical;
+  transition: border-color 0.25s ease;
+}
+
+.kinsoul-gift-note__textarea:focus {
+  outline: none;
+  border-color: var(--kinsoul-accent);
+}
+
+.kinsoul-gift-note__textarea::placeholder {
+  color: var(--kinsoul-muted);
+  font-style: italic;
+  font-size: 0.78rem;
+}
+
+.kinsoul-gift-note__char-count {
+  display: block;
+  text-align: right;
+  font-size: 0.65rem;
+  color: var(--kinsoul-muted);
+  margin-top: 0.25rem;
+  letter-spacing: 0.03em;
+}
+
+.kinsoul-gift-note__checkbox-label--small {
+  margin-bottom: 0.75rem;
+}
+
+.kinsoul-gift-note__checkbox-label--small .kinsoul-gift-note__checkmark {
+  width: 15px;
+  height: 15px;
+}
+
+.kinsoul-gift-note__checkbox-label--small .kinsoul-gift-note__checkmark svg {
+  width: 10px;
+  height: 10px;
+}
+
+.kinsoul-gift-note__hide-text {
+  font-size: 0.75rem;
+  color: var(--kinsoul-text);
+  letter-spacing: 0.02em;
+}
+
+.kinsoul-gift-note__hint {
+  font-size: 0.7rem;
+  font-style: italic;
+  color: var(--kinsoul-muted);
+  line-height: 1.5;
+  margin: 0;
+  padding-top: 0.25rem;
+  border-top: 1px solid var(--kinsoul-border);
+  padding-block: 0.5rem;
+}
+
+/* --- Gift-Ready Packaging Popup --- */
+.kinsoul-popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(44, 44, 44, 0.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+  padding: 1.5rem;
+}
+
+.kinsoul-popup-overlay[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.kinsoul-popup {
+  position: relative;
+  background: var(--kinsoul-bg, #F9F6F1);
+  max-width: 820px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: translateY(16px) scale(0.98);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.kinsoul-popup-overlay[aria-hidden="false"] .kinsoul-popup {
+  transform: translateY(0) scale(1);
+}
+
+/* Scrollbar inside popup */
+.kinsoul-popup::-webkit-scrollbar {
+  width: 4px;
+}
+
+.kinsoul-popup::-webkit-scrollbar-thumb {
+  background: var(--kinsoul-border);
+}
+
+.kinsoul-popup__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--kinsoul-heading);
+  padding: 0.5rem;
+  transition: color 0.25s ease;
+  line-height: 0;
+}
+
+.kinsoul-popup__close:hover {
+  color: var(--kinsoul-accent);
+}
+
+.kinsoul-popup__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+/* Image side */
+.kinsoul-popup__image-wrap {
+  overflow: hidden;
+}
+
+.kinsoul-popup__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.kinsoul-popup__image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  background: var(--kinsoul-bg-alt, #F0EDE8);
+  color: var(--kinsoul-border);
+}
+
+/* Content side */
+.kinsoul-popup__content {
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.kinsoul-popup__subheading {
+  font-family: var(--font-secondary--family, var(--font-body--family)), sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  margin: 0 0 0.75rem;
+}
+
+.kinsoul-popup__title {
+  font-family: var(--font-heading--family), serif;
+  font-size: clamp(1.5rem, 2.5vw, 1.85rem);
+  font-weight: 400;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.03em;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.kinsoul-popup__divider {
+  margin: 1.25rem 0;
+}
+
+.kinsoul-popup__intro {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: var(--kinsoul-text);
+  margin: 0 0 1.5rem;
+}
+
+.kinsoul-popup__features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.kinsoul-popup__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+}
+
+.kinsoul-popup__feature-icon {
+  flex-shrink: 0;
+  color: var(--kinsoul-accent);
+  margin-top: 0.1rem;
+}
+
+.kinsoul-popup__feature-text {
+  font-size: 0.8rem;
+  line-height: 1.65;
+  color: var(--kinsoul-text);
+}
+
+.kinsoul-popup__feature-text strong {
+  display: block;
+  font-family: var(--font-heading--family), serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.03em;
+  margin-bottom: 0.15rem;
+}
+
+.kinsoul-popup__footer {
+  border-top: 1px solid var(--kinsoul-border);
+  padding-top: 1.25rem;
+}
+
+.kinsoul-popup__note {
+  font-size: 0.78rem;
+  color: var(--kinsoul-text);
+  margin: 0 0 0.75rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.kinsoul-popup__gift-hint {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--kinsoul-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.kinsoul-popup__gift-hint svg {
+  flex-shrink: 0;
+  color: var(--kinsoul-accent);
+}
+
+/* Mobile: stack vertically */
+@media screen and (max-width: 749px) {
+  .kinsoul-popup {
+    max-height: 85vh;
+  }
+
+  .kinsoul-popup__body {
+    grid-template-columns: 1fr;
+  }
+
+  .kinsoul-popup__image-wrap {
+    max-height: 240px;
+  }
+
+  .kinsoul-popup__content {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .kinsoul-popup__title {
+    font-size: 1.35rem;
+  }
+
+  .kinsoul-popup__features {
+    gap: 1rem;
+  }
+}
+
+/* --- Size Guidance Popup --- */
+.kinsoul-popup--size {
+  max-width: 640px;
+}
+
+.kinsoul-popup__body--single {
+  display: block;
+}
+
+.kinsoul-popup__content--full {
+  padding: 2.5rem 2.5rem 2rem;
+}
+
+.kinsoul-size__section {
+  margin-bottom: 1.75rem;
+}
+
+.kinsoul-size__section--alt {
+  background: var(--kinsoul-bg-alt, #F0EDE8);
+  margin-inline: -2.5rem;
+  padding: 1.5rem 2.5rem;
+}
+
+.kinsoul-size__method-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-heading--family), serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.03em;
+  margin: 0 0 0.5rem;
+}
+
+.kinsoul-size__method-title svg {
+  color: var(--kinsoul-accent);
+  flex-shrink: 0;
+}
+
+.kinsoul-size__method-desc {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--kinsoul-text);
+  margin: 0 0 1.25rem;
+}
+
+/* Credit card grid */
+.kinsoul-size__card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.kinsoul-size__card-item {
+  position: relative;
+  border: 1px solid var(--kinsoul-border);
+  padding: 1rem 0.5rem 0.75rem;
+  text-align: center;
+  transition: border-color 0.25s ease;
+}
+
+.kinsoul-size__card-item:hover {
+  border-color: var(--kinsoul-accent);
+}
+
+.kinsoul-size__card-item--popular {
+  border-color: var(--kinsoul-accent);
+}
+
+.kinsoul-size__card-badge {
+  position: absolute;
+  top: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--kinsoul-accent);
+  color: #fff;
+  font-size: 0.55rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.5rem;
+  white-space: nowrap;
+}
+
+.kinsoul-size__card-visual {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.625rem;
+}
+
+.kinsoul-size__card-icon {
+  width: 64px;
+  color: var(--kinsoul-accent);
+}
+
+.kinsoul-size__card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.kinsoul-size__card-size {
+  font-family: var(--font-heading--family), serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.05em;
+}
+
+.kinsoul-size__card-measure {
+  font-size: 0.72rem;
+  color: var(--kinsoul-accent);
+  font-weight: 500;
+}
+
+.kinsoul-size__card-desc {
+  font-size: 0.65rem;
+  color: var(--kinsoul-muted);
+  line-height: 1.4;
+}
+
+/* Precise method table */
+.kinsoul-size__table-wrap {
+  overflow-x: auto;
+}
+
+.kinsoul-size__table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.kinsoul-size__table th {
+  font-family: var(--font-heading--family), serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--kinsoul-muted);
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-size__table td {
+  padding: 0.625rem 0.75rem;
+  color: var(--kinsoul-text);
+  border-bottom: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-size__table td strong {
+  color: var(--kinsoul-heading);
+}
+
+.kinsoul-size__table-highlight {
+  background: rgba(123, 107, 93, 0.06);
+}
+
+.kinsoul-size__inches {
+  color: var(--kinsoul-muted);
+  font-size: 0.72rem;
+}
+
+.kinsoul-size__popular-tag {
+  display: inline-block;
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--kinsoul-accent);
+  padding: 0.1rem 0.35rem;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+  font-weight: 500;
+}
+
+/* Footer tips */
+.kinsoul-size__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  border-top: 1px solid var(--kinsoul-border);
+  padding-top: 1.25rem;
+  margin-top: 1.75rem;
+}
+
+.kinsoul-size__tip {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.78rem;
+  color: var(--kinsoul-text);
+  line-height: 1.4;
+}
+
+.kinsoul-size__tip svg {
+  flex-shrink: 0;
+  color: var(--kinsoul-accent);
+}
+
+.kinsoul-size__tip strong {
+  color: var(--kinsoul-heading);
+}
+
+/* --- Client Care Page --- */
+.kinsoul-care {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.kinsoul-care__hero {
+  text-align: center;
+  padding: 5rem 0 3.5rem;
+}
+
+.kinsoul-care__eyebrow {
+  font-family: var(--font-secondary--family, var(--font-body--family)), sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  margin: 0 0 0.75rem;
+}
+
+.kinsoul-care__hero-title {
+  font-family: var(--font-heading--family), serif;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 400;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.03em;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.kinsoul-care__hero-text {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--kinsoul-text);
+  max-width: 480px;
+  margin: 0 auto 1.5rem;
+}
+
+.kinsoul-care__hero-link {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--kinsoul-heading);
+  text-decoration: none;
+  border-bottom: 1px solid var(--kinsoul-heading);
+  padding-bottom: 2px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.kinsoul-care__hero-link:hover {
+  color: var(--kinsoul-accent);
+  border-color: var(--kinsoul-accent);
+}
+
+/* Section */
+.kinsoul-care__section {
+  padding: 3.5rem 0;
+  border-top: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-care__section--alt {
+  background: var(--kinsoul-bg-alt, #F0EDE8);
+  margin-inline: -1.5rem;
+  padding-inline: 1.5rem;
+  border-top: none;
+}
+
+.kinsoul-care__section-header {
+  margin-bottom: 2.25rem;
+}
+
+.kinsoul-care__section-number {
+  display: block;
+  font-family: var(--font-heading--family), serif;
+  font-size: 0.75rem;
+  color: var(--kinsoul-accent);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5rem;
+}
+
+.kinsoul-care__section-title {
+  font-family: var(--font-heading--family), serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+.kinsoul-care__section-subtitle {
+  font-size: 0.85rem;
+  color: var(--kinsoul-text);
+  margin: 0.75rem 0 0;
+  line-height: 1.6;
+}
+
+/* Highlight row */
+.kinsoul-care__highlight-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2.25rem;
+}
+
+.kinsoul-care__highlight {
+  text-align: center;
+  padding: 1.25rem 1rem;
+  border: 1px solid var(--kinsoul-border);
+  background: var(--kinsoul-bg, #F9F6F1);
+}
+
+.kinsoul-care__highlight-value {
+  display: block;
+  font-family: var(--font-heading--family), serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.03em;
+  line-height: 1;
+  margin-bottom: 0.35rem;
+}
+
+.kinsoul-care__highlight-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--kinsoul-muted);
+  line-height: 1.4;
+}
+
+/* Content grid */
+.kinsoul-care__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.kinsoul-care__grid--two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.kinsoul-care__item {
+  padding: 0;
+}
+
+.kinsoul-care__item-icon {
+  color: var(--kinsoul-accent);
+  margin-bottom: 0.75rem;
+}
+
+.kinsoul-care__item-title {
+  font-family: var(--font-heading--family), serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.02em;
+  margin: 0 0 0.5rem;
+}
+
+.kinsoul-care__item-text {
+  font-size: 0.82rem;
+  line-height: 1.75;
+  color: var(--kinsoul-text);
+  margin: 0 0 0.75rem;
+}
+
+.kinsoul-care__item-text:last-child {
+  margin-bottom: 0;
+}
+
+.kinsoul-care__item-text a {
+  color: var(--kinsoul-heading);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.25s ease;
+}
+
+.kinsoul-care__item-text a:hover {
+  color: var(--kinsoul-accent);
+}
+
+.kinsoul-care__item-text strong {
+  color: var(--kinsoul-heading);
+  font-weight: 600;
+}
+
+/* Note bar */
+.kinsoul-care__note {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--kinsoul-border);
+  background: var(--kinsoul-bg, #F9F6F1);
+}
+
+.kinsoul-care__note svg {
+  flex-shrink: 0;
+  color: var(--kinsoul-accent);
+}
+
+.kinsoul-care__note span {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--kinsoul-text);
+}
+
+.kinsoul-care__note strong {
+  color: var(--kinsoul-heading);
+}
+
+/* Care icons row */
+.kinsoul-care__icons-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.kinsoul-care__icon-item {
+  text-align: center;
+}
+
+.kinsoul-care__icon-circle {
+  width: 56px;
+  height: 56px;
+  border: 1px solid var(--kinsoul-border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem;
+  color: var(--kinsoul-accent);
+  background: var(--kinsoul-bg, #F9F6F1);
+}
+
+.kinsoul-care__icon-text {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: var(--kinsoul-text);
+  margin: 0;
+}
+
+/* Contact CTA */
+.kinsoul-care__cta {
+  text-align: center;
+  padding: 4rem 0 5rem;
+  border-top: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-care__cta-title {
+  font-family: var(--font-heading--family), serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+.kinsoul-care__cta-text {
+  font-size: 0.85rem;
+  color: var(--kinsoul-text);
+  margin: 0 auto 2rem;
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+.kinsoul-care__cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.5rem;
+}
+
+.kinsoul-care__cta-button {
+  display: inline-block;
+  padding: 0.875rem 2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  background: var(--kinsoul-heading);
+  color: var(--kinsoul-bg, #F9F6F1);
+  transition: all 0.3s ease;
+}
+
+.kinsoul-care__cta-button:hover {
+  background: var(--kinsoul-accent);
+  color: #fff;
+}
+
+.kinsoul-care__cta-button--secondary {
+  background: transparent;
+  color: var(--kinsoul-heading);
+  border: 1px solid var(--kinsoul-heading);
+}
+
+.kinsoul-care__cta-button--secondary:hover {
+  background: var(--kinsoul-heading);
+  color: var(--kinsoul-bg, #F9F6F1);
+}
+
+.kinsoul-care__cta-payments {
+  padding-top: 2rem;
+  border-top: 1px solid var(--kinsoul-border);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.kinsoul-care__cta-payments-title {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--kinsoul-muted);
+  margin: 0 0 0.5rem;
+}
+
+.kinsoul-care__cta-payments-text {
+  font-size: 0.75rem;
+  color: var(--kinsoul-text);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Materials care list */
+.kinsoul-care__materials-header {
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-care__materials-title {
+  font-family: var(--font-heading--family), serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.03em;
+  margin: 0 0 0.35rem;
+}
+
+.kinsoul-care__materials-subtitle {
+  font-size: 0.8rem;
+  color: var(--kinsoul-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.kinsoul-care__materials-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 2.5rem;
+}
+
+.kinsoul-care__material {
+  display: flex;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-care__material:first-child {
+  border-top: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-care__material-icon {
+  flex-shrink: 0;
+  color: var(--kinsoul-accent);
+  margin-top: 0.15rem;
+}
+
+.kinsoul-care__material-content {
+  flex: 1;
+}
+
+.kinsoul-care__material-name {
+  font-family: var(--font-heading--family), serif;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.02em;
+  margin: 0 0 0.15rem;
+}
+
+.kinsoul-care__material-applies {
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  margin: 0 0 0.5rem;
+}
+
+.kinsoul-care__material-text {
+  font-size: 0.82rem;
+  line-height: 1.75;
+  color: var(--kinsoul-text);
+  margin: 0;
+}
+
+.kinsoul-care__material-text strong {
+  color: var(--kinsoul-heading);
+  font-weight: 600;
+}
+
+/* Client Care mobile */
+@media screen and (max-width: 749px) {
+  .kinsoul-care__hero {
+    padding: 3rem 0 2.5rem;
+  }
+
+  .kinsoul-care__grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .kinsoul-care__highlight-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .kinsoul-care__highlight {
+    padding: 1rem 0.5rem;
+  }
+
+  .kinsoul-care__highlight-value {
+    font-size: 1.35rem;
+  }
+
+  .kinsoul-care__highlight-label {
+    font-size: 0.6rem;
+  }
+
+  .kinsoul-care__icons-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .kinsoul-care__note {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .kinsoul-care__cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .kinsoul-care__cta-button {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+
+  .kinsoul-care__section--alt {
+    margin-inline: -1.5rem;
+    padding-inline: 1.5rem;
+  }
+}
+
+/* --- Contact Page --- */
+.kinsoul-contact {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.kinsoul-contact__hero {
+  text-align: center;
+  padding: 5rem 0 3rem;
+}
+
+.kinsoul-contact__hero-text {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--kinsoul-text);
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+/* Quick help section */
+.kinsoul-contact__quick {
+  padding-bottom: 3.5rem;
+}
+
+.kinsoul-contact__quick-title {
+  font-family: var(--font-heading--family), serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.03em;
+  margin: 0 0 1.25rem;
+  text-align: center;
+}
+
+.kinsoul-contact__quick-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+.kinsoul-contact__quick-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  padding: 1.25rem 1rem;
+  border: 1px solid var(--kinsoul-border);
+  text-decoration: none;
+  transition: border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.kinsoul-contact__quick-card:hover {
+  border-color: var(--kinsoul-accent);
+  background: var(--kinsoul-bg-alt, #F0EDE8);
+}
+
+.kinsoul-contact__quick-card svg {
+  color: var(--kinsoul-accent);
+}
+
+.kinsoul-contact__quick-label {
+  font-family: var(--font-heading--family), serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--kinsoul-heading);
+  line-height: 1.35;
+}
+
+.kinsoul-contact__quick-link {
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+}
+
+/* Form section */
+.kinsoul-contact__form-section {
+  padding: 3.5rem 0 4rem;
+  border-top: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-contact__form-header {
+  margin-bottom: 2rem;
+}
+
+.kinsoul-contact__form-title {
+  font-family: var(--font-heading--family), serif;
+  font-size: clamp(1.5rem, 3vw, 1.85rem);
+  font-weight: 400;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.03em;
+  margin: 0 0 0.5rem;
+}
+
+.kinsoul-contact__form-subtitle {
+  font-size: 0.85rem;
+  color: var(--kinsoul-text);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.kinsoul-contact__form-layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Form fields */
+.kinsoul-contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.kinsoul-contact__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.kinsoul-contact__field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.kinsoul-contact__label {
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  color: var(--kinsoul-text);
+  font-weight: 500;
+}
+
+.kinsoul-contact__required {
+  color: var(--kinsoul-accent);
+}
+
+.kinsoul-contact__optional {
+  color: var(--kinsoul-muted);
+  font-weight: 400;
+  font-style: italic;
+}
+
+.kinsoul-contact__input,
+.kinsoul-contact__select,
+.kinsoul-contact__textarea {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  font-family: var(--font-body--family), sans-serif;
+  font-size: 0.82rem;
+  color: var(--kinsoul-heading);
+  background: transparent;
+  border: 1px solid var(--kinsoul-border);
+  transition: border-color 0.25s ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.kinsoul-contact__select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%237B6B5D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.kinsoul-contact__input:focus,
+.kinsoul-contact__select:focus,
+.kinsoul-contact__textarea:focus {
+  outline: none;
+  border-color: var(--kinsoul-accent);
+}
+
+.kinsoul-contact__input::placeholder,
+.kinsoul-contact__textarea::placeholder {
+  color: var(--kinsoul-muted);
+  font-style: italic;
+  font-size: 0.78rem;
+}
+
+.kinsoul-contact__textarea {
+  min-height: 7rem;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+.kinsoul-contact__submit {
+  display: inline-block;
+  width: fit-content;
+  padding: 0.875rem 2.5rem;
+  font-family: var(--font-body--family), sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--kinsoul-bg, #F9F6F1);
+  background: var(--kinsoul-heading);
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.kinsoul-contact__submit:hover {
+  background: var(--kinsoul-accent);
+}
+
+.kinsoul-contact__form-note {
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--kinsoul-muted);
+  line-height: 1.5;
+  margin: 0.5rem 0 0;
+}
+
+/* Sidebar */
+.kinsoul-contact__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.kinsoul-contact__sidebar-block {
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-contact__sidebar-block:first-child {
+  padding-top: 0;
+}
+
+.kinsoul-contact__sidebar-block:last-child {
+  border-bottom: none;
+}
+
+.kinsoul-contact__sidebar-icon {
+  color: var(--kinsoul-accent);
+  margin-bottom: 0.5rem;
+}
+
+.kinsoul-contact__sidebar-title {
+  font-family: var(--font-heading--family), serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.02em;
+  margin: 0 0 0.25rem;
+}
+
+.kinsoul-contact__sidebar-text {
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: var(--kinsoul-text);
+  margin: 0;
+}
+
+.kinsoul-contact__sidebar-link {
+  display: inline-block;
+  margin-top: 0.35rem;
+  font-size: 0.78rem;
+  color: var(--kinsoul-heading);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.25s ease;
+}
+
+.kinsoul-contact__sidebar-link:hover {
+  color: var(--kinsoul-accent);
+}
+
+.kinsoul-contact__sidebar-urgent {
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--kinsoul-muted);
+  line-height: 1.5;
+  margin: 0.75rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--kinsoul-border);
+}
+
+/* Contact page mobile */
+@media screen and (max-width: 749px) {
+  .kinsoul-contact__hero {
+    padding: 3rem 0 2rem;
+  }
+
+  .kinsoul-contact__quick-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.625rem;
+  }
+
+  .kinsoul-contact__quick-card {
+    padding: 1rem 0.75rem;
+  }
+
+  .kinsoul-contact__form-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .kinsoul-contact__field-row {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .kinsoul-contact__submit {
+    width: 100%;
+    text-align: center;
+  }
+
+  .kinsoul-contact__sidebar {
+    border-top: 1px solid var(--kinsoul-border);
+    padding-top: 0.5rem;
+  }
+}
+
+/* --- About Page --- */
+.kinsoul-about {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Hero */
+.kinsoul-about__hero {
+  text-align: center;
+  padding: 8rem 0 6rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.kinsoul-about__hero-title {
+  font-family: var(--font-heading--family), serif;
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 400;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.02em;
+  line-height: 1.35;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Story blocks */
+.kinsoul-about__story-block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  align-items: center;
+  min-height: 480px;
+}
+
+.kinsoul-about__story-block--reverse {
+  direction: rtl;
+}
+
+.kinsoul-about__story-block--reverse > * {
+  direction: ltr;
+}
+
+.kinsoul-about__story-image {
+  width: 100%;
+  height: 100%;
+  min-height: 480px;
+  background-size: cover;
+  background-position: center;
+  background-color: var(--kinsoul-bg-alt, #F0EDE8);
+}
+
+.kinsoul-about__story-content {
+  padding: 3.5rem 4rem;
+}
+
+.kinsoul-about__chapter {
+  display: block;
+  font-family: var(--font-secondary--family, var(--font-body--family)), sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  margin-bottom: 1.25rem;
+}
+
+.kinsoul-about__story-text {
+  font-size: 0.88rem;
+  line-height: 1.85;
+  color: var(--kinsoul-text);
+  margin: 0 0 1.25rem;
+}
+
+.kinsoul-about__story-text:last-child {
+  margin-bottom: 0;
+}
+
+.kinsoul-about__story-highlight {
+  font-family: var(--font-heading--family), serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--kinsoul-heading);
+  line-height: 1.5;
+  margin: 1.5rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--kinsoul-border);
+}
+
+/* Name section */
+.kinsoul-about__name-section {
+  text-align: center;
+  padding: 5rem 0;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.kinsoul-about__name-title {
+  font-family: var(--font-heading--family), serif;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 400;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.05em;
+  margin: 0 0 1.5rem;
+}
+
+.kinsoul-about__name-text {
+  font-size: 0.88rem;
+  line-height: 1.8;
+  color: var(--kinsoul-text);
+  margin: 0 0 1rem;
+}
+
+.kinsoul-about__name-text:last-of-type {
+  margin-bottom: 0;
+}
+
+.kinsoul-about__name-section .kinsoul-divider {
+  margin: 2rem auto;
+}
+
+/* Belief section */
+.kinsoul-about__belief {
+  background: var(--kinsoul-heading, #2C2C2C);
+  padding: 6rem 1.5rem;
+}
+
+.kinsoul-about__belief-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.kinsoul-about__belief .kinsoul-care__eyebrow {
+  color: var(--kinsoul-accent);
+}
+
+.kinsoul-about__belief-title {
+  font-family: var(--font-heading--family), serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400;
+  color: var(--kinsoul-bg, #F9F6F1);
+  letter-spacing: 0.03em;
+  line-height: 1.35;
+  margin: 0 0 1.25rem;
+}
+
+.kinsoul-about__belief-text {
+  font-size: 0.9rem;
+  line-height: 1.8;
+  color: rgba(249, 246, 241, 0.7);
+  margin: 0;
+}
+
+.kinsoul-about__belief .kinsoul-divider {
+  background: var(--kinsoul-accent);
+}
+
+.kinsoul-about__belief-button {
+  display: inline-block;
+  padding: 0.875rem 2.5rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--kinsoul-heading, #2C2C2C);
+  background: var(--kinsoul-bg, #F9F6F1);
+  transition: all 0.3s ease;
+}
+
+.kinsoul-about__belief-button:hover {
+  background: var(--kinsoul-accent);
+  color: #fff;
+}
+
+/* About page mobile */
+@media screen and (max-width: 749px) {
+  .kinsoul-about__hero {
+    padding: 5rem 0 3.5rem;
+  }
+
+  .kinsoul-about__hero-title {
+    font-size: 1.5rem;
+  }
+
+  .kinsoul-about__story-block,
+  .kinsoul-about__story-block--reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+    min-height: auto;
+  }
+
+  .kinsoul-about__story-image {
+    min-height: 280px;
+  }
+
+  .kinsoul-about__story-content {
+    padding: 2rem 1.5rem;
+  }
+
+  .kinsoul-about__name-section {
+    padding: 3.5rem 0;
+  }
+
+  .kinsoul-about__belief {
+    padding: 4rem 1.5rem;
+  }
+}
+
+/* --- Founder Teaser (Homepage) --- */
+.kinsoul-founder-teaser {
+  padding: 5rem 1.5rem;
+  text-align: center;
+}
+
+.kinsoul-founder-teaser__inner {
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+.kinsoul-founder-teaser__title {
+  font-family: var(--font-heading--family), serif;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.02em;
+  line-height: 1.45;
+  margin: 0 0 0.75rem;
+}
+
+.kinsoul-founder-teaser__text {
+  font-size: 0.9rem;
+  color: var(--kinsoul-text);
+  line-height: 1.6;
+  margin: 0 0 1.75rem;
+}
+
+.kinsoul-founder-teaser__link {
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--kinsoul-heading);
+  text-decoration: none;
+  border-bottom: 1px solid var(--kinsoul-heading);
+  padding-bottom: 2px;
+  transition: color 0.3s ease, border-color 0.3s ease;
+}
+
+.kinsoul-founder-teaser__link:hover {
+  color: var(--kinsoul-accent);
+  border-color: var(--kinsoul-accent);
+}
+
+/* --- Custom Product Badge --- */
+.kinsoul-badge--custom {
+  background: var(--kinsoul-accent, #7B6B5D);
+  color: #fff;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  font-weight: 500;
+}
+
+/* Size popup mobile */
+@media screen and (max-width: 749px) {
+  .kinsoul-popup__content--full {
+    padding: 2rem 1.5rem 1.5rem;
+  }
+
+  .kinsoul-size__section--alt {
+    margin-inline: -1.5rem;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .kinsoul-size__card-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.625rem;
+  }
+
+  .kinsoul-size__card-item {
+    padding: 0.875rem 0.5rem 0.625rem;
+  }
+}
+
+/* ============================================================
+   Kinsoul LQIP (Low Quality Image Placeholder)
+   Renders a 40px blurred background as instant placeholder.
+   Real image fades in on top once loaded (via inline onload handler).
+   Reduces perceived FCP from ~7s to ~0.5s on mobile PDPs.
+   ============================================================ */
+.kinsoul-lqip {
+  position: relative;
+  background-image: var(--lqip-url);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.kinsoul-lqip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: var(--lqip-url);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(20px);
+  transform: scale(1.15);
+  z-index: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.kinsoul-lqip__full {
+  position: relative;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.kinsoul-lqip--loaded .kinsoul-lqip__full {
+  opacity: 1;
+}
+
+.kinsoul-lqip--loaded::before {
+  opacity: 0;
+}
+
+/* JS-disabled fallback: if scripting unavailable, still show image */
+@media (scripting: none) {
+  .kinsoul-lqip__full { opacity: 1; }
+  .kinsoul-lqip::before { display: none; }
+}
