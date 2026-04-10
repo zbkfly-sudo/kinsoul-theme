@@ -245,7 +245,76 @@ For these: tell the user **exactly where in Admin to click** and what to change.
   - P0-1 ✅ Fixed in repo: missing `kinsoul-schema-organization.liquid` snippet → Liquid error
   - P0-2 ⚠️ Admin-side: subscription consent text injected by an App on PDP
   - P0-3 ✅ Fixed in repo: PDP had no review module — added `sections/kinsoul-product-reviews.liquid`
-- See `PROJECT-STATUS.md` and `SEO-STATUS.md` for full context.
+- See `PROJECT-STATUS.md` and `SEO-GEO-AUDIT-2026-04-10.md` for full context.
+
+---
+
+## 11. SEO 工作流程（使用 SEO 插件）
+
+当改动涉及**内容、schema、meta 标签、页面结构、新页面**时，必须走此流程。纯 CSS/UI/性能改动可跳过。
+
+### 判断标准：是否需要 SEO 流程？
+
+| 改动类型 | 需要 SEO 流程？ |
+|----------|----------------|
+| 新建/扩充页面内容 | ✅ 必须 |
+| Schema 结构化数据 | ✅ 必须 |
+| Meta 标签 / Title / Description | ✅ 必须 |
+| 页面 URL / Canonical / 重定向 | ✅ 必须 |
+| 内链结构变更 | ✅ 必须 |
+| CSS 样式 / 视觉调整 | ❌ 跳过 |
+| JS 性能优化 | ❌ 跳过 |
+| Bug 修复（不涉及内容） | ❌ 跳过 |
+
+### Phase 1: 诊断（动手之前）
+
+用 SEO 插件分析当前状态，建立基准数据：
+
+```
+/seo-page <目标URL>          → 拿到 on-page 评分、缺失项
+/seo-content <目标URL>       → E-E-A-T 得分、内容深度、可读性
+/seo-schema <目标URL>        → 现有 schema 检测、缺失类型
+/seo-geo <目标URL>           → AI 搜索可见度、可引用段落分析
+```
+
+关键词调研（如涉及新内容）：
+```
+/seo-dataforseo              → 目标关键词搜索量、难度、意图
+```
+
+**产出：** 明确的问题清单 + 量化基准（优化前得分）。
+
+### Phase 2: 设计方案
+
+基于诊断数据设计优化方案。使用 `/seo-plan` 辅助策略设计。方案必须包含：
+- 目标关键词（有搜索量数据支撑）
+- 内容结构（标题层级、词数目标、内链计划）
+- Schema 类型选择
+- GEO 优化点（可引用段落、统计数据、权威来源）
+
+### Phase 3: 实现
+
+代码实现阶段。Schema 生成可用 `/seo-schema` 辅助。
+
+### Phase 4: 验证（部署之后）
+
+推送测试主题后，对**预览 URL** 重新跑诊断工具：
+
+```
+/seo-page <预览URL>          → 确认所有指标提升
+/seo-schema <预览URL>        → 验证 schema 无 error
+/seo-content <预览URL>       → 确认 E-E-A-T 得分提升
+```
+
+用 Playwright 辅助检查词数、H 标签层级、内链数量。
+
+**产出：** Before/After 对比表，确认每项指标达标。
+
+### 注意事项
+
+- `/seo-schema` 的建议中，**忽略 HowTo（已废弃）和 FAQ（限政府/医疗站点）的 Rich Results 建议**。但 FAQPage schema 仍对 AI 引用有价值，可以加。
+- 关键词选择必须有 `/seo-dataforseo` 的搜索量数据支撑，不能凭直觉。
+- 每次 SEO 改动的 Before/After 数据保留在 commit message 中。
 
 ---
 
