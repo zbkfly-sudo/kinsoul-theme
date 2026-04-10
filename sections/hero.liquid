@@ -8,6 +8,21 @@
   assign media_2 = 'none'
   assign media_1_mobile = 'none'
   assign media_2_mobile = 'none'
+
+  comment
+    SEO: Build hero alt text with fallback chain — image alt → first heading block → shop name
+  endcomment
+  assign hero_alt_fallback = section.settings.image_1.alt
+  if hero_alt_fallback == blank
+    for block in section.blocks
+      if block.type == 'heading' and hero_alt_fallback == blank
+        assign hero_alt_fallback = block.settings.text | strip_html
+      endif
+    endfor
+  endif
+  if hero_alt_fallback == blank
+    assign hero_alt_fallback = shop.name
+  endif
   assign has_only_video = false
   assign has_only_video_mobile = false
 
@@ -141,7 +156,7 @@
           width: section.settings.image_1.width,
           widths: widths,
           height: section.settings.image_1.height,
-          alt: section.settings.image_1.alt,
+          alt: hero_alt_fallback,
           class: 'hero__media',
           sizes: sizes,
           fetchpriority: fetch_priority,
@@ -158,7 +173,7 @@
           width: section.settings.image_1.width,
           widths: widths,
           height: section.settings.image_1.height,
-          alt: section.settings.image_1.alt,
+          alt: hero_alt_fallback,
           class: 'hero__media',
           sizes: sizes,
           fetchpriority: fetch_priority,
