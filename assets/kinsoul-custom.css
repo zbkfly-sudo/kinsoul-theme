@@ -454,6 +454,14 @@ img[alt*="Translation missing"] {
   color: transparent;
 }
 
+/* --- Hide product star ratings & review count (metafield-driven) --- */
+.rating-wrapper,
+.product-card .rating-wrapper,
+.product-card .rating,
+.product-card .rating-count {
+  display: none !important;
+}
+
 /* --- Product Trust Bar (on PDP) --- */
 .kinsoul-product-trust {
   display: grid;
