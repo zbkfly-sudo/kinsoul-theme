@@ -65,7 +65,7 @@
         "body": {
           "type": "text",
           "settings": {
-            "text": "<p>Every material we use is chosen for its natural beauty and authenticity. We don't hide imperfections — we celebrate them.</p>",
+            "text": "<p>Every material we use is chosen for its natural beauty and authenticity. We don't hide imperfections — we celebrate them. Our handmade gemstone and pearl bracelets begin with materials sourced from specific regions around the world — freshwater pearls from China's high-standard farms, amethyst from Brazil's volcanic basalt deposits, agate from India and Madagascar. Each material is selected by hand in our California studio before it ever becomes a piece of jewelry.</p>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "center",
@@ -129,9 +129,9 @@
           "settings": {
             "image": "shopify://shop_images/a462ae552c112aea4711b6de9b734fb0.png",
             "title": "Natural Pearls",
-            "description": "We use baroque and freshwater pearls — each one uniquely shaped by nature. You'll notice variations in form, size, and luster. That's not a flaw; it's proof of authenticity. Our pearls are selected for their organic beauty and soft, natural glow.",
-            "link_url": "",
-            "link_text": ""
+            "description": "We use baroque and freshwater pearls — each one uniquely shaped by nature over months of slow growth inside a living mollusk. China produces over 95% of the world's freshwater pearls, primarily from farms in Zhejiang and Jiangxi provinces. We source from small-batch farms in these regions that prioritize individual cultivation over industrial volume. You'll notice variations in form, size, and luster — that's not a flaw, it's proof of authenticity. Our freshwater pearls are selected for their organic beauty and soft, natural glow. In many traditions, pearls symbolize wisdom, calm, and quiet strength.",
+            "link_url": "/collections/all",
+            "link_text": "Shop Pearl Bracelets"
           }
         },
         "stones": {
@@ -139,9 +139,9 @@
           "settings": {
             "image": "shopify://shop_images/ac7c941f089f2cc721d9bd5bece2d52b.png",
             "title": "Gemstones",
-            "description": "Amethyst, agate, quartz, tiger's eye, lapis lazuli — hand-cut and minimally polished. Each stone retains its natural texture, color variation, and inclusions. We source stones that show character, not factory uniformity.",
-            "link_url": "",
-            "link_text": ""
+            "description": "Amethyst, red agate, tiger's eye, lapis lazuli, citrine, black agate, clear quartz — hand-cut and minimally polished to preserve natural texture and inclusions. Each stone comes from a region known for that specific mineral: amethyst from Brazil's Rio Grande do Sul, where volcanic basalt deposits produce roughly 60% of the world's supply. Lapis lazuli from Afghanistan, prized for millennia for its deep blue. Tiger's eye from South Africa's Northern Cape, where it forms in layers of iron-rich sedimentary rock. Red and banded agate from India and Madagascar. We source stones that show character, not factory uniformity. No stone is dyed, heated, or coated — what you see is what nature made.",
+            "link_url": "/collections/all",
+            "link_text": "Explore Gemstone Bracelets"
           }
         },
         "silver": {
@@ -149,9 +149,9 @@
           "settings": {
             "image": "shopify://shop_images/logo.jpg",
             "title": "S925 Sterling Silver",
-            "description": "All metal components — clasps, spacers, logo tags — are crafted from S925 sterling silver. Hand-finished for a smooth feel against the skin, designed for daily wear and long-term durability.",
-            "link_url": "",
-            "link_text": ""
+            "description": "All metal components — spacers, logo tags, and the small maker's mark on every strand — are crafted from S925 sterling silver: an alloy of 92.5% pure silver and 7.5% copper, the international standard for fine silver jewelry. The copper adds the durability that pure silver lacks, making it strong enough for daily wear without sacrificing its natural luster. Each piece is hand-finished for a smooth feel against the skin. Over time, sterling silver develops a gentle patina — a sign of a piece that's genuinely lived in.",
+            "link_url": "/pages/client-care#care",
+            "link_text": "Sterling Silver Care Guide"
           }
         }
       },
@@ -177,7 +177,7 @@
             "image": "shopify://shop_images/1.jpg",
             "step_number": "01",
             "title": "Selected by Hand",
-            "description": "We don't order in bulk. Each stone is held up to the light, turned, and considered — chosen for its color, pattern, and character. If it doesn't feel right, it doesn't make the cut. The stones you see in your bracelet were picked specifically for that piece."
+            "description": "We don't order in bulk. Each natural gemstone is held up to the light, turned, and considered — chosen for its color, pattern, and character. If it doesn't feel right, it doesn't make the cut. The stones in your bracelet were picked specifically for that piece. No two selections are the same, because no two stones are."
           }
         },
         "step_2": {
@@ -186,7 +186,7 @@
             "image": "shopify://shop_images/2.jpg",
             "step_number": "02",
             "title": "Assembled One Piece at a Time",
-            "description": "Every bracelet is strung by hand — stone by stone, pearl by pearl. The arrangement isn't random; each piece is composed with balance and contrast in mind. It's slow, quiet work — and that's the point."
+            "description": "Every bracelet is strung by hand — stone by stone, pearl by pearl. The arrangement isn't random; each piece is composed with balance and contrast in mind. Freshwater pearls are paired with gemstones for texture. Sterling silver spacers are placed for rhythm. It's slow, quiet work — and that's the point."
           }
         },
         "step_3": {
@@ -195,7 +195,7 @@
             "image": "shopify://shop_images/3.jpg",
             "step_number": "03",
             "title": "Checked Before It Leaves",
-            "description": "Before it leaves, a fresh pair of eyes goes over every detail — the cord tension, the spacing, the way each stone sits. We make sure it feels right on the wrist. Then it's photographed, placed in its box, and sent on its way to you."
+            "description": "Before shipping, a fresh pair of eyes goes over every detail — the cord tension, the spacing, the way each stone sits against the next. We make sure it feels right on the wrist. Then it's photographed for our records, placed in its signature box with an authenticity certificate, and sent on its way to you."
           }
         }
       },
@@ -207,7 +207,7 @@
       "settings": {
         "subheading": "The Making",
         "heading": "How Each Piece Comes to Life",
-        "description": "There's no assembly line. From our studio in California, a small team brings each bracelet to life — from the first stone to the final knot.",
+        "description": "There's no assembly line. From our studio in California, a team of five brings each handmade bracelet to life — from the first stone to the final knot. Every piece passes through the same hands, start to finish. That's how we keep the quality personal.",
         "color_scheme": "scheme-1",
         "padding_top": 0,
         "padding_bottom": 80
@@ -218,7 +218,7 @@
       "settings": {
         "subheading": "A Note on Natural Variation",
         "heading": "No Two Pieces Are Ever Alike",
-        "body_text": "Because we use genuine natural materials, the color, texture, shape, and size of stones and pearls will vary from piece to piece. This is a feature, not a defect — it's what makes each bracelet uniquely yours.",
+        "body_text": "Because we use genuine natural materials, the color, texture, shape, and size of stones and pearls will vary from piece to piece. This is a feature, not a defect — it's what makes each handmade bracelet uniquely yours. The piece you receive will look slightly different from the product photos, and we think that's the best part.",
         "background_image": "shopify://shop_images/Overhead_photograph_looking_202604060502.jpg",
         "button_url": "/collections/all",
         "button_text": "Explore the Collection",
@@ -226,12 +226,238 @@
         "padding_top": 0,
         "padding_bottom": 0
       }
+    },
+    "sourcing": {
+      "type": "section",
+      "blocks": {
+        "subheading": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Where It Comes From</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h6",
+            "font": "var(--font-secondary--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "heading-wide",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "color": "var(--kinsoul-accent, #7B6B5D)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "heading": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Sourced with Intention, Never at Random</h2>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-heading--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "body": {
+          "type": "text",
+          "settings": {
+            "text": "<p>We work with a small network of stone suppliers and pearl farms — relationships built over years, not transactions. We don't own farms or mines. Instead, we partner with suppliers in specific regions who share our standard: natural formation, no chemical treatment, no shortcuts.</p><p>Our freshwater pearls come from farms in China's Zhejiang province, where environmental regulations introduced between 2015 and 2020 significantly raised cultivation standards across the industry. Our gemstones are sourced from regions renowned for each specific mineral — not because it's romantic, but because geology determines quality. Brazilian amethyst has a depth of color that other origins can't match. Afghan lapis lazuli has been traded along the same routes for over 6,000 years. South African tiger's eye forms in banded iron formations found almost nowhere else on earth.</p><p>Nothing we use is dyed, heated, irradiated, or coated to change its appearance. Every order ships with a certificate of authenticity — because when we say natural, we mean it.</p>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "subheading",
+        "heading",
+        "body"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 80,
+        "padding-block-end": 48
+      }
+    },
+    "care": {
+      "type": "section",
+      "blocks": {
+        "subheading": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Living with Your Pieces</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h6",
+            "font": "var(--font-secondary--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "heading-wide",
+            "case": "uppercase",
+            "wrap": "pretty",
+            "color": "var(--kinsoul-accent, #7B6B5D)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "heading": {
+          "type": "text",
+          "settings": {
+            "text": "<h2>Simple Care for Natural Materials</h2>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "h2",
+            "font": "var(--font-heading--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "body": {
+          "type": "text",
+          "settings": {
+            "text": "<p><strong>Natural Gemstones:</strong> Wipe gently with a soft, dry cloth after wearing. Avoid prolonged contact with perfume, lotion, or chlorinated water. Stones like amethyst and lapis lazuli can fade with extended UV exposure — store your gemstone bracelet in its box or a soft pouch when not wearing it.</p><p><strong>Freshwater Pearls:</strong> Pearls are organic and porous — they absorb what touches them. Put your pearl bracelet on last, after cosmetics and fragrance have dried. A light wipe with a barely damp cloth after wearing keeps their luster. Store separately to prevent scratching from harder stones or metals.</p><p><strong>S925 Sterling Silver:</strong> Sterling silver may darken naturally over time through oxidation — the copper in the alloy reacting with air and moisture. A gentle polish with a silver cloth restores its brightness in seconds. Many of our customers prefer the warm patina that develops with daily wear.</p><p>For sizing, shipping, and returns, visit our <a href=\"/pages/client-care\">Client Care</a> page.</p>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "subheading",
+        "heading",
+        "body"
+      ],
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-1",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 80,
+        "padding-block-end": 48
+      }
     }
   },
   "order": [
     "intro",
     "materials",
     "craft",
+    "sourcing",
+    "care",
     "variation_note"
   ]
 }
