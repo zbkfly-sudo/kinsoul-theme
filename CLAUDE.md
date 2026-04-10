@@ -1,321 +1,373 @@
-# CLAUDE.md — Kinsoul Energy Theme · Strict Operating Rules
+# CLAUDE.md — Kinsoul Energy Theme
 
-> **Read this file first in every session that touches this repo.**
-> These rules are non-negotiable. They exist because production = a real store with real customers, and a single bad push can break checkout, lose orders, and destroy trust in 30 seconds.
+> **Every session must read this file first.** This is the single source of truth for project rules, brand context, development workflow, and tool usage. No other file is required to start working.
 
 ---
 
-## 1. What this repo is
+## 1. Project & Brand
+
+### 1.1 Repository
 
 - **Path:** `/home/binkai/projects/shopify-theme-redesign/`
-- **Purpose:** Source-of-truth for the Kinsoul Energy Shopify theme.
-- **Live store:** `qr4xym-qi.myshopify.com` (custom domain: `www.kinsoulenergy.com`)
-- **Live theme ID:** stored in `.env` as `SHOPIFY_LIVE_THEME_ID` (always read from `.env`, never hard-code).
-- **CLI auth:** Theme Access token in `.env` as `SHOPIFY_CLI_THEME_TOKEN`. The `.env` file is gitignored. Never paste token contents into chat, code, or commits.
+- **GitHub:** `zbkfly-sudo/kinsoul-theme` (private)
+- **Live store:** `qr4xym-qi.myshopify.com` (domain: `www.kinsoulenergy.com`)
+- **Live theme ID:** stored in `.env` as `SHOPIFY_LIVE_THEME_ID` (always read from `.env`, never hard-code)
+- **CLI auth:** Theme Access token in `.env` as `SHOPIFY_CLI_THEME_TOKEN`. Never paste tokens into chat, code, or commits.
+- **Theme base:** Velora (heavily customized with 11 kinsoul-* sections)
+
+### 1.2 Brand Identity
+
+| | |
+|---|---|
+| **Brand** | Kinsoul Energy — DTC handmade gemstone & pearl bracelets |
+| **Philosophy** | "Natural over perfect" — celebrating natural imperfection |
+| **Founder** | LU, designer, started in 2018 after finding a stone during a trip in China |
+| **Team** | 5 people, small studio in California |
+| **Price range** | $139–$365 |
+| **Language** | Communicate in Chinese; code and copy in English |
+| **Voice** | Quiet, grounded, specific. No superlatives, no hype, no pseudo-mysticism |
+| **Colors** | Warm ivory `#F9F6F1`, accent brown `#7B6B5D`, deep charcoal `#2C2C2C` |
+| **Email** | hello@kinsoulenergy.com |
+| **Instagram** | instagram.com/kinsoulenergy/ |
+
+### 1.3 Product Line (6 Bracelets)
+
+| Product | Handle | Core Materials | Price |
+|---|---|---|---|
+| **Ember** | `persian-red-agate-pearl-sterling-silver-bracelet` | Persian red agate + freshwater pearl silver bars | $228 |
+| **Serenity** | `freeform-amethyst-bracelet-with-freshwater-pearls` | Freeform amethyst + freshwater pearls | $168 |
+| **Aura** | `aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones` | 8 gemstones + baroque pearl (most complex) | $365 |
+| **Obsidian** | `mozhu-persian-agate-baroque-pearl-bracelet` | Black agate + rutilated quartz + grey rice pearls | $208 |
+| **Terra** | `moqiao-black-agate-rutilated-quartz-pearl-bracelet` | Persian banded agate + baroque pearl + antique silver | $264 |
+| **Soleil** | `zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet` | Brazilian citrine + clear quartz + amethyst | $139 |
+
+**Universal construction:** Elastic cord (no clasp), S925 sterling silver maker's mark bar, 4 sizes (S/M/L/XL).
+
+> **Warning:** Obsidian and Terra have URL handles that don't match their actual materials (historical naming error corrected in Admin 2026-04-08, but handles preserved for SEO). Never infer materials from handles.
+
+### 1.4 Page Map
+
+| Page | Handle | Template | Content | Words |
+|---|---|---|---|---|
+| Homepage | `/` | index.json | Hero + trust strip + product carousel + materials teaser + meaning + founder + gifting + newsletter | ~422 |
+| About | `/pages/about` | page.about.json | 4-chapter founder story + brand name origin + belief statement | ~800 |
+| Materials | `/pages/materials-craft` | page.materials.json | 3 material deep-dives + 9-stone index + 3-step craft + 4 quality promises + 7 FAQ + variation note | ~1700 |
+| Client Care | `/pages/client-care` | page.client-care.json | Authenticity + sizing + shipping + returns + care + contact CTA | ~264 |
+| Contact | `/pages/contact` | page.contact.json | 5 quick-link cards + form (7 topics) + sidebar | ~138 |
+| Collection | `/collections/shop-all-bracelets` | collection.json | Dynamic title + description + product grid | ~74 |
+| Product (PDP) | `/products/[handle]` | product.json | Media gallery + details + variant selector + metafield accordion | dynamic |
+
+### 1.5 Schema Coverage
+
+| Schema Type | Snippet File | Pages | Status |
+|---|---|---|---|
+| Organization + WebSite | kinsoul-schema-organization.liquid | All | ✅ |
+| BreadcrumbList | kinsoul-schema-breadcrumb.liquid | All (except homepage) | ✅ |
+| Product (with shipping + returns) | kinsoul-schema-product.liquid | PDP | ✅ |
+| FAQPage (client care) | kinsoul-schema-faq.liquid | Client Care | ✅ |
+| FAQPage (materials) | inline in kinsoul-materials-faq.liquid | Materials | ✅ |
+| CollectionPage + ItemList | kinsoul-schema-collection.liquid | Collections | ✅ |
+| AboutPage | kinsoul-schema-about.liquid | About | ✅ |
+| ContactPage | kinsoul-schema-contact.liquid | Contact | ✅ |
+| WebPage + HowTo | kinsoul-schema-materials.liquid | Materials | ✅ |
+
+### 1.6 Custom Sections (11 kinsoul-* sections)
+
+| Section | Purpose | Used On |
+|---|---|---|
+| kinsoul-about-story | Narrative chapter with alternating image/text | About (x4) |
+| kinsoul-craft-process | 3-step process with images | Materials |
+| kinsoul-gifting-service | 4-card service grid | Homepage |
+| kinsoul-materials-deep | 3 material profiles with sourcing + product links | Materials |
+| kinsoul-materials-faq | 7-question FAQ accordion + FAQPage schema | Materials |
+| kinsoul-materials-teaser | 3-card material intro | Homepage |
+| kinsoul-meaning-teaser | Full-width hero + CTA | Homepage, Materials |
+| kinsoul-newsletter | Email signup | Homepage |
+| kinsoul-quality-promise | 4 trust signal cards | Materials |
+| kinsoul-stone-guide | 9-stone index grid | Materials |
+| kinsoul-trust-strip | 5-icon trust bar | Homepage |
 
 ---
 
-## 2. Hard rules (THE FOUR LAWS)
+## 2. The Four Laws (Deployment Safety)
 
 ### Law 1 — Never push directly to the live theme.
-- ❌ `shopify theme push --theme=$SHOPIFY_LIVE_THEME_ID` is **forbidden**.
-- ✅ Always push to a **new unpublished test theme** via `./scripts/push-test.sh`.
+- `shopify theme push --theme=$SHOPIFY_LIVE_THEME_ID` is **forbidden**.
+- Always push to a **new unpublished test theme** via `./scripts/push-test.sh`.
 - The user previews and approves. Then `./scripts/publish.sh` swaps it in.
 
 ### Law 2 — Always commit before push.
-- The repo's working tree must be **clean** (`git status` shows nothing) before any push.
-- `push-test.sh` enforces this and will refuse to run otherwise.
-- If you have local changes, commit them first with a descriptive message. **Never** stash-and-push; the pushed code must match a real git commit.
+- Working tree must be clean before any push. `push-test.sh` enforces this.
+- Never stash-and-push; pushed code must match a real git commit.
 
 ### Law 3 — Always snapshot live before changing live.
-- Before any push *and* before any publish, the helper scripts pull the current `[live]` theme into `baselines/<timestamp>-<label>/` and commit it.
-- These baselines are the **instant rollback artifact**. Never delete them. Never `.gitignore` them.
-- If you somehow need to push without the helper script (you almost never should), you MUST run `./scripts/snapshot-live.sh <label>` first.
+- Helper scripts auto-snapshot into `baselines/<timestamp>-<label>/`.
+- If bypassing scripts, run `./scripts/snapshot-live.sh <label>` first.
 
 ### Law 4 — Every published version is a git tag.
-- After `publish.sh` runs, the corresponding git commit is tagged `published-YYYY-MM-DD-HHMM-<desc>`.
-- Test pushes are tagged `test-YYYY-MM-DD-HHMM-<desc>`.
-- This means: from any moment in time, you can reproduce exactly what was on Shopify.
+- Published: `published-YYYY-MM-DD-HHMM-<desc>`
+- Test: `test-YYYY-MM-DD-HHMM-<desc>`
 
 ---
 
-## 3. Standard workflow (the only workflow)
+## 3. Development Workflow
 
-### Making changes
+### 3.1 Standard Sequence
+
 ```
-1. cd /home/binkai/projects/shopify-theme-redesign
-2. git status                          # confirm clean
-3. <edit files locally>
-4. git add <files>
-5. git commit -m "feat/fix/refactor: <what changed and why>"
+1. git status                              # confirm clean
+2. <edit files>
+3. git add <specific files>
+4. git commit -m "type: description"
+5. ./scripts/push-test.sh "short-slug"     # pushes unpublished test theme
+6. Verify with Playwright (see Section 4)
+7. Give user preview URL
+8. DO NOT publish until user explicitly says so
 ```
 
-### Pushing changes for the user to preview
-```
-6. ./scripts/push-test.sh "short-description"
-```
-This will:
-- Verify git is clean (refuse if not)
-- Snapshot current live → `baselines/<timestamp>-pre-<desc>/`
-- Auto-commit the baseline
-- Push working tree as a new unpublished theme `fix-<timestamp>-<desc>`
-- Tag the git commit `test-<timestamp>-<desc>`
-- Print the preview URL
+### 3.2 Commit Conventions
 
-### After the user previews and approves
-```
-7. ./scripts/publish.sh <theme-id-from-step-6> "short-description"
-```
-This will:
-- Confirm with user (`yes` prompt)
-- Final snapshot of the about-to-be-replaced live theme
-- Publish the new theme as live
-- Update `.env` with new live theme ID
-- Tag the git commit `published-<timestamp>-<desc>`
+Format: `type: description`
 
-### If something breaks after publish
-```
-8. ./scripts/rollback.sh <previous-live-theme-id>
-```
-The previous live ID is in the most recent `publish:` commit message and in `.env` history.
+Types: `feat` / `fix` / `refactor` / `docs` / `infra` / `baseline` / `publish` / `rollback`
+
+### 3.3 Before Changing Code
+
+- Read the target files first. Understand existing patterns.
+- Check if a relevant `kinsoul-*` section/snippet already exists (Section 1.6).
+- Don't create new files unless necessary — prefer editing existing ones.
+- Don't push a new theme when only .md / script / config files changed (Section 8.2).
+
+### 3.4 When to Use Shopify Admin Instead of Code
+
+These are Admin-side, not code fixes:
+- Product descriptions, metafields, SEO titles/descriptions
+- App-injected content (subscriptions, reviews apps)
+- Payment method visibility
+- Email popups (Klaviyo/Privy)
+
+Tell the user **exactly where in Admin to click**.
 
 ---
 
-## 4. Naming conventions
+## 4. Testing Standards
 
-| Thing | Format | Example |
+### 4.1 Verification Checklist (after every push-test, before telling user)
+
+- [ ] Page loads without Liquid errors (Console 0 errors)
+- [ ] New content renders correctly, no layout breakage
+- [ ] Internal links are clickable and go to correct pages
+- [ ] Schema types are complete (Playwright evaluate check)
+- [ ] Only one H1 tag on the page
+- [ ] Mobile layout not broken (if UI changes involved)
+
+### 4.2 Verification Tool Priority
+
+1. **Playwright** (`browser_navigate` + `browser_evaluate`) — primary verification tool
+2. **`/seo-page`** — for SEO-related changes
+3. **`/seo-schema`** — for schema changes
+4. **WebFetch** — backup, can only see live (not preview themes)
+
+### 4.3 When to Do Before/After Comparison
+
+| Change Type | Compare |
+|---|---|
+| Content expansion | Word count, H-tag count, internal link count |
+| Schema changes | Schema type list before vs after |
+| SEO optimization | `/seo-page` scores before vs after |
+
+---
+
+## 5. Documentation Standards
+
+### 5.1 Document Hierarchy
+
+| Layer | Purpose | Examples |
 |---|---|---|
-| Branch | `main` only (single-branch trunk) | `main` |
-| Commit message | `type: description` | `fix: PDP Liquid error from missing schema snippet` |
-| Test theme | `fix-YYYY-MM-DD-HHMM-<slug>` | `fix-2026-04-07-2330-pdp-reviews` |
-| Baseline dir | `baselines/YYYY-MM-DD-HHMM-<label>/` | `baselines/2026-04-07-1450-pre-fix-live/` |
-| Test git tag | `test-YYYY-MM-DD-HHMM-<slug>` | `test-2026-04-07-2330-pdp-reviews` |
-| Published git tag | `published-YYYY-MM-DD-HHMM-<slug>` | `published-2026-04-07-2350-pdp-reviews` |
+| **CLAUDE.md** | Single entry point — rules, brand, workflow, tools | This file |
+| **Reference docs** | Specialized data too large for CLAUDE.md | PRODUCT-DESCRIPTIONS.md, PACKAGING-DESIGN-BRIEF.md |
+| **Memory system** | Cross-session user/feedback/project memory | ~/.claude/projects/.../memory/ |
+| **Git history** | Progress tracking, change history | `git log`, commit messages, tags |
 
-Commit type prefixes: `feat`, `fix`, `refactor`, `docs`, `infra`, `baseline`, `publish`, `rollback`, `wip`.
+### 5.2 Rules
 
----
+- New rules and lessons learned → write directly into CLAUDE.md
+- Don't create new root-level .md files unless they contain specialized reference data
+- CLAUDE.md Section 9 (File Index) must always match actual files
+- Don't put in project root: temp plans, session notes, progress trackers, completed work logs
 
-## 5. Files & directories
+### 5.3 Document Lifecycle
 
-```
-shopify-theme-redesign/
-├── CLAUDE.md                   ← THIS FILE — operating rules
-├── .env                        ← secrets (gitignored)
-├── .env.example                ← template (committed)
-├── .gitignore
-├── PROJECT-STATUS.md           ← high-level project status
-├── SEO-STATUS.md               ← SEO work status
-├── REVIEW-SYSTEM-V2.md         ← homepage + PDP review data
-├── ... (other docs)
-│
-├── assets/                     ← Shopify theme: CSS, JS, images
-├── blocks/                     ← Shopify theme: block definitions
-├── config/                     ← Shopify theme: settings_schema.json, settings_data.json
-├── layout/                     ← Shopify theme: theme.liquid
-├── locales/                    ← Shopify theme: translations
-├── sections/                   ← Shopify theme: section definitions (incl. all kinsoul-* sections)
-├── snippets/                   ← Shopify theme: snippets (incl. all kinsoul-* snippets)
-├── templates/                  ← Shopify theme: page templates (JSON)
-│
-├── baselines/                  ← Git-tracked snapshots of past live themes
-│   └── YYYY-MM-DD-HHMM-<label>/   ← each is a full theme dump
-│
-└── scripts/                    ← Workflow helper scripts
-    ├── snapshot-live.sh        ← pull current live → baselines/
-    ├── push-test.sh            ← commit-check + snapshot + push as test theme
-    ├── publish.sh              ← snapshot + publish + git tag
-    └── rollback.sh             ← republish a previous theme
-```
+- **Create** only when there's a clear, ongoing reference need
+- **Update** when content changes — never leave stale info
+- **Delete** when task is done and info is captured in CLAUDE.md / memory / git
 
 ---
 
-## 6. What MUST never happen
+## 6. Tools & Plugins
 
-| Forbidden | Why |
+### 6.1 Principles
+
+- **Use installed tools.** Don't manually redo what a tool can do.
+- **Tools inform decisions.** Don't blindly follow every suggestion.
+- **New tools get documented.** When user installs a new plugin: evaluate capabilities → define triggers → add to this section → update affected workflows.
+
+### 6.2 Installed Tools
+
+#### SEO Suite
+
+| Tool | What It Does | When to Use |
+|---|---|---|
+| `/seo-page` | Single-page deep SEO analysis | Before + after any content/meta/schema change |
+| `/seo-content` | E-E-A-T, readability, thin content detection | Before + after content expansion |
+| `/seo-schema` | Schema detection, validation, generation | Any schema change |
+| `/seo-geo` | AI search visibility (GEO) analysis | Content optimization — assess AI citability |
+| `/seo-dataforseo` | Keyword volume, difficulty, intent | New content planning (**keyword selection must have data**) |
+| `/seo-plan` | SEO strategy planning | Before major SEO initiatives |
+| `/seo-technical` | Technical SEO audit (crawl, index, CWV) | Canonical/robots/rendering issues |
+| `/seo-audit` | Full-site crawl audit | Quarterly or after major redesign |
+| `/seo-images` | Image alt text, size, format audit | After bulk image uploads |
+| `/seo-sitemap` | Sitemap validation/generation | After URL structure changes |
+
+#### Development
+
+| Tool | What It Does | When to Use |
+|---|---|---|
+| `/code-review` | Code review a PR | Before merging major changes |
+| `/frontend-design` | UI/UX design + implementation | New pages or components |
+| Playwright | Browser automation + page verification | After every push-test |
+
+#### Content & Research
+
+| Tool | What It Does | When to Use |
+|---|---|---|
+| WebSearch | Web research for facts and data | When content needs authoritative data |
+| WebFetch | Fetch and analyze web page content | Competitor analysis, live page checks |
+| `/ultraplan` | Remote planning with web UI | Complex tasks needing independent planning |
+
+### 6.3 New Tool Onboarding
+
+When user installs a new plugin/MCP tool:
+1. Understand its capabilities
+2. Identify overlap with existing workflows
+3. Define usage triggers and scenarios
+4. Add to Section 6.2 table
+5. If it changes an existing workflow, update that section too
+
+---
+
+## 7. SEO Workflow
+
+**Trigger:** Changes to content, schema, meta tags, page structure, or new pages. Skip for pure CSS/UI/performance changes.
+
+### Phase 1: Diagnose (before coding)
+
+```
+/seo-page <target URL>          → on-page score, missing elements
+/seo-content <target URL>       → E-E-A-T score, readability, depth
+/seo-schema <target URL>        → existing schema, missing types
+/seo-geo <target URL>           → AI citation readiness
+/seo-dataforseo                 → keyword volumes (for new content)
+```
+
+**Output:** Problem list + quantified baseline scores.
+
+### Phase 2: Design
+
+Based on diagnostic data, design the optimization. `/seo-plan` can assist. Plan must include:
+- Target keywords (with search volume data — no guessing)
+- Content structure (heading hierarchy, word count target, internal link plan)
+- Schema types to add/modify
+- GEO optimization points (citable passages, statistics, authoritative sources)
+
+### Phase 3: Implement
+
+Code the changes. Use `/seo-schema` to generate JSON-LD when needed.
+
+### Phase 4: Verify (after push-test)
+
+Re-run diagnostic tools on the **preview URL**:
+
+```
+/seo-page <preview URL>         → confirm all scores improved
+/seo-schema <preview URL>       → validate schema, no errors
+/seo-content <preview URL>      → confirm E-E-A-T improvement
+```
+
+**Output:** Before/After comparison table.
+
+### Notes
+
+- Ignore HowTo and FAQ **Rich Results** suggestions from tools (deprecated/restricted by Google for commercial sites). But FAQPage schema is still valuable for AI citation — add it.
+- Keyword selection **must** have `/seo-dataforseo` volume data. No gut-feel keyword choices.
+- Record Before/After data in the commit message.
+
+---
+
+## 8. Lessons Learned (Real Cases)
+
+### 8.1 Verify symptoms before fixing
+
+Third-party reports produce false positives. Before fixing anything:
+1. Reproduce the symptom yourself (incognito browser or DevTools)
+2. Check if the element is hidden (`visually-hidden`, `aria-hidden`, `display:none`)
+3. If hidden → the report is wrong, don't "fix" it
+
+**Case:** April 2026 report flagged "subscription consent text" as P0. It was inside `<small class="hidden" aria-hidden="true">` — Shopify's standard pre-rendered element. The "fix" would have been noise.
+
+### 8.2 Don't push when you can publish an existing test theme
+
+If only .md / script / .gitignore files changed since the last verified test theme, publish the existing theme directly. Don't waste a push.
+
+### 8.3 Ground-truth from photos, never from names
+
+Material claims must trace to product photos or owner confirmation. Never infer materials from product names or URL handles.
+
+**Case:** "Obsidian" and "Terra" were mapped to the wrong physical products for weeks. Six layers of documentation inherited the error because each copied from the previous — none verified against the actual photos.
+
+### 8.4 Admin-side problems need Admin-side solutions
+
+Don't code around issues that belong in Shopify Admin (apps, payment settings, product data, metafields). Tell the user exactly where to click.
+
+---
+
+## 9. File Index
+
+### Theme Code
+`assets/` `blocks/` `config/` `layout/` `locales/` `sections/` `snippets/` `templates/`
+
+### Reference Documents
+
+| File | Purpose |
 |---|---|
-| `shopify theme push --theme=$LIVE_ID` | Direct overwrite of live, no rollback path |
-| `shopify theme push --allow-live` | Same as above |
-| `git push --force` to a remote (if added) | Loses history |
-| Editing files directly in Shopify Admin → Edit code | Creates drift between repo and live; the next push will overwrite the user's manual change |
-| Committing `.env` | Leaks the Theme Access token |
-| Deleting `baselines/` | Loses rollback capability |
-| Skipping `git commit` before `push-test.sh` | Decouples Shopify state from git history |
-| Pushing without first running `snapshot-live.sh` (if helper bypassed) | No rollback artifact |
+| `PRODUCT-DESCRIPTIONS.md` | 6 product PDP copy (v2, corrected) |
+| `STONE-MEANING-CARDS.md` | Printed card designs + typography specs |
+| `PRODUCT-CARE-NOTES.md` | Per-material care metafield copy |
+| `METAFIELDS-SETUP.md` | 7 metafield definitions + fill guidance |
+| `AI-IMAGE-PROMPTS.md` | 16 image generation prompts (Midjourney + Nano Banana) |
+| `PACKAGING-DESIGN-BRIEF.md` | Box/card/pouch physical specs |
+| `PACKAGING-IMAGE-PROMPTS.md` | 7 packaging scene prompts |
+| `SEO-GEO-AUDIT-2026-04-10.md` | SEO baseline audit (55.1/100 overall) |
+| `SEO-META-DESCRIPTIONS.md` | Title/meta copy for all pages |
+
+### Operations
+- `.env` — secrets (gitignored)
+- `scripts/` — push-test.sh, publish.sh, rollback.sh, snapshot-live.sh, sync-from-live.sh
+- `baselines/` — rollback snapshots (gitignored)
 
 ---
 
-## 7. When the user says "fix X and push it"
-
-Default sequence:
-1. Read the relevant files.
-2. Make the smallest change that fixes the problem.
-3. `git add` only the files you changed.
-4. `git commit -m "fix: <one line>"`.
-5. `./scripts/push-test.sh "<slug>"`.
-6. Give the user the preview URL and tell them: *"Verify this. If good, run `./scripts/publish.sh <id> <slug>` or tell me to."*
-7. **Do NOT publish until the user explicitly says so.** Publishing changes what real customers see.
-
----
-
-## 7.5 Verify symptoms before fixing
-
-External diagnostic reports and HTML scrapers often produce **false positives**: they grep for keywords in raw HTML without checking whether those elements are actually visible to users. Before writing any fix:
-
-1. **Reproduce the symptom yourself** in an incognito browser. If you can't see it with your own eyes, the problem may not exist.
-2. For HTML-text findings, **inspect the surrounding element** (`curl | grep -o '.{300}KEYWORD.{500}'` or DevTools). Look for:
-   - `class="hidden"` / `class="visually-hidden"` / `style="display:none"`
-   - `aria-hidden="true"`
-   - `<small>` / `<template>` wrappers (often used for "ready to reveal" content)
-   - `data-consent-type` / `data-show-on` attributes (Shopify's deferred-show pattern)
-3. **If the element is hidden, the report is wrong.** Don't fix it. Don't add CSS to "double-hide" something that's already hidden — you'll just add complexity, performance overhead, and a future risk of breaking the legitimate use case.
-
-**Real example:** The April 2026 diagnostic report flagged a "subscription consent text" on PDP as P0-2. Investigation found the text was inside `<small id="shopify-buyer-consent" class="hidden" aria-hidden="true">` — Shopify's standard pre-rendered element that only appears when a real subscription product is added to cart. The "fix" would have been pure noise. The user pushed back ("我没看到") and was right.
-
-**Lesson:** Trust the user's eyes over a third-party automated report.
-
----
-
-## 7.7 Ground-truth physical properties from photos, never from names or docs
-
-Any claim about a product's **physical properties** — materials, colors, sizes, weights, finishes, stone types, bead counts — must trace back to **the actual product photo or the owner's direct confirmation**, never from:
-- The product's brand name (e.g. "Obsidian sounds black, so it must be black agate")
-- The product handle / URL slug (handle keywords can be stale or auto-generated wrong)
-- A previous doc that itself never traced back to a photo (cards / metafields / past descriptions)
-
-If you're writing a description and you need to state what stones a bracelet contains, you must have either:
-1. Looked at a current product photo, OR
-2. Asked the owner to confirm
-
-Never infer from name → meaning → material. That's how documentation cascade errors happen.
-
-**Real example:** 2026-04-08 — discovered that "Obsidian" and "Terra" had been mapped to the wrong physical products since the original Kinsoul rebrand. The brand names were assigned by intuition (Obsidian = black, Terra = earth), but the physical inventory had the opposite assignment. Six layers of artifacts inherited the same wrong mapping (handles, metafields, packaging cards, reviews, AI lifestyle photos, my just-written PDP descriptions) — none of them were verified against the actual product photos. Fixed by renaming the products in Shopify Admin so brand names match physical reality, but it took deep root-cause analysis to even surface the bug because every artifact agreed with every other artifact.
-
-**Lesson:** Internal consistency proves nothing. Ground truth comes from the photos, the inventory, or the owner.
-
----
-
-## 7.6 Don't push when you can publish an existing test theme
-
-If a previous test theme (e.g. `fix-2026-04-07-XXXX-foo`) is already on Shopify, already verified by the user, and represents the desired live state, **publish it directly** with `./scripts/publish.sh <existing-id>`. Do NOT push a new theme just because you made some local commits since.
-
-**Specifically, do NOT push a new theme when the only changes since the last test theme are:**
-- Doc updates (CLAUDE.md, *.md files)
-- Script fixes (`scripts/*.sh`)
-- `.gitignore` / `.shopifyignore` / `.env*` changes
-- Any file that's not in `assets/` `blocks/` `config/` `layout/` `locales/` `sections/` `snippets/` `templates/`
-
-These don't affect what Shopify actually serves. Pushing a new theme just to capture them creates wasted theme slots, longer history, and confuses the user. The local git history captures them anyway — they'll naturally ride along on the next *real* push.
-
-**Real example:** 2026-04-08 — after reverting a false-positive fix, I pushed v6 to capture the revert + CLAUDE.md update + script truncation fix. The user pointed out v4 was already verified and identical content-wise, so v6 was wasted work. Should have just run `./scripts/publish.sh <v4-id>` directly.
-
----
-
-## 8. When working with the Shopify Admin instead of code
-
-Some problems aren't code:
-- Apps that inject content (e.g., subscription consent text on PDP — this is an App, not the theme)
-- Payment method visibility (Bancontact, Shop Pay Installments — Settings → Payments)
-- Email popups (Klaviyo / Privy app install)
-- Product descriptions (Shopify product data, not theme code)
-- Metafields (Shopify product data, not theme code unless we're scaffolding)
-
-For these: tell the user **exactly where in Admin to click** and what to change. Do not try to "code around" an Admin-side issue.
-
----
-
-## 9. Recovering from a bad state
-
-| Symptom | Action |
-|---|---|
-| Local code is wrong, want to revert | `git checkout <file>` or `git reset --hard <commit>` |
-| Live theme broken right after publish | `./scripts/rollback.sh <previous-live-id>` |
-| Need to see what was on live N days ago | Check `baselines/` directory or `git log` for `baseline:` commits |
-| Need to know what code was published last Tuesday | `git tag -l 'published-2026-04-01-*'` then `git show <tag>` |
-| `.env` deleted | Recreate from `.env.example`; the user must regenerate the Theme Access token from Apps → Theme Access |
-| Working tree is a mess | `git stash`, then triage. Never stash and push. |
-
----
-
-## 10. Project context (quick brief for new sessions)
-
-- **Brand:** Kinsoul Energy — DTC handmade gemstone & pearl bracelets, $139–$365 AOV
-- **Owner:** Chinese-speaking; communicate in Chinese, code/copy in English
-- **Stage:** Pre-launch / early traction. Diagnostic report (April 2026) found P0 bugs:
-  - P0-1 ✅ Fixed in repo: missing `kinsoul-schema-organization.liquid` snippet → Liquid error
-  - P0-2 ⚠️ Admin-side: subscription consent text injected by an App on PDP
-  - P0-3 ✅ Fixed in repo: PDP had no review module — added `sections/kinsoul-product-reviews.liquid`
-- See `PROJECT-STATUS.md` and `SEO-GEO-AUDIT-2026-04-10.md` for full context.
-
----
-
-## 11. SEO 工作流程（使用 SEO 插件）
-
-当改动涉及**内容、schema、meta 标签、页面结构、新页面**时，必须走此流程。纯 CSS/UI/性能改动可跳过。
-
-### 判断标准：是否需要 SEO 流程？
-
-| 改动类型 | 需要 SEO 流程？ |
-|----------|----------------|
-| 新建/扩充页面内容 | ✅ 必须 |
-| Schema 结构化数据 | ✅ 必须 |
-| Meta 标签 / Title / Description | ✅ 必须 |
-| 页面 URL / Canonical / 重定向 | ✅ 必须 |
-| 内链结构变更 | ✅ 必须 |
-| CSS 样式 / 视觉调整 | ❌ 跳过 |
-| JS 性能优化 | ❌ 跳过 |
-| Bug 修复（不涉及内容） | ❌ 跳过 |
-
-### Phase 1: 诊断（动手之前）
-
-用 SEO 插件分析当前状态，建立基准数据：
+## 10. New Session Checklist
 
 ```
-/seo-page <目标URL>          → 拿到 on-page 评分、缺失项
-/seo-content <目标URL>       → E-E-A-T 得分、内容深度、可读性
-/seo-schema <目标URL>        → 现有 schema 检测、缺失类型
-/seo-geo <目标URL>           → AI 搜索可见度、可引用段落分析
+1. Read this file (CLAUDE.md)
+2. git log --oneline -10               → recent changes
+3. source .env                          → confirm env vars loaded
+4. If SEO work → /seo-page <url>       → get baseline
+5. If content work → /seo-content <url> → get E-E-A-T score
+6. If unsure about project state → check memory system
 ```
-
-关键词调研（如涉及新内容）：
-```
-/seo-dataforseo              → 目标关键词搜索量、难度、意图
-```
-
-**产出：** 明确的问题清单 + 量化基准（优化前得分）。
-
-### Phase 2: 设计方案
-
-基于诊断数据设计优化方案。使用 `/seo-plan` 辅助策略设计。方案必须包含：
-- 目标关键词（有搜索量数据支撑）
-- 内容结构（标题层级、词数目标、内链计划）
-- Schema 类型选择
-- GEO 优化点（可引用段落、统计数据、权威来源）
-
-### Phase 3: 实现
-
-代码实现阶段。Schema 生成可用 `/seo-schema` 辅助。
-
-### Phase 4: 验证（部署之后）
-
-推送测试主题后，对**预览 URL** 重新跑诊断工具：
-
-```
-/seo-page <预览URL>          → 确认所有指标提升
-/seo-schema <预览URL>        → 验证 schema 无 error
-/seo-content <预览URL>       → 确认 E-E-A-T 得分提升
-```
-
-用 Playwright 辅助检查词数、H 标签层级、内链数量。
-
-**产出：** Before/After 对比表，确认每项指标达标。
-
-### 注意事项
-
-- `/seo-schema` 的建议中，**忽略 HowTo（已废弃）和 FAQ（限政府/医疗站点）的 Rich Results 建议**。但 FAQPage schema 仍对 AI 引用有价值，可以加。
-- 关键词选择必须有 `/seo-dataforseo` 的搜索量数据支撑，不能凭直觉。
-- 每次 SEO 改动的 Before/After 数据保留在 commit message 中。
 
 ---
 
-**Remember:** this file is the contract. If a future Claude session is unsure, it should re-read CLAUDE.md before touching anything. Violating these rules has cost the user real money in the past.
+**This file is the contract.** If unsure, re-read before touching anything.
