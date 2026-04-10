@@ -1,0 +1,203 @@
+{%- liquid
+  assign color_scheme = section.settings.color_scheme
+-%}
+
+<div
+  class="kinsoul-materials-section section-{{ section.id }} color-{{ color_scheme }}"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="page-width">
+    {%- if section.settings.heading != blank -%}
+      <div class="kinsoul-materials-section__header">
+        {%- if section.settings.subheading != blank -%}
+          <p class="kinsoul-materials-section__subheading">{{ section.settings.subheading }}</p>
+        {%- endif -%}
+        <h2 class="kinsoul-materials-section__title">{{ section.settings.heading }}</h2>
+        <hr class="kinsoul-divider">
+      </div>
+    {%- endif -%}
+
+    <div class="kinsoul-materials-grid">
+      {%- for block in section.blocks -%}
+        <div class="kinsoul-material-card" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            <div class="kinsoul-material-card__image">
+              {{
+                block.settings.image
+                | image_url: width: 800
+                | image_tag:
+                  loading: 'lazy',
+                  widths: '300, 400, 600, 800',
+                  sizes: '(max-width: 749px) 100vw, 33vw'
+              }}
+            </div>
+          {%- else -%}
+            <div class="kinsoul-material-card__image">
+              {{ 'product-1' | placeholder_svg_tag }}
+            </div>
+          {%- endif -%}
+
+          {%- if block.settings.title != blank -%}
+            <h3 class="kinsoul-material-card__title">{{ block.settings.title }}</h3>
+          {%- endif -%}
+
+          {%- if block.settings.description != blank -%}
+            <p class="kinsoul-material-card__text">{{ block.settings.description }}</p>
+          {%- endif -%}
+
+          {%- if block.settings.link_url != blank and block.settings.link_text != blank -%}
+            <a href="{{ block.settings.link_url }}" class="kinsoul-material-card__link">
+              {{ block.settings.link_text }}
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .kinsoul-materials-section__header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .kinsoul-materials-section__subheading {
+    font-family: var(--font-secondary--family), sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--kinsoul-accent, #7B6B5D);
+    margin-bottom: 1rem;
+  }
+
+  .kinsoul-materials-section__title {
+    font-family: var(--font-heading--family), serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 400;
+    color: var(--color-foreground-heading);
+    letter-spacing: 0.03em;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .kinsoul-materials-section__header {
+      margin-bottom: 2.5rem;
+    }
+  }
+{% endstylesheet %}
+
+{% schema %}
+{
+  "name": "Materials Teaser",
+  "tag": "section",
+  "class": "kinsoul-materials-teaser-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Materials & Craft"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What Makes Each Piece Unique"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 80
+    }
+  ],
+  "blocks": [
+    {
+      "type": "material_card",
+      "name": "Material Card",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Natural Pearls"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Each pearl is formed naturally — irregular in shape, unique in luster. We select baroque and freshwater pearls for their organic beauty."
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link text",
+          "default": "Learn More"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Materials Teaser",
+      "blocks": [
+        {
+          "type": "material_card",
+          "settings": {
+            "title": "Natural Pearls",
+            "description": "Each pearl is formed naturally — irregular in shape, unique in luster. We select baroque and freshwater pearls for their organic beauty."
+          }
+        },
+        {
+          "type": "material_card",
+          "settings": {
+            "title": "Gemstones",
+            "description": "Amethyst, agate, quartz — hand-cut and minimally polished to preserve natural texture and color variation."
+          }
+        },
+        {
+          "type": "material_card",
+          "settings": {
+            "title": "Sterling Silver",
+            "description": "S925 sterling silver details, hand-finished with care. Each clasp and accent is crafted for comfort and longevity."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

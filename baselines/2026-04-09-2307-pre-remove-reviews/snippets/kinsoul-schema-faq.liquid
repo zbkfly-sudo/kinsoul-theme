@@ -1,0 +1,69 @@
+{% comment %}
+  Kinsoul Energy — FAQPage Schema
+  Renders structured data for the 6 FAQs on the Client Care page.
+  Should be rendered ONLY on the Client Care page (handled in theme.liquid via template check).
+
+  Content extracted from templates/page.client-care.json sections:
+    - 01 Before You Buy: 4 Q&A
+    - 04 Care & Longevity: 2 Q&A
+
+  IMPORTANT: If you update Client Care page content, also update the answers below
+  to keep schema and visible content in sync.
+{% endcomment %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are the stones real?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every gemstone and pearl is 100% natural. We never use synthetic or lab-created materials. Each order includes an authenticity certificate so you can wear your piece with complete confidence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why does each piece look different?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Because nature doesn't do identical. Every stone has its own color, pattern, and shape — that's not a flaw, it's what makes your bracelet yours. The piece you receive may vary slightly from the photos, and that's by design."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I choose my size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer four sizes: S (6.1\" / 15.5 cm), M (6.7\" / 17 cm), L (7.3\" / 18.5 cm), and XL (7.9\" / 20 cm). Not sure? M fits most wrists comfortably. You can also use a credit card to quickly find your size — bend it into a C-shape against your wrist and see how the ends meet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I request a custom size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We'll do our best. Reach out to us at hello@kinsoulenergy.com with the piece you'd like and your wrist measurement, and we'll let you know what's possible."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will my stones change over time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Natural stones and pearls may develop a subtle patina — a soft shift in tone that comes from being worn and loved. This is completely normal and part of their organic character. Your bracelet is meant to age with you, not stay frozen in time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the cord stretches or breaks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every order includes a replacement stretch cord — so you're covered. If you need help restringing, email us at hello@kinsoulenergy.com and we'll walk you through it. It's simpler than you think."
+      }
+    }
+  ]
+}
+</script>
