@@ -46,7 +46,7 @@
     assign mat_parts = mat_parts | append: product.metafields.custom.metal_details.value | append: '. '
   endif
   assign materials_intro = mat_parts | strip
-  assign materials_answer = materials_intro | append: ' All held on a single fine elastic cord with a small S925 sterling silver Kinsoul maker''s mark bar — no clasp.'
+  assign materials_answer = materials_intro | append: " All held on a single fine elastic cord with a small S925 sterling silver Kinsoul maker's mark bar — no clasp."
 
   assign meaning_answer = product.metafields.custom.stone_story.value | strip_html | strip_newlines | strip
 
