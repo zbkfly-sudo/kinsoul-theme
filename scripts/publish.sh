@@ -59,10 +59,10 @@ shopify theme publish \
 # Update .env with new live ID
 sed -i "s/^SHOPIFY_LIVE_THEME_ID=.*/SHOPIFY_LIVE_THEME_ID=${NEW_THEME_ID}/" .env
 
-# Tag git
+# Tag git for traceability — .env is gitignored (contains secrets) so we
+# do NOT commit it. The annotated tag is the durable record of which
+# theme ID was live at this point in history.
 git tag -a "published-${STAMP}-${DESC_SLUG}" -m "Published to Shopify live as #${NEW_THEME_ID} (replaced #${OLD_LIVE_ID})"
-git add .env
-git commit -m "publish: ${DESC_SLUG} → live theme #${NEW_THEME_ID}"
 
 echo ""
 echo "✅ Published. Live is now #${NEW_THEME_ID}."
