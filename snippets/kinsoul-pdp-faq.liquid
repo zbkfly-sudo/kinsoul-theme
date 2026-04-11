@@ -1,0 +1,127 @@
+{%- comment -%}
+  Kinsoul Energy — Product Detail Page FAQ block
+  Renders 6 FAQs per product:
+    - 4 generic questions shared across all bracelets
+    - 2 product-specific questions derived from metafields:
+        Q5 — materials breakdown (from custom.stone_type / pearl_type / metal_details)
+        Q6 — symbolism (from custom.stone_story)
+
+  This snippet replaces the previously hardcoded 4-FAQ block inside
+  templates/product.json's accordion_html. It is invoked from inside
+  the existing <details><summary>FAQs</summary><div class="kinsoul-accordion__content">
+  wrapper, so it only emits the inner <p> tags and the inline JSON-LD.
+
+  The visible <p> content and the FAQPage JSON-LD use IDENTICAL text
+  (Google FAQ schema policy: visible content must match schema). The
+  per-product Qs only render if the corresponding metafield is filled,
+  so a product with no stone_type metafield will gracefully drop Q5
+  from BOTH the visible block and the schema in lockstep.
+
+  Usage (inside templates/product.json custom_liquid):
+    {% render 'kinsoul-pdp-faq', product: product %}
+{%- endcomment -%}
+
+{%- liquid
+  unless product
+    assign product = closest.product
+  endunless
+
+  if product == blank
+    break
+  endif
+
+  # Brand name = first word before " | " separator
+  # e.g. "Ember | Red Agate & Pearl Silver Bar Bracelet" -> "Ember"
+  assign brand_name = product.title | split: ' | ' | first | strip
+
+  # Build the materials answer from metafields, joined into one sentence
+  assign mat_parts = ''
+  if product.metafields.custom.stone_type.value != blank
+    assign mat_parts = mat_parts | append: product.metafields.custom.stone_type.value | append: '. '
+  endif
+  if product.metafields.custom.pearl_type.value != blank and product.metafields.custom.pearl_type.value != 'None'
+    assign mat_parts = mat_parts | append: product.metafields.custom.pearl_type.value | append: '. '
+  endif
+  if product.metafields.custom.metal_details.value != blank
+    assign mat_parts = mat_parts | append: product.metafields.custom.metal_details.value | append: '. '
+  endif
+  assign materials_intro = mat_parts | strip
+  assign materials_answer = materials_intro | append: ' All held on a single fine elastic cord with a small S925 sterling silver Kinsoul maker''s mark bar — no clasp.'
+
+  assign meaning_answer = product.metafields.custom.stone_story.value | strip_html | strip_newlines | strip
+
+  # Generic FAQs (shared across all 6 PDPs)
+  assign q1 = 'Are the stones real?'
+  assign a1 = 'Yes. All Kinsoul Energy gemstones and pearls are 100% natural — we never use synthetic, lab-created, or dyed materials. Every order ships with a certificate of authenticity.'
+
+  assign q2 = 'Why does my bracelet look different from the photos?'
+  assign a2 = 'Because every stone and pearl is shaped by nature alone, no two pieces are identical. Variations in color, pattern, banding, and size are signs the materials are genuine — and that is the whole point.'
+
+  assign q3 = 'Can I get a custom size?'
+  assign a3 = 'Every Kinsoul Energy bracelet is offered in four sizes: S (6.1"), M (6.7"), L (7.3"), and XL (7.9"). If your wrist falls between sizes or you would prefer a specific length, message us at hello@kinsoulenergy.com and we will do our best to accommodate.'
+
+  assign q4 = 'Do you offer gift wrapping?'
+  assign a4 = 'Every Kinsoul Energy order arrives in our signature gift box with a handwritten note option, a printed stone meaning card, and a soft jewelry pouch — ready to give as-is.'
+
+  assign q5 = 'What materials are in the ' | append: brand_name | append: ' bracelet?'
+  assign q6 = 'What is the symbolism of ' | append: brand_name | append: '?'
+-%}
+
+{%- comment -%} Visible FAQ paragraphs (placed inside the existing accordion <div>) {%- endcomment -%}
+<p><strong>{{ q1 }}</strong><br>{{ a1 }}</p>
+<p><strong>{{ q2 }}</strong><br>{{ a2 }}</p>
+<p><strong>{{ q3 }}</strong><br>{{ a3 }}</p>
+<p><strong>{{ q4 }}</strong><br>{{ a4 }}</p>
+{%- if materials_intro != blank -%}
+<p><strong>{{ q5 }}</strong><br>{{ materials_answer }}</p>
+{%- endif -%}
+{%- if meaning_answer != blank -%}
+<p><strong>{{ q6 }}</strong><br>{{ meaning_answer }}</p>
+{%- endif -%}
+
+{%- comment -%} FAQPage JSON-LD — text MUST match the visible block above (Google policy) {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": {{ shop.url | append: product.url | append: '#faq' | json }},
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": {{ q1 | json }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ a1 | json }} }
+    },
+    {
+      "@type": "Question",
+      "name": {{ q2 | json }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ a2 | json }} }
+    },
+    {
+      "@type": "Question",
+      "name": {{ q3 | json }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ a3 | json }} }
+    },
+    {
+      "@type": "Question",
+      "name": {{ q4 | json }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ a4 | json }} }
+    }
+    {%- if materials_intro != blank -%}
+    ,
+    {
+      "@type": "Question",
+      "name": {{ q5 | json }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ materials_answer | json }} }
+    }
+    {%- endif -%}
+    {%- if meaning_answer != blank -%}
+    ,
+    {
+      "@type": "Question",
+      "name": {{ q6 | json }},
+      "acceptedAnswer": { "@type": "Answer", "text": {{ meaning_answer | json }} }
+    }
+    {%- endif -%}
+  ]
+}
+</script>
