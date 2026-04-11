@@ -113,8 +113,9 @@ echo ""
 echo "📥 Snapshotting current live theme as safety baseline..."
 ./scripts/snapshot-live.sh "pre-${DESC_SLUG}"
 
-# Auto-commit the baseline
-git add baselines/
+# Auto-commit the baseline. baselines/ is gitignored, so `git add baselines/`
+# may exit non-zero on a fresh snapshot — swallow that to keep `set -e` happy.
+git add baselines/ 2>/dev/null || true
 if [[ -n "$(git diff --cached --name-only)" ]]; then
   git commit -m "baseline: pre-${DESC_SLUG} ($(date +%Y-%m-%d))"
 fi
