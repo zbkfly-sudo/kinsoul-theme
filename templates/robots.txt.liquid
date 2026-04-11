@@ -1,0 +1,70 @@
+{% comment %}
+  Kinsoul Energy — Custom robots.txt
+  Preserves Shopify's default crawler rules (checkout, cart, account, etc)
+  via robots.default_groups, then adds explicit Allow rules for AI search
+  engine crawlers.
+
+  Why each AI crawler is listed:
+    GPTBot           — OpenAI training crawler (cite via ChatGPT search)
+    ChatGPT-User     — ChatGPT in-conversation browser fetches
+    OAI-SearchBot    — OpenAI's search index bot (powers ChatGPT search results)
+    ClaudeBot        — Anthropic crawler (cite via Claude with web access)
+    anthropic-ai     — Anthropic legacy crawler name (still seen in the wild)
+    PerplexityBot    — Perplexity AI search index
+    Perplexity-User  — Perplexity in-conversation fetches
+    Google-Extended  — Google's AI/Bard training opt-in (separate from googlebot)
+    CCBot            — Common Crawl (fuels many open AI training datasets)
+    Bytespider       — ByteDance/TikTok search and AI crawler
+    Applebot-Extended — Apple Intelligence training crawler
+
+  We explicitly Allow rather than Disallow because we WANT to be cited by
+  AI search engines — see llms.txt "Permitted Uses" clause.
+{% endcomment -%}
+
+{%- for group in robots.default_groups -%}
+  {{- group.user_agent }}
+  {%- for rule in group.rules -%}
+    {{- rule }}
+  {%- endfor -%}
+  {%- if group.sitemap != blank -%}
+    {{- group.sitemap }}
+  {%- endif %}
+
+{% endfor -%}
+
+# AI search engine crawlers — explicit allow (added 2026-04-11)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# llms.txt brand profile for AI search engines
+# {{ shop.url }}/llms.txt

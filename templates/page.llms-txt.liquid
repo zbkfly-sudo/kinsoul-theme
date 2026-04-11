@@ -1,0 +1,19 @@
+{%- comment -%}
+  Kinsoul Energy — llms.txt page template
+  Renders a Shopify page with handle "llms-txt" as plain-text-friendly output,
+  with no theme layout (no header/footer/scripts/styles). Combined with an
+  Admin URL Redirect (/llms.txt → /pages/llms-txt) this lets AI crawlers
+  fetch llms.txt at the canonical short URL.
+
+  Setup (Phase 5 admin task):
+    1. Online Store → Pages → Add page
+       - Title: llms.txt — Kinsoul Energy
+       - Handle: llms-txt
+       - Template suffix: llms-txt (this file)
+       - Content: paste the contents of assets/llms.txt verbatim (Show HTML mode)
+    2. Online Store → Navigation → URL redirects → Add redirect
+       - From: /llms.txt
+       - To:   /pages/llms-txt
+       - This makes the canonical /llms.txt URL serve the page content.
+{%- endcomment -%}
+{% layout none %}{{ page.content | strip_html }}
