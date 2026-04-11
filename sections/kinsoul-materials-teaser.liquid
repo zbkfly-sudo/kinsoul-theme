@@ -22,6 +22,25 @@
 
     <div class="kinsoul-materials-grid" data-kinsoul-stagger="150">
       {%- for block in section.blocks -%}
+        {%- liquid
+          # SEO: alt text fallback chain — image alt → block title → shop name
+          assign card_alt = block.settings.image.alt
+          if card_alt == blank
+            assign card_alt = block.settings.title
+          endif
+          if card_alt == blank
+            assign card_alt = shop.name | append: ' material'
+          endif
+
+          # Performance: eager-load + high fetchpriority for the first card
+          # when this section sits above the fold (section.index <= 2).
+          assign card_loading = 'lazy'
+          assign card_fetch_priority = 'auto'
+          if forloop.index0 == 0 and section.index <= 2
+            assign card_loading = 'eager'
+            assign card_fetch_priority = 'high'
+          endif
+        -%}
         <div class="kinsoul-material-card" data-kinsoul-stagger-child {{ block.shopify_attributes }}>
           {%- if block.settings.image != blank -%}
             <div class="kinsoul-material-card__image">
@@ -29,9 +48,11 @@
                 block.settings.image
                 | image_url: width: 800
                 | image_tag:
-                  loading: 'lazy',
+                  loading: card_loading,
+                  fetchpriority: card_fetch_priority,
                   widths: '300, 400, 600, 800',
-                  sizes: '(max-width: 749px) 100vw, 33vw'
+                  sizes: '(max-width: 749px) 100vw, 33vw',
+                  alt: card_alt
               }}
             </div>
           {%- else -%}

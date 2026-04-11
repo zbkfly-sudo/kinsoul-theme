@@ -11,6 +11,7 @@
 
   comment
     SEO: Build hero alt text with fallback chain — image alt → first heading block → shop name
+    Both image slots use the same fallback chain so neither LCP image is ever indexed alt-less.
   endcomment
   assign hero_alt_fallback = section.settings.image_1.alt
   if hero_alt_fallback == blank
@@ -22,6 +23,12 @@
   endif
   if hero_alt_fallback == blank
     assign hero_alt_fallback = shop.name
+  endif
+
+  # Image slot 2 alt: prefer its own alt, then fall back to slot-1 alt chain.
+  assign hero_alt_fallback_2 = section.settings.image_2.alt
+  if hero_alt_fallback_2 == blank
+    assign hero_alt_fallback_2 = hero_alt_fallback
   endif
   assign has_only_video = false
   assign has_only_video_mobile = false
@@ -263,7 +270,7 @@
           width: section.settings.image_2.width,
           widths: widths,
           height: section.settings.image_2.height,
-          alt: section.settings.image_2.alt,
+          alt: hero_alt_fallback_2,
           class: 'hero__media',
           sizes: sizes,
           fetchpriority: fetch_priority,
@@ -280,7 +287,7 @@
           width: section.settings.image_2.width,
           widths: widths,
           height: section.settings.image_2.height,
-          alt: section.settings.image_2.alt,
+          alt: hero_alt_fallback_2,
           class: 'hero__media',
           sizes: sizes,
           fetchpriority: fetch_priority,

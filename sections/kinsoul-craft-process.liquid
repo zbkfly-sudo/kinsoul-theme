@@ -25,6 +25,19 @@
 
     <div class="kinsoul-craft__steps">
       {%- for block in section.blocks -%}
+        {%- liquid
+          # SEO: alt fallback — image alt → step title → step number → shop name
+          assign step_alt = block.settings.image.alt
+          if step_alt == blank
+            assign step_alt = block.settings.title
+          endif
+          if step_alt == blank and block.settings.step_number != blank
+            assign step_alt = 'Kinsoul Energy craft step ' | append: block.settings.step_number
+          endif
+          if step_alt == blank
+            assign step_alt = shop.name | append: ' craft step'
+          endif
+        -%}
         <div class="kinsoul-craft__step{% if forloop.index == 2 %} kinsoul-craft__step--reverse{% endif %}" data-kinsoul-reveal="up" data-kinsoul-delay="{{ forloop.index0 | times: 200 }}" {{ block.shopify_attributes }}>
           <div class="kinsoul-craft__step-image">
             {%- if block.settings.image != blank -%}
@@ -35,7 +48,8 @@
                   loading: 'lazy',
                   widths: '400, 600, 900',
                   sizes: '(max-width: 749px) 100vw, 50vw',
-                  class: 'kinsoul-craft__img'
+                  class: 'kinsoul-craft__img',
+                  alt: step_alt
               }}
             {%- else -%}
               <div class="kinsoul-craft__img-placeholder">

@@ -10,6 +10,11 @@
   assign org_id = shop.url | append: '/#organization'
   assign website_id = shop.url | append: '/#website'
   assign clean_description = page.content | strip_html | strip_newlines | truncate: 5000
+
+  # SEO: strip any pre-existing brand suffix from page.title before re-appending,
+  # so we never end up with "... | Kinsoul Energy | Kinsoul Energy" in JSON-LD.
+  assign clean_page_title = page.title | replace: ' | Kinsoul Energy', '' | replace: '| Kinsoul Energy', '' | strip
+  assign webpage_name = clean_page_title | append: ' | Kinsoul Energy'
 -%}
 
 <script type="application/ld+json">
@@ -20,7 +25,7 @@
       "@type": "WebPage",
       "@id": {{ page_url | json }},
       "url": {{ page_url | json }},
-      "name": {{ page.title | append: ' | Kinsoul Energy' | json }},
+      "name": {{ webpage_name | json }},
       "description": "Learn about the natural baroque pearls, hand-selected gemstones, and S925 sterling silver in every Kinsoul Energy bracelet. Handmade one piece at a time in our California studio since 2018.",
       "isPartOf": {
         "@type": "WebSite",

@@ -25,6 +25,28 @@
 
     <div class="kinsoul-mat-deep__profiles">
       {%- for block in section.blocks -%}
+        {%- liquid
+          # Performance: eager-load + high fetchpriority for the first profile
+          # when this section is above the fold (section.index <= 2).
+          assign profile_loading = 'lazy'
+          assign profile_fetch_priority = 'auto'
+          if forloop.index0 == 0 and section.index <= 2
+            assign profile_loading = 'eager'
+            assign profile_fetch_priority = 'high'
+          endif
+
+          # SEO: alt fallback — image alt → block title → label → shop name
+          assign profile_alt = block.settings.image.alt
+          if profile_alt == blank
+            assign profile_alt = block.settings.title
+          endif
+          if profile_alt == blank
+            assign profile_alt = block.settings.label
+          endif
+          if profile_alt == blank
+            assign profile_alt = shop.name | append: ' material'
+          endif
+        -%}
         <div
           class="kinsoul-mat-deep__profile{% if forloop.index == 2 %} kinsoul-mat-deep__profile--reverse{% endif %}"
           id="material-{{ block.settings.anchor | default: forloop.index }}"
@@ -38,11 +60,12 @@
                 block.settings.image
                 | image_url: width: 900
                 | image_tag:
-                  loading: 'lazy',
+                  loading: profile_loading,
+                  fetchpriority: profile_fetch_priority,
                   widths: '400, 600, 900',
                   sizes: '(max-width: 749px) 100vw, 50vw',
                   class: 'kinsoul-mat-deep__img',
-                  alt: block.settings.title
+                  alt: profile_alt
               }}
             {%- else -%}
               <div class="kinsoul-mat-deep__img-placeholder">
