@@ -42,7 +42,9 @@ fi
 echo ""
 echo "📥 Final snapshot of current live before swap..."
 ./scripts/snapshot-live.sh "pre-publish-${DESC_SLUG}"
-git add baselines/
+# baselines/ is gitignored, so `git add baselines/` may exit non-zero —
+# swallow it so `set -e` doesn't halt the publish.
+git add baselines/ 2>/dev/null || true
 git diff --cached --quiet || git commit -m "baseline: pre-publish ${DESC_SLUG} ($(date +%Y-%m-%d))"
 
 # Publish via CLI
