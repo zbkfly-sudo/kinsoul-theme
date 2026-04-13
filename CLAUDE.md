@@ -1,6 +1,6 @@
 # CLAUDE.md — Kinsoul Energy Theme
 
-> **Every session must read this file first.** This is the single source of truth for project rules, brand context, development workflow, and tool usage. No other file is required to start working.
+> **Every session must read this file first.** This is the single source of truth for project rules, brand context, development workflow, and tool usage. Reference documents (Section 9) provide specialized data when needed.
 
 ---
 
@@ -69,7 +69,7 @@
 | CollectionPage + ItemList | kinsoul-schema-collection.liquid | Collections | ✅ |
 | AboutPage | kinsoul-schema-about.liquid | About | ✅ |
 | ContactPage | kinsoul-schema-contact.liquid | Contact | ✅ |
-| WebPage + HowTo | kinsoul-schema-materials.liquid | Materials | ✅ |
+| WebPage + HowTo | kinsoul-schema-materials.liquid | Materials | ✅ semantic only (no rich result since Sept 2023) |
 
 ### 1.6 Custom Sections (11 kinsoul-* sections)
 
@@ -104,7 +104,7 @@
 - Helper scripts auto-snapshot into `baselines/<timestamp>-<label>/`.
 - If bypassing scripts, run `./scripts/snapshot-live.sh <label>` first.
 
-### Law 4 — Every published version is a git tag.
+### Law 4 — Every pushed or published theme gets a git tag.
 - Published: `published-YYYY-MM-DD-HHMM-<desc>`
 - Test: `test-YYYY-MM-DD-HHMM-<desc>`
 
@@ -136,12 +136,13 @@ Types: `feat` / `fix` / `refactor` / `docs` / `infra` / `baseline` / `publish` /
 - Read the target files first. Understand existing patterns.
 - Check if a relevant `kinsoul-*` section/snippet already exists (Section 1.6).
 - Don't create new files unless necessary — prefer editing existing ones.
-- Don't push a new theme when only .md / script / config files changed (Section 8.2).
+- Don't push a new theme when only .md / script / .gitignore files changed (Section 8.2).
 
 ### 3.4 When to Use Shopify Admin Instead of Code
 
 These are Admin-side, not code fixes:
-- Product descriptions, metafields, SEO titles/descriptions
+- Product/page/collection-specific SEO titles and descriptions (set per-resource in Admin)
+- Product descriptions, metafields
 - App-injected content (subscriptions, reviews apps)
 - Payment method visibility
 - Email popups (Klaviyo/Privy)
@@ -154,12 +155,16 @@ Tell the user **exactly where in Admin to click**.
 
 ### 4.1 Verification Checklist (after every push-test, before telling user)
 
-- [ ] Page loads without Liquid errors (Console 0 errors)
+- [ ] Page loads without Liquid errors (no NEW console errors introduced by this change)
 - [ ] New content renders correctly, no layout breakage
 - [ ] Internal links are clickable and go to correct pages
 - [ ] Schema types are complete (Playwright evaluate check)
 - [ ] Only one H1 tag on the page
 - [ ] Mobile layout not broken (if UI changes involved)
+- [ ] Add-to-cart button works on PDP (Playwright click + verify cart badge)
+- [ ] Variant switching updates price and media (if PDP changed)
+- [ ] Prices display correctly (match expected range $139–$365)
+- [ ] Cart page renders with correct line items after add-to-cart
 
 ### 4.2 Verification Tool Priority
 
@@ -215,7 +220,7 @@ Tell the user **exactly where in Admin to click**.
 
 ### 6.2 Scenario Trigger Table
 
-When you encounter these scenarios, **automatically** run the tool sequence:
+When you encounter these scenarios, **automatically** run the tool sequence. Steps are recommended but not blocking — if a tool is unavailable or returns errors, proceed with the remaining steps and note what was skipped. The goal is data-driven decisions, not ritual compliance.
 
 #### A: New Page / Content Expansion
 
@@ -243,7 +248,7 @@ When you encounter these scenarios, **automatically** run the tool sequence:
 | 3 | Code | Embed generated schema into liquid |
 | 4 | `/seo-schema` | Validate output, zero errors |
 
-Note: Ignore HowTo (deprecated Sept 2023) and FAQ Rich Results (restricted Aug 2023) suggestions. FAQPage schema still valuable for AI citation.
+Note: HowTo rich results were deprecated Sept 2023; FAQ rich results restricted Aug 2023. Ignore tool suggestions to add these for rich results. However: keep existing HowTo schema on Materials page for semantic value. FAQPage schema remains valuable for AI citation (hypothesis — no confirmed ranking signal, but low cost to maintain).
 
 #### C: Technical SEO Issues
 
@@ -359,7 +364,7 @@ When user installs a new plugin/MCP tool:
 
 ## 7. SEO Workflow
 
-**Trigger:** Changes to content, schema, meta tags, page structure, or new pages. Skip for pure CSS/UI/performance changes.
+**Trigger:** Changes to content, schema, theme-level meta tag templates/defaults, page structure, or new pages. Skip for pure CSS/UI/performance changes. (Per-resource SEO titles/descriptions are Admin-side — see Section 3.4.)
 
 ### Phase 1: Diagnose (before coding)
 
@@ -399,7 +404,7 @@ Re-run diagnostic tools on the **preview URL**:
 
 ### Notes
 
-- Ignore HowTo and FAQ **Rich Results** suggestions from tools (deprecated/restricted by Google for commercial sites). But FAQPage schema is still valuable for AI citation — add it.
+- Schema policy for HowTo/FAQPage: see Section 6.2 note under Scenario B.
 - Keyword selection **must** have `/seo-dataforseo` volume data. No gut-feel keyword choices.
 - Record Before/After data in the commit message.
 
@@ -418,7 +423,12 @@ Third-party reports produce false positives. Before fixing anything:
 
 ### 8.2 Don't push when you can publish an existing test theme
 
-If only .md / script / .gitignore files changed since the last verified test theme, publish the existing theme directly. Don't waste a push.
+If only .md / script / .gitignore files changed since the last verified test theme, you may publish the existing test theme directly instead of pushing a new one. But first:
+
+1. Confirm no Admin-side content drift has occurred since the test theme was pushed. Run `./scripts/sync-from-live.sh --dry-run` or manually compare `config/*.json` and `templates/*.json` against live.
+2. If live has drifted, the old test theme is stale — push a fresh one.
+
+This avoids publishing a test theme that overwrites manual Admin edits made after the test was created.
 
 ### 8.3 Ground-truth from photos, never from names
 
@@ -449,10 +459,13 @@ Don't code around issues that belong in Shopify Admin (apps, payment settings, p
 | `PACKAGING-DESIGN-BRIEF.md` | Box/card/pouch physical specs |
 | `PACKAGING-IMAGE-PROMPTS.md` | 7 packaging scene prompts |
 | `SEO-GEO-AUDIT-2026-04-10.md` | SEO baseline audit (55.1/100 overall) |
+| `SEO-GEO-FULL-AUDIT-2026-04-10.md` | Full GEO audit with per-page scores |
 | `SEO-META-DESCRIPTIONS.md` | Title/meta copy for all pages |
 
+> **Cleanup needed:** The following root-level files are session artifacts and should be moved to `docs/archive/` or deleted once their content is captured: BASELINE-2026-04-11.md, IMAGE-ALT-DRAFT-2026-04-11.md, IMAGE-ALT-DRAFT-2026-04-11-zh.md, ADMIN-TASKS-2026-04-11.md, ADMIN-TASKS-2026-04-11-zh.md
+
 ### Operations
-- `.env` — secrets (gitignored)
+- `.env` — secrets (gitignored). **Must never be committed.** Scripts update it locally but record changes in git tags, not commits.
 - `scripts/` — push-test.sh, publish.sh, rollback.sh, snapshot-live.sh, sync-from-live.sh
 - `baselines/` — rollback snapshots (gitignored)
 

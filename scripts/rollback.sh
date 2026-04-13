@@ -43,8 +43,7 @@ shopify theme publish \
   --force
 
 sed -i "s/^SHOPIFY_LIVE_THEME_ID=.*/SHOPIFY_LIVE_THEME_ID=${PREV_ID}/" .env
-git add .env
-git commit -m "rollback: live → #${PREV_ID} (was #${CURRENT_LIVE})" || true
+# .env is gitignored (contains secrets). Record rollback in tag only.
 git tag -a "rollback-$(date +%Y-%m-%d-%H%M)" -m "Rolled back from #${CURRENT_LIVE} to #${PREV_ID}"
 
 echo ""
