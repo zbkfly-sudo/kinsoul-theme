@@ -70,7 +70,7 @@ for f in $(find "$DRIFT_TMP/templates" "$DRIFT_TMP/config" -type f -name "*.json
   if [[ -f "$REL" ]]; then
     # Skip files that we KNOW we've structurally edited (whitelist)
     case "$REL" in
-      templates/product.json|templates/collection.json|templates/index.json)
+      templates/product.json|templates/collection.json|templates/index.json|templates/page.materials.json|templates/page.client-care.json|templates/page.contact.json)
         continue
         ;;
     esac
