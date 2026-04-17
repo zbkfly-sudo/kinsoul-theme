@@ -3491,3 +3491,331 @@ body::after {
   color: var(--kinsoul-muted);
   margin: 0;
 }
+
+/* ============================================
+   P3 · Homepage Conversion Architecture (2026-04-17)
+   Trust Signals Strip, Best Seller Bar, stone chips, founder rework
+   ============================================ */
+
+/* --- Trust Signals Strip --- */
+.kinsoul-trust-signals__header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 2.5rem;
+}
+
+.kinsoul-trust-signals__subheading {
+  font-family: var(--font-secondary--family, inherit);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  margin: 0 0 0.5rem;
+}
+
+.kinsoul-trust-signals__title {
+  font-family: var(--font-heading--family), 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.04em;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.kinsoul-trust-signals__grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+@media screen and (max-width: 749px) {
+  .kinsoul-trust-signals__grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+.kinsoul-trust-signals__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem 1.5rem;
+  background: var(--kinsoul-cream, #faf7f2);
+  border: 1px solid var(--kinsoul-border);
+  border-radius: var(--kinsoul-radius-soft);
+  transition: transform 0.4s var(--kinsoul-transition-spring),
+    box-shadow 0.4s var(--kinsoul-transition-spring);
+}
+
+.kinsoul-trust-signals__card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--kinsoul-shadow-hover);
+}
+
+.kinsoul-trust-signals__icon {
+  display: inline-flex;
+  color: var(--kinsoul-accent);
+  margin-bottom: 1rem;
+}
+
+.kinsoul-trust-signals__card-title {
+  font-family: var(--font-heading--family), serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.03em;
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+
+.kinsoul-trust-signals__card-desc {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--kinsoul-muted);
+  margin: 0 0 1rem;
+  flex: 1;
+}
+
+.kinsoul-trust-signals__card-link {
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  transition: color 0.3s ease;
+}
+
+.kinsoul-trust-signals__card-link:hover {
+  color: var(--kinsoul-accent-hover);
+}
+
+/* --- Best Seller Bar --- */
+.kinsoul-bestseller-section {
+  padding-block: 3rem;
+}
+
+.kinsoul-bestseller__header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 2rem;
+}
+
+.kinsoul-bestseller__eyebrow {
+  font-family: var(--font-secondary--family, inherit);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  margin: 0 0 0.5rem;
+}
+
+.kinsoul-bestseller__title {
+  font-family: var(--font-heading--family), serif;
+  font-size: clamp(1.4rem, 3vw, 2rem);
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.04em;
+  margin: 0;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.kinsoul-bestseller__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media screen and (max-width: 749px) {
+  .kinsoul-bestseller__grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+.kinsoul-bestseller__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.25rem 1.25rem 1.75rem;
+  background: var(--kinsoul-cream, #faf7f2);
+  border: 1px solid var(--kinsoul-border);
+  border-radius: var(--kinsoul-radius-soft);
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s var(--kinsoul-transition-spring),
+    box-shadow 0.4s var(--kinsoul-transition-spring);
+}
+
+.kinsoul-bestseller__card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--kinsoul-shadow-hover);
+}
+
+.kinsoul-bestseller__tag {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  background: var(--kinsoul-bg);
+  padding: 0.2rem 0.5rem;
+  border-radius: 2px;
+}
+
+.kinsoul-bestseller__card-label {
+  font-family: var(--font-heading--family), serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.04em;
+  margin: 0 0 0.3rem;
+}
+
+.kinsoul-bestseller__card-sub {
+  font-size: 0.8rem;
+  color: var(--kinsoul-muted);
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.kinsoul-bestseller__card-cta {
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  margin-top: auto;
+}
+
+/* --- Stone chip on product cards --- */
+.product-card {
+  position: relative;
+}
+
+.kinsoul-stone-chip {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 0.64rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--kinsoul-heading);
+  background: rgba(249, 246, 241, 0.92);
+  padding: 0.25rem 0.55rem;
+  border-radius: 2px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 2;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  font-weight: 500;
+  pointer-events: none;
+}
+
+@media screen and (max-width: 749px) {
+  .kinsoul-stone-chip {
+    font-size: 0.58rem;
+    padding: 0.22rem 0.45rem;
+    top: 0.5rem;
+    left: 0.5rem;
+  }
+}
+
+/* --- Founder section: 2-column layout --- */
+.kinsoul-founder-lockup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding-block: 4rem;
+}
+
+@media screen and (max-width: 749px) {
+  .kinsoul-founder-lockup {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-block: 2.5rem;
+  }
+}
+
+.kinsoul-founder-lockup__image-wrap {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: var(--kinsoul-radius-soft);
+}
+
+.kinsoul-founder-lockup__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kinsoul-founder-lockup__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.kinsoul-founder-lockup__eyebrow {
+  font-family: var(--font-secondary--family, inherit);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  margin: 0 0 0.75rem;
+}
+
+.kinsoul-founder-lockup__title {
+  font-family: var(--font-heading--family), 'Cormorant Garamond', serif;
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.04em;
+  line-height: 1.25;
+  margin: 0 0 1.25rem;
+  font-weight: 400;
+}
+
+.kinsoul-founder-lockup__text {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--kinsoul-text);
+  margin: 0 0 1.5rem;
+}
+
+.kinsoul-founder-lockup__signature {
+  font-style: italic;
+  font-family: var(--font-heading--family), serif;
+  font-size: 0.95rem;
+  color: var(--kinsoul-muted);
+  margin: 0 0 1.5rem;
+}
+
+.kinsoul-founder-lockup__cta {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 3px;
+  transition: color 0.3s ease;
+}
+
+.kinsoul-founder-lockup__cta:hover {
+  color: var(--kinsoul-accent-hover);
+}

@@ -55,6 +55,18 @@
   endif
 %}
 
+{%- liquid
+  # Kinsoul: stone chip label — prefer explicit admin-set metafield,
+  # otherwise derive from stone_type (first word, up to the first " " or ",")
+  assign stone_chip = product.metafields.custom.stone_chip | default: ''
+  if stone_chip == blank and product.metafields.custom.stone_type != blank
+    assign raw_stone = product.metafields.custom.stone_type | strip_html | strip
+    assign first_part = raw_stone | split: ',' | first | split: '(' | first | strip
+    # Trim long phrases; a chip should be ≤ 3 words
+    assign first_words = first_part | split: ' ' | slice: 0, 3 | join: ' '
+    assign stone_chip = first_words
+  endif
+-%}
 <product-card
   class="product-card size-style"
   style="{% render 'size-style', settings: block_settings %}"
@@ -70,6 +82,9 @@
     data-placeholder="true"
   {% endif %}
 >
+  {%- if stone_chip != blank and onboarding == false -%}
+    <span class="kinsoul-stone-chip" aria-hidden="true">{{ stone_chip }}</span>
+  {%- endif -%}
   <a
     id="{{ product_card_id | md5 }}"
     {% unless onboarding %}
