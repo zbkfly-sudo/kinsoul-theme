@@ -29,3 +29,4 @@ secrets.local
 # Large local-only directories (not needed for theme or Ultraplan)
 _source-images/
 baselines/
+scripts/shopify-admin-ops.log

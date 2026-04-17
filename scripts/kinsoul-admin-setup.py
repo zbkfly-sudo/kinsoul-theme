@@ -27,7 +27,16 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 ENV_PATH = ROOT / ".env"
+LOG_PATH = ROOT / "scripts" / "shopify-admin-ops.log"
 API_VERSION = "2026-01"
+EXPECTED_STORE = "qr4xym-qi.myshopify.com"  # per SHOPIFY-ADMIN-API-POLICY.md
+
+def log_op(op, detail):
+    """Append one-line audit entry per SHOPIFY-ADMIN-API-POLICY.md §审计日志."""
+    import datetime
+    ts = datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z"
+    with LOG_PATH.open("a") as f:
+        f.write(f"{ts} | {op:<18} | {detail}\n")
 
 # ---------- Load .env ----------
 def load_env():
@@ -145,9 +154,11 @@ def create_pages(client, dry_run):
         errs = result["pageCreate"]["userErrors"]
         if errs:
             print(f"  ✗ {p['title']:<20} failed: {errs}")
+            log_op("pageCreate", f"handle={p['handle']} | status=FAILED | errors={errs}")
         else:
             page = result["pageCreate"]["page"]
             print(f"  ✓ {p['title']:<20} created (ID: {page['id']}, template: {page['templateSuffix']})")
+            log_op("pageCreate", f"handle={p['handle']} | id={page['id']} | template={page['templateSuffix']}")
 
 # ---------- Step 2 — Metafield definitions ----------
 METAFIELD_DEFS = [
@@ -190,11 +201,14 @@ def create_metafield_definitions(client, dry_run):
             taken = any(e.get("code") == "TAKEN" for e in errs)
             if taken:
                 print(f"  · {d['namespace']}.{d['key']:<20} already defined — skipping")
+                log_op("metafieldDefinitionCreate", f"{d['namespace']}.{d['key']} | status=ALREADY_EXISTS")
             else:
                 print(f"  ✗ {d['namespace']}.{d['key']:<20} failed: {errs}")
+                log_op("metafieldDefinitionCreate", f"{d['namespace']}.{d['key']} | status=FAILED | errors={errs}")
         else:
             definition = result["metafieldDefinitionCreate"]["createdDefinition"]
             print(f"  ✓ {d['namespace']}.{d['key']:<20} created (ID: {definition['id']})")
+            log_op("metafieldDefinitionCreate", f"{d['namespace']}.{d['key']} | id={definition['id']} | type={d['type']}")
 
 # ---------- Step 3 — Fill metafield values ----------
 # Product handles fixed at time of audit (per CLAUDE.md)
@@ -299,8 +313,10 @@ def fill_metafield_values(client, dry_run):
         errs = result["metafieldsSet"]["userErrors"]
         if errs:
             print(f"  ✗ batch {i//BATCH + 1} errors: {errs}")
+            log_op("metafieldsSet", f"batch={i//BATCH + 1} | count={len(chunk)} | status=FAILED | errors={errs}")
         else:
             print(f"  ✓ batch {i//BATCH + 1}: set {len(chunk)} metafields")
+            log_op("metafieldsSet", f"batch={i//BATCH + 1} | count={len(chunk)} | status=OK")
 
 # ---------- Main ----------
 def main():
@@ -313,6 +329,30 @@ def main():
     if not store:
         print("❌ SHOPIFY_STORE missing from .env")
         sys.exit(1)
+
+    # Domain sanity — per SHOPIFY-ADMIN-API-POLICY.md §"立即停止的信号"
+    if store != EXPECTED_STORE:
+        print(f"❌ SHOPIFY_STORE={store} does not match expected {EXPECTED_STORE}")
+        print("   Stopping — verify you're pointing at the right store.")
+        sys.exit(1)
+    # Token format sanity check — per SHOPIFY-ADMIN-API-POLICY.md §"立即停止的信号"
+    if token and not token.startswith("shpat_"):
+        print(f"""
+❌ SHOPIFY_ADMIN_API_TOKEN has wrong prefix: '{token.split('_')[0]}_'
+
+   Valid Admin API access token starts with 'shpat_'.
+   You likely pasted the Client Secret (shpss_) or API key instead.
+
+   In the Custom App's "API credentials" tab:
+   - shpss_… = API secret key (Client Secret) — used for OAuth, NOT for this
+   - shpat_… = Admin API access token — THIS IS WHAT WE NEED
+
+   Look for the "Admin API access token" section specifically. If it says
+   "You'll only see this token once" and the value is hidden, Uninstall the
+   app and Install again — the token re-displays on fresh install.
+""")
+        sys.exit(1)
+
     if not token:
         print("""
 ❌ SHOPIFY_ADMIN_API_TOKEN missing from .env
