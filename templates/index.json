@@ -496,7 +496,6 @@
     "founder_teaser": {
       "type": "kinsoul-founder-lockup",
       "settings": {
-        "image": "shopify://shop_images/3.png",
         "eyebrow": "Our Founder",
         "heading": "In 2018, a designer named LU found a stone on the ground in China.",
         "body_text": "<p>She picked it up, turned it over in her hand, and saw something most people walked past every day — a small piece of the earth, shaped slowly over time, holding a quiet weight. That moment turned into a question: what if jewelry could be made the way the stone was made — slowly, by hand, from the natural world rather than the factory floor? Kinsoul Energy is the answer she's been building ever since, one bracelet at a time.</p>",
