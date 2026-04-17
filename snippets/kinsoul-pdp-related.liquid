@@ -1,0 +1,60 @@
+{%- doc -%}
+  Kinsoul Energy — PDP "Complete Your Look"
+  Renders manually-curated related products from product.metafields.custom.related_products
+  (list.product_reference). Falls back to Shopify's ML-based
+  product_recommendations endpoint if the metafield is empty/unset.
+{%- enddoc -%}
+
+{%- liquid
+  assign current_product = product | default: closest.product
+  unless current_product
+    break
+  endunless
+
+  assign related = current_product.metafields.custom.related_products.value
+  # metafield may be array of Product drops; if so, use it
+-%}
+
+<section class="kinsoul-pdp-related section section--page-width spacing-style" style="--padding-block-start: 48px; --padding-block-end: 48px;">
+  <div class="page-width">
+    <h2 class="kinsoul-pdp-related__title">Complete Your Look</h2>
+
+    {%- if related != blank -%}
+      <ul class="kinsoul-pdp-related__grid">
+        {%- for rel in related limit: 3 -%}
+          {%- liquid
+            assign rel_image = rel.featured_media.preview_image
+            assign rel_chip = rel.metafields.custom.stone_chip
+          -%}
+          <li class="kinsoul-pdp-related__card">
+            <a href="{{ rel.url }}" class="kinsoul-pdp-related__link">
+              <div class="kinsoul-pdp-related__image-wrap">
+                {%- if rel_chip != blank -%}
+                  <span class="kinsoul-stone-chip">{{ rel_chip }}</span>
+                {%- endif -%}
+                {%- if rel_image -%}
+                  {{
+                    rel_image
+                    | image_url: width: 600
+                    | image_tag:
+                      loading: 'lazy',
+                      widths: '300, 600',
+                      sizes: '(max-width: 749px) 50vw, 30vw',
+                      class: 'kinsoul-pdp-related__img',
+                      alt: rel.title
+                  }}
+                {%- endif -%}
+              </div>
+              <p class="kinsoul-pdp-related__name">{{ rel.title }}</p>
+              <p class="kinsoul-pdp-related__price">{{ rel.price | money }}</p>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
+    {%- else -%}
+      <p class="kinsoul-pdp-related__empty">
+        <a href="/collections/shop-all-bracelets">See all bracelets →</a>
+      </p>
+    {%- endif -%}
+  </div>
+</section>

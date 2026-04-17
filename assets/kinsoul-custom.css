@@ -4694,6 +4694,87 @@ body::after {
   background: var(--kinsoul-heading);
 }
 
+/* --- PDP related products (Complete Your Look, metafield-driven) --- */
+.kinsoul-pdp-related {
+  border-top: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-pdp-related__title {
+  font-family: var(--font-heading--family), serif;
+  font-size: clamp(1.3rem, 3vw, 1.9rem);
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.04em;
+  margin: 0 0 1.75rem;
+  font-weight: 400;
+}
+
+.kinsoul-pdp-related__grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media screen and (max-width: 749px) {
+  .kinsoul-pdp-related__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+.kinsoul-pdp-related__card {
+  position: relative;
+}
+
+.kinsoul-pdp-related__link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s var(--kinsoul-transition-spring);
+}
+
+.kinsoul-pdp-related__link:hover {
+  transform: translateY(-3px);
+}
+
+.kinsoul-pdp-related__image-wrap {
+  position: relative;
+  overflow: hidden;
+  background: var(--kinsoul-bg-alt);
+  aspect-ratio: 3 / 4;
+}
+
+.kinsoul-pdp-related__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kinsoul-pdp-related__name {
+  font-size: 0.88rem;
+  color: var(--kinsoul-muted);
+  margin: 0.65rem 0 0.2rem;
+  line-height: 1.35;
+}
+
+.kinsoul-pdp-related__price {
+  font-size: 0.88rem;
+  color: var(--kinsoul-heading);
+  font-weight: 500;
+  margin: 0;
+}
+
+.kinsoul-pdp-related__empty {
+  font-size: 0.85rem;
+  color: var(--kinsoul-muted);
+}
+
+.kinsoul-pdp-related__empty a {
+  color: var(--kinsoul-accent);
+}
+
 @media screen and (max-width: 749px) {
   .kinsoul-cart-ship {
     padding: 0.875rem 1rem;
