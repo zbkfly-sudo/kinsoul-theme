@@ -132,16 +132,60 @@ if [[ -n "$(git diff --cached --name-only)" ]]; then
 fi
 
 # ---------- Push as new unpublished theme ----------
+# Retries once on transient 502/503 errors — but FIRST checks if a theme
+# with this name already exists. Shopify often creates the theme on the
+# backend even when the API gateway returns 502; blindly retrying would
+# create a duplicate. The duplicate-detection guard prevents that.
 echo ""
 echo "🚀 Pushing working tree as new unpublished theme: ${THEME_NAME}"
 echo ""
 
-shopify theme push \
-  --unpublished \
-  --theme="${THEME_NAME}" \
-  --store="${SHOPIFY_STORE}" \
-  --no-color \
-  --json > /tmp/push-result.json
+check_existing_theme() {
+  # Returns the ID if a theme named $1 already exists, empty otherwise.
+  shopify theme list --store="${SHOPIFY_STORE}" --no-color --json 2>/dev/null \
+    | python3 -c "
+import json, sys
+try:
+    themes = json.load(sys.stdin)
+except Exception:
+    sys.exit(0)
+for t in themes:
+    if t.get('name') == '$1' and t.get('role') == 'unpublished':
+        print(t.get('id', ''))
+        break
+" 2>/dev/null
+}
+
+do_push() {
+  shopify theme push \
+    --unpublished \
+    --theme="${THEME_NAME}" \
+    --store="${SHOPIFY_STORE}" \
+    --no-color \
+    --json > /tmp/push-result.json 2>&1
+}
+
+if do_push; then
+  :
+else
+  # Push appeared to fail. Check if Shopify actually created it behind the 502.
+  echo ""
+  echo "⚠️  Push command exited non-zero. Checking if theme was created anyway..."
+  sleep 5
+  EXISTING="$(check_existing_theme)"
+  if [[ -n "$EXISTING" ]]; then
+    echo "✅ Theme '${THEME_NAME}' already exists (#${EXISTING}) — 502 was a false alarm."
+    echo "{\"id\": ${EXISTING}}" > /tmp/push-result.json
+  else
+    echo "⚠️  No theme created. Retrying push once..."
+    sleep 10
+    do_push || {
+      echo "❌ Retry also failed. Check /tmp/push-result.json for details."
+      cat /tmp/push-result.json
+      exit 1
+    }
+  fi
+fi
 
 THEME_ID="$(grep -o '"id":[0-9]*' /tmp/push-result.json | head -1 | cut -d: -f2)"
 
