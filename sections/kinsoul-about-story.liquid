@@ -56,6 +56,12 @@
             <p class="kinsoul-about__story-highlight">{{ block.settings.text }}</p>
           {%- endif -%}
         {%- endfor -%}
+
+        {%- if section.settings.related_product_url != blank and section.settings.related_product_label != blank -%}
+          <a href="{{ section.settings.related_product_url }}" class="kinsoul-about__story-cta">
+            {{ section.settings.related_product_label }} →
+          </a>
+        {%- endif -%}
       </div>
     </div>
   </div>
@@ -137,6 +143,21 @@
       "step": 4,
       "unit": "px",
       "default": 0
+    },
+    {
+      "type": "header",
+      "content": "Chapter CTA (optional)"
+    },
+    {
+      "type": "url",
+      "id": "related_product_url",
+      "label": "CTA link (product or page)"
+    },
+    {
+      "type": "text",
+      "id": "related_product_label",
+      "label": "CTA label",
+      "info": "e.g. 'See Ember, our red agate piece'"
     }
   ],
   "blocks": [

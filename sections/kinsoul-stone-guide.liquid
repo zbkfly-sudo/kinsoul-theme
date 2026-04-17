@@ -36,6 +36,9 @@
               <span class="kinsoul-stone-guide__found-products">{{ block.settings.found_in }}</span>
             </div>
           {%- endif -%}
+          {%- if block.settings.shop_url != blank -%}
+            <a href="{{ block.settings.shop_url }}" class="kinsoul-stone-card__shop">Shop →</a>
+          {%- endif -%}
         </div>
       {%- endfor -%}
     </div>
@@ -214,6 +217,11 @@
           "id": "found_in",
           "label": "Found in (product names)",
           "default": "Serenity, Soleil, Aura"
+        },
+        {
+          "type": "url",
+          "id": "shop_url",
+          "label": "Shop link (to product or filtered collection)"
         }
       ]
     }

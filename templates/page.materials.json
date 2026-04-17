@@ -130,8 +130,8 @@
             "image": "shopify://shop_images/a462ae552c112aea4711b6de9b734fb0.png",
             "title": "Natural Pearls",
             "description": "We use baroque and freshwater pearls — each one uniquely shaped by nature. You'll notice variations in form, size, and luster. That's not a flaw; it's proof of authenticity. Our pearls are selected for their organic beauty and soft, natural glow.",
-            "link_url": "",
-            "link_text": ""
+            "link_url": "/collections/shop-all-bracelets",
+            "link_text": "Shop pearl bracelets"
           }
         },
         "stones": {
@@ -140,8 +140,8 @@
             "image": "shopify://shop_images/ac7c941f089f2cc721d9bd5bece2d52b.png",
             "title": "Gemstones",
             "description": "Amethyst, agate, quartz, tiger's eye, lapis lazuli — hand-cut and minimally polished. Each stone retains its natural texture, color variation, and inclusions. We source stones that show character, not factory uniformity.",
-            "link_url": "",
-            "link_text": ""
+            "link_url": "/collections/shop-all-bracelets",
+            "link_text": "Shop bracelets with gemstones"
           }
         },
         "silver": {
@@ -150,8 +150,8 @@
             "image": "shopify://shop_images/logo.jpg",
             "title": "S925 Sterling Silver",
             "description": "All metal components — clasps, spacers, logo tags — are crafted from S925 sterling silver. Hand-finished for a smooth feel against the skin, designed for daily wear and long-term durability.",
-            "link_url": "",
-            "link_text": ""
+            "link_url": "/collections/shop-all-bracelets",
+            "link_text": "Shop pieces with sterling silver"
           }
         }
       },
@@ -213,6 +213,111 @@
         "padding_bottom": 80
       }
     },
+    "stone_guide": {
+      "type": "kinsoul-stone-guide",
+      "blocks": {
+        "s_amethyst": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Amethyst",
+            "tradition": "Calm, clarity, intuition",
+            "found_in": "Serenity, Soleil, Aura",
+            "shop_url": "/products/freeform-amethyst-bracelet-with-freshwater-pearls"
+          }
+        },
+        "s_red_agate": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Persian Red Agate",
+            "tradition": "Confidence, vitality, grounding",
+            "found_in": "Ember, Aura",
+            "shop_url": "/products/persian-red-agate-pearl-sterling-silver-bracelet"
+          }
+        },
+        "s_black_agate": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Black Agate",
+            "tradition": "Protection, inner resolve",
+            "found_in": "Obsidian, Aura",
+            "shop_url": "/products/mozhu-persian-agate-baroque-pearl-bracelet"
+          }
+        },
+        "s_banded_agate": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Persian Banded Agate",
+            "tradition": "Stability, earth connection",
+            "found_in": "Terra",
+            "shop_url": "/products/moqiao-black-agate-rutilated-quartz-pearl-bracelet"
+          }
+        },
+        "s_citrine": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Brazilian Citrine",
+            "tradition": "Abundance, optimism, creative energy",
+            "found_in": "Soleil",
+            "shop_url": "/products/zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet"
+          }
+        },
+        "s_rutilated_quartz": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Rutilated Quartz",
+            "tradition": "Clarity, focus, illumination",
+            "found_in": "Obsidian",
+            "shop_url": "/products/mozhu-persian-agate-baroque-pearl-bracelet"
+          }
+        },
+        "s_clear_quartz": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Clear Quartz",
+            "tradition": "Clarity, amplification",
+            "found_in": "Soleil, Aura",
+            "shop_url": "/products/zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet"
+          }
+        },
+        "s_tigers_eye": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Tiger's Eye",
+            "tradition": "Courage, personal power",
+            "found_in": "Aura",
+            "shop_url": "/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones"
+          }
+        },
+        "s_lapis": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Lapis Lazuli",
+            "tradition": "Wisdom, truth, self-awareness",
+            "found_in": "Aura",
+            "shop_url": "/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones"
+          }
+        }
+      },
+      "block_order": [
+        "s_amethyst",
+        "s_red_agate",
+        "s_black_agate",
+        "s_banded_agate",
+        "s_citrine",
+        "s_rutilated_quartz",
+        "s_clear_quartz",
+        "s_tigers_eye",
+        "s_lapis"
+      ],
+      "settings": {
+        "subheading": "Stone Index",
+        "heading": "Our Stones & Their Traditions",
+        "description": "Nine natural stones across six bracelets. Each one cultivates a different feeling — choose by what you want to carry with you.",
+        "color_scheme": "scheme-1",
+        "padding_top": 60,
+        "padding_bottom": 80
+      }
+    },
     "variation_note": {
       "type": "kinsoul-meaning-teaser",
       "settings": {
@@ -232,6 +337,7 @@
     "intro",
     "materials",
     "craft",
+    "stone_guide",
     "variation_note"
   ]
 }
