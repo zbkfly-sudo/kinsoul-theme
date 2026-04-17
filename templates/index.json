@@ -42,7 +42,7 @@
           "type": "text",
           "name": "Subtitle",
           "settings": {
-            "text": "<p>Natural pearls. Hand-selected stones. 6 handmade pieces, $139–$365.</p>",
+            "text": "<p>Natural pearls. Hand-selected stones. Designed to be worn every day.</p>",
             "width": "100%",
             "max_width": "narrow",
             "alignment": "center",
@@ -121,7 +121,7 @@
             "btn_materials": {
               "type": "button",
               "settings": {
-                "label": "Explore Materials",
+                "label": "Discover the Materials",
                 "link": "/pages/materials-craft",
                 "open_in_new_tab": false,
                 "style_class": "button--secondary",
