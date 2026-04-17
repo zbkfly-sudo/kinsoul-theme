@@ -494,13 +494,17 @@
       }
     },
     "founder_teaser": {
-      "type": "custom-liquid",
+      "type": "kinsoul-founder-lockup",
       "settings": {
-        "custom_liquid": "<div class='kinsoul-founder-teaser'><div class='kinsoul-founder-teaser__inner'><p class='kinsoul-care__eyebrow'>Our Founder</p><h2 class='kinsoul-founder-teaser__title'>In 2018, a designer named LU found a stone on the ground in China.</h2><p class='kinsoul-founder-teaser__text'>She picked it up, turned it over in her hand, and saw something most people walked past every day — a small piece of the earth, shaped slowly over time, holding a quiet weight. That moment turned into a question: what if jewelry could be made the way the stone was made — slowly, by hand, from the natural world rather than the factory floor? Kinsoul Energy is the answer she's been building ever since, one bracelet at a time.</p><a href='/pages/about' class='kinsoul-founder-teaser__link'>Read Our Story →</a></div></div>",
+        "eyebrow": "Our Founder",
+        "heading": "In 2018, a designer named LU found a stone on the ground in China.",
+        "body_text": "<p>She picked it up, turned it over in her hand, and saw something most people walked past every day — a small piece of the earth, shaped slowly over time, holding a quiet weight. That moment turned into a question: what if jewelry could be made the way the stone was made — slowly, by hand, from the natural world rather than the factory floor? Kinsoul Energy is the answer she's been building ever since, one bracelet at a time.</p>",
+        "signature": "— LU, founder",
+        "cta_url": "/pages/about",
+        "cta_text": "Read our story",
         "color_scheme": "scheme-2",
-        "section_width": "page-width",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding_top": 60,
+        "padding_bottom": 60
       }
     },
     "gifting_service": {
