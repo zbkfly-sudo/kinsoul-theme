@@ -575,6 +575,46 @@
         "padding_top": 80,
         "padding_bottom": 80
       }
+    },
+    "trust_signals": {
+      "type": "kinsoul-trust-signals",
+      "blocks": {
+        "ts_1": {
+          "type": "signal_card",
+          "settings": {
+            "title": "100% Natural Materials",
+            "description": "Every bracelet includes a certificate of authenticity. Never synthetic, never dyed, never coated.",
+            "link_url": "/pages/materials-craft",
+            "link_label": "See the materials"
+          }
+        },
+        "ts_2": {
+          "type": "signal_card",
+          "settings": {
+            "title": "Made by 5 people in California",
+            "description": "A small studio. Every piece is hand-assembled, weighed for balance, and inspected before it ships.",
+            "link_url": "/pages/about",
+            "link_label": "Meet the studio"
+          }
+        },
+        "ts_3": {
+          "type": "signal_card",
+          "settings": {
+            "title": "30-day returns + free size exchanges",
+            "description": "If it doesn't fit right, we send another one — no cost. Email us, and we include a prepaid return label.",
+            "link_url": "/pages/client-care",
+            "link_label": "See our policies"
+          }
+        }
+      },
+      "block_order": ["ts_1", "ts_2", "ts_3"],
+      "settings": {
+        "subheading": "Why Kinsoul",
+        "heading": "Made With Care — From Our Hands to Yours",
+        "color_scheme": "scheme-2",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
     }
   },
   "order": [
@@ -582,6 +622,7 @@
     "trust_strip",
     "signature_pieces",
     "materials_teaser",
+    "trust_signals",
     "meaning_teaser",
     "founder_teaser",
     "gifting_service",
