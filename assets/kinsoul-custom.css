@@ -4638,3 +4638,69 @@ body::after {
 .kinsoul-materials-teaser__products a:hover {
   border-bottom-color: var(--kinsoul-accent);
 }
+
+/* ============================================
+   P7 · Cart shipping threshold bar
+   ============================================ */
+
+.kinsoul-cart-ship {
+  background: var(--kinsoul-cream, #faf7f2);
+  border: 1px solid var(--kinsoul-border);
+  border-radius: var(--kinsoul-radius-soft);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.kinsoul-cart-ship[data-ship-met="true"] {
+  background: #F3F0E9;
+  border-color: var(--kinsoul-accent);
+}
+
+.kinsoul-cart-ship__label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.6rem;
+  font-size: 0.9rem;
+  color: var(--kinsoul-heading);
+  line-height: 1.4;
+}
+
+.kinsoul-cart-ship__label strong {
+  color: var(--kinsoul-accent);
+  font-weight: 500;
+}
+
+.kinsoul-cart-ship__icon {
+  display: inline-flex;
+  color: var(--kinsoul-accent);
+  flex-shrink: 0;
+}
+
+.kinsoul-cart-ship__bar {
+  height: 4px;
+  background: var(--kinsoul-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.kinsoul-cart-ship__fill {
+  height: 100%;
+  background: var(--kinsoul-accent);
+  transition: width 0.4s var(--kinsoul-transition-spring);
+}
+
+.kinsoul-cart-ship[data-ship-met="true"] .kinsoul-cart-ship__fill {
+  background: var(--kinsoul-heading);
+}
+
+@media screen and (max-width: 749px) {
+  .kinsoul-cart-ship {
+    padding: 0.875rem 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .kinsoul-cart-ship__label {
+    font-size: 0.85rem;
+  }
+}

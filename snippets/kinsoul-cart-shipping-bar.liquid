@@ -1,0 +1,46 @@
+{%- doc -%}
+  Kinsoul Energy — Cart free-shipping progress bar
+  Shown at the top of the cart page and cart drawer.
+  Threshold: $200. Reads cart.total_price (in cents) and shop.currency.
+{%- enddoc -%}
+
+{%- liquid
+  assign threshold_cents = 20000
+  assign current = cart.total_price
+  assign remaining = threshold_cents | minus: current
+  if current >= threshold_cents
+    assign met = true
+  else
+    assign met = false
+  endif
+  assign percent = current | times: 100.0 | divided_by: threshold_cents
+  if percent > 100
+    assign percent = 100
+  endif
+-%}
+
+<div class="kinsoul-cart-ship" data-ship-met="{{ met }}" role="status" aria-live="polite">
+  <p class="kinsoul-cart-ship__label">
+    {%- if met -%}
+      <span class="kinsoul-cart-ship__icon" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </span>
+      <strong>Free shipping unlocked.</strong> Your order qualifies.
+    {%- else -%}
+      <span class="kinsoul-cart-ship__icon" aria-hidden="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="1" y="3" width="15" height="13"/>
+          <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+          <circle cx="5.5" cy="18.5" r="2.5"/>
+          <circle cx="18.5" cy="18.5" r="2.5"/>
+        </svg>
+      </span>
+      Add <strong>{{ remaining | money }}</strong> more for free shipping.
+    {%- endif -%}
+  </p>
+  <div class="kinsoul-cart-ship__bar" aria-hidden="true">
+    <div class="kinsoul-cart-ship__fill" style="width: {{ percent }}%;"></div>
+  </div>
+</div>
