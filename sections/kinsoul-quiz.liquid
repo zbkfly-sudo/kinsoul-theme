@@ -136,66 +136,43 @@
   </div>
 </div>
 
+{%- comment -%}
+  Server-render real product data from Shopify so image URLs are always correct
+  (locale-aware, CDN-accurate, price in current currency/language).
+  Tag scores stay in JS since they drive the quiz algorithm.
+{%- endcomment -%}
+{%- liquid
+  assign quiz_ember = all_products['persian-red-agate-pearl-sterling-silver-bracelet']
+  assign quiz_serenity = all_products['freeform-amethyst-bracelet-with-freshwater-pearls']
+  assign quiz_aura = all_products['aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones']
+  assign quiz_obsidian = all_products['mozhu-persian-agate-baroque-pearl-bracelet']
+  assign quiz_terra = all_products['moqiao-black-agate-rutilated-quartz-pearl-bracelet']
+  assign quiz_soleil = all_products['zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet']
+-%}
+
+<script type="application/json" id="kinsoul-quiz-products">
+{
+  "ember":    { "title": "Ember",    "subtitle": "Red Agate + Pearl Silver Bar", "price": {{ quiz_ember.price    | money | json }}, "url": {{ quiz_ember.url    | json }}, "image": {{ quiz_ember.featured_media.preview_image    | image_url: width: 800 | json }}, "blurb": "Bold warmth. Persian red agate paired with freshwater pearl bars — a quiet spark on the wrist.", "tags": { "warmth": 3, "calm": 0, "balance": 1, "under200": 0, "200-300": 3, "300plus": 0, "everyday": 2, "gifting": 2, "special": 1 } },
+  "serenity": { "title": "Serenity", "subtitle": "Amethyst + Freshwater Pearl",  "price": {{ quiz_serenity.price | money | json }}, "url": {{ quiz_serenity.url | json }}, "image": {{ quiz_serenity.featured_media.preview_image | image_url: width: 800 | json }}, "blurb": "Cool and contemplative. Freeform amethyst with pearl spirals — for quiet clarity.",         "tags": { "warmth": 0, "calm": 3, "balance": 1, "under200": 3, "200-300": 0, "300plus": 0, "everyday": 2, "gifting": 3, "special": 1 } },
+  "aura":     { "title": "Aura",     "subtitle": "Multi-Stone + Baroque Pearl",  "price": {{ quiz_aura.price     | money | json }}, "url": {{ quiz_aura.url     | json }}, "image": {{ quiz_aura.featured_media.preview_image     | image_url: width: 800 | json }}, "blurb": "Eight stones, one wrist. The most substantial piece — warmth, clarity, and grounding in balance.", "tags": { "warmth": 1, "calm": 1, "balance": 3, "under200": 0, "200-300": 0, "300plus": 3, "everyday": 1, "gifting": 3, "special": 3 } },
+  "obsidian": { "title": "Obsidian", "subtitle": "Black Agate + Grey Pearl",     "price": {{ quiz_obsidian.price | money | json }}, "url": {{ quiz_obsidian.url | json }}, "image": {{ quiz_obsidian.featured_media.preview_image | image_url: width: 800 | json }}, "blurb": "Grounded and dark. Black agate with rutilated quartz and grey rice pearls — quiet strength.",    "tags": { "warmth": 0, "calm": 2, "balance": 2, "under200": 0, "200-300": 3, "300plus": 0, "everyday": 3, "gifting": 1, "special": 1 } },
+  "terra":    { "title": "Terra",    "subtitle": "Banded Agate + Baroque Pearl", "price": {{ quiz_terra.price    | money | json }}, "url": {{ quiz_terra.url    | json }}, "image": {{ quiz_terra.featured_media.preview_image    | image_url: width: 800 | json }}, "blurb": "Earth on the wrist. Persian banded agate, baroque pearl, antique silver — layered and steady.",    "tags": { "warmth": 1, "calm": 0, "balance": 3, "under200": 0, "200-300": 3, "300plus": 0, "everyday": 2, "gifting": 1, "special": 2 } },
+  "soleil":   { "title": "Soleil",   "subtitle": "Citrine + Quartz + Amethyst",  "price": {{ quiz_soleil.price   | money | json }}, "url": {{ quiz_soleil.url   | json }}, "image": {{ quiz_soleil.featured_media.preview_image   | image_url: width: 800 | json }}, "blurb": "Sunlit and optimistic. Brazilian citrine, clear quartz points, amethyst rounds — warmth with clarity.", "tags": { "warmth": 2, "calm": 1, "balance": 1, "under200": 3, "200-300": 0, "300plus": 0, "everyday": 3, "gifting": 2, "special": 0 } }
+}
+</script>
+
 <script>
 (function() {
   'use strict';
 
-  const PRODUCTS = {
-    ember: {
-      title: 'Ember',
-      subtitle: 'Red Agate + Pearl Silver Bar',
-      price: '$228',
-      url: '/products/persian-red-agate-pearl-sterling-silver-bracelet',
-      image: 'https://kinsoulenergy.com/cdn/shop/files/50af65f04703c569a2ca741f116ca705.jpg?width=800',
-      blurb: 'Bold warmth. Persian red agate paired with freshwater pearl bars — a quiet spark on the wrist.',
-      tags: { warmth: 3, calm: 0, balance: 1, 'under200': 0, '200-300': 3, '300plus': 0, everyday: 2, gifting: 2, special: 1 }
-    },
-    serenity: {
-      title: 'Serenity',
-      subtitle: 'Amethyst + Freshwater Pearl',
-      price: '$168',
-      url: '/products/freeform-amethyst-bracelet-with-freshwater-pearls',
-      image: 'https://kinsoulenergy.com/cdn/shop/files/daf75a042a831fbed3574f67063b0875.jpg?width=800',
-      blurb: 'Cool and contemplative. Freeform amethyst with pearl spirals — for quiet clarity.',
-      tags: { warmth: 0, calm: 3, balance: 1, 'under200': 3, '200-300': 0, '300plus': 0, everyday: 2, gifting: 3, special: 1 }
-    },
-    aura: {
-      title: 'Aura',
-      subtitle: 'Multi-Stone + Baroque Pearl',
-      price: '$365',
-      url: '/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones',
-      image: 'https://kinsoulenergy.com/cdn/shop/files/f9c24cd3d3c49d1caab39cd87ed1c9e3.jpg?width=800',
-      blurb: 'Eight stones, one wrist. The most substantial piece — warmth, clarity, and grounding in balance.',
-      tags: { warmth: 1, calm: 1, balance: 3, 'under200': 0, '200-300': 0, '300plus': 3, everyday: 1, gifting: 3, special: 3 }
-    },
-    obsidian: {
-      title: 'Obsidian',
-      subtitle: 'Black Agate + Grey Pearl',
-      price: '$208',
-      url: '/products/mozhu-persian-agate-baroque-pearl-bracelet',
-      image: 'https://kinsoulenergy.com/cdn/shop/files/c1dc3fd2ad5d519bc73e0ec9e4e25a6c.jpg?width=800',
-      blurb: 'Grounded and dark. Black agate with rutilated quartz and grey rice pearls — quiet strength.',
-      tags: { warmth: 0, calm: 2, balance: 2, 'under200': 0, '200-300': 3, '300plus': 0, everyday: 3, gifting: 1, special: 1 }
-    },
-    terra: {
-      title: 'Terra',
-      subtitle: 'Banded Agate + Baroque Pearl',
-      price: '$264',
-      url: '/products/moqiao-black-agate-rutilated-quartz-pearl-bracelet',
-      image: 'https://kinsoulenergy.com/cdn/shop/files/664154bef986066aaf20933006221c86.jpg?width=800',
-      blurb: 'Earth on the wrist. Persian banded agate, baroque pearl, antique silver — layered and steady.',
-      tags: { warmth: 1, calm: 0, balance: 3, 'under200': 0, '200-300': 3, '300plus': 0, everyday: 2, gifting: 1, special: 2 }
-    },
-    soleil: {
-      title: 'Soleil',
-      subtitle: 'Citrine + Quartz + Amethyst',
-      price: '$139',
-      url: '/products/zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet',
-      image: 'https://kinsoulenergy.com/cdn/shop/files/7476f85b54e01cbb081d639c244e67f3.jpg?width=800',
-      blurb: 'Sunlit and optimistic. Brazilian citrine, clear quartz points, amethyst rounds — warmth with clarity.',
-      tags: { warmth: 2, calm: 1, balance: 1, 'under200': 3, '200-300': 0, '300plus': 0, everyday: 3, gifting: 2, special: 0 }
+  const PRODUCTS = (function() {
+    try {
+      return JSON.parse(document.getElementById('kinsoul-quiz-products').textContent);
+    } catch (e) {
+      console.error('Kinsoul quiz: product data parse failed', e);
+      return {};
     }
-  };
+  })();
 
   const container = document.querySelector('[data-kinsoul-quiz]');
   if (!container) return;
