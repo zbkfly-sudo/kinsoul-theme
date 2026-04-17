@@ -576,6 +576,49 @@
         "padding_bottom": 80
       }
     },
+    "bestseller_bar": {
+      "type": "kinsoul-bestseller-bar",
+      "blocks": {
+        "bs_1": {
+          "type": "quick_card",
+          "settings": {
+            "tag_text": "Entry",
+            "label": "Under $200",
+            "subtext": "Start with Soleil or Serenity — our most approachable pieces.",
+            "link_url": "/collections/shop-all-bracelets?sort_by=price-ascending",
+            "cta_text": "Shop under $200"
+          }
+        },
+        "bs_2": {
+          "type": "quick_card",
+          "settings": {
+            "tag_text": "Most loved",
+            "label": "Serenity",
+            "subtext": "Amethyst + freshwater pearl. The one people keep gifting.",
+            "link_url": "/products/freeform-amethyst-bracelet-with-freshwater-pearls",
+            "cta_text": "See Serenity"
+          }
+        },
+        "bs_3": {
+          "type": "quick_card",
+          "settings": {
+            "tag_text": "The signature",
+            "label": "Aura",
+            "subtext": "8 gemstones + baroque pearl. Our most substantial piece.",
+            "link_url": "/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones",
+            "cta_text": "See Aura"
+          }
+        }
+      },
+      "block_order": ["bs_1", "bs_2", "bs_3"],
+      "settings": {
+        "subheading": "Where to Start",
+        "heading": "Find Your Piece Faster",
+        "color_scheme": "scheme-1",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
     "trust_signals": {
       "type": "kinsoul-trust-signals",
       "blocks": {
@@ -620,6 +663,7 @@
   "order": [
     "hero",
     "trust_strip",
+    "bestseller_bar",
     "signature_pieces",
     "materials_teaser",
     "trust_signals",
