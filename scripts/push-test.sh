@@ -69,8 +69,19 @@ for f in $(find "$DRIFT_TMP/templates" "$DRIFT_TMP/config" -type f -name "*.json
   REL="${f#$DRIFT_TMP/}"
   if [[ -f "$REL" ]]; then
     # Skip files that we KNOW we've structurally edited (whitelist)
+    # These files have local-only changes that aren't yet on live.
+    # When live is pre-redesign, the drift check would otherwise trip
+    # on every push. Widen the whitelist through the P1–P7 redesign cycle;
+    # shrink it again once everything is published.
     case "$REL" in
-      templates/product.json|templates/collection.json|templates/index.json)
+      templates/product.json|\
+      templates/collection.json|\
+      templates/index.json|\
+      templates/page.about.json|\
+      templates/page.materials.json|\
+      templates/page.quiz.json|\
+      templates/page.compare.json|\
+      templates/page.gifting-guide.json)
         continue
         ;;
     esac
