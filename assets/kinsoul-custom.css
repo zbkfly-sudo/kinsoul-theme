@@ -3819,3 +3819,120 @@ body::after {
 .kinsoul-founder-lockup__cta:hover {
   color: var(--kinsoul-accent-hover);
 }
+
+/* ============================================
+   P4 · Still Deciding helper strip (2026-04-17)
+   ============================================ */
+
+.kinsoul-still-deciding {
+  padding: 3rem 0;
+  border-top: 1px solid var(--kinsoul-border);
+  margin-top: 2rem;
+}
+
+.kinsoul-still-deciding__header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.kinsoul-still-deciding__eyebrow {
+  font-family: var(--font-secondary--family, inherit);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  margin: 0 0 0.5rem;
+}
+
+.kinsoul-still-deciding__title {
+  font-family: var(--font-heading--family), serif;
+  font-size: clamp(1.3rem, 3vw, 1.75rem);
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.04em;
+  margin: 0;
+  font-weight: 400;
+}
+
+.kinsoul-still-deciding__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media screen and (max-width: 749px) {
+  .kinsoul-still-deciding__grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}
+
+.kinsoul-still-deciding__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.75rem 1.25rem;
+  background: var(--kinsoul-cream, #faf7f2);
+  border: 1px solid var(--kinsoul-border);
+  border-radius: var(--kinsoul-radius-soft);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.4s var(--kinsoul-transition-spring),
+    box-shadow 0.4s var(--kinsoul-transition-spring);
+}
+
+.kinsoul-still-deciding__card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--kinsoul-shadow-hover);
+}
+
+.kinsoul-still-deciding__icon {
+  color: var(--kinsoul-accent);
+  margin-bottom: 0.75rem;
+  display: inline-flex;
+}
+
+.kinsoul-still-deciding__label {
+  font-family: var(--font-heading--family), serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.03em;
+  margin-bottom: 0.35rem;
+  line-height: 1.3;
+}
+
+.kinsoul-still-deciding__sub {
+  font-size: 0.82rem;
+  color: var(--kinsoul-muted);
+  line-height: 1.55;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+.kinsoul-still-deciding__cta {
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+/* --- Collection page: 2-column mobile grid override (was 1-col "small") --- */
+@media screen and (max-width: 749px) {
+  .section-main-collection .product-grid,
+  .section-main-collection [class*="product-grid"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.75rem !important;
+  }
+
+  /* Collection product card scaling for 2-col mobile */
+  .section-main-collection .product-card h3,
+  .section-main-collection .product-card [class*="product-title"] {
+    font-size: 0.78rem;
+  }
+
+  .section-main-collection .product-card .price {
+    font-size: 0.78rem;
+  }
+}

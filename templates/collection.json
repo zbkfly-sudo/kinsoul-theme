@@ -201,7 +201,7 @@
                 "padding-inline-end": 0
               },
               "blocks": {}
-            },
+            }
           },
           "block_order": [
             "card-gallery",
@@ -213,7 +213,7 @@
       "settings": {
         "layout_type": "grid",
         "product_card_size": "medium",
-        "mobile_product_card_size": "small",
+        "mobile_product_card_size": "medium",
         "product_grid_width": "centered",
         "full_width_on_mobile": true,
         "columns_gap_horizontal": 16,
@@ -224,10 +224,23 @@
         "padding-block-start": 0,
         "padding-block-end": 32
       }
+    },
+    "kinsoul_still_deciding": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% render 'kinsoul-still-deciding' %}",
+        "color_scheme": "scheme-1",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
+      }
     }
   },
   "order": [
     "section",
-    "main"
+    "main",
+    "kinsoul_still_deciding"
   ]
 }
