@@ -1,0 +1,156 @@
+{%- liquid
+  assign color_scheme = section.settings.color_scheme
+-%}
+
+<div
+  class="kinsoul-gifting-guide-section color-{{ color_scheme }}"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="page-width">
+    <header class="kinsoul-gifting-guide__header">
+      {%- if section.settings.subheading != blank -%}
+        <p class="kinsoul-gifting-guide__eyebrow">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h1 class="kinsoul-gifting-guide__title">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="kinsoul-gifting-guide__description">{{ section.settings.description }}</p>
+      {%- endif -%}
+    </header>
+
+    {%- comment -%} By Occasion {%- endcomment -%}
+    <section class="kinsoul-gifting-guide__group" aria-labelledby="gg-occasion">
+      <h2 class="kinsoul-gifting-guide__group-title" id="gg-occasion">By occasion</h2>
+      <ul class="kinsoul-gifting-guide__grid">
+        <li class="kinsoul-gifting-guide__card">
+          <p class="kinsoul-gifting-guide__card-tag">Birthday</p>
+          <h3 class="kinsoul-gifting-guide__card-pick">Serenity</h3>
+          <p class="kinsoul-gifting-guide__card-why">Amethyst is the traditional stone of calm and clarity — the kind of gift that says "I want you to slow down this year."</p>
+          <p class="kinsoul-gifting-guide__card-price">$168</p>
+          <a href="/products/freeform-amethyst-bracelet-with-freshwater-pearls" class="kinsoul-gifting-guide__card-cta">See Serenity →</a>
+        </li>
+        <li class="kinsoul-gifting-guide__card">
+          <p class="kinsoul-gifting-guide__card-tag">Anniversary</p>
+          <h3 class="kinsoul-gifting-guide__card-pick">Aura</h3>
+          <p class="kinsoul-gifting-guide__card-why">Eight gemstones, one wrist. Our most substantial piece — for milestones that deserve something layered and complete.</p>
+          <p class="kinsoul-gifting-guide__card-price">$365</p>
+          <a href="/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones" class="kinsoul-gifting-guide__card-cta">See Aura →</a>
+        </li>
+        <li class="kinsoul-gifting-guide__card">
+          <p class="kinsoul-gifting-guide__card-tag">Holiday</p>
+          <h3 class="kinsoul-gifting-guide__card-pick">Ember</h3>
+          <p class="kinsoul-gifting-guide__card-why">Red agate — warmth in the dark months. Gifts well to anyone who wears mostly neutrals and wants a quiet spark.</p>
+          <p class="kinsoul-gifting-guide__card-price">$228</p>
+          <a href="/products/persian-red-agate-pearl-sterling-silver-bracelet" class="kinsoul-gifting-guide__card-cta">See Ember →</a>
+        </li>
+        <li class="kinsoul-gifting-guide__card">
+          <p class="kinsoul-gifting-guide__card-tag">For yourself</p>
+          <h3 class="kinsoul-gifting-guide__card-pick">Soleil</h3>
+          <p class="kinsoul-gifting-guide__card-why">Citrine + clear quartz + amethyst. The everyday self-gift — sunlit, affordable, and easy to wear with anything.</p>
+          <p class="kinsoul-gifting-guide__card-price">$139</p>
+          <a href="/products/zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet" class="kinsoul-gifting-guide__card-cta">See Soleil →</a>
+        </li>
+      </ul>
+    </section>
+
+    {%- comment -%} By Budget {%- endcomment -%}
+    <section class="kinsoul-gifting-guide__group" aria-labelledby="gg-budget">
+      <h2 class="kinsoul-gifting-guide__group-title" id="gg-budget">By budget</h2>
+      <ul class="kinsoul-gifting-guide__budget-grid">
+        <li class="kinsoul-gifting-guide__budget-card">
+          <p class="kinsoul-gifting-guide__budget-label">Under $200</p>
+          <p class="kinsoul-gifting-guide__budget-picks"><a href="/products/zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet">Soleil · $139</a> &nbsp;|&nbsp; <a href="/products/freeform-amethyst-bracelet-with-freshwater-pearls">Serenity · $168</a></p>
+          <p class="kinsoul-gifting-guide__budget-note">Accessible first-time Kinsoul pieces.</p>
+        </li>
+        <li class="kinsoul-gifting-guide__budget-card">
+          <p class="kinsoul-gifting-guide__budget-label">$200 – $300</p>
+          <p class="kinsoul-gifting-guide__budget-picks"><a href="/products/mozhu-persian-agate-baroque-pearl-bracelet">Obsidian · $208</a> &nbsp;|&nbsp; <a href="/products/persian-red-agate-pearl-sterling-silver-bracelet">Ember · $228</a> &nbsp;|&nbsp; <a href="/products/moqiao-black-agate-rutilated-quartz-pearl-bracelet">Terra · $264</a></p>
+          <p class="kinsoul-gifting-guide__budget-note">Everyday signature pieces.</p>
+        </li>
+        <li class="kinsoul-gifting-guide__budget-card">
+          <p class="kinsoul-gifting-guide__budget-label">$300+</p>
+          <p class="kinsoul-gifting-guide__budget-picks"><a href="/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones">Aura · $365</a></p>
+          <p class="kinsoul-gifting-guide__budget-note">Our most substantial piece, meant for meaningful moments.</p>
+        </li>
+      </ul>
+    </section>
+
+    {%- comment -%} What's in the box (gift packaging) {%- endcomment -%}
+    <section class="kinsoul-gifting-guide__group" aria-labelledby="gg-unbox">
+      <h2 class="kinsoul-gifting-guide__group-title" id="gg-unbox">Gift-ready — no wrapping needed</h2>
+      {% render 'kinsoul-pdp-whats-in-box' %}
+    </section>
+
+    <div class="kinsoul-gifting-guide__cta-strip">
+      <p class="kinsoul-gifting-guide__cta-line">Still not sure?</p>
+      <div class="kinsoul-gifting-guide__cta-buttons">
+        <a href="/pages/stone-quiz" class="button">Take the quiz →</a>
+        <a href="/pages/compare" class="button button--secondary">Compare all 6 →</a>
+        <a href="/pages/contact" class="button button--secondary">Ask us →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Gifting Guide",
+  "tag": "section",
+  "class": "kinsoul-gifting-guide-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Eyebrow",
+      "default": "A thoughtful gift"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Gifting Kinsoul"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Each Kinsoul bracelet arrives gift-ready in a cotton-linen signature box, with a hand-selected stone meaning card. Pick by occasion, pick by budget, or pick by feeling — we've mapped it for you."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    }
+  ],
+  "presets": [
+    {
+      "name": "Gifting Guide"
+    }
+  ]
+}
+{% endschema %}

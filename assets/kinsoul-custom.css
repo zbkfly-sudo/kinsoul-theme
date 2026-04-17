@@ -3936,3 +3936,640 @@ body::after {
     font-size: 0.78rem;
   }
 }
+
+/* ============================================
+   P5 · New pages (Quiz / Compare / Gifting Guide)
+   ============================================ */
+
+/* --- Quiz --- */
+.kinsoul-quiz-section {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.kinsoul-quiz__eyebrow {
+  font-family: var(--font-secondary--family, inherit);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  margin: 0 0 0.6rem;
+}
+
+.kinsoul-quiz__title {
+  font-family: var(--font-heading--family), 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.03em;
+  margin: 0 0 1.25rem;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.kinsoul-quiz__description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--kinsoul-muted);
+  margin: 0 auto 2rem;
+  max-width: 580px;
+}
+
+.kinsoul-quiz__start-btn {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.kinsoul-quiz__meta {
+  font-size: 0.78rem;
+  color: var(--kinsoul-muted);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+.kinsoul-quiz__progress {
+  margin-bottom: 2rem;
+  text-align: left;
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+.kinsoul-quiz__progress span {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--kinsoul-muted);
+}
+
+.kinsoul-quiz__progress-bar {
+  height: 2px;
+  background: var(--kinsoul-border);
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.kinsoul-quiz__progress-fill {
+  height: 100%;
+  background: var(--kinsoul-accent);
+  width: 33%;
+  transition: width 0.4s var(--kinsoul-transition-spring);
+}
+
+.kinsoul-quiz__question {
+  border: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 560px;
+  text-align: left;
+}
+
+.kinsoul-quiz__q-title {
+  font-family: var(--font-heading--family), serif;
+  font-size: clamp(1.25rem, 3vw, 1.65rem);
+  color: var(--kinsoul-heading);
+  margin: 0 0 1.5rem;
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+  font-weight: 400;
+}
+
+.kinsoul-quiz__options {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.kinsoul-quiz__option {
+  display: flex;
+  flex-direction: column;
+  padding: 1.1rem 1.25rem;
+  background: var(--kinsoul-cream, #faf7f2);
+  border: 1px solid var(--kinsoul-border);
+  border-radius: var(--kinsoul-radius-soft);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s var(--kinsoul-transition-spring);
+  position: relative;
+}
+
+.kinsoul-quiz__option:hover {
+  border-color: var(--kinsoul-accent);
+}
+
+.kinsoul-quiz__option input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.kinsoul-quiz__option:has(input:checked) {
+  border-color: var(--kinsoul-accent);
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: var(--kinsoul-shadow-soft);
+}
+
+.kinsoul-quiz__option-label {
+  font-family: var(--font-heading--family), serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.03em;
+  margin-bottom: 0.2rem;
+}
+
+.kinsoul-quiz__option-hint {
+  font-size: 0.82rem;
+  color: var(--kinsoul-muted);
+  line-height: 1.5;
+}
+
+.kinsoul-quiz__nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  max-width: 560px;
+  margin-inline: auto;
+}
+
+.kinsoul-quiz__back-btn {
+  background: none;
+  border: none;
+  padding: 0.5rem 0;
+  color: var(--kinsoul-muted);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+}
+
+.kinsoul-quiz__next-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.kinsoul-quiz__result {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.kinsoul-quiz__result-title {
+  font-family: var(--font-heading--family), serif;
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  color: var(--kinsoul-heading);
+  margin: 0.5rem 0 1rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+.kinsoul-quiz__result-blurb {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--kinsoul-muted);
+  margin: 0 0 2rem;
+}
+
+.kinsoul-quiz__result-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid var(--kinsoul-border);
+  border-radius: var(--kinsoul-radius-soft);
+  overflow: hidden;
+  background: #fff;
+  margin: 0 auto 2rem;
+  max-width: 420px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.kinsoul-quiz__result-link:hover {
+  box-shadow: var(--kinsoul-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.kinsoul-quiz__result-image-wrap {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--kinsoul-bg-alt);
+}
+
+.kinsoul-quiz__result-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.kinsoul-quiz__result-meta {
+  padding: 1rem 1.25rem 1.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.kinsoul-quiz__result-price {
+  margin: 0;
+  font-weight: 500;
+  color: var(--kinsoul-heading);
+}
+
+.kinsoul-quiz__result-cta {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  border-bottom: 1px solid currentColor;
+}
+
+.kinsoul-quiz__alternates {
+  margin-top: 2rem;
+}
+
+.kinsoul-quiz__alternates-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--kinsoul-muted);
+  margin-bottom: 0.75rem;
+}
+
+.kinsoul-quiz__alternates-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.kinsoul-quiz__alternate-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
+  background: var(--kinsoul-cream);
+  border: 1px solid var(--kinsoul-border);
+  border-radius: var(--kinsoul-radius-soft);
+  overflow: hidden;
+  transition: transform 0.3s var(--kinsoul-transition-spring);
+}
+
+.kinsoul-quiz__alternate-card:hover {
+  transform: translateY(-2px);
+}
+
+.kinsoul-quiz__alternate-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.kinsoul-quiz__alternate-title {
+  padding: 0.5rem 0.75rem 0.1rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--kinsoul-heading);
+}
+
+.kinsoul-quiz__alternate-price {
+  padding: 0 0.75rem 0.75rem;
+  font-size: 0.8rem;
+  color: var(--kinsoul-muted);
+}
+
+.kinsoul-quiz__retry-btn {
+  margin-top: 2rem;
+  background: none;
+  border: none;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--kinsoul-muted);
+  cursor: pointer;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--kinsoul-muted);
+}
+
+/* --- Compare table --- */
+.kinsoul-compare__header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+}
+
+.kinsoul-compare__eyebrow {
+  font-family: var(--font-secondary--family, inherit);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  margin: 0 0 0.6rem;
+}
+
+.kinsoul-compare__title {
+  font-family: var(--font-heading--family), serif;
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.03em;
+  margin: 0 0 1rem;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.kinsoul-compare__description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--kinsoul-muted);
+  margin: 0 auto;
+  max-width: 580px;
+}
+
+.kinsoul-compare__scroll-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-inline: -1rem;
+  padding-inline: 1rem;
+  scrollbar-width: thin;
+}
+
+.kinsoul-compare__table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  background: var(--kinsoul-cream);
+  border: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-compare__table th,
+.kinsoul-compare__table td {
+  padding: 0.9rem 0.95rem;
+  border-bottom: 1px solid var(--kinsoul-border);
+  text-align: left;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  vertical-align: top;
+}
+
+.kinsoul-compare__table thead th {
+  font-family: var(--font-heading--family), serif;
+  font-size: 0.95rem;
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.04em;
+  background: #fff;
+  border-bottom: 2px solid var(--kinsoul-accent);
+}
+
+.kinsoul-compare__table thead th a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dotted currentColor;
+}
+
+.kinsoul-compare__table tbody th {
+  background: #fff;
+  color: var(--kinsoul-muted);
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  position: sticky;
+  left: 0;
+}
+
+.kinsoul-compare__label-col {
+  position: sticky;
+  left: 0;
+  background: #fff !important;
+  z-index: 2;
+}
+
+.kinsoul-compare__span {
+  text-align: center;
+  font-style: italic;
+  color: var(--kinsoul-muted);
+  font-size: 0.82rem;
+}
+
+.kinsoul-compare__shop {
+  color: var(--kinsoul-accent);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+  white-space: nowrap;
+}
+
+.kinsoul-compare__footer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.92rem;
+  color: var(--kinsoul-muted);
+}
+
+.kinsoul-compare__footer a {
+  color: var(--kinsoul-accent);
+}
+
+/* --- Gifting Guide --- */
+.kinsoul-gifting-guide__header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 3rem;
+}
+
+.kinsoul-gifting-guide__eyebrow {
+  font-family: var(--font-secondary--family, inherit);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  margin: 0 0 0.6rem;
+}
+
+.kinsoul-gifting-guide__title {
+  font-family: var(--font-heading--family), serif;
+  font-size: clamp(1.8rem, 4.5vw, 2.75rem);
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.03em;
+  margin: 0 0 1rem;
+  font-weight: 400;
+  line-height: 1.15;
+}
+
+.kinsoul-gifting-guide__description {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--kinsoul-muted);
+  margin: 0 auto;
+  max-width: 620px;
+}
+
+.kinsoul-gifting-guide__group {
+  margin-bottom: 4rem;
+}
+
+.kinsoul-gifting-guide__group-title {
+  font-family: var(--font-heading--family), serif;
+  font-size: clamp(1.3rem, 3vw, 1.75rem);
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.04em;
+  margin: 0 0 1.75rem;
+  font-weight: 400;
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-gifting-guide__grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+@media screen and (max-width: 989px) {
+  .kinsoul-gifting-guide__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .kinsoul-gifting-guide__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kinsoul-gifting-guide__card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1.5rem 1.25rem;
+  background: var(--kinsoul-cream);
+  border: 1px solid var(--kinsoul-border);
+  border-radius: var(--kinsoul-radius-soft);
+  transition: transform 0.3s var(--kinsoul-transition-spring),
+    box-shadow 0.3s var(--kinsoul-transition-spring);
+}
+
+.kinsoul-gifting-guide__card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--kinsoul-shadow-hover);
+}
+
+.kinsoul-gifting-guide__card-tag {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  background: var(--kinsoul-bg);
+  padding: 0.2rem 0.5rem;
+  margin: 0 0 0.75rem;
+  border-radius: 2px;
+}
+
+.kinsoul-gifting-guide__card-pick {
+  font-family: var(--font-heading--family), serif;
+  font-size: 1.3rem;
+  color: var(--kinsoul-heading);
+  margin: 0 0 0.5rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.kinsoul-gifting-guide__card-why {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--kinsoul-text);
+  margin: 0 0 0.75rem;
+  flex: 1;
+}
+
+.kinsoul-gifting-guide__card-price {
+  font-size: 0.85rem;
+  color: var(--kinsoul-muted);
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.kinsoul-gifting-guide__card-cta {
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 2px;
+}
+
+.kinsoul-gifting-guide__budget-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media screen and (max-width: 749px) {
+  .kinsoul-gifting-guide__budget-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.kinsoul-gifting-guide__budget-card {
+  padding: 1.75rem 1.5rem;
+  background: #fff;
+  border: 1px solid var(--kinsoul-border);
+  border-radius: var(--kinsoul-radius-soft);
+}
+
+.kinsoul-gifting-guide__budget-label {
+  font-family: var(--font-heading--family), serif;
+  font-size: 1.1rem;
+  color: var(--kinsoul-heading);
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.04em;
+}
+
+.kinsoul-gifting-guide__budget-picks {
+  font-size: 0.88rem;
+  margin: 0 0 0.5rem;
+  line-height: 1.6;
+}
+
+.kinsoul-gifting-guide__budget-picks a {
+  color: var(--kinsoul-accent);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+}
+
+.kinsoul-gifting-guide__budget-note {
+  font-size: 0.78rem;
+  color: var(--kinsoul-muted);
+  margin: 0;
+  font-style: italic;
+}
+
+.kinsoul-gifting-guide__cta-strip {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-gifting-guide__cta-line {
+  font-family: var(--font-heading--family), serif;
+  font-size: 1.2rem;
+  color: var(--kinsoul-heading);
+  margin: 0 0 1.25rem;
+}
+
+.kinsoul-gifting-guide__cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}

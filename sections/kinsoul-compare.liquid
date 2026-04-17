@@ -1,0 +1,185 @@
+{%- liquid
+  assign color_scheme = section.settings.color_scheme
+-%}
+
+<div
+  class="kinsoul-compare-section color-{{ color_scheme }}"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+>
+  <div class="page-width">
+    <header class="kinsoul-compare__header">
+      {%- if section.settings.subheading != blank -%}
+        <p class="kinsoul-compare__eyebrow">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h1 class="kinsoul-compare__title">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="kinsoul-compare__description">{{ section.settings.description }}</p>
+      {%- endif -%}
+    </header>
+
+    <div class="kinsoul-compare__scroll-wrap" role="region" aria-label="Comparison table" tabindex="0">
+      <table class="kinsoul-compare__table">
+        <thead>
+          <tr>
+            <th scope="col" class="kinsoul-compare__label-col">Attribute</th>
+            <th scope="col" data-col="ember">
+              <a href="/products/persian-red-agate-pearl-sterling-silver-bracelet">Ember</a>
+            </th>
+            <th scope="col" data-col="serenity">
+              <a href="/products/freeform-amethyst-bracelet-with-freshwater-pearls">Serenity</a>
+            </th>
+            <th scope="col" data-col="aura">
+              <a href="/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones">Aura</a>
+            </th>
+            <th scope="col" data-col="obsidian">
+              <a href="/products/mozhu-persian-agate-baroque-pearl-bracelet">Obsidian</a>
+            </th>
+            <th scope="col" data-col="terra">
+              <a href="/products/moqiao-black-agate-rutilated-quartz-pearl-bracelet">Terra</a>
+            </th>
+            <th scope="col" data-col="soleil">
+              <a href="/products/zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet">Soleil</a>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Price</th>
+            <td>$228</td>
+            <td>$168</td>
+            <td>$365</td>
+            <td>$208</td>
+            <td>$264</td>
+            <td>$139</td>
+          </tr>
+          <tr>
+            <th scope="row">Main stone</th>
+            <td>Persian red agate</td>
+            <td>Freeform amethyst</td>
+            <td>8 gemstones</td>
+            <td>Black agate + rutilated quartz</td>
+            <td>Persian banded agate</td>
+            <td>Citrine + clear quartz + amethyst</td>
+          </tr>
+          <tr>
+            <th scope="row">Pearl</th>
+            <td>Freshwater pearl bars</td>
+            <td>Freshwater pearls</td>
+            <td>Baroque pearl</td>
+            <td>Grey rice pearls</td>
+            <td>Baroque pearl</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <th scope="row">Metal</th>
+            <td>S925 sterling silver bar</td>
+            <td>S925 maker's mark</td>
+            <td>S925 maker's mark</td>
+            <td>S925 maker's mark</td>
+            <td>Antique silver + S925</td>
+            <td>S925 maker's mark</td>
+          </tr>
+          <tr>
+            <th scope="row">Feel</th>
+            <td>Bold, warm</td>
+            <td>Cool, contemplative</td>
+            <td>Substantial, layered</td>
+            <td>Grounded, quiet</td>
+            <td>Earthy, balanced</td>
+            <td>Sunlit, optimistic</td>
+          </tr>
+          <tr>
+            <th scope="row">Best worn</th>
+            <td>Everyday</td>
+            <td>Gifting, everyday</td>
+            <td>Special moments</td>
+            <td>Everyday</td>
+            <td>Everyday, special</td>
+            <td>Everyday</td>
+          </tr>
+          <tr>
+            <th scope="row">Sizes</th>
+            <td colspan="6" class="kinsoul-compare__span">All 6 pieces come in S (6.1") · M (6.7") · L (7.3") · XL (7.9"). Elastic cord, no clasp.</td>
+          </tr>
+          <tr>
+            <th scope="row"></th>
+            <td><a href="/products/persian-red-agate-pearl-sterling-silver-bracelet" class="kinsoul-compare__shop">Shop Ember →</a></td>
+            <td><a href="/products/freeform-amethyst-bracelet-with-freshwater-pearls" class="kinsoul-compare__shop">Shop Serenity →</a></td>
+            <td><a href="/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones" class="kinsoul-compare__shop">Shop Aura →</a></td>
+            <td><a href="/products/mozhu-persian-agate-baroque-pearl-bracelet" class="kinsoul-compare__shop">Shop Obsidian →</a></td>
+            <td><a href="/products/moqiao-black-agate-rutilated-quartz-pearl-bracelet" class="kinsoul-compare__shop">Shop Terra →</a></td>
+            <td><a href="/products/zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet" class="kinsoul-compare__shop">Shop Soleil →</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="kinsoul-compare__footer">
+      <p>Still undecided? <a href="/pages/stone-quiz">Take the 3-question quiz →</a> or <a href="/pages/contact">ask us directly →</a></p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Bracelet Compare",
+  "tag": "section",
+  "class": "kinsoul-compare-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Eyebrow",
+      "default": "Side by side"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Compare all six bracelets"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Every piece is hand-finished, natural, and elastic-cord built. The difference is in the stone, the feel, and the price."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bracelet Compare"
+    }
+  ]
+}
+{% endschema %}

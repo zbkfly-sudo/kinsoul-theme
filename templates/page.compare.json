@@ -1,0 +1,26 @@
+{
+  "sections": {
+    "compare": {
+      "type": "kinsoul-compare",
+      "settings": {
+        "subheading": "Side by side",
+        "heading": "Compare all six bracelets",
+        "description": "Every piece is hand-finished, natural, and elastic-cord built. The difference is in the stone, the feel, and the price.",
+        "color_scheme": "scheme-1",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
+    "still_deciding": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% render 'kinsoul-still-deciding' %}",
+        "color_scheme": "scheme-1",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 40
+      }
+    }
+  },
+  "order": ["compare", "still_deciding"]
+}

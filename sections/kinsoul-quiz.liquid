@@ -1,0 +1,384 @@
+{%- liquid
+  assign color_scheme = section.settings.color_scheme
+-%}
+
+<div
+  class="kinsoul-quiz-section color-{{ color_scheme }}"
+  style="
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  "
+  data-kinsoul-quiz
+>
+  <div class="page-width">
+    <div class="kinsoul-quiz__intro" data-quiz-step="intro">
+      {%- if section.settings.subheading != blank -%}
+        <p class="kinsoul-quiz__eyebrow">{{ section.settings.subheading }}</p>
+      {%- endif -%}
+      {%- if section.settings.heading != blank -%}
+        <h1 class="kinsoul-quiz__title">{{ section.settings.heading }}</h1>
+      {%- endif -%}
+      {%- if section.settings.description != blank -%}
+        <p class="kinsoul-quiz__description">{{ section.settings.description }}</p>
+      {%- endif -%}
+      <button type="button" class="kinsoul-quiz__start-btn button" data-quiz-start>
+        Start the quiz →
+      </button>
+      <p class="kinsoul-quiz__meta">3 questions · under 30 seconds</p>
+    </div>
+
+    <div class="kinsoul-quiz__flow" data-quiz-step="flow" hidden>
+      <div class="kinsoul-quiz__progress">
+        <span data-quiz-step-label>Question 1 of 3</span>
+        <div class="kinsoul-quiz__progress-bar">
+          <div class="kinsoul-quiz__progress-fill" data-quiz-progress-fill></div>
+        </div>
+      </div>
+
+      {%- comment -%} Q1 — Mood {%- endcomment -%}
+      <fieldset class="kinsoul-quiz__question" data-quiz-q="1">
+        <legend class="kinsoul-quiz__q-title">What feeling are you drawn to?</legend>
+        <div class="kinsoul-quiz__options">
+          <label class="kinsoul-quiz__option">
+            <input type="radio" name="q1" value="warmth">
+            <span class="kinsoul-quiz__option-label">Warmth</span>
+            <span class="kinsoul-quiz__option-hint">Grounded, confident, alive.</span>
+          </label>
+          <label class="kinsoul-quiz__option">
+            <input type="radio" name="q1" value="calm">
+            <span class="kinsoul-quiz__option-label">Calm</span>
+            <span class="kinsoul-quiz__option-hint">Quiet, soft, clear-headed.</span>
+          </label>
+          <label class="kinsoul-quiz__option">
+            <input type="radio" name="q1" value="balance">
+            <span class="kinsoul-quiz__option-label">Balance</span>
+            <span class="kinsoul-quiz__option-hint">Layered, complete, steady.</span>
+          </label>
+        </div>
+      </fieldset>
+
+      {%- comment -%} Q2 — Budget {%- endcomment -%}
+      <fieldset class="kinsoul-quiz__question" data-quiz-q="2" hidden>
+        <legend class="kinsoul-quiz__q-title">What's your budget?</legend>
+        <div class="kinsoul-quiz__options">
+          <label class="kinsoul-quiz__option">
+            <input type="radio" name="q2" value="under200">
+            <span class="kinsoul-quiz__option-label">Under $200</span>
+            <span class="kinsoul-quiz__option-hint">A first piece or everyday piece.</span>
+          </label>
+          <label class="kinsoul-quiz__option">
+            <input type="radio" name="q2" value="200-300">
+            <span class="kinsoul-quiz__option-label">$200 – $300</span>
+            <span class="kinsoul-quiz__option-hint">A signature piece for daily wear.</span>
+          </label>
+          <label class="kinsoul-quiz__option">
+            <input type="radio" name="q2" value="300plus">
+            <span class="kinsoul-quiz__option-label">$300+</span>
+            <span class="kinsoul-quiz__option-hint">A statement piece or meaningful gift.</span>
+          </label>
+        </div>
+      </fieldset>
+
+      {%- comment -%} Q3 — Occasion {%- endcomment -%}
+      <fieldset class="kinsoul-quiz__question" data-quiz-q="3" hidden>
+        <legend class="kinsoul-quiz__q-title">When will you wear it?</legend>
+        <div class="kinsoul-quiz__options">
+          <label class="kinsoul-quiz__option">
+            <input type="radio" name="q3" value="everyday">
+            <span class="kinsoul-quiz__option-label">Every day</span>
+            <span class="kinsoul-quiz__option-hint">On my wrist morning to night.</span>
+          </label>
+          <label class="kinsoul-quiz__option">
+            <input type="radio" name="q3" value="gifting">
+            <span class="kinsoul-quiz__option-label">As a gift</span>
+            <span class="kinsoul-quiz__option-hint">For someone I care about.</span>
+          </label>
+          <label class="kinsoul-quiz__option">
+            <input type="radio" name="q3" value="special">
+            <span class="kinsoul-quiz__option-label">Special moments</span>
+            <span class="kinsoul-quiz__option-hint">To mark something important.</span>
+          </label>
+        </div>
+      </fieldset>
+
+      <div class="kinsoul-quiz__nav">
+        <button type="button" class="kinsoul-quiz__back-btn" data-quiz-back hidden>← Back</button>
+        <button type="button" class="kinsoul-quiz__next-btn button" data-quiz-next disabled>Next →</button>
+      </div>
+    </div>
+
+    <div class="kinsoul-quiz__result" data-quiz-step="result" hidden>
+      <div class="kinsoul-quiz__result-header">
+        <p class="kinsoul-quiz__eyebrow">Your match</p>
+        <h2 class="kinsoul-quiz__result-title" data-quiz-primary-title>Loading…</h2>
+        <p class="kinsoul-quiz__result-blurb" data-quiz-primary-blurb></p>
+      </div>
+
+      <div class="kinsoul-quiz__result-card">
+        <a href="#" data-quiz-primary-link class="kinsoul-quiz__result-link">
+          <div class="kinsoul-quiz__result-image-wrap">
+            <img data-quiz-primary-image alt="" class="kinsoul-quiz__result-image" loading="lazy">
+          </div>
+          <div class="kinsoul-quiz__result-meta">
+            <p class="kinsoul-quiz__result-price" data-quiz-primary-price></p>
+            <span class="kinsoul-quiz__result-cta">See the piece →</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="kinsoul-quiz__alternates">
+        <p class="kinsoul-quiz__alternates-label">Also close matches</p>
+        <div class="kinsoul-quiz__alternates-grid" data-quiz-alternates></div>
+      </div>
+
+      <button type="button" class="kinsoul-quiz__retry-btn" data-quiz-retry>Retake the quiz</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  const PRODUCTS = {
+    ember: {
+      title: 'Ember',
+      subtitle: 'Red Agate + Pearl Silver Bar',
+      price: '$228',
+      url: '/products/persian-red-agate-pearl-sterling-silver-bracelet',
+      image: 'https://kinsoulenergy.com/cdn/shop/files/50af65f04703c569a2ca741f116ca705.jpg?width=800',
+      blurb: 'Bold warmth. Persian red agate paired with freshwater pearl bars — a quiet spark on the wrist.',
+      tags: { warmth: 3, calm: 0, balance: 1, 'under200': 0, '200-300': 3, '300plus': 0, everyday: 2, gifting: 2, special: 1 }
+    },
+    serenity: {
+      title: 'Serenity',
+      subtitle: 'Amethyst + Freshwater Pearl',
+      price: '$168',
+      url: '/products/freeform-amethyst-bracelet-with-freshwater-pearls',
+      image: 'https://kinsoulenergy.com/cdn/shop/files/daf75a042a831fbed3574f67063b0875.jpg?width=800',
+      blurb: 'Cool and contemplative. Freeform amethyst with pearl spirals — for quiet clarity.',
+      tags: { warmth: 0, calm: 3, balance: 1, 'under200': 3, '200-300': 0, '300plus': 0, everyday: 2, gifting: 3, special: 1 }
+    },
+    aura: {
+      title: 'Aura',
+      subtitle: 'Multi-Stone + Baroque Pearl',
+      price: '$365',
+      url: '/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones',
+      image: 'https://kinsoulenergy.com/cdn/shop/files/f9c24cd3d3c49d1caab39cd87ed1c9e3.jpg?width=800',
+      blurb: 'Eight stones, one wrist. The most substantial piece — warmth, clarity, and grounding in balance.',
+      tags: { warmth: 1, calm: 1, balance: 3, 'under200': 0, '200-300': 0, '300plus': 3, everyday: 1, gifting: 3, special: 3 }
+    },
+    obsidian: {
+      title: 'Obsidian',
+      subtitle: 'Black Agate + Grey Pearl',
+      price: '$208',
+      url: '/products/mozhu-persian-agate-baroque-pearl-bracelet',
+      image: 'https://kinsoulenergy.com/cdn/shop/files/c1dc3fd2ad5d519bc73e0ec9e4e25a6c.jpg?width=800',
+      blurb: 'Grounded and dark. Black agate with rutilated quartz and grey rice pearls — quiet strength.',
+      tags: { warmth: 0, calm: 2, balance: 2, 'under200': 0, '200-300': 3, '300plus': 0, everyday: 3, gifting: 1, special: 1 }
+    },
+    terra: {
+      title: 'Terra',
+      subtitle: 'Banded Agate + Baroque Pearl',
+      price: '$264',
+      url: '/products/moqiao-black-agate-rutilated-quartz-pearl-bracelet',
+      image: 'https://kinsoulenergy.com/cdn/shop/files/664154bef986066aaf20933006221c86.jpg?width=800',
+      blurb: 'Earth on the wrist. Persian banded agate, baroque pearl, antique silver — layered and steady.',
+      tags: { warmth: 1, calm: 0, balance: 3, 'under200': 0, '200-300': 3, '300plus': 0, everyday: 2, gifting: 1, special: 2 }
+    },
+    soleil: {
+      title: 'Soleil',
+      subtitle: 'Citrine + Quartz + Amethyst',
+      price: '$139',
+      url: '/products/zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet',
+      image: 'https://kinsoulenergy.com/cdn/shop/files/7476f85b54e01cbb081d639c244e67f3.jpg?width=800',
+      blurb: 'Sunlit and optimistic. Brazilian citrine, clear quartz points, amethyst rounds — warmth with clarity.',
+      tags: { warmth: 2, calm: 1, balance: 1, 'under200': 3, '200-300': 0, '300plus': 0, everyday: 3, gifting: 2, special: 0 }
+    }
+  };
+
+  const container = document.querySelector('[data-kinsoul-quiz]');
+  if (!container) return;
+
+  const introEl = container.querySelector('[data-quiz-step="intro"]');
+  const flowEl = container.querySelector('[data-quiz-step="flow"]');
+  const resultEl = container.querySelector('[data-quiz-step="result"]');
+  const stepLabel = container.querySelector('[data-quiz-step-label]');
+  const progressFill = container.querySelector('[data-quiz-progress-fill]');
+  const questions = Array.from(container.querySelectorAll('[data-quiz-q]'));
+  const nextBtn = container.querySelector('[data-quiz-next]');
+  const backBtn = container.querySelector('[data-quiz-back]');
+  const startBtn = container.querySelector('[data-quiz-start]');
+  const retryBtn = container.querySelector('[data-quiz-retry]');
+  const answers = {};
+  let currentStep = 0;
+
+  function showStep(idx) {
+    currentStep = idx;
+    questions.forEach(function(q, i) { q.hidden = i !== idx; });
+    stepLabel.textContent = 'Question ' + (idx + 1) + ' of ' + questions.length;
+    progressFill.style.width = (((idx + 1) / questions.length) * 100) + '%';
+    backBtn.hidden = idx === 0;
+    const qNum = idx + 1;
+    const checked = container.querySelector('input[name="q' + qNum + '"]:checked');
+    nextBtn.disabled = !checked;
+    nextBtn.textContent = idx === questions.length - 1 ? 'Show my piece →' : 'Next →';
+  }
+
+  function computeResult() {
+    const scored = Object.keys(PRODUCTS).map(function(key) {
+      const p = PRODUCTS[key];
+      let score = 0;
+      Object.values(answers).forEach(function(tag) { score += (p.tags[tag] || 0); });
+      return { key: key, product: p, score: score };
+    });
+    scored.sort(function(a, b) { return b.score - a.score; });
+    return scored;
+  }
+
+  function buildAlternateCard(alt) {
+    const card = document.createElement('a');
+    card.className = 'kinsoul-quiz__alternate-card';
+    card.href = alt.product.url;
+
+    const img = document.createElement('img');
+    img.src = alt.product.image;
+    img.alt = alt.product.title;
+    img.loading = 'lazy';
+
+    const title = document.createElement('span');
+    title.className = 'kinsoul-quiz__alternate-title';
+    title.textContent = alt.product.title;
+
+    const price = document.createElement('span');
+    price.className = 'kinsoul-quiz__alternate-price';
+    price.textContent = alt.product.price;
+
+    card.appendChild(img);
+    card.appendChild(title);
+    card.appendChild(price);
+    return card;
+  }
+
+  function renderResult() {
+    const scored = computeResult();
+    const primary = scored[0];
+    const alternates = scored.slice(1, 3);
+
+    container.querySelector('[data-quiz-primary-title]').textContent = primary.product.title + ' — ' + primary.product.subtitle;
+    container.querySelector('[data-quiz-primary-blurb]').textContent = primary.product.blurb;
+    container.querySelector('[data-quiz-primary-price]').textContent = primary.product.price;
+    const primaryLink = container.querySelector('[data-quiz-primary-link]');
+    primaryLink.href = primary.product.url;
+    const primaryImg = container.querySelector('[data-quiz-primary-image]');
+    primaryImg.src = primary.product.image;
+    primaryImg.alt = primary.product.title + ' bracelet';
+
+    const altGrid = container.querySelector('[data-quiz-alternates]');
+    while (altGrid.firstChild) altGrid.removeChild(altGrid.firstChild);
+    alternates.forEach(function(alt) {
+      altGrid.appendChild(buildAlternateCard(alt));
+    });
+
+    introEl.hidden = true;
+    flowEl.hidden = true;
+    resultEl.hidden = false;
+  }
+
+  startBtn.addEventListener('click', function() {
+    introEl.hidden = true;
+    flowEl.hidden = false;
+    showStep(0);
+  });
+
+  container.addEventListener('change', function(e) {
+    if (e.target.matches('input[type="radio"]')) {
+      const qName = e.target.name;
+      const qNum = parseInt(qName.replace('q', ''), 10) - 1;
+      if (qNum === currentStep) {
+        nextBtn.disabled = false;
+        answers[qName] = e.target.value;
+      }
+    }
+  });
+
+  nextBtn.addEventListener('click', function() {
+    if (currentStep < questions.length - 1) {
+      showStep(currentStep + 1);
+    } else {
+      renderResult();
+    }
+  });
+
+  backBtn.addEventListener('click', function() {
+    if (currentStep > 0) showStep(currentStep - 1);
+  });
+
+  retryBtn.addEventListener('click', function() {
+    Object.keys(answers).forEach(function(k) { delete answers[k]; });
+    container.querySelectorAll('input[type="radio"]').forEach(function(r) { r.checked = false; });
+    resultEl.hidden = true;
+    introEl.hidden = false;
+    currentStep = 0;
+  });
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Stone Quiz",
+  "tag": "section",
+  "class": "kinsoul-quiz-wrapper",
+  "settings": [
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Eyebrow",
+      "default": "Not sure which stone?"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Let us help you find your piece."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Three short questions — we'll match you to the Kinsoul bracelet that fits how you want to feel, what you'll spend, and when you'll wear it."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "default": 72
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stone Quiz"
+    }
+  ]
+}
+{% endschema %}

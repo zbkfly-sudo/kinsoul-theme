@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "gifting_guide": {
+      "type": "kinsoul-gifting-guide",
+      "settings": {
+        "subheading": "A thoughtful gift",
+        "heading": "Gifting Kinsoul",
+        "description": "Each Kinsoul bracelet arrives gift-ready in a cotton-linen signature box, with a hand-selected stone meaning card. Pick by occasion, pick by budget, or pick by feeling — we've mapped it for you.",
+        "color_scheme": "scheme-1",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": ["gifting_guide"]
+}

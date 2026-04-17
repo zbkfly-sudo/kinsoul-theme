@@ -1,0 +1,16 @@
+{
+  "sections": {
+    "quiz": {
+      "type": "kinsoul-quiz",
+      "settings": {
+        "subheading": "Not sure which stone?",
+        "heading": "Let us help you find your piece.",
+        "description": "Three short questions — we'll match you to the Kinsoul bracelet that fits how you want to feel, what you'll spend, and when you'll wear it.",
+        "color_scheme": "scheme-1",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": ["quiz"]
+}
