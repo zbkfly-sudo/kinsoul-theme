@@ -56,15 +56,15 @@
 %}
 
 {%- liquid
-  # Kinsoul: stone chip label — prefer explicit admin-set metafield,
-  # otherwise derive from stone_type (first word, up to the first " " or ",")
-  assign stone_chip = product.metafields.custom.stone_chip | default: ''
-  if stone_chip == blank and product.metafields.custom.stone_type != blank
+  # Kinsoul: stone chip label — prefer explicit admin-set metafield stone_chip,
+  # otherwise truncate stone_type to short phrase
+  assign stone_chip = ''
+  if product.metafields.custom.stone_chip != blank
+    assign stone_chip = product.metafields.custom.stone_chip
+  elsif product.metafields.custom.stone_type != blank
     assign raw_stone = product.metafields.custom.stone_type | strip_html | strip
     assign first_part = raw_stone | split: ',' | first | split: '(' | first | strip
-    # Trim long phrases; a chip should be ≤ 3 words
-    assign first_words = first_part | split: ' ' | slice: 0, 3 | join: ' '
-    assign stone_chip = first_words
+    assign stone_chip = first_part | truncate: 24, ''
   endif
 -%}
 <product-card

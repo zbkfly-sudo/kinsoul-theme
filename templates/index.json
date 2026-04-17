@@ -494,17 +494,13 @@
       }
     },
     "founder_teaser": {
-      "type": "kinsoul-founder-lockup",
+      "type": "custom-liquid",
       "settings": {
-        "eyebrow": "Our Founder",
-        "heading": "In 2018, a designer named LU found a stone on the ground in China.",
-        "body_text": "<p>She picked it up, turned it over in her hand, and saw something most people walked past every day — a small piece of the earth, shaped slowly over time, holding a quiet weight. That moment turned into a question: what if jewelry could be made the way the stone was made — slowly, by hand, from the natural world rather than the factory floor? Kinsoul Energy is the answer she's been building ever since, one bracelet at a time.</p>",
-        "signature": "— LU, founder",
-        "cta_url": "/pages/about",
-        "cta_text": "Read our story",
+        "custom_liquid": "<div class='kinsoul-founder-teaser'><div class='kinsoul-founder-teaser__inner'><p class='kinsoul-care__eyebrow'>Our Founder</p><h2 class='kinsoul-founder-teaser__title'>In 2018, a designer named LU found a stone on the ground in China.</h2><p class='kinsoul-founder-teaser__text'>She picked it up, turned it over in her hand, and saw something most people walked past every day — a small piece of the earth, shaped slowly over time, holding a quiet weight. That moment turned into a question: what if jewelry could be made the way the stone was made — slowly, by hand, from the natural world rather than the factory floor? Kinsoul Energy is the answer she's been building ever since, one bracelet at a time.</p><a href='/pages/about' class='kinsoul-founder-teaser__link'>Read Our Story →</a></div></div>",
         "color_scheme": "scheme-2",
-        "padding_top": 60,
-        "padding_bottom": 60
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
       }
     },
     "gifting_service": {
@@ -578,92 +574,6 @@
         "color_scheme": "scheme-2",
         "padding_top": 80,
         "padding_bottom": 80
-      }
-    },
-    "bestseller_bar": {
-      "type": "kinsoul-bestseller-bar",
-      "blocks": {
-        "bs_1": {
-          "type": "quick_card",
-          "settings": {
-            "tag_text": "Entry",
-            "label": "Under $200",
-            "subtext": "Start with Soleil or Serenity — our most approachable pieces.",
-            "link_url": "/collections/shop-all-bracelets?sort_by=price-ascending",
-            "cta_text": "Shop under $200"
-          }
-        },
-        "bs_2": {
-          "type": "quick_card",
-          "settings": {
-            "tag_text": "Most loved",
-            "label": "Serenity",
-            "subtext": "Amethyst + freshwater pearl. The one people keep gifting.",
-            "link_url": "/products/freeform-amethyst-bracelet-with-freshwater-pearls",
-            "cta_text": "See Serenity"
-          }
-        },
-        "bs_3": {
-          "type": "quick_card",
-          "settings": {
-            "tag_text": "The signature",
-            "label": "Aura",
-            "subtext": "8 gemstones + baroque pearl. Our most substantial piece.",
-            "link_url": "/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones",
-            "cta_text": "See Aura"
-          }
-        }
-      },
-      "block_order": ["bs_1", "bs_2", "bs_3"],
-      "settings": {
-        "subheading": "Where to Start",
-        "heading": "Find Your Piece Faster",
-        "color_scheme": "scheme-1",
-        "padding_top": 48,
-        "padding_bottom": 48
-      }
-    },
-    "trust_signals": {
-      "type": "kinsoul-trust-signals",
-      "blocks": {
-        "ts_1": {
-          "type": "signal_card",
-          "settings": {
-            "icon_svg": "<svg width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.3'><circle cx='12' cy='12' r='10'/><circle cx='12' cy='12' r='4'/></svg>",
-            "title": "100% Natural Materials",
-            "description": "Every bracelet includes a certificate of authenticity. Never synthetic, never dyed, never coated.",
-            "link_url": "/pages/materials-craft",
-            "link_label": "See the materials"
-          }
-        },
-        "ts_2": {
-          "type": "signal_card",
-          "settings": {
-            "icon_svg": "<svg width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'><path d='M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2'/><circle cx='9' cy='7' r='4'/><path d='M23 21v-2a4 4 0 0 0-3-3.87'/><path d='M16 3.13a4 4 0 0 1 0 7.75'/></svg>",
-            "title": "Made by 5 people in California",
-            "description": "A small studio. Every piece is hand-assembled, weighed for balance, and inspected before it ships.",
-            "link_url": "/pages/about",
-            "link_label": "Meet the studio"
-          }
-        },
-        "ts_3": {
-          "type": "signal_card",
-          "settings": {
-            "icon_svg": "<svg width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'><polyline points='17 1 21 5 17 9'/><path d='M3 11V9a4 4 0 0 1 4-4h14'/><polyline points='7 23 3 19 7 15'/><path d='M21 13v2a4 4 0 0 1-4 4H3'/></svg>",
-            "title": "30-day returns + free size exchanges",
-            "description": "If it doesn't fit right, we send another one — no cost. Email us, and we include a prepaid return label.",
-            "link_url": "/pages/client-care",
-            "link_label": "See our policies"
-          }
-        }
-      },
-      "block_order": ["ts_1", "ts_2", "ts_3"],
-      "settings": {
-        "subheading": "Why Kinsoul",
-        "heading": "Made With Care — From Our Hands to Yours",
-        "color_scheme": "scheme-2",
-        "padding_top": 72,
-        "padding_bottom": 72
       }
     }
   },
