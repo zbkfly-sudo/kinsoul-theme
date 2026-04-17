@@ -335,22 +335,33 @@ def main():
         print(f"❌ SHOPIFY_STORE={store} does not match expected {EXPECTED_STORE}")
         print("   Stopping — verify you're pointing at the right store.")
         sys.exit(1)
-    # Token format sanity check — per SHOPIFY-ADMIN-API-POLICY.md §"立即停止的信号"
-    if token and not token.startswith("shpat_"):
+    # Token format — accept any of:
+    #   shpat_… (legacy custom app), shpca_… (newer custom app), shppa_… (private app)
+    #   Prefix-less 32-hex (Dev Dashboard client_credentials grant — 2026 flow)
+    # Reject: shpss_ (that's the API secret, not the access token)
+    valid_prefixes = ("shpat_", "shpca_", "shppa_")
+    is_prefix_less_hex = (
+        token and len(token) == 32
+        and all(c in "0123456789abcdef" for c in token.lower())
+    )
+    if token and token.startswith("shpss_"):
         print(f"""
-❌ SHOPIFY_ADMIN_API_TOKEN has wrong prefix: '{token.split('_')[0]}_'
+❌ SHOPIFY_ADMIN_API_TOKEN starts with 'shpss_' — that's the Client Secret,
+   not the access token.
 
-   Valid Admin API access token starts with 'shpat_'.
-   You likely pasted the Client Secret (shpss_) or API key instead.
+   Per Shopify docs (2026): the Dev Dashboard access token for custom apps
+   is either prefix-less 32-hex (via client_credentials grant) or shpca_…
+   (via Install flow). The shpss_ value is only used as client_secret IN
+   the OAuth exchange — you can't use it directly as X-Shopify-Access-Token.
 
-   In the Custom App's "API credentials" tab:
-   - shpss_… = API secret key (Client Secret) — used for OAuth, NOT for this
-   - shpat_… = Admin API access token — THIS IS WHAT WE NEED
-
-   Look for the "Admin API access token" section specifically. If it says
-   "You'll only see this token once" and the value is hidden, Uninstall the
-   app and Install again — the token re-displays on fresh install.
+   Run scripts/shopify-exchange-token.py to exchange your Client ID +
+   client_secret for a fresh 24h access token.
 """)
+        sys.exit(1)
+
+    if token and not (any(token.startswith(p) for p in valid_prefixes) or is_prefix_less_hex):
+        print(f"❌ SHOPIFY_ADMIN_API_TOKEN has unexpected format: prefix={token[:8]}...")
+        print("   Expected: shpat_… / shpca_… / shppa_… or prefix-less 32-hex.")
         sys.exit(1)
 
     if not token:
