@@ -3149,18 +3149,28 @@ body::after {
 
 /* --- PDP mobile: compress media, lift purchase block above fold --- */
 @media screen and (max-width: 749px) {
-  /* Clamp product media to a square-ish aspect so price + size + ATC
-     fit on the same screen. Was `aspect-ratio: adapt` (often taller than viewport). */
-  .product-media-gallery,
-  .product-media-gallery__slider,
-  .product-media-gallery__slide {
-    max-height: 58vh;
+  /* Velora uses the custom element <media-gallery>, NOT class .product-media-gallery.
+     Clamp height so title + price + size + ATC have room above the fold.
+     Target the full chain so internal elements respect the cap. */
+  media-gallery,
+  .product-information__media,
+  slideshow-component,
+  slideshow-container,
+  slideshow-slides,
+  slideshow-slide.product-media-container,
+  .product-media-container,
+  .product-media {
+    max-height: 50vh !important;
   }
 
-  .product-media-gallery img,
-  .product-media-gallery video {
-    max-height: 58vh;
-    object-fit: cover;
+  media-gallery img,
+  media-gallery video,
+  .product-media img,
+  .product-media video,
+  .product-media-container img,
+  .product-media-container video {
+    max-height: 50vh !important;
+    object-fit: cover !important;
   }
 
   /* Shrink gap between gallery and product info */
