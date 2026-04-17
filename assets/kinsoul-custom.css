@@ -3327,3 +3327,167 @@ body::after {
     min-height: 88svh; /* was 100svh; let trust strip peek */
   }
 }
+
+/* ============================================
+   P2 · PDP Trust + Information (2026-04-17)
+   Replace empty Complete-Your-Look and 0-review state
+   with real signals: unboxing preview + surfaced FAQ.
+   ============================================ */
+
+/* --- What's in the Box --- */
+.kinsoul-whats-in-box {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--kinsoul-border);
+  margin-top: 2rem;
+}
+
+.kinsoul-whats-in-box__header {
+  text-align: center;
+  max-width: 540px;
+  margin: 0 auto 2rem;
+}
+
+.kinsoul-whats-in-box__eyebrow {
+  font-family: var(--font-secondary--family, inherit);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  margin: 0 0 0.6rem;
+}
+
+.kinsoul-whats-in-box__title {
+  font-family: var(--font-heading--family), 'Cormorant Garamond', serif;
+  font-size: clamp(1.3rem, 3vw, 1.75rem);
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.04em;
+  margin: 0;
+  font-weight: 400;
+}
+
+.kinsoul-whats-in-box__grid {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+@media screen and (max-width: 749px) {
+  .kinsoul-whats-in-box__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+.kinsoul-whats-in-box__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 0.9rem;
+  background: var(--kinsoul-cream, #faf7f2);
+  border: 1px solid var(--kinsoul-border);
+  border-radius: var(--kinsoul-radius-soft);
+  min-height: 180px;
+}
+
+.kinsoul-whats-in-box__icon {
+  color: var(--kinsoul-accent);
+  margin-bottom: 0.75rem;
+  display: inline-flex;
+}
+
+.kinsoul-whats-in-box__label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--kinsoul-heading);
+  margin-bottom: 0.4rem;
+  font-family: var(--font-heading--family), serif;
+}
+
+.kinsoul-whats-in-box__desc {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--kinsoul-muted);
+  letter-spacing: 0.01em;
+}
+
+.kinsoul-whats-in-box__footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--kinsoul-muted);
+  max-width: 540px;
+  margin: 0 auto;
+  font-style: italic;
+}
+
+/* --- Surfaced PDP FAQs (outside accordion, always visible) --- */
+.kinsoul-pdp-faq-surfaced {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--kinsoul-border);
+}
+
+.kinsoul-pdp-faq-surfaced__header {
+  text-align: center;
+  margin-bottom: 1.75rem;
+}
+
+.kinsoul-pdp-faq-surfaced__eyebrow {
+  font-family: var(--font-secondary--family, inherit);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--kinsoul-accent);
+  margin: 0 0 0.4rem;
+}
+
+.kinsoul-pdp-faq-surfaced__title {
+  font-family: var(--font-heading--family), 'Cormorant Garamond', serif;
+  font-size: clamp(1.3rem, 3vw, 1.75rem);
+  color: var(--kinsoul-heading);
+  letter-spacing: 0.04em;
+  margin: 0;
+  font-weight: 400;
+}
+
+.kinsoul-pdp-faq-surfaced__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-width: 720px;
+  margin-inline: auto;
+  display: grid;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 750px) {
+  .kinsoul-pdp-faq-surfaced__list {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 2rem;
+  }
+}
+
+.kinsoul-pdp-faq-surfaced__item {
+  padding: 1rem 1.1rem;
+  background: var(--kinsoul-cream, #faf7f2);
+  border-left: 2px solid var(--kinsoul-accent);
+  border-radius: 0 var(--kinsoul-radius-soft) var(--kinsoul-radius-soft) 0;
+}
+
+.kinsoul-pdp-faq-surfaced__q {
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--kinsoul-heading);
+  margin: 0 0 0.35rem;
+  letter-spacing: 0.02em;
+}
+
+.kinsoul-pdp-faq-surfaced__a {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--kinsoul-muted);
+  margin: 0;
+}

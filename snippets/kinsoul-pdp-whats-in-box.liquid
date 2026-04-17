@@ -1,0 +1,72 @@
+{%- doc -%}
+  Kinsoul Energy — What's in the Box (PDP)
+  0-review social proof replacement: show the full unboxing visually.
+  Uses icon cards (no new image assets required).
+
+  Render on PDP as a <custom-liquid> block or inline in product template.
+{%- enddoc -%}
+
+<section class="kinsoul-whats-in-box" aria-labelledby="kinsoul-whats-in-box-heading">
+  <div class="kinsoul-whats-in-box__header">
+    <p class="kinsoul-whats-in-box__eyebrow">What arrives at your door</p>
+    <h3 class="kinsoul-whats-in-box__title" id="kinsoul-whats-in-box-heading">
+      Every order includes
+    </h3>
+  </div>
+
+  <ul class="kinsoul-whats-in-box__grid">
+    <li class="kinsoul-whats-in-box__item">
+      <span class="kinsoul-whats-in-box__icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="8"/>
+          <circle cx="12" cy="12" r="3.5"/>
+          <circle cx="12" cy="12" r="0.5" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="kinsoul-whats-in-box__label">Your bracelet</span>
+      <span class="kinsoul-whats-in-box__desc">Hand-finished, inspected, ready to wear.</span>
+    </li>
+
+    <li class="kinsoul-whats-in-box__item">
+      <span class="kinsoul-whats-in-box__icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polyline points="20 12 20 22 4 22 4 12"/>
+          <rect x="2" y="7" width="20" height="5"/>
+          <line x1="12" y1="22" x2="12" y2="7"/>
+          <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/>
+          <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/>
+        </svg>
+      </span>
+      <span class="kinsoul-whats-in-box__label">Signature gift box</span>
+      <span class="kinsoul-whats-in-box__desc">Cotton-linen wrap with a suede-lined interior — no extra wrapping needed.</span>
+    </li>
+
+    <li class="kinsoul-whats-in-box__item">
+      <span class="kinsoul-whats-in-box__icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+      </span>
+      <span class="kinsoul-whats-in-box__label">Stone meaning card</span>
+      <span class="kinsoul-whats-in-box__desc">Letterpress-printed on 350gsm cotton paper — a keepsake, not packaging.</span>
+    </li>
+
+    <li class="kinsoul-whats-in-box__item">
+      <span class="kinsoul-whats-in-box__icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M3 12c2-2 4-2 6 0s4 2 6 0 4-2 6 0"/>
+        </svg>
+      </span>
+      <span class="kinsoul-whats-in-box__label">Replacement cord</span>
+      <span class="kinsoul-whats-in-box__desc">Spare elastic stretch cord included free — so your bracelet lasts longer.</span>
+    </li>
+  </ul>
+
+  <p class="kinsoul-whats-in-box__footer">
+    Everything shown arrives with every order — cotton pouch, care guide, and authenticity certificate included.
+  </p>
+</section>

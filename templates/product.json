@@ -297,6 +297,30 @@
         "padding-block-end": 0
       }
     },
+    "kinsoul_whats_in_box": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% render 'kinsoul-pdp-whats-in-box' %}",
+        "color_scheme": "scheme-1",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
+      }
+    },
+    "kinsoul_faq_surfaced": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "{% render 'kinsoul-pdp-faq-surfaced' %}",
+        "color_scheme": "scheme-1",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0,
+        "padding-inline-start": 0,
+        "padding-inline-end": 0
+      }
+    },
     "product_recommendations_qggXJq": {
       "type": "product-recommendations",
       "blocks": {
@@ -441,6 +465,8 @@
   },
   "order": [
     "main",
+    "kinsoul_whats_in_box",
+    "kinsoul_faq_surfaced",
     "product_recommendations_qggXJq"
   ]
 }
