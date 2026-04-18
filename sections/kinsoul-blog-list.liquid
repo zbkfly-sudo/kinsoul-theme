@@ -9,7 +9,6 @@
 {% endcomment %}
 
 {%- liquid
-  assign posts = blog.articles
   assign posts_per_page = section.settings.posts_per_page | default: 12
   assign current_tag = current_tags.first
 
@@ -18,7 +17,8 @@
   assign hero_description = section.settings.hero_description | default: 'Educational, transparent writing on handmade jewelry, natural gemstones, and our studio practice. Written by the Kinsoul Studio team, verified by LU.'
 -%}
 
-{%- paginate posts by posts_per_page -%}
+{%- paginate blog.articles by posts_per_page -%}
+{%- assign posts = blog.articles -%}
 
 <div class="kinsoul-blog-list color-{{ section.settings.color_scheme }}" data-kinsoul-reveal-scope>
   {%- comment -%} Breadcrumb {%- endcomment -%}
