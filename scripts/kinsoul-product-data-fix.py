@@ -97,6 +97,7 @@ PRODUCT_HANDLES = {
     "obsidian": "mozhu-persian-agate-baroque-pearl-bracelet",
     "aura":     "aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones",
     "soleil":   "zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet",
+    "terra":    "moqiao-black-agate-rutilated-quartz-pearl-bracelet",
 }
 
 # New product descriptions (from PRODUCT-DESCRIPTIONS.md, already corrected in that file)
@@ -110,6 +111,9 @@ NEW_BODIES = {
     "soleil":   """<p>Soleil is the warmest piece in the collection: Brazilian citrine at the center, framed by clear quartz tips and deep amethyst rounds toward the ends, threaded with small freshwater round pearls from Zhuji, China. The citrine's golden hue comes from trace iron within the crystal itself, which means every stone is a slightly different shade of sunlight: pale honey, deep amber, soft butter. A small S925 sterling silver bar on the strand carries our maker's mark, all held together on a single fine elastic cord — no clasp.</p>
 <p>Worn, Soleil is the lightest piece in the collection — the one that disappears against the wrist for a moment and then catches the light when you reach for something. It pairs naturally with summer fabrics, gold accents, and bare skin, and works just as well as a quiet anchor against winter knits.</p>
 <p>Citrine has been carried for centuries as a symbol of optimism, creative energy, and abundance — a small sun for the wrist. Paired with clear quartz, amethyst, and freshwater round pearls, Soleil is warmth meeting clarity meeting calm. The natural variation in the citrine means your Soleil will have its own particular shade — and that's the point.</p>""",
+    "terra":    """<p>Terra is a study in slow time. Persian banded agate — formed over millions of years as mineral-rich water deposited silica in patient, alternating layers — gives each stone a unique geological fingerprint of stripes, soft browns, and warm cream tones. Paired with a generous baroque saltwater pearl from Australia and antique-finished S925 sterling silver spacers that share the warmth of the stone palette, it has the feel of something pulled from a riverbed and the polish of a finished piece. A small silver bar on the strand carries our maker's mark, and the whole bracelet is held on a single fine elastic cord — no clasp, just slip it on.</p>
+<p>Terra has weight without bulk. The bands of color make each stone look almost three-dimensional in changing light, and the antique-finished spacers break the line just enough to keep the bracelet from feeling dense. It's the piece people pick up off the dresser without thinking and forget to take off.</p>
+<p>Banded agate has long been carried as a stone of stability and connection to the earth — a small piece of geological time worn against the skin. Because every stone's banding is one-of-one, no two Terras will ever look the same. Yours is shaped by millions of years of slow water and quiet pressure — and now by you.</p>""",
 }
 
 # Metafield values to set
@@ -131,6 +135,12 @@ METAFIELD_TARGETS = {
          "value": "Brazilian Citrine, Clear Quartz, Amethyst"},
         {"namespace": "custom", "key": "pearl_type", "type": "single_line_text_field",
          "value": "Freshwater Round Pearls (Zhuji, China)"},
+    ],
+    "terra": [
+        {"namespace": "custom", "key": "stone_type", "type": "single_line_text_field",
+         "value": "Persian Banded Agate"},
+        {"namespace": "custom", "key": "pearl_type", "type": "single_line_text_field",
+         "value": "Large Baroque Saltwater Pearl (Australia)"},
     ],
 }
 
