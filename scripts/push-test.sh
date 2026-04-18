@@ -81,7 +81,10 @@ for f in $(find "$DRIFT_TMP/templates" "$DRIFT_TMP/config" -type f -name "*.json
       templates/page.materials.json|\
       templates/page.quiz.json|\
       templates/page.compare.json|\
-      templates/page.gifting-guide.json)
+      templates/page.gifting-guide.json|\
+      templates/article.json|\
+      templates/blog.json|\
+      templates/page.our-studio.json)
         continue
         ;;
     esac
