@@ -21,14 +21,17 @@ Together, a quiet harmony.
 **Back:**
 
 ```
-Red agate, tiger's eye, black agate, lapis lazuli,
-amazonite, yellow quartz, red jasper, clear quartz
-— eight stones chosen for their individual character,
-united by a single baroque freshwater pearl.
+From our curated palette of twelve natural stones —
+tiger's eye, lapis lazuli, amethyst, citrine,
+amazonite, clear quartz, tourmalinated quartz,
+red agate, prehnite, grey agate, blue apatite,
+agate accent beads — eight are selected by hand for
+each piece, united by a single baroque saltwater pearl.
 
 Each stone carries its own tradition: grounding,
 clarity, protection, wisdom. Worn together, they
 become something greater — a spectrum of balance.
+No two Auras are alike.
 
 KINSOUL ENERGY
 ```
@@ -110,9 +113,10 @@ It simply stays.
 
 ```
 Black agate — a stone of quiet protection and inner
-resolve. Paired with rutilated quartz, whose silver
-needle-like inclusions look like captured light,
-traditionally associated with clarity and focus.
+resolve. Paired with tourmalinated quartz, whose black
+needle-like inclusions look like nature's pen strokes
+caught in crystal, traditionally associated with
+inner strength and quiet power.
 
 The grey freshwater rice pearls add softness to the
 dark stones — a reminder that strength and gentleness
@@ -173,8 +177,9 @@ comes from trace iron within the crystal, giving each
 piece its own shade of sunlight.
 
 Traditionally associated with optimism, creative energy,
-and joy. Paired with clear quartz tips and deep purple
-amethyst rounds — warmth meeting clarity meeting calm.
+and joy. Paired with clear quartz tips, deep purple
+amethyst rounds, and small freshwater round pearls —
+warmth meeting clarity meeting calm.
 
 KINSOUL ENERGY
 ```

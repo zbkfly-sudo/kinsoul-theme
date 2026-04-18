@@ -2,7 +2,7 @@
 """
 Kinsoul Admin Setup — one-shot automation for the post-redesign Admin tasks.
 
-Runs against the Shopify GraphQL Admin API (2026-01) to:
+Runs against the Shopify GraphQL Admin API (2026-04 — latest stable) to:
   1. Create 3 pages (Stone Quiz / Compare / Gifting Guide) with matching templates
   2. Define 2 product metafield definitions (custom.related_products + custom.stone_chip)
   3. Fill related_products + stone_chip values for all 6 bracelets
@@ -28,7 +28,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 ENV_PATH = ROOT / ".env"
 LOG_PATH = ROOT / "scripts" / "shopify-admin-ops.log"
-API_VERSION = "2026-01"
+API_VERSION = "2026-04"
 EXPECTED_STORE = "qr4xym-qi.myshopify.com"  # per SHOPIFY-ADMIN-API-POLICY.md
 
 def log_op(op, detail):

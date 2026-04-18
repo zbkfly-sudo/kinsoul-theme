@@ -1,0 +1,37 @@
+{% comment %}
+  Kinsoul Journal — In-article FAQ accordion
+  Reads article.metafields.custom.faq_items (JSON list of {question, answer}).
+  The JSON-LD FAQPage is emitted separately by kinsoul-schema-article.liquid.
+{% endcomment %}
+
+{%- liquid
+  assign faq_items = article.metafields.custom.faq_items.value
+  unless faq_items
+    break
+  endunless
+-%}
+
+<section class="kinsoul-blog-faq" data-kinsoul-reveal="up" aria-labelledby="article-faq-heading">
+  <div class="kinsoul-blog-faq__inner">
+    <h2 id="article-faq-heading" class="kinsoul-blog-faq__heading">Frequently asked</h2>
+
+    <div class="kinsoul-blog-faq__list">
+      {%- for item in faq_items -%}
+        <details class="kinsoul-blog-faq__item">
+          <summary class="kinsoul-blog-faq__summary">
+            <span class="kinsoul-blog-faq__question">{{ item.question }}</span>
+            <span class="kinsoul-blog-faq__icon" aria-hidden="true">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"/>
+                <line x1="5" y1="12" x2="19" y2="12"/>
+              </svg>
+            </span>
+          </summary>
+          <div class="kinsoul-blog-faq__answer">
+            {{ item.answer }}
+          </div>
+        </details>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>

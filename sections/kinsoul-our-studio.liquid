@@ -1,0 +1,173 @@
+{% comment %}
+  /pages/our-studio — Transparent editorial disclosure page.
+  This page is SEO + E-E-A-T core: it tells both Google and human readers
+  who we are, how we write, and what we don't do. Locked content per
+  kinsoul-knowledge-base/08-brand-positioning.md.
+
+  Also emits AboutPage schema + Organization references.
+{% endcomment %}
+
+{%- liquid
+  assign org_id = shop.url | append: '/#organization'
+-%}
+
+<article class="kinsoul-studio color-{{ section.settings.color_scheme }}" data-kinsoul-reveal-scope>
+  <nav class="kinsoul-studio__breadcrumb page-width" aria-label="Breadcrumb">
+    <ol class="kinsoul-studio__crumbs">
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">›</li>
+      <li aria-current="page">Our Studio</li>
+    </ol>
+  </nav>
+
+  <header class="kinsoul-studio__hero page-width" data-kinsoul-reveal="up">
+    <p class="kinsoul-studio__eyebrow">BEHIND THE JOURNAL</p>
+    <h1 class="kinsoul-studio__title">The team behind Kinsoul Journal</h1>
+    <hr class="kinsoul-studio__divider">
+  </header>
+
+  {%- comment -%} Section 1: Who we are {%- endcomment -%}
+  <section class="kinsoul-studio__section page-width" data-kinsoul-reveal="up">
+    <span class="kinsoul-studio__section-number">01</span>
+    <h2 class="kinsoul-studio__section-title">Who we are</h2>
+    <div class="kinsoul-studio__section-body">
+      <p>
+        Kinsoul Energy was founded in <strong>2019</strong> by LU, a designer who started
+        hand-making bracelets on her kitchen table in California after a 2018 trip to China
+        where she found a stone on the ground. What began as a single piece grew into a
+        six-piece collection. For years, the work stayed small — offline, personal, shared
+        with friends and private clients.
+      </p>
+      <p>
+        In <strong>early 2026</strong>, we launched kinsoulenergy.com so anyone could access
+        what had previously been limited to word of mouth. Today a full-time team of five
+        works from our small California studio. LU still designs every piece.
+      </p>
+    </div>
+  </section>
+
+  {%- comment -%} Section 2: How we write (E-E-A-T core) {%- endcomment -%}
+  <section class="kinsoul-studio__section kinsoul-studio__section--alt page-width" data-kinsoul-reveal="up">
+    <span class="kinsoul-studio__section-number">02</span>
+    <h2 class="kinsoul-studio__section-title">How we research, write, and publish</h2>
+    <div class="kinsoul-studio__section-body">
+      <p>
+        This Journal is written by the Kinsoul Studio team. Our editorial workflow is transparent:
+      </p>
+      <ul class="kinsoul-studio__process-list">
+        <li>
+          <strong>Research:</strong> We use internal tools (keyword research, competitive analysis,
+          source aggregation) to support the early research phase. We cite external sources
+          whenever we reference data we didn't generate ourselves.
+        </li>
+        <li>
+          <strong>Writing:</strong> Drafts are produced by our team with the support of writing
+          tools. Every draft is structurally reviewed and edited by a named human editor.
+        </li>
+        <li>
+          <strong>Editing:</strong> Articles are edited by <strong>Kevin</strong>, our Content Editor.
+        </li>
+        <li>
+          <strong>Verification:</strong> <strong>LU</strong> (Founder &amp; Designer) reviews every
+          article for material accuracy and brand voice before publication.
+        </li>
+        <li>
+          <strong>Publishing:</strong> Articles ship only after the full review cycle. We publish
+          monthly, not daily — we'd rather say something worth reading.
+        </li>
+      </ul>
+      <p>
+        We believe readers deserve to know how content is made. AI-assisted drafting is a
+        tool, not a byline — every published piece is owned by a named human editor and
+        verified by the founder of the studio.
+      </p>
+    </div>
+  </section>
+
+  {%- comment -%} Section 3: What we don't do {%- endcomment -%}
+  <section class="kinsoul-studio__section page-width" data-kinsoul-reveal="up">
+    <span class="kinsoul-studio__section-number">03</span>
+    <h2 class="kinsoul-studio__section-title">What we don't do</h2>
+    <ul class="kinsoul-studio__dont-list">
+      <li>We don't make pseudoscientific claims — no energy healing, no chakra balancing, no crystal cures.</li>
+      <li>We don't publish unverified product advice. If it's in the Journal, we've tested it or cited it.</li>
+      <li>We don't run undisclosed sponsored content or affiliate-driven reviews.</li>
+      <li>We don't inflate our history. Kinsoul Energy is a new DTC brand (online since early 2026) — we'd rather be honest than pretend to be old.</li>
+    </ul>
+  </section>
+
+  {%- comment -%} Section 4: Reach us {%- endcomment -%}
+  <section class="kinsoul-studio__section kinsoul-studio__section--alt page-width" data-kinsoul-reveal="up">
+    <span class="kinsoul-studio__section-number">04</span>
+    <h2 class="kinsoul-studio__section-title">Reach us</h2>
+    <div class="kinsoul-studio__contact">
+      <p>
+        <strong>Email:</strong>
+        <a href="mailto:hello@kinsoulenergy.com">hello@kinsoulenergy.com</a>
+      </p>
+      <p><strong>Location:</strong> California, United States</p>
+      <p><strong>Response time:</strong> Within 24 hours</p>
+      <p class="kinsoul-studio__contact-note">
+        Spotted an error in one of our articles? Please write to us.
+        We correct and disclose changes in article footers.
+      </p>
+    </div>
+  </section>
+
+  <div class="kinsoul-studio__cta page-width" data-kinsoul-reveal="up">
+    <a href="/blogs/journal" class="kinsoul-studio__cta-link">Read the Journal →</a>
+  </div>
+</article>
+
+{%- comment -%} AboutPage schema {%- endcomment -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "name": "Our Studio — The team behind Kinsoul Journal",
+      "url": "{{ shop.url }}/pages/our-studio",
+      "description": "Meet the Kinsoul Studio team. How we research, write, edit, and verify every article in the Kinsoul Journal. Full transparency on our editorial process.",
+      "inLanguage": "en-US",
+      "isPartOf": { "@type": "WebSite", "@id": "{{ shop.url }}/#website" },
+      "about": { "@id": {{ org_id | json }} },
+      "mentions": [
+        {
+          "@type": "Person",
+          "name": "LU",
+          "jobTitle": "Founder & Designer",
+          "worksFor": { "@id": {{ org_id | json }} }
+        },
+        {
+          "@type": "Person",
+          "name": "Kevin",
+          "jobTitle": "Content Editor",
+          "worksFor": { "@id": {{ org_id | json }} }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+{% schema %}
+{
+  "name": "Kinsoul Our Studio",
+  "tag": "section",
+  "class": "kinsoul-studio-section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kinsoul Our Studio"
+    }
+  ]
+}
+{% endschema %}

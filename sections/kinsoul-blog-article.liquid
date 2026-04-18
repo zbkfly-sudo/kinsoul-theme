@@ -1,0 +1,162 @@
+{% comment %}
+  Kinsoul Journal — Article page section
+  Used by templates/article.json. Renders the full reading experience:
+  breadcrumb + hero + featured image + TOC (desktop sticky, mobile collapsed)
+  + RTE body + FAQ accordion + sources + author bio + related articles
+  + related products + newsletter CTA. Schema is rendered by layout/theme.liquid.
+{% endcomment %}
+
+{%- liquid
+  assign article = article
+  assign reading_time = article.metafields.custom.reading_time | default: 5
+  assign category = article.metafields.custom.article_category | default: article.tags.first
+  assign category_label = category | default: 'Editorial'
+  assign external_sources = article.metafields.custom.external_sources.value
+-%}
+
+<article class="kinsoul-article color-{{ section.settings.color_scheme }}" data-kinsoul-reveal-scope>
+  {%- comment -%} Reading progress bar {%- endcomment -%}
+  <div class="kinsoul-article__progress" aria-hidden="true">
+    <div class="kinsoul-article__progress-fill" data-kinsoul-article-progress></div>
+  </div>
+
+  {%- comment -%} Breadcrumb {%- endcomment -%}
+  <nav class="kinsoul-article__breadcrumb page-width" aria-label="Breadcrumb">
+    <ol class="kinsoul-article__crumbs">
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">›</li>
+      <li><a href="{{ blog.url | default: '/blogs/journal' }}">{{ blog.title | default: 'Journal' }}</a></li>
+      <li aria-hidden="true">›</li>
+      <li aria-current="page">{{ article.title | truncate: 40 }}</li>
+    </ol>
+  </nav>
+
+  {%- comment -%} Hero header {%- endcomment -%}
+  <header class="kinsoul-article__hero page-width" data-kinsoul-reveal="up">
+    {%- if category_label != blank -%}
+      <p class="kinsoul-article__category">{{ category_label | upcase }}</p>
+    {%- endif -%}
+
+    <h1 class="kinsoul-article__title">{{ article.title }}</h1>
+
+    <p class="kinsoul-article__meta">
+      <span class="kinsoul-article__byline">By the Kinsoul Studio team</span>
+      <span aria-hidden="true">·</span>
+      <span>{{ reading_time }} min read</span>
+      <span aria-hidden="true">·</span>
+      <time datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
+        {{ article.published_at | date: '%b %d, %Y' }}
+      </time>
+    </p>
+  </header>
+
+  {%- comment -%} Featured image {%- endcomment -%}
+  {%- if article.image != blank -%}
+    <figure class="kinsoul-article__featured-image page-width" data-kinsoul-reveal="fade">
+      {{
+        article.image
+        | image_url: width: 1600
+        | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          widths: '400, 800, 1200, 1600',
+          sizes: '(max-width: 768px) 100vw, 1200px',
+          class: 'kinsoul-article__image',
+          alt: article.image.alt | default: article.title
+      }}
+    </figure>
+  {%- endif -%}
+
+  {%- comment -%} Main body with TOC (desktop sticky, mobile collapsed) {%- endcomment -%}
+  <div class="kinsoul-article__body-wrap page-width">
+    {%- render 'kinsoul-blog-toc', article: article -%}
+
+    <div class="kinsoul-article__content rte" data-kinsoul-article-content>
+      {{ article.content }}
+    </div>
+  </div>
+
+  {%- comment -%} FAQ accordion + FAQPage schema (schema emitted via theme.liquid) {%- endcomment -%}
+  <div class="kinsoul-article__faq-wrap page-width">
+    {%- render 'kinsoul-blog-faq', article: article -%}
+  </div>
+
+  {%- comment -%} External sources {%- endcomment -%}
+  {%- if external_sources != blank -%}
+    <aside class="kinsoul-article__sources page-width" data-kinsoul-reveal="up">
+      <h2 class="kinsoul-article__sources-heading">Sources &amp; further reading</h2>
+      <ol class="kinsoul-article__sources-list">
+        {%- for source_url in external_sources -%}
+          <li>
+            <a href="{{ source_url }}" rel="noopener noreferrer nofollow" target="_blank">
+              {{ source_url | split: '/' | slice: 2, 1 | first }}
+              <span class="visually-hidden">(opens in new tab)</span>
+            </a>
+          </li>
+        {%- endfor -%}
+      </ol>
+    </aside>
+  {%- endif -%}
+
+  {%- comment -%} Share buttons {%- endcomment -%}
+  <div class="kinsoul-article__share-wrap page-width">
+    {%- render 'kinsoul-blog-share-buttons', article: article -%}
+  </div>
+
+  {%- comment -%} Author bio card {%- endcomment -%}
+  <div class="page-width">
+    {%- render 'kinsoul-blog-author-bio' -%}
+  </div>
+
+  {%- comment -%} Related articles {%- endcomment -%}
+  <div class="page-width">
+    {%- render 'kinsoul-blog-related-articles', article: article, blog: blog -%}
+  </div>
+
+  {%- comment -%} Related products (via metafield) {%- endcomment -%}
+  <div class="page-width">
+    {%- render 'kinsoul-blog-related-products', article: article -%}
+  </div>
+</article>
+
+<script>
+  // Reading progress bar
+  (function() {
+    const content = document.querySelector('[data-kinsoul-article-content]');
+    const progress = document.querySelector('[data-kinsoul-article-progress]');
+    if (!content || !progress) return;
+
+    function update() {
+      const rect = content.getBoundingClientRect();
+      const viewport = window.innerHeight;
+      const total = rect.height + viewport;
+      const scrolled = viewport - rect.top;
+      const pct = Math.max(0, Math.min(100, (scrolled / total) * 100));
+      progress.style.width = pct + '%';
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Kinsoul Article",
+  "tag": "section",
+  "class": "kinsoul-article-section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kinsoul Article"
+    }
+  ]
+}
+{% endschema %}

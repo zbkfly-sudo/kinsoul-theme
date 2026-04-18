@@ -1,0 +1,123 @@
+{% comment %}
+  Kinsoul Energy — Article + FAQPage Schema
+  Renders JSON-LD for blog articles. Called from layout/theme.liquid when
+  template contains 'article'. Complies with Google 2026 Article schema
+  recommendations (2025-12 docs).
+{% endcomment %}
+
+{%- liquid
+  unless article
+    break
+  endunless
+
+  assign org_id = shop.url | append: '/#organization'
+  assign article_url = shop.url | append: article.url
+  assign blog_url = shop.url | append: '/blogs/' | append: article.blog.handle
+
+  assign headline = article.title | escape
+  assign excerpt = article.excerpt_or_content | strip_html | strip_newlines | truncate: 160
+
+  if article.metafields.custom.og_image_override != blank
+    assign article_image = article.metafields.custom.og_image_override | image_url: width: 1200 | prepend: 'https:'
+  elsif article.image != blank
+    assign article_image = article.image | image_url: width: 1200 | prepend: 'https:'
+  endif
+
+  assign published_at = article.published_at | date: '%Y-%m-%dT%H:%M:%S%z'
+  assign updated_at = article.updated_at | date: '%Y-%m-%dT%H:%M:%S%z'
+  assign word_count = article.content | strip_html | split: ' ' | size
+  assign tags_csv = article.tags | join: ', '
+  assign category = article.metafields.custom.article_category | default: 'Editorial'
+
+  assign faq_items = article.metafields.custom.faq_items.value
+-%}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": {{ article_url | append: '#article' | json }},
+      "headline": {{ headline | json }},
+      "description": {{ excerpt | json }},
+      "mainEntityOfPage": {{ article_url | json }},
+      "datePublished": {{ published_at | json }},
+      "dateModified": {{ updated_at | json }},
+      "author": {
+        "@type": "Organization",
+        "name": "Kinsoul Studio",
+        "url": "{{ shop.url }}/pages/our-studio"
+      },
+      "editor": {
+        "@type": "Person",
+        "name": "Kevin",
+        "jobTitle": "Content Editor",
+        "worksFor": { "@id": {{ org_id | json }} }
+      },
+      "publisher": { "@id": {{ org_id | json }} },
+      {%- if article_image %}
+      "image": {
+        "@type": "ImageObject",
+        "url": {{ article_image | json }},
+        "width": 1200,
+        "height": 675
+      },
+      {%- endif %}
+      "articleSection": {{ category | capitalize | json }},
+      "wordCount": {{ word_count }},
+      "inLanguage": "en-US",
+      "isPartOf": {
+        "@type": "Blog",
+        "@id": {{ blog_url | append: '#blog' | json }},
+        "name": {{ article.blog.title | json }},
+        "url": {{ blog_url | json }}
+      }{%- if tags_csv != blank -%},
+      "keywords": {{ tags_csv | json }}
+      {%- endif %}
+    }
+    {%- if faq_items != blank -%}
+    ,
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {%- for item in faq_items -%}
+          {
+            "@type": "Question",
+            "name": {{ item.question | json }},
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": {{ item.answer | json }}
+            }
+          }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      ]
+    }
+    {%- endif -%}
+    ,
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": {{ shop.url | append: '/' | json }}
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": {{ article.blog.title | json }},
+          "item": {{ blog_url | json }}
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": {{ headline | json }},
+          "item": {{ article_url | json }}
+        }
+      ]
+    }
+  ]
+}
+</script>

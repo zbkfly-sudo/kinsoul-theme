@@ -1,0 +1,71 @@
+{% comment %}
+  Kinsoul Journal — Table of Contents
+  Parses article.content H2 headings into a sticky (desktop) /
+  collapsible (mobile) TOC. Only renders if content has ≥ 3 H2s.
+
+  Usage: {% render 'kinsoul-blog-toc', article: article %}
+{% endcomment %}
+
+{%- liquid
+  assign content = article.content
+  assign h2_count = content | split: '<h2' | size | minus: 1
+-%}
+
+{%- if h2_count >= 3 -%}
+  <aside class="kinsoul-blog-toc" aria-labelledby="toc-heading" data-kinsoul-reveal="fade">
+    <details class="kinsoul-blog-toc__details" open>
+      <summary class="kinsoul-blog-toc__summary">
+        <span id="toc-heading" class="kinsoul-blog-toc__label">In this article</span>
+        <span class="kinsoul-blog-toc__chevron" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </span>
+      </summary>
+      <nav class="kinsoul-blog-toc__nav" aria-label="Table of contents">
+        <ol class="kinsoul-blog-toc__list" data-kinsoul-blog-toc-list>
+          {%- comment -%} Client-side JS populates from rendered H2s {%- endcomment -%}
+        </ol>
+      </nav>
+    </details>
+  </aside>
+
+  <script>
+    (function() {
+      const list = document.querySelector('[data-kinsoul-blog-toc-list]');
+      const content = document.querySelector('[data-kinsoul-article-content]');
+      if (!list || !content) return;
+
+      const headings = content.querySelectorAll('h2');
+      headings.forEach((h2, i) => {
+        if (!h2.id) h2.id = 'section-' + (i + 1);
+        const li = document.createElement('li');
+        li.className = 'kinsoul-blog-toc__item';
+        const link = document.createElement('a');
+        link.className = 'kinsoul-blog-toc__link';
+        link.href = '#' + h2.id;
+        link.textContent = h2.textContent;
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          h2.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.replaceState(null, '', '#' + h2.id);
+        });
+        li.appendChild(link);
+        list.appendChild(li);
+      });
+
+      // Highlight active section on scroll
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          const link = list.querySelector('a[href="#' + entry.target.id + '"]');
+          if (!link) return;
+          if (entry.isIntersecting) {
+            list.querySelectorAll('.kinsoul-blog-toc__link--active').forEach(el => el.classList.remove('kinsoul-blog-toc__link--active'));
+            link.classList.add('kinsoul-blog-toc__link--active');
+          }
+        });
+      }, { rootMargin: '-30% 0px -60% 0px' });
+      headings.forEach(h2 => observer.observe(h2));
+    })();
+  </script>
+{%- endif -%}

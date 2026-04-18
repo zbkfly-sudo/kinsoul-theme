@@ -58,7 +58,7 @@ Amethyst has been carried for thousands of years by travelers, thinkers, and peo
 **Handle:** `aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones`
 
 ```
-Aura is a quiet harmony of natural stones — warm tones and cool, opaque and translucent, dense and luminous — anchored by a single large baroque freshwater pearl at the heart of the bracelet. Red agate, tiger's eye, black agate, lapis lazuli, amazonite, yellow quartz, red jasper, clear quartz: each chosen for its individual character, each carrying its own quiet tradition of grounding, clarity, protection, or wisdom. Worn together, they become something greater than any single stone — a small spectrum of balance, threaded with our S925 silver maker's mark, all held on a single fine elastic cord with no clasp.
+Aura is a quiet harmony of natural stones — warm tones and cool, opaque and translucent, dense and luminous — anchored by a single large baroque saltwater pearl at the heart of the bracelet. Eight stones are selected by hand for each piece from our curated palette of twelve: tiger's eye, lapis lazuli, amethyst, citrine, amazonite, clear quartz, tourmalinated quartz, red agate, prehnite, grey agate, blue apatite, and small agate accent beads. Each carries its own quiet tradition of grounding, clarity, protection, or wisdom. Worn together, they become something greater than any single stone — a small spectrum of balance, threaded with our S925 silver maker's mark, all held on a single fine elastic cord with no clasp.
 
 On the wrist, Aura has presence without weight. The baroque pearl shifts naturally toward the inside of the wrist as you move — a small unexpected pleasure each time you turn your hand. Pair it with a single neutral piece or wear it alone; it's the kind of bracelet that makes everything else around it feel quieter.
 
@@ -72,7 +72,7 @@ Because every stone is selected by hand and the exact arrangement follows the na
 **Handle:** `mozhu-persian-agate-baroque-pearl-bracelet` ⚠️ (handle URL keywords are stale; the product at this URL is physically black agate and is now titled Obsidian)
 
 ```
-Obsidian is built around deep black agate paired with rutilated quartz — clear stones threaded with fine silver needle-like inclusions, as though light had been caught and frozen mid-flight. Soft grey freshwater rice pearls run between them, adding a quiet warmth to the darker stones, with a single baroque pearl anchored at the center. A small S925 sterling silver bar on the strand carries our maker's mark. The whole piece is held on a single fine elastic cord — slip it on, no clasp.
+Obsidian is built around deep black agate paired with tourmalinated quartz — clear stones threaded with fine black needle-like inclusions, as though nature's brush strokes had been caught and frozen in crystal. Soft grey freshwater rice pearls run between them, adding a quiet warmth to the darker stones, with a single baroque pearl anchored at the center. A small S925 sterling silver bar on the strand carries our maker's mark. The whole piece is held on a single fine elastic cord — slip it on, no clasp.
 
 This is the piece that gets worn the most often. It works against bare wrists in summer, slides cleanly under a long sleeve, and reads as quietly intentional with everything from a white tee to a tailored jacket. It's also the one we hear about from people who don't usually wear jewelry — the weight feels grounding, they say, in a way they didn't expect.
 
@@ -100,7 +100,7 @@ Banded agate has long been carried as a stone of stability and connection to the
 **Handle:** `zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet`
 
 ```
-Soleil is the warmest piece in the collection: Brazilian yellow quartz — known as citrine — at the center, framed by clear quartz tips and deep amethyst rounds toward the ends. The citrine's golden hue comes from trace iron within the crystal itself, which means every stone is a slightly different shade of sunlight: pale honey, deep amber, soft butter. A small S925 sterling silver bar on the strand carries our maker's mark, all held together on a single fine elastic cord — no clasp.
+Soleil is the warmest piece in the collection: Brazilian citrine at the center, framed by clear quartz tips and deep amethyst rounds toward the ends, threaded with small freshwater round pearls from Zhuji, China. The citrine's golden hue comes from trace iron within the crystal itself, which means every stone is a slightly different shade of sunlight: pale honey, deep amber, soft butter. A small S925 sterling silver bar on the strand carries our maker's mark, all held together on a single fine elastic cord — no clasp.
 
 Worn, Soleil is the lightest piece in the collection — the one that disappears against the wrist for a moment and then catches the light when you reach for something. It pairs naturally with summer fabrics, gold accents, and bare skin, and works just as well as a quiet anchor against winter knits.
 

@@ -1,0 +1,140 @@
+{% comment %}
+  Kinsoul Journal — Blog list / tag page section
+  Used by templates/blog.json. Renders:
+  - Breadcrumb + hero (intro)
+  - Tag filter bar (All · Materials · Craft · Gifting · Care)
+  - Featured article (first one) + grid of remaining
+  - Empty state when no articles
+  - Pagination
+{% endcomment %}
+
+{%- liquid
+  assign posts = blog.articles
+  assign posts_per_page = section.settings.posts_per_page | default: 12
+  assign current_tag = current_tags.first
+
+  assign hero_eyebrow = section.settings.hero_eyebrow | default: 'THE KINSOUL JOURNAL'
+  assign hero_title = section.settings.hero_title | default: 'Notes from the Studio'
+  assign hero_description = section.settings.hero_description | default: 'Educational, transparent writing on handmade jewelry, natural gemstones, and our studio practice. Written by the Kinsoul Studio team, verified by LU.'
+-%}
+
+{%- paginate posts by posts_per_page -%}
+
+<div class="kinsoul-blog-list color-{{ section.settings.color_scheme }}" data-kinsoul-reveal-scope>
+  {%- comment -%} Breadcrumb {%- endcomment -%}
+  <nav class="kinsoul-blog-list__breadcrumb page-width" aria-label="Breadcrumb">
+    <ol class="kinsoul-blog-list__crumbs">
+      <li><a href="/">Home</a></li>
+      <li aria-hidden="true">›</li>
+      {%- if current_tag -%}
+        <li><a href="{{ blog.url }}">{{ blog.title }}</a></li>
+        <li aria-hidden="true">›</li>
+        <li aria-current="page">{{ current_tag | capitalize }}</li>
+      {%- else -%}
+        <li aria-current="page">{{ blog.title }}</li>
+      {%- endif -%}
+    </ol>
+  </nav>
+
+  {%- comment -%} Hero {%- endcomment -%}
+  <header class="kinsoul-blog-list__hero page-width" data-kinsoul-reveal="up">
+    <p class="kinsoul-blog-list__eyebrow">
+      {%- if current_tag -%}
+        {{ current_tag | upcase }}
+      {%- else -%}
+        {{ hero_eyebrow }}
+      {%- endif -%}
+    </p>
+    <h1 class="kinsoul-blog-list__title">
+      {%- if current_tag -%}
+        {{ current_tag | capitalize }}
+      {%- else -%}
+        {{ hero_title }}
+      {%- endif -%}
+    </h1>
+    {%- if hero_description != blank and current_tag == blank -%}
+      <p class="kinsoul-blog-list__description">{{ hero_description }}</p>
+    {%- endif -%}
+  </header>
+
+  {%- comment -%} Tag filter bar {%- endcomment -%}
+  {%- render 'kinsoul-blog-tag-filter-snippet', blog: blog, current_tag: current_tag -%}
+
+  {%- if posts.size == 0 -%}
+    <div class="kinsoul-blog-list__empty page-width" data-kinsoul-reveal="up">
+      <p class="kinsoul-blog-list__empty-text">
+        {%- if current_tag -%}
+          No articles tagged "{{ current_tag }}" yet. <a href="{{ blog.url }}">Back to Journal</a>
+        {%- else -%}
+          We're just getting started. The first notes are on their way.
+        {%- endif -%}
+      </p>
+    </div>
+  {%- else -%}
+    <div class="kinsoul-blog-list__grid page-width" data-kinsoul-stagger="100">
+      {%- for post in posts -%}
+        {%- assign is_first = false -%}
+        {%- if forloop.first and current_tag == blank and paginate.current_page == 1 -%}
+          {%- assign is_first = true -%}
+        {%- endif -%}
+        {%- render 'kinsoul-blog-card', article: post, featured: is_first -%}
+      {%- endfor -%}
+    </div>
+
+    {%- if paginate.pages > 1 -%}
+      <nav class="kinsoul-blog-list__pagination page-width" aria-label="Pagination">
+        {{ paginate | default_pagination }}
+      </nav>
+    {%- endif -%}
+  {%- endif -%}
+</div>
+
+{%- endpaginate -%}
+
+{% schema %}
+{
+  "name": "Kinsoul Blog List",
+  "tag": "section",
+  "class": "kinsoul-blog-list-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "hero_eyebrow",
+      "label": "Eyebrow",
+      "default": "THE KINSOUL JOURNAL"
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero title",
+      "default": "Notes from the Studio"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_description",
+      "label": "Hero description",
+      "default": "Educational, transparent writing on handmade jewelry, natural gemstones, and our studio practice. Written by the Kinsoul Studio team, verified by LU."
+    },
+    {
+      "type": "range",
+      "id": "posts_per_page",
+      "label": "Posts per page",
+      "min": 6,
+      "max": 24,
+      "step": 3,
+      "default": 12
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Kinsoul Blog List"
+    }
+  ]
+}
+{% endschema %}

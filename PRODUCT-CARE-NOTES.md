@@ -25,9 +25,9 @@ Your Ember bracelet is made with Persian red agate, freshwater pearl silver bars
 ## Obsidian | Black Agate & Grey Pearl Bracelet — $208
 
 ```
-Your Obsidian bracelet is made with black agate, rutilated quartz, grey freshwater pearls, and a baroque pearl centerpiece.
+Your Obsidian bracelet is made with black agate, tourmalinated quartz, grey freshwater pearls, and a baroque pearl centerpiece.
 
-• The rutilated quartz in your bracelet contains delicate needle-like inclusions — beautiful to look at, but best kept away from hard knocks. Slip it off before anything heavy-handed.
+• The tourmalinated quartz in your bracelet contains delicate black needle-like inclusions — beautiful to look at, but best kept away from hard knocks. Slip it off before anything heavy-handed.
 
 • Wear your pearls often — your skin's natural oils help them maintain their soft, silvery luster.
 
@@ -79,7 +79,7 @@ Your Serenity bracelet is made with freeform amethyst, amethyst rounds, and fres
 ## Soleil | Citrine, Quartz & Amethyst Bracelet — $139
 
 ```
-Your Soleil bracelet is made with Brazilian citrine, clear quartz tips, and amethyst rounds.
+Your Soleil bracelet is made with Brazilian citrine, clear quartz tips, amethyst rounds, and small freshwater round pearls.
 
 • Both the golden citrine and purple amethyst in your bracelet are happiest away from prolonged light. When you take it off, tuck it into its cotton pouch or a drawer to keep the colors vivid.
 
@@ -105,7 +105,7 @@ Your Aura bracelet brings together eight different natural stones and a baroque 
 
 • Wear your baroque pearl often — your skin's natural oils keep it glowing. Pearls thrive on being worn, not waiting in a box.
 
-• Some stones in your bracelet, like olivine, are a touch softer than others. Slip it off before anything heavy-handed.
+• Some stones in your bracelet, like blue apatite, are a touch softer than others. Slip it off before anything heavy-handed.
 
 • Put your bracelet on after perfume and lotion have settled, and take it off before washing your hands. Last on, first off.
 

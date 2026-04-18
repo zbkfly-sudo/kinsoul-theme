@@ -1,0 +1,64 @@
+{% comment %}
+  Kinsoul Journal — Article card
+  Usage: {% render 'kinsoul-blog-card', article: article, featured: false %}
+  Variants:
+    - featured=true: large hero card (for blog home first-row)
+    - featured=false (default): compact grid card
+{% endcomment %}
+
+{%- liquid
+  assign is_featured = featured | default: false
+  assign card_class = 'kinsoul-blog-card'
+  if is_featured
+    assign card_class = card_class | append: ' kinsoul-blog-card--featured'
+  endif
+
+  assign reading_time = article.metafields.custom.reading_time | default: 5
+  assign category = article.metafields.custom.article_category | default: article.tags.first
+  assign category_label = category | default: 'Editorial'
+
+  if article.image != blank
+    assign img_width = 800
+    if is_featured
+      assign img_width = 1200
+    endif
+  endif
+-%}
+
+<article class="{{ card_class }}" data-kinsoul-reveal="up" {% if is_featured %}data-kinsoul-reveal-delay="0"{% endif %}>
+  <a href="{{ article.url }}" class="kinsoul-blog-card__link" aria-label="Read article: {{ article.title | escape }}">
+    <div class="kinsoul-blog-card__image-wrap">
+      {%- if article.image != blank -%}
+        {{
+          article.image
+          | image_url: width: img_width
+          | image_tag:
+            loading: 'lazy',
+            widths: '400, 600, 800, 1200',
+            sizes: '(max-width: 768px) 100vw, 50vw',
+            class: 'kinsoul-blog-card__image',
+            alt: article.image.alt | default: article.title
+        }}
+      {%- else -%}
+        <div class="kinsoul-blog-card__placeholder" aria-hidden="true"></div>
+      {%- endif -%}
+      {%- if category_label != blank -%}
+        <span class="kinsoul-blog-card__category">{{ category_label | upcase }}</span>
+      {%- endif -%}
+    </div>
+
+    <div class="kinsoul-blog-card__body">
+      <h3 class="kinsoul-blog-card__title">{{ article.title }}</h3>
+      {%- if is_featured and article.excerpt_or_content != blank -%}
+        <p class="kinsoul-blog-card__excerpt">
+          {{ article.excerpt_or_content | strip_html | truncate: 180 }}
+        </p>
+      {%- endif -%}
+      <p class="kinsoul-blog-card__meta">
+        <span>{{ article.published_at | date: '%b %d, %Y' }}</span>
+        <span aria-hidden="true">·</span>
+        <span>{{ reading_time }} min read</span>
+      </p>
+    </div>
+  </a>
+</article>

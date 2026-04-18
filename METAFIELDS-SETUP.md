@@ -25,12 +25,12 @@
 - size_fit: Agate stones 17-20mm. Available in 14.5cm, 15cm, 16cm circumference.
 - stone_story: Red agate is associated with confidence, vitality, and grounding energy. In many traditions, it's believed to bring stability and courage.
 
-### PS2508034 — Moqiao Bracelet ($208)
-- stone_type: Black Agate, Rutilated Quartz
-- pearl_type: Grey Freshwater Rice Pearls (8mm)
-- metal_details: S925 Sterling Silver logo tag
-- size_fit: Available in 14.5cm, 15cm, 16cm circumference.
-- stone_story: Black agate is a stone of protection and inner strength. Paired with rutilated quartz, known for clarity and focus.
+### PS2508034 — Obsidian Bracelet ($208)
+- stone_type: Black Agate, Tourmalinated Quartz
+- pearl_type: Grey Freshwater Rice Pearls (8mm) + Baroque Pearl centerpiece
+- metal_details: S925 Sterling Silver logo tag (California silversmith workshop)
+- size_fit: Available in S / M / L / XL (6.1" / 6.7" / 7.3" / 7.9").
+- stone_story: Black agate is a stone of protection and inner strength. Paired with tourmalinated quartz, known for inner resolve and quiet strength.
 
 ### PS2508037 — Mozhu Bracelet ($264)
 - stone_type: Persian Banded Agate
@@ -46,16 +46,16 @@
 - size_fit: Available in 14.5cm, 15cm, 16cm circumference.
 - stone_story: Amethyst is one of the most beloved stones in jewelry — traditionally associated with calm, clarity, and intuition.
 
-### PS2508125 — Zining Bracelet ($139)
-- stone_type: Brazilian Yellow Quartz (Citrine), Clear Quartz Tips
-- pearl_type: None
-- metal_details: S925 Sterling Silver logo tag
-- size_fit: Amethyst rounds 5-5.5mm. Available in 14.5cm, 15cm, 16cm circumference.
+### PS2508125 — Soleil Bracelet ($139)
+- stone_type: Brazilian Citrine, Clear Quartz Tips, Amethyst Rounds
+- pearl_type: Freshwater Round Pearls (Zhuji, China)
+- metal_details: S925 Sterling Silver logo tag (California silversmith workshop)
+- size_fit: Amethyst rounds 5-5.5mm. Available in S / M / L / XL (6.1" / 6.7" / 7.3" / 7.9").
 - stone_story: Citrine is often called the "stone of abundance" — associated with warmth, optimism, and creative energy.
 
 ### PS2508174 — Aura Balance Bracelet ($365)
-- stone_type: Mixed Natural Gemstones (Red Agate, Tiger's Eye, Black Agate, Lapis Lazuli, Amazonite, Yellow Quartz, Red Jasper, Clear Quartz)
-- pearl_type: Large Baroque Freshwater Pearl
-- metal_details: S925 Sterling Silver logo tag
-- size_fit: Available in 14.5cm, 15cm, 16cm circumference.
-- stone_story: A curated spectrum of stones, each chosen for its unique energy — together they represent wholeness and balance.
+- stone_type: 8 natural stones selected from a curated palette of 12 (Tiger's Eye, Lapis Lazuli, Amethyst, Citrine, Amazonite, Clear Quartz, Tourmalinated Quartz, Red Agate, Prehnite, Grey Agate, Blue Apatite, Agate Accent Beads)
+- pearl_type: Large Baroque Saltwater Pearl (Australia)
+- metal_details: S925 Sterling Silver logo tag + maker's mark bar (California silversmith workshop)
+- size_fit: Available in S / M / L / XL (6.1" / 6.7" / 7.3" / 7.9").
+- stone_story: A curated spectrum of stones — each hand-selected from our palette of twelve. No two Auras share the same combination.

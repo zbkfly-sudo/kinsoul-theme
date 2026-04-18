@@ -1,0 +1,33 @@
+{% comment %}
+  Kinsoul Journal — Tag filter bar
+  Renders horizontal row of tag buttons. Each links to
+  /blogs/<handle>/tagged/<tag>. "All" button goes back to /blogs/<handle>.
+
+  Used inside kinsoul-blog-list.liquid.
+{% endcomment %}
+
+{%- liquid
+  assign canonical_tags = 'materials,craft,gifting,care' | split: ','
+-%}
+
+<div class="kinsoul-blog-tags page-width" role="navigation" aria-label="Filter articles by category">
+  <ul class="kinsoul-blog-tags__list">
+    <li>
+      <a href="{{ blog.url }}"
+         class="kinsoul-blog-tags__btn{% if current_tag == blank %} kinsoul-blog-tags__btn--active{% endif %}"
+         {% if current_tag == blank %}aria-current="page"{% endif %}>
+        All
+      </a>
+    </li>
+    {%- for tag in canonical_tags -%}
+      {%- assign tag_slug = tag | handleize -%}
+      <li>
+        <a href="{{ blog.url }}/tagged/{{ tag_slug }}"
+           class="kinsoul-blog-tags__btn{% if current_tag == tag_slug %} kinsoul-blog-tags__btn--active{% endif %}"
+           {% if current_tag == tag_slug %}aria-current="page"{% endif %}>
+          {{ tag | capitalize }}
+        </a>
+      </li>
+    {%- endfor -%}
+  </ul>
+</div>

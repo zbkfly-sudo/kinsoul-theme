@@ -21,7 +21,7 @@
 |---|---|
 | **Brand** | Kinsoul Energy — DTC handmade gemstone & pearl bracelets |
 | **Philosophy** | "Natural over perfect" — celebrating natural imperfection |
-| **Founder** | LU, designer, started in 2018 after finding a stone during a trip in China |
+| **Founder** | LU, designer, founded Kinsoul Energy in 2019 after a 2018 trip in China where she found a stone. DTC site launched early 2026. |
 | **Team** | 5 people, small studio in California |
 | **Price range** | $139–$365 |
 | **Language** | Communicate in Chinese; code and copy in English |
@@ -36,10 +36,10 @@
 |---|---|---|---|
 | **Ember** | `persian-red-agate-pearl-sterling-silver-bracelet` | Persian red agate + freshwater pearl silver bars | $228 |
 | **Serenity** | `freeform-amethyst-bracelet-with-freshwater-pearls` | Freeform amethyst + freshwater pearls | $168 |
-| **Aura** | `aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones` | 8 gemstones + baroque pearl (most complex) | $365 |
-| **Obsidian** | `mozhu-persian-agate-baroque-pearl-bracelet` | Black agate + rutilated quartz + grey rice pearls | $208 |
-| **Terra** | `moqiao-black-agate-rutilated-quartz-pearl-bracelet` | Persian banded agate + baroque pearl + antique silver | $264 |
-| **Soleil** | `zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet` | Brazilian citrine + clear quartz + amethyst | $139 |
+| **Aura** | `aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones` | 8 stones from a curated palette of 12 + baroque pearl (most complex) | $365 |
+| **Obsidian** | `mozhu-persian-agate-baroque-pearl-bracelet` | Black agate + tourmalinated quartz + grey rice pearls + baroque pearl | $208 |
+| **Terra** | `moqiao-black-agate-rutilated-quartz-pearl-bracelet` | Persian banded agate + baroque pearl + antique silver spacers | $264 |
+| **Soleil** | `zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet` | Brazilian citrine + clear quartz + amethyst + freshwater round pearls | $139 |
 
 **Universal construction:** Elastic cord (no clasp), S925 sterling silver maker's mark bar, 4 sizes (S/M/L/XL).
 

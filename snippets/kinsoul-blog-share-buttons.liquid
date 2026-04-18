@@ -1,0 +1,49 @@
+{% comment %}
+  Kinsoul Journal — Social share buttons
+  Usage: {% render 'kinsoul-blog-share-buttons', article: article %}
+{% endcomment %}
+
+{%- liquid
+  assign article_url = shop.url | append: article.url
+  assign share_title = article.title | url_encode
+  assign twitter_url = 'https://twitter.com/intent/tweet?url=' | append: article_url | url_encode | append: '&text=' | append: share_title
+  assign facebook_url = 'https://www.facebook.com/sharer/sharer.php?u=' | append: article_url | url_encode
+  assign pinterest_img = article.image | image_url: width: 1200
+  assign pinterest_url = 'https://pinterest.com/pin/create/button/?url=' | append: article_url | url_encode | append: '&description=' | append: share_title | append: '&media=' | append: pinterest_img | url_encode
+  assign email_url = 'mailto:?subject=' | append: share_title | append: '&body=' | append: article_url | url_encode
+-%}
+
+<div class="kinsoul-blog-share" aria-label="Share this article">
+  <p class="kinsoul-blog-share__label">Share</p>
+  <ul class="kinsoul-blog-share__list">
+    <li>
+      <a href="{{ twitter_url }}" target="_blank" rel="noopener" aria-label="Share on X (Twitter)" class="kinsoul-blog-share__btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="{{ pinterest_url }}" target="_blank" rel="noopener" aria-label="Pin to Pinterest" class="kinsoul-blog-share__btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 0a12 12 0 0 0-4.37 23.17c-.1-.93-.2-2.36.04-3.38.22-.91 1.42-5.8 1.42-5.8s-.36-.72-.36-1.8c0-1.68.98-2.94 2.2-2.94 1.04 0 1.54.78 1.54 1.72 0 1.04-.66 2.6-1 4.05-.3 1.22.6 2.22 1.82 2.22 2.18 0 3.85-2.3 3.85-5.62 0-2.94-2.11-5-5.13-5-3.49 0-5.54 2.62-5.54 5.33 0 1.05.4 2.18.91 2.8a.37.37 0 0 1 .08.35c-.1.38-.3 1.22-.34 1.39-.05.23-.17.28-.41.17-1.53-.71-2.48-2.94-2.48-4.74 0-3.86 2.8-7.4 8.07-7.4 4.24 0 7.54 3.02 7.54 7.06 0 4.22-2.66 7.61-6.34 7.61-1.24 0-2.4-.64-2.8-1.4l-.76 2.9c-.28 1.06-1.02 2.4-1.52 3.22A12 12 0 1 0 12 0Z"/>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="{{ facebook_url }}" target="_blank" rel="noopener" aria-label="Share on Facebook" class="kinsoul-blog-share__btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M24 12a12 12 0 1 0-13.88 11.85v-8.38H7.08V12h3.04V9.36c0-3 1.8-4.66 4.53-4.66 1.31 0 2.68.24 2.68.24v2.95h-1.51c-1.49 0-1.95.93-1.95 1.88V12h3.32l-.53 3.47h-2.79v8.38A12 12 0 0 0 24 12Z"/>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="{{ email_url }}" aria-label="Share by email" class="kinsoul-blog-share__btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+      </a>
+    </li>
+  </ul>
+</div>

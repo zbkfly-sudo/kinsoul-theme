@@ -261,13 +261,49 @@
             "shop_url": "/products/zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet"
           }
         },
-        "s_rutilated_quartz": {
+        "s_tourmalinated_quartz": {
           "type": "stone_entry",
           "settings": {
-            "stone_name": "Rutilated Quartz",
-            "tradition": "Clarity, focus, illumination",
-            "found_in": "Obsidian",
+            "stone_name": "Tourmalinated Quartz",
+            "tradition": "Inner resolve, quiet strength, protection",
+            "found_in": "Obsidian, Aura",
             "shop_url": "/products/mozhu-persian-agate-baroque-pearl-bracelet"
+          }
+        },
+        "s_amazonite": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Amazonite",
+            "tradition": "Calm, communication, hope",
+            "found_in": "Aura",
+            "shop_url": "/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones"
+          }
+        },
+        "s_prehnite": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Prehnite",
+            "tradition": "Growth, renewal, gentle strength",
+            "found_in": "Aura",
+            "shop_url": "/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones"
+          }
+        },
+        "s_blue_apatite": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Blue Apatite",
+            "tradition": "Focus, creative clarity",
+            "found_in": "Aura",
+            "shop_url": "/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones"
+          }
+        },
+        "s_grey_agate": {
+          "type": "stone_entry",
+          "settings": {
+            "stone_name": "Grey Agate",
+            "tradition": "Stability, quiet balance",
+            "found_in": "Aura",
+            "shop_url": "/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones"
           }
         },
         "s_clear_quartz": {
@@ -303,16 +339,20 @@
         "s_red_agate",
         "s_black_agate",
         "s_banded_agate",
+        "s_grey_agate",
         "s_citrine",
-        "s_rutilated_quartz",
+        "s_tourmalinated_quartz",
         "s_clear_quartz",
+        "s_amazonite",
+        "s_prehnite",
+        "s_blue_apatite",
         "s_tigers_eye",
         "s_lapis"
       ],
       "settings": {
         "subheading": "Stone Index",
         "heading": "Our Stones & Their Traditions",
-        "description": "Nine natural stones across six bracelets. Each one cultivates a different feeling — choose by what you want to carry with you.",
+        "description": "A curated selection of natural stones across our six bracelets. Each one cultivates a different feeling — choose by what you want to carry with you.",
         "color_scheme": "scheme-1",
         "padding_top": 60,
         "padding_bottom": 80

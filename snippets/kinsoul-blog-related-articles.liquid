@@ -1,0 +1,70 @@
+{% comment %}
+  Kinsoul Journal — Related articles (3 cards)
+  Finds other articles in same blog with matching tag/category. Excludes self.
+  Falls back to most recent articles if no matches.
+
+  Usage: {% render 'kinsoul-blog-related-articles', article: article, blog: blog %}
+{% endcomment %}
+
+{%- liquid
+  assign source_blog = blog | default: article.blog
+
+  assign target_tag = article.metafields.custom.article_category | default: article.tags.first
+  assign candidates = source_blog.articles
+  assign matched = ''
+  assign matched_count = 0
+  assign max_related = 3
+
+  for candidate in candidates
+    if candidate.id == article.id
+      continue
+    endif
+    if target_tag != blank and candidate.tags contains target_tag
+      assign matched = matched | append: candidate.id | append: ','
+      assign matched_count = matched_count | plus: 1
+      if matched_count >= max_related
+        break
+      endif
+    endif
+  endfor
+-%}
+
+{%- unless source_blog.articles.size > 1 -%}
+  {%- comment -%} fewer than 2 articles total, nothing to suggest {%- endcomment -%}
+  {% break %}
+{%- endunless -%}
+
+<section class="kinsoul-blog-related-articles" data-kinsoul-reveal="up" aria-labelledby="related-articles-heading">
+  <div class="kinsoul-blog-related-articles__inner">
+    <h2 id="related-articles-heading" class="kinsoul-blog-related-articles__heading">Keep reading</h2>
+
+    <div class="kinsoul-blog-related-articles__grid" data-kinsoul-stagger="80">
+      {%- assign shown = 0 -%}
+      {%- if matched_count > 0 -%}
+        {%- assign matched_ids = matched | split: ',' -%}
+        {%- for id_str in matched_ids -%}
+          {%- if id_str == blank %}{% continue %}{% endif -%}
+          {%- assign target_id = id_str | plus: 0 -%}
+          {%- for candidate in source_blog.articles -%}
+            {%- if candidate.id == target_id -%}
+              {%- render 'kinsoul-blog-card', article: candidate, featured: false -%}
+              {%- assign shown = shown | plus: 1 -%}
+              {%- break -%}
+            {%- endif -%}
+          {%- endfor -%}
+        {%- endfor -%}
+      {%- endif -%}
+
+      {%- comment -%} Fill with latest if matched insufficient {%- endcomment -%}
+      {%- if shown < max_related -%}
+        {%- for candidate in source_blog.articles -%}
+          {%- if candidate.id == article.id %}{% continue %}{% endif -%}
+          {%- if matched contains candidate.id %}{% continue %}{% endif -%}
+          {%- render 'kinsoul-blog-card', article: candidate, featured: false -%}
+          {%- assign shown = shown | plus: 1 -%}
+          {%- if shown >= max_related %}{% break %}{% endif -%}
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</section>

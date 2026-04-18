@@ -1,0 +1,52 @@
+{% comment %}
+  Kinsoul Journal — Related products (2-3 from article.metafields.custom.related_products)
+  Reuses the same metafield definition as PDPs (list.product_reference).
+
+  Usage: {% render 'kinsoul-blog-related-products', article: article %}
+{% endcomment %}
+
+{%- liquid
+  assign related = article.metafields.custom.related_products.value
+  unless related
+    break
+  endunless
+-%}
+
+<section class="kinsoul-blog-related-products" data-kinsoul-reveal="up" aria-labelledby="related-products-heading">
+  <div class="kinsoul-blog-related-products__inner">
+    <h2 id="related-products-heading" class="kinsoul-blog-related-products__heading">Pieces mentioned</h2>
+    <p class="kinsoul-blog-related-products__lede">Hand-made in California, one at a time.</p>
+
+    <ul class="kinsoul-blog-related-products__grid">
+      {%- for product in related limit: 3 -%}
+        {%- liquid
+          assign featured_img = product.featured_media.preview_image
+          assign stone_chip = product.metafields.custom.stone_chip
+        -%}
+        <li class="kinsoul-blog-related-products__card">
+          <a href="{{ product.url }}" class="kinsoul-blog-related-products__link">
+            <div class="kinsoul-blog-related-products__image-wrap">
+              {%- if stone_chip != blank -%}
+                <span class="kinsoul-stone-chip">{{ stone_chip }}</span>
+              {%- endif -%}
+              {%- if featured_img -%}
+                {{
+                  featured_img
+                  | image_url: width: 600
+                  | image_tag:
+                    loading: 'lazy',
+                    widths: '300, 600',
+                    sizes: '(max-width: 768px) 50vw, 30vw',
+                    class: 'kinsoul-blog-related-products__img',
+                    alt: product.title
+                }}
+              {%- endif -%}
+            </div>
+            <p class="kinsoul-blog-related-products__name">{{ product.title | split: '|' | first | strip }}</p>
+            <p class="kinsoul-blog-related-products__price">{{ product.price | money_without_trailing_zeros }}</p>
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</section>
