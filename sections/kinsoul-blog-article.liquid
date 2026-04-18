@@ -40,7 +40,7 @@
     <h1 class="kinsoul-article__title">{{ article.title }}</h1>
 
     <p class="kinsoul-article__meta">
-      <span class="kinsoul-article__byline">By the Kinsoul Studio team</span>
+      <span class="kinsoul-article__byline">By {{ article.author | default: 'the Kinsoul Studio team' }}</span>
       <span aria-hidden="true">·</span>
       <span>{{ reading_time }} min read</span>
       <span aria-hidden="true">·</span>
