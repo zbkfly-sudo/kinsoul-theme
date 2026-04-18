@@ -30,3 +30,4 @@ secrets.local
 _source-images/
 baselines/
 scripts/shopify-admin-ops.log
+scripts/metafield-rollback-*.json
