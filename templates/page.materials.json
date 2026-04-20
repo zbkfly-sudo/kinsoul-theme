@@ -358,6 +358,254 @@
         "padding_bottom": 80
       }
     },
+    "sourcing": {
+      "type": "kinsoul-materials-sourcing",
+      "blocks": {
+        "kerman": {
+          "type": "region",
+          "settings": {
+            "region": "Kerman Province, Iran",
+            "material": "Persian red & banded agate",
+            "description": "<p>Kerman province in southeastern Iran is a professional-grade agate source: saturated orange-reds, deep banded browns, larger workable rough, stricter color grading at source. The hand-cut stones we use in Ember run 17–20 mm, with a translucency that changes as you turn the stone in the light.</p><p>Persian red agate runs roughly 2.5× the cost of Indian red agate. We chose it because the stone carries the bracelet.</p>",
+            "products_label": "In these bracelets",
+            "product_1_url": "/products/persian-red-agate-pearl-sterling-silver-bracelet",
+            "product_1_name": "Ember — Persian red agate",
+            "product_2_url": "/products/moqiao-black-agate-rutilated-quartz-pearl-bracelet",
+            "product_2_name": "Terra — Persian banded agate",
+            "product_3_url": "/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones",
+            "product_3_name": "Aura — Persian red agate (in palette)"
+          }
+        },
+        "zhuji": {
+          "type": "region",
+          "settings": {
+            "region": "Zhuji, China",
+            "material": "Freshwater pearls",
+            "description": "<p>Zhuji, in Zhejiang province, is the world's largest freshwater pearl cultivation region. The pearls are real — grown inside live freshwater mussels that produce nacre in thick, luminous layers. Zhuji pearls skew toward baroque (over 90% of freshwater pearls are baroque) because the mussel's mantle-tissue nucleation doesn't enforce roundness.</p><p>We use Zhuji pearls in four of the six bracelets, in threaded, bar, rice, and round forms.</p>",
+            "products_label": "In these bracelets",
+            "product_1_url": "/products/persian-red-agate-pearl-sterling-silver-bracelet",
+            "product_1_name": "Ember — pearl bars",
+            "product_2_url": "/products/freeform-amethyst-bracelet-with-freshwater-pearls",
+            "product_2_name": "Serenity — threaded pearls",
+            "product_3_url": "/products/zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet",
+            "product_3_name": "Soleil — round pearls"
+          }
+        },
+        "australia": {
+          "type": "region",
+          "settings": {
+            "region": "Australian waters",
+            "material": "Baroque saltwater pearls",
+            "description": "<p>The large baroque pearl that anchors Aura and Terra is a saltwater pearl from Australia. Saltwater baroques run about 1.5× the cost of freshwater baroques — they grow around a bead nucleus that shifts during development, which gives each pearl a singular, one-of-one shape that no amount of sorting can repeat.</p><p>Every baroque pearl we set is hand-picked for nacre integrity before it goes on a bracelet.</p>",
+            "products_label": "In these bracelets",
+            "product_1_url": "/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones",
+            "product_1_name": "Aura — baroque anchor pearl",
+            "product_2_url": "/products/moqiao-black-agate-rutilated-quartz-pearl-bracelet",
+            "product_2_name": "Terra — baroque saltwater"
+          }
+        },
+        "bolivia": {
+          "type": "region",
+          "settings": {
+            "region": "Bolivian Andes",
+            "material": "Amethyst",
+            "description": "<p>The deep-violet reputation of Bolivian amethyst comes from the quartz-rich rock formations high in the Andes. Colors run from soft lavender at one stone to deep violet at the next — a spectrum you see most clearly in Serenity's freeform cut, where the natural variation is preserved instead of polished out.</p><p>Bolivian amethyst appears in three of the six bracelets, as freeform stones in Serenity, rounds in Soleil, and in Aura's 12-stone palette.</p>",
+            "products_label": "In these bracelets",
+            "product_1_url": "/products/freeform-amethyst-bracelet-with-freshwater-pearls",
+            "product_1_name": "Serenity — freeform amethyst",
+            "product_2_url": "/products/zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet",
+            "product_2_name": "Soleil — amethyst rounds",
+            "product_3_url": "/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones",
+            "product_3_name": "Aura — amethyst (in palette)"
+          }
+        },
+        "uruguay": {
+          "type": "region",
+          "settings": {
+            "region": "Uruguay",
+            "material": "Natural citrine",
+            "description": "<p>Natural unheated citrine is rare. Most commercial &ldquo;Brazilian citrine&rdquo; on the market is heat-treated amethyst from Brazilian mines. Uruguay holds the clearest reputation for naturally golden citrine — pale honey to deep amber, every stone a slightly different shade of sunlight because the color comes from trace iron inside the crystal itself.</p><p>Soleil uses Uruguayan natural citrine at the center, not the trade-name substitute.</p>",
+            "products_label": "In these bracelets",
+            "product_1_url": "/products/zining-brazilian-yellow-quartz-clear-quartz-amethyst-bracelet",
+            "product_1_name": "Soleil — Uruguayan citrine",
+            "product_2_url": "/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones",
+            "product_2_name": "Aura — citrine (in palette)"
+          }
+        },
+        "brazil": {
+          "type": "region",
+          "settings": {
+            "region": "Brazil",
+            "material": "Tourmalinated quartz",
+            "description": "<p>Tourmalinated quartz is clear crystal threaded with fine needle-like inclusions of black tourmaline — frozen, as if a brushstroke of dark ink were caught inside the stone. Brazil is the main source for this specific variety, and we use it in Obsidian paired with Mexican black agate.</p><p>It's often confused with rutilated quartz, which contains thinner, golden-copper rutile hairs; ours is tourmalinated — opaque black needles, not rutile.</p>",
+            "products_label": "In these bracelets",
+            "product_1_url": "/products/mozhu-persian-agate-baroque-pearl-bracelet",
+            "product_1_name": "Obsidian — tourmalinated quartz",
+            "product_2_url": "/products/aura-balance-bracelet-baroque-pearl-crystal-mixed-gemstones",
+            "product_2_name": "Aura — tourmalinated quartz (in palette)"
+          }
+        },
+        "mexico": {
+          "type": "region",
+          "settings": {
+            "region": "Mexico",
+            "material": "Black agate",
+            "description": "<p>Obsidian's deep black agate comes from Mexico — dense, opaque, with faint translucent edges where the stone catches light. Cut from natural rough, each stone carries its own pattern of black, charcoal, and cream tones; no two Obsidians will have the same stone layout.</p><p>In many traditions, black agate is carried for inner resolve — strength that doesn't need to announce itself.</p>",
+            "products_label": "In this bracelet",
+            "product_1_url": "/products/mozhu-persian-agate-baroque-pearl-bracelet",
+            "product_1_name": "Obsidian — Mexican black agate"
+          }
+        }
+      },
+      "block_order": [
+        "kerman",
+        "zhuji",
+        "australia",
+        "bolivia",
+        "uruguay",
+        "brazil",
+        "mexico"
+      ],
+      "settings": {
+        "subheading": "Where Our Materials Come From",
+        "heading": "Seven regions, one bracelet at a time",
+        "description": "Every stone and pearl in a Kinsoul bracelet has a place on the map. We buy small batches monthly from the origins with the best reputation for that specific material, then cut, polish, and hand-select each piece before assembly.",
+        "color_scheme": "scheme-1",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "durability": {
+      "type": "kinsoul-materials-durability",
+      "blocks": {
+        "silver": {
+          "type": "observation",
+          "settings": {
+            "timeframe": "~3 months",
+            "title": "S925 sterling silver",
+            "observation": "<p>In our own wear-testing, the S925 silver components start to show light surface oxidation after about three months of regular wear. This is standard behavior for sterling silver — the 7.5% copper in the S925 alloy oxidizes first, giving the metal a subtle warmer tint.</p>",
+            "action": "<p>Wipe the silver with a dry soft cloth. A microfiber or jewelry cloth works; no specialist cleaner is needed for surface-level oxidation. For deeper patina, any standard silver polish will reset it.</p>"
+          }
+        },
+        "cord": {
+          "type": "observation",
+          "settings": {
+            "timeframe": "~12 months",
+            "title": "Elastic cord",
+            "observation": "<p>The fine elastic cord that strings each bracelet relaxes noticeably after about twelve months of daily wear — it's the one part of the piece that is expected to wear. Stones, pearls, and silver all outlast the cord by decades.</p>",
+            "action": "<p>Every Kinsoul order ships with a replacement cord and a DIY swap guide. If you'd rather not re-string it yourself, email hello@kinsoulenergy.com and we'll walk you through it (or handle it in our studio).</p>"
+          }
+        },
+        "uv": {
+          "type": "observation",
+          "settings": {
+            "timeframe": "~16 months",
+            "title": "UV-sensitive stones",
+            "observation": "<p>Amethyst and natural citrine — both quartz varieties — show gradual color shift under continuous direct sun exposure. In our wear-testing we see noticeable lightening around the sixteen-month mark of cumulative sunlight, not during normal daily wear indoors or out.</p>",
+            "action": "<p>Don't store Serenity or Soleil on a sunny windowsill; take the bracelet off before extended outdoor time (pool, beach, long hikes). Everyday wear is fine.</p>"
+          }
+        }
+      },
+      "block_order": ["silver", "cord", "uv"],
+      "settings": {
+        "subheading": "First-party wear testing",
+        "heading": "How each material ages on the wrist",
+        "description": "We wear-test every piece from our own lineup in our own studio before we publish a lifespan. The observations below are what we've actually seen — not industry averages, not marketing claims.",
+        "footnote": "Observations under normal daily wear. Continuous direct sun, saltwater, lotions, and perfumes shorten every timeline. See Client Care for full care guidance.",
+        "color_scheme": "scheme-2",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
+    "materials_faq": {
+      "type": "kinsoul-materials-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's the difference between tourmalinated quartz and rutilated quartz?",
+            "answer": "Tourmalinated quartz contains needle-like inclusions of black tourmaline — opaque, strong-edged, often arranged in fans or random clusters. Rutilated quartz contains rutile inclusions, which are thinner and often golden or coppery, running like gentle hairs through the crystal. Both are natural quartz varieties, but they come from different mineral guests and look noticeably different to the eye. Kinsoul's Obsidian uses tourmalinated quartz from Brazil — the fine black-needle kind."
+          }
+        },
+        "faq_2": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does natural amethyst fade in sunlight?",
+            "answer": "Yes, prolonged direct sun can gradually shift amethyst's color over long periods. In our own wear-testing we see noticeable fading after about sixteen months of cumulative direct sun exposure — not during normal daily wear. Citrine from the same quartz family behaves similarly. The practical takeaway: don't store your Serenity or Soleil on a sunny windowsill, and take the bracelet off before long outdoor sessions. Everyday wear doesn't risk visible fade."
+          }
+        },
+        "faq_3": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why does Persian red agate cost more than Indian red agate?",
+            "answer": "Stone from Iran's Kerman province runs roughly 2.5× the cost of Indian red agate. The price difference reflects three things: color depth (Persian agate is more saturated and more translucent), larger workable rough (the 17–20 mm hand-cut stones we use for Ember), and stricter hand-grading at source. We chose Persian for Ember and Terra because the material carries the bracelet — substituting Indian material would change the piece."
+          }
+        },
+        "faq_4": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are freshwater pearls from Zhuji real pearls?",
+            "answer": "Yes. Zhuji, in Zhejiang, China, is the world's largest freshwater pearl cultivation region — real pearls grown inside live freshwater mussels. They're cultured (like virtually all pearls sold today), but the nacre is produced by the mussel itself, layer by layer. Zhuji pearls skew toward baroque shapes because the freshwater mantle-tissue method doesn't enforce roundness. We use Zhuji pearls in Ember, Serenity, Obsidian, and Soleil."
+          }
+        },
+        "faq_5": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What makes a baroque pearl \"baroque\"?",
+            "answer": "A baroque pearl is simply a pearl with an irregular, non-round shape — the natural outcome of how nacre builds up around a freshwater mantle-tissue nucleus or a saltwater bead that shifts during growth. Over 90% of freshwater pearls are baroque because the growth process doesn't impose a sphere. Baroque shape is a feature, not a defect. See our journal entry on baroque pearls for the full story."
+          }
+        },
+        "faq_6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are all the stones and pearls you use natural?",
+            "answer": "Yes. Every stone and pearl in every Kinsoul bracelet is natural — no synthetic, no lab-grown, no dyed substitutes, no coatings. Each piece ships with a certificate of authenticity that names the stones and their origins. We hand-select each stone from raw material and order small monthly batches rather than stockpile, so stock varies with the rough our sources send through."
+          }
+        },
+        "faq_7": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Why is citrine often called \"Brazilian\" when Kinsoul's is from Uruguay?",
+            "answer": "\"Brazilian citrine\" is a historical trade name. Much commercial citrine in the market is actually heat-treated amethyst from Brazilian mines — it's natural quartz, but the golden color wasn't there before heating. Natural unheated citrine is rarer, and Uruguay holds the clearest reputation for it. Soleil uses natural Uruguayan citrine at the center, which is why the product page calls it \"natural citrine from Uruguay\" rather than the trade term."
+          }
+        },
+        "faq_8": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is S925 sterling silver, and why not pure silver?",
+            "answer": "S925 (also called sterling silver) is 92.5% silver alloyed with 7.5% copper or other metals. Pure silver — 99.9% — is too soft for everyday jewelry; it bends under normal wrist pressure and marks easily. The small copper content makes the alloy durable enough to wear daily while still meeting the U.S. FTC jewelry standard for calling a piece \"sterling.\" All Kinsoul silver components meet the S925 standard."
+          }
+        },
+        "faq_9": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does a Kinsoul bracelet actually last?",
+            "answer": "The hard parts — stones, pearls, and S925 silver — last decades with normal wear. The elastic cord that strings the bracelet stretches noticeably after about twelve months of daily wear; a replacement cord and DIY swap guide ship with every order. Silver develops light surface oxidation around three months, which wipes off with a dry cloth. UV-sensitive stones show gradual color shift around sixteen months of cumulative sun."
+          }
+        },
+        "faq_10": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Do you hand-select every stone yourself?",
+            "answer": "Yes. Every stone in every bracelet is cut, polished, and hand-selected individually before assembly. A skilled maker in our California studio assembles three to five bracelets per day; an Aura — our eight-of-twelve-stone piece — takes about five hours to build because the arrangement is composed one stone at a time. LU still designs every piece; the five-person studio handles assembly and inspection."
+          }
+        }
+      },
+      "block_order": [
+        "faq_1", "faq_2", "faq_3", "faq_4", "faq_5",
+        "faq_6", "faq_7", "faq_8", "faq_9", "faq_10"
+      ],
+      "settings": {
+        "subheading": "Frequently Asked",
+        "heading": "Materials & Craft — Answered",
+        "color_scheme": "scheme-1",
+        "cta_note": "Questions about shipping, sizing, or returns?",
+        "cta_url": "/pages/client-care",
+        "cta_text": "Visit Client Care",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "variation_note": {
       "type": "kinsoul-meaning-teaser",
       "settings": {
@@ -378,6 +626,9 @@
     "materials",
     "craft",
     "stone_guide",
+    "sourcing",
+    "durability",
+    "materials_faq",
     "variation_note"
   ]
 }
