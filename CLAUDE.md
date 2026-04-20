@@ -93,7 +93,7 @@
 | kinsoul-our-studio | Team + AI-assistance disclosure page | Our Studio |
 | kinsoul-quality-promise | 4 trust signal cards | Materials |
 | kinsoul-quiz | 3-question stone recommender (JS, no backend) | Stone Quiz |
-| kinsoul-stone-guide | 9-stone index grid | Materials |
+| kinsoul-stone-guide | 13-stone index grid | Materials |
 | kinsoul-trust-signals | 3 long-form trust cards | Homepage |
 | kinsoul-trust-strip | 5-icon trust bar | Homepage |
 
