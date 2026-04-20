@@ -128,7 +128,10 @@ def parse_frontmatter(md_text):
 def md_to_html(md):
     """Lightweight markdown → HTML. Handles H1/H2/H3, **bold**, *italic*,
     [text](url), -lists, |tables|, paragraphs, hr."""
-    # Strip the first H1 if present (Shopify article uses title separately)
+    # Strip the first H1 if present (Shopify article uses title separately).
+    # Use leading-whitespace-tolerant regex because body from parse_frontmatter
+    # often starts with a \n.
+    md = md.lstrip()
     md = re.sub(r"^# .+\n\n?", "", md, count=1)
 
     lines = md.split("\n")
@@ -297,6 +300,23 @@ mutation createArticle($article: ArticleCreateInput!) {
       publishedAt
     }
     userErrors { code field message }
+  }
+}
+"""
+
+Q_ARTICLE_UPDATE = """
+mutation updateArticle($id: ID!, $article: ArticleUpdateInput!) {
+  articleUpdate(id: $id, article: $article) {
+    article { id handle }
+    userErrors { code field message }
+  }
+}
+"""
+
+Q_FIND_ARTICLE_BY_HANDLE = """
+query($query: String!) {
+  articles(first: 5, query: $query) {
+    edges { node { id handle blog { handle } } }
   }
 }
 """
