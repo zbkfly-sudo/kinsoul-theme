@@ -36,6 +36,7 @@ baselines/
 scripts/shopify-admin-ops.log
 scripts/metafield-rollback-*.json
 scripts/llms-page-rollback-*.json
+scripts/pdp-sourcing-rollback-*.json
 
 # Article drafts — published via Admin API, not theme code
 drafts/
