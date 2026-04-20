@@ -29,8 +29,11 @@
 <meta name="author" content="Kinsoul Energy">
 <meta name="publisher" content="Kinsoul Energy">
 
-{%- comment %} llms.txt for AI search engines — served at canonical /llms.txt via Admin URL redirect to /pages/llms-txt (template: page.llms-txt.liquid) {% endcomment -%}
-<link rel="alternate" type="text/plain" href="{{ shop.url }}/llms.txt" title="LLMs.txt — Kinsoul Energy">
+{%- comment %} Bing Webmaster Tools verification — feeds ChatGPT / Copilot / Perplexity via Bing index {% endcomment -%}
+<meta name="msvalidate.01" content="2EBA52E62CDF4DEEE57E1F79F61178FD">
+
+{%- comment %} LLM brand profile (llms.txt-style) — hosted as a Shopify page since the platform doesn't support root-domain static files {% endcomment -%}
+<link rel="alternate" type="text/plain" href="{{ shop.url }}/pages/llms-txt-kinsoul-energy" title="LLMs.txt — Kinsoul Energy">
 
 {%- comment %} Performance: preconnect to critical origins {% endcomment -%}
 <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
