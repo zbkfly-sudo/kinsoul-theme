@@ -67,6 +67,10 @@
       "articleSection": {{ category | capitalize | json }},
       "wordCount": {{ word_count }},
       "inLanguage": "en-US",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", "h2", ".kinsoul-blog-article__tldr"]
+      },
       "isPartOf": {
         "@type": "Blog",
         "@id": {{ blog_url | append: '#blog' | json }},
@@ -74,6 +78,13 @@
         "url": {{ blog_url | json }}
       }{%- if tags_csv != blank -%},
       "keywords": {{ tags_csv | json }}
+      {%- endif -%}
+      {%- if article.metafields.custom.external_sources.value != blank -%},
+      "citation": [
+        {%- for src_url in article.metafields.custom.external_sources.value -%}
+          {{ src_url | json }}{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      ]
       {%- endif %}
     }
     {%- if faq_items != blank -%}
