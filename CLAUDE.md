@@ -71,20 +71,30 @@
 | ContactPage | kinsoul-schema-contact.liquid | Contact | ✅ |
 | WebPage + HowTo | kinsoul-schema-materials.liquid | Materials | ✅ semantic only (no rich result since Sept 2023) |
 
-### 1.6 Custom Sections (11 kinsoul-* sections)
+### 1.6 Custom Sections (21 kinsoul-* sections)
 
 | Section | Purpose | Used On |
 |---|---|---|
 | kinsoul-about-story | Narrative chapter with alternating image/text | About (x4) |
+| kinsoul-bestseller-bar | 3 quick-pick cards (entry / most-loved / signature) | Homepage |
+| kinsoul-blog-article | Full article body: TOC, FAQ, author bio, share, related | Article |
+| kinsoul-blog-hero | Journal index hero intro | Blog |
+| kinsoul-blog-list | Paginated article grid + tag filter | Blog |
+| kinsoul-compare | 6-product materials / price comparison table | Compare |
 | kinsoul-craft-process | 3-step process with images | Materials |
+| kinsoul-founder-lockup | Founder portrait + eyebrow + body + CTA | Homepage |
+| kinsoul-gifting-guide | 4 occasion cards + 3 budget tiers | Gifting Guide |
 | kinsoul-gifting-service | 4-card service grid | Homepage |
 | kinsoul-materials-deep | 3 material profiles with sourcing + product links | Materials |
 | kinsoul-materials-faq | 7-question FAQ accordion + FAQPage schema | Materials |
 | kinsoul-materials-teaser | 3-card material intro | Homepage |
 | kinsoul-meaning-teaser | Full-width hero + CTA | Homepage, Materials |
 | kinsoul-newsletter | Email signup | Homepage |
+| kinsoul-our-studio | Team + AI-assistance disclosure page | Our Studio |
 | kinsoul-quality-promise | 4 trust signal cards | Materials |
+| kinsoul-quiz | 3-question stone recommender (JS, no backend) | Stone Quiz |
 | kinsoul-stone-guide | 9-stone index grid | Materials |
+| kinsoul-trust-signals | 3 long-form trust cards | Homepage |
 | kinsoul-trust-strip | 5-icon trust bar | Homepage |
 
 ---
